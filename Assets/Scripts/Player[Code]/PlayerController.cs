@@ -177,11 +177,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         stateMachine.OnFixedUpdate();
-        /*
-        if (!VRChecker.IsVR)
-            firstPersonCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
-        */
-        //pictureCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, transform.eulerAngles.y, 0));
+
+        firstPersonCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
     }
 
     public void SwapToCamera(InputAction.CallbackContext callbackContext)
@@ -384,24 +381,8 @@ public class PlayerController : MonoBehaviour
     {
         if (berryPouchIsOpen) return;
 
-        if (VRChecker.IsVR)
-        {
-            Vector3 lookingForward = firstPersonCamera.transform.forward;
-            lookingForward.y = 0;
-
-            transform.forward = lookingForward.normalized;
-
-            float heightDiff = Mathf.Abs(transform.position.y - rb.transform.position.y);
-            capsuleCollider.height = heightDiff;
-            capsuleCollider.center = Vector3.up * (heightDiff * 0.5f);
-
-            GetComponent<CrouchingState>().ToggleCrouch(heightDiff);
-        }
-        else
-        {
-            verticalRotation = Mathf.Clamp(verticalRotation - (lookInput.y * gameSettings.LookSensitivity * rotationSpeed), -maximumViewAngle, maximumViewAngle);
-            rb.transform.Rotate(new Vector3(0, lookInput.x * gameSettings.LookSensitivity * rotationSpeed, 0));
-        }
+        verticalRotation = Mathf.Clamp(verticalRotation - (lookInput.y * gameSettings.LookSensitivity * rotationSpeed), -maximumViewAngle, maximumViewAngle);
+        horizontalRotation += lookInput.x * gameSettings.LookSensitivity * rotationSpeed;
     }
     private void HandleInteract()
     {

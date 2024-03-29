@@ -935,6 +935,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: db6c4e48-58e0-44a3-82a8-32d8fd7b9937
     m_ActionName: Overworld/Faint[/Keyboard/delete]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dbed7f46-0c04-4cff-89db-230febfaaf4f
+    m_ActionName: Overworld/GrabRight
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19e613fc-e9c4-4014-a072-a4ff3390af46
+    m_ActionName: Overworld/GrabLeft
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf2c2ce2-bca4-4c5e-b91c-2dc98134c1ab
+    m_ActionName: Scrapbook/GrabRight
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce7bdd7d-43e4-4f5d-9366-9c4519f3f92f
+    m_ActionName: Scrapbook/GrabLeft
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Overworld
@@ -1225,7 +1241,7 @@ MonoBehaviour:
   climbingUnlocked: 0
   pouchUnlocked: 0
   module: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
 --- !u!114 &1310373100559079289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,16 +1302,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474a8fb2e002a824a94656d69c4caff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  speedMultiplier: 5
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   sprintSpeed: 10
   strafeSprintSpeed: 7
   maxSprintAngle: 15
-  walkLoudness: 5
-  sprintLoudness: 15
+  minWalkLoudness: 5
+  maxWalkLoudness: 15
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
 --- !u!114 &5220420252872243190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1355,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
+  capsuleCollider: {fileID: 7807978120469739687}
 --- !u!114 &8802313589631307658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,7 +1375,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
 --- !u!114 &5926066154527639816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,7 +1413,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
 --- !u!114 &9190787582883160938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,7 +1432,7 @@ MonoBehaviour:
   sharedPlayerSource: {fileID: 5861372465537932847}
   hurtSound: {fileID: 8300000, guid: 6d8140b87acd220499955e8ee610ae7c, type: 3}
   volume: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
 --- !u!114 &4853092522908900813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,7 +1452,7 @@ MonoBehaviour:
   painSound: {fileID: 8300000, guid: 6235c4b569fe9b448a6361810f53627f, type: 3}
   boneCrackSound: {fileID: 8300000, guid: 019a61ec6cd40b548b5f5e0c3879c577, type: 3}
   volume: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
 --- !u!114 &3916314285879108466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,7 +1469,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 0}
+  rb: {fileID: 7807978120469739685}
 --- !u!114 &141509202418538612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,6 +1488,7 @@ MonoBehaviour:
   ignoredStepLayers:
     serializedVersion: 2
     m_Bits: 118
+  playerCollider: {fileID: 7807978120469739687}
 --- !u!54 &7807978120469739685
 Rigidbody:
   m_ObjectHideFlags: 0
