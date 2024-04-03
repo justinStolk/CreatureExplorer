@@ -115,9 +115,9 @@
                 },
                 {
                     "name": "Click",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "dc4cdec5-c1b4-4e0d-a03b-310dd4e5294b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -130,6 +130,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GrabRight",
+                    "type": "Value",
+                    "id": "dbed7f46-0c04-4cff-89db-230febfaaf4f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "GrabLeft",
+                    "type": "Value",
+                    "id": "19e613fc-e9c4-4014-a072-a4ff3390af46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -201,17 +219,6 @@
                 },
                 {
                     "name": "",
-                    "id": "19fb0a52-ca71-4dd6-877b-da5ca151577f",
-                    "path": "*/{Primary2DAxis}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "78e02d17-307f-4ccf-b1d0-f6bdf5636fc7",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
@@ -256,6 +263,17 @@
                 },
                 {
                     "name": "",
+                    "id": "da6ebc45-c9fb-4b97-95ba-fdf961179f49",
+                    "path": "<OculusTouchController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d84ea603-e5c1-4c8a-ae3e-e55b58f21992",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
@@ -290,7 +308,7 @@
                 {
                     "name": "",
                     "id": "eef559b9-3870-4f73-ba3b-d5cb8a120aff",
-                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "path": "*/{SecondaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
@@ -316,17 +334,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "NintendoSwitch",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c8f04782-2937-44bc-8117-3da419e16dc4",
-                    "path": "<XRController>{RightHand}/joystickClicked",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -360,17 +367,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "NintendoSwitch",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4a742917-b218-407b-a92b-3c22c06cdfbf",
-                    "path": "<XRController>{RightHand}/gripPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -466,7 +462,7 @@
                 {
                     "name": "",
                     "id": "3bb07a27-7f90-462b-8e58-bced771df5c1",
-                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "path": "*/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
@@ -638,6 +634,50 @@
                     "action": "Faint",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1943e98-353d-49fe-b44e-19553d752ece",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "GrabRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a6fd5173-d8d5-4fec-82dc-62f32405361d",
+                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "GrabLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60b518ff-1dfd-445b-8889-c66591e37070",
+                    "path": "*/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50e41d09-7812-4c28-acef-da23044d45a9",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -656,7 +696,7 @@
                 },
                 {
                     "name": "Click",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "45b0ab13-f092-47b4-8edd-827042d5c651",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -716,6 +756,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GrabRight",
+                    "type": "Value",
+                    "id": "bf2c2ce2-bca4-4c5e-b91c-2dc98134c1ab",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "GrabLeft",
+                    "type": "Value",
+                    "id": "ce7bdd7d-43e4-4f5d-9366-9c4519f3f92f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -737,6 +795,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "NintendoSwitch",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6beb97a6-86ac-4697-a19b-86b493fd7818",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "XR",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -925,6 +994,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "QuickCloseBook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5978e6ec-175a-471f-9f1a-816aa83b911a",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "GrabRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abc694e9-ba34-4dcb-bd62-b83a1922a012",
+                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "GrabLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1235,18 +1326,18 @@
                 {
                     "name": "",
                     "id": "f7656393-ce6d-42f5-9f22-fb0a63628855",
-                    "path": "",
+                    "path": "*/{Secondary2DMotion}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XR",
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b4c050b2-329a-4762-a940-8a1bfd564d8d",
-                    "path": "<XRController>{RightHand}/joystick",
+                    "id": "89c12da8-60b7-49c7-9247-1da3f7423986",
+                    "path": "*/{Primary2DAxis}",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
@@ -1493,17 +1584,6 @@
                 },
                 {
                     "name": "",
-                    "id": "3ffe4dc6-0bbb-4001-91cc-d1be91fa5558",
-                    "path": "<OculusTouchController>/triggerPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "Continue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6c46d6d9-dcd3-44ad-a183-16ead7f8b531",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -1570,12 +1650,34 @@
                 },
                 {
                     "name": "",
-                    "id": "8526ae12-479f-4091-9885-cdfc88958c7b",
-                    "path": "<XRController>{RightHand}/joystick",
+                    "id": "d09c1412-c706-4bdc-b441-5f1f2c770f4a",
+                    "path": "*/{Primary2DAxis}",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0025e235-9b18-4ab7-b2b0-313ede84d864",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f286c8ba-8e86-4f36-b1a8-15ad09af0b2a",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Continue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

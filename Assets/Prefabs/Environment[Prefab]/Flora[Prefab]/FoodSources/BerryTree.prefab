@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 136
   breakingSound: {fileID: 8300000, guid: c57f095fccccb334eac8773bfb26cff1, type: 3}
 --- !u!114 &4421049430612534917
 MonoBehaviour:
@@ -82,8 +82,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: berryPlant
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!82 &6146398446954131398
 AudioSource:
   m_ObjectHideFlags: 0
@@ -242,8 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: tree
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!1 &8333561885472221612
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,8 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: berryPlant
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!1001 &8483294379541611725
 PrefabInstance:
   m_ObjectHideFlags: 0

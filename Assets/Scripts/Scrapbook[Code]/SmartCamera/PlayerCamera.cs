@@ -149,9 +149,15 @@ public class PlayerCamera : MonoBehaviour
 
         try
         {
-            string savingPath = path + "/Resources/snap" + System.DateTime.UtcNow.Day + System.DateTime.UtcNow.Minute + System.DateTime.UtcNow.Second + ".png";
-
             byte[] byteArray = renderedTexture.EncodeToPNG();
+
+            // Android doesn't use resources folder
+#if PLATFORM_ANDROID
+            string savingPath = Path.Combine(Application.persistentDataPath, System.DateTime.UtcNow.Day + System.DateTime.UtcNow.Minute + System.DateTime.UtcNow.Second + ".png");
+#else
+            string savingPath = path + "/Resources/snap" + System.DateTime.UtcNow.Day + System.DateTime.UtcNow.Minute + System.DateTime.UtcNow.Second + ".png";
+#endif
+
             File.WriteAllBytes(savingPath, byteArray);
             pictureInfo.PicturePath = savingPath;
 
@@ -248,7 +254,17 @@ public class PlayerCamera : MonoBehaviour
     {
         Texture2D Tex2D;
         byte[] FileData;
+        /*
+#if PLATFORM_ANDROID
+        FileData = Resources.Load<TextAsset>(FilePath).bytes;
 
+        Tex2D = new Texture2D(2, 2);
+        if (Tex2D.LoadImage(FileData))
+        {
+            return Tex2D;
+        }
+#else
+        */
         if (File.Exists(FilePath))
         {
             FileData = File.ReadAllBytes(FilePath);
@@ -258,6 +274,7 @@ public class PlayerCamera : MonoBehaviour
                 return Tex2D;                
             }          
         }
+//#endif
         return null;                    
     }
 }

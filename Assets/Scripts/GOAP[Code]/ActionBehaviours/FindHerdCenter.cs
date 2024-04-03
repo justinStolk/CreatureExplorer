@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: change to have herd consist of all chargers of same spawner
 public class FindHerdCenter : Action
 {
     [Header("Find Herd\nWarning: only made for Chargers")]

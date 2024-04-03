@@ -8,14 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Vrij 3/MainMenu_dev.unity
     guid: 90709a3c85b93d844ae9a5ae75fd2285
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Vrij 3/SHOWCASE 19 Januari.unity
     guid: d85311d6fe62f1d49afac2793cbd5e82
   - enabled: 0
     path: Assets/Scenes/Development/VR testing.unity
     guid: 749640fd4e55659429264efe53d163de
+  - enabled: 0
+    path: Assets/Scenes/Design/Level Design/Level Flow.unity
+    guid: be6a97ef2e5444e45b4609fc604c262b
+  - enabled: 1
+    path: Assets/Scenes/Design/Level Design/Level Flow_Inger.unity
+    guid: 969bb69a7639c9540bcf8e8ad64e4b18
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c6f20e8970fea2c428c0f512cfc03ebd,
+      type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: f6e18df8bbf439646b48889377b7a294,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5f4a8ed0778be544a8c119f4b5ba9cff,
       type: 2}

@@ -22,22 +22,13 @@ public class CrouchingState : State
     [SerializeField] private Rigidbody rb;
     private PhysicsStepper stepper;
 
-    private CapsuleCollider capsuleCollider;
+    [SerializeField] private CapsuleCollider capsuleCollider;
 
 
     private void Awake()
     {
         //rigidbody = GetComponent<Rigidbody>();
         stepper = GetComponent<PhysicsStepper>();
-
-        if (!VRChecker.IsVR)
-        {
-            capsuleCollider = GetComponent<CapsuleCollider>();
-
-            standardColliderHeight = capsuleCollider.height;
-        
-            firstPersonCamera = Camera.main;
-        }
     }
 
     private void Start()
@@ -46,6 +37,10 @@ public class CrouchingState : State
         {
             try
             {
+                standardColliderHeight = capsuleCollider.height;
+        
+                firstPersonCamera = Camera.main;
+
                 if (firstPersonCamera.TryGetComponent(out FollowTarget target))
                     defaultEyeHeight = target.TrueOffset.y;
                 else
@@ -132,7 +127,7 @@ public class CrouchingState : State
             Owner.SwitchState(GetType());
             return;
         }
-        if (Owner.CurrentState.GetType() == GetType() && eyeHeight > crouchEyeHeight)
+        if (Owner.CurrentState.GetType() == typeof(CrouchingState) && eyeHeight > crouchEyeHeight)
         {
             Owner.SwitchState(typeof(WalkingState));
         }
@@ -144,7 +139,7 @@ public class CrouchingState : State
         {
             PlayerController.SetLoudness(sneakLoudness);
 
-            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + rb.transform.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + transform.eulerAngles.y;
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * (VRChecker.IsVR ? transform.forward : Vector3.forward);
 
             stepper.HandleStep(ref rb, moveDirection);

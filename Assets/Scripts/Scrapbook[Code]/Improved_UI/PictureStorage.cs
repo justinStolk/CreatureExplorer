@@ -27,10 +27,13 @@ public class PictureStorage : PageComponentInteractor
         //maxStorageText.text = pictureInventory.GetCapacity().ToString();
         UpdateCameraStorageText();
 
-        storageRaycastImage = GetComponent<Image>();
+        if (!VRChecker.IsVR)
+        {
+            storageRaycastImage = GetComponent<Image>();
 
-        PagePicture.OnBeginPictureDrag += () => storageRaycastImage.raycastTarget = true;
-        PagePicture.OnEndPictureDrag += () => storageRaycastImage.raycastTarget = false;
+            PagePicture.OnBeginPictureDrag += () => storageRaycastImage.raycastTarget = true;
+            PagePicture.OnEndPictureDrag += () => storageRaycastImage.raycastTarget = false;
+        }
     }
 
     public bool StorageIsFull() => pictureInventory.InventoryIsFull();

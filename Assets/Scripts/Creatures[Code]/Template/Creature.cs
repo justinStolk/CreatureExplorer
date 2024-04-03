@@ -190,6 +190,8 @@ public class Creature : MonoBehaviour
     /// </summary>
     private void UpdateValues()
     {
+        // TODO: reenable after daynight cycle is put in again
+        /*
         // TODO: get rid of magic number
         // Make creature tire faster when it's bedtime
         try
@@ -203,7 +205,7 @@ public class Creature : MonoBehaviour
             DebugMessage("Cozyweather is not active");
 #endif
         }
-
+        */
         foreach (MoodState change in data.ChangesEverySecond.CreatureStates)
         {
             if (change.Operator == StateOperant.Add)
@@ -257,6 +259,7 @@ public class Creature : MonoBehaviour
     protected virtual void UpdateCreatureState()
     {
         CheckForInterruptions(StateType.Tiredness, GetComponentInChildren<Sleep>(), "Fell asleep");
+        /*
         try
         {
             worldState = DistantLands.Cozy.CozyWeather.instance.currentTime.IsBetweenTimes(data.Bedtime, data.WakeTime) ? SetConditionTrue(worldState, Condition.ShouldBeSleeping) : SetConditionFalse(worldState, Condition.ShouldBeSleeping);
@@ -268,6 +271,7 @@ public class Creature : MonoBehaviour
             DebugMessage("Cozyweather is not active");
 #endif
         }
+        */
 
         worldState = (currentCreatureState.Find(StateType.Hunger).StateValue > 50) ? SetConditionTrue(worldState, Condition.IsHungry) : SetConditionFalse(worldState, Condition.IsHungry);
         worldState = (currentCreatureState.Find(StateType.Tiredness).StateValue > 50) ? SetConditionTrue(worldState, Condition.IsSleepy) : SetConditionFalse(worldState, Condition.IsSleepy);

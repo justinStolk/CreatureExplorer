@@ -29,6 +29,7 @@ public class VR_PlayerController : MonoBehaviour
     [SerializeField] private UnityEvent onCameraClosed;
     [SerializeField] private UnityEvent<string, Vector3> onInteractableFound;
     [SerializeField] private UnityEvent onInteractableOutOfRange;
+    [SerializeField] private UnityEvent onScrapbookUnlocked;
     [SerializeField] private UnityEvent onPouchUnlocked;
     [SerializeField] private UnityEvent onClimbingUnlocked;
     [SerializeField] private UnityEvent onHurt;
@@ -38,17 +39,20 @@ public class VR_PlayerController : MonoBehaviour
 
     [Header("Death and Respawn")]
     [SerializeField] private float respawnDuration = 0.5f;
+    [SerializeField] private AnimationCurve respawnFade;
     [SerializeField] private float drowningHeight = 1.2f;
+    [SerializeField] private GameObject uiCanvas;
     [SerializeField] private Transform respawnTransform;
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject respawnOccluder;
 
-# if UNITY_EDITOR
+
+    [Tooltip("Serialized for testing purposes")]
+    [SerializeField] private bool scrapbookUnlocked;
     [Tooltip("Serialized for testing purposes")]
     [SerializeField] private bool climbingUnlocked;
-    [Tooltip("Only present for testing purposes")]
+    [Tooltip("Only Serialized for testing purposes")]
     [SerializeField] private bool pouchUnlocked;
-#endif
 
     [SerializeField] private InputSystemUIInputModule module;
 
@@ -84,6 +88,8 @@ public class VR_PlayerController : MonoBehaviour
 
         respawnFadeRenderer = Instantiate(respawnOccluder, firstPersonCamera.transform).GetComponent<MeshRenderer>();
         deathScreen = Instantiate(deathScreen);
+        deathScreen.GetComponent<Canvas>().worldCamera = firstPersonCamera;
+        deathScreen.GetComponent<Canvas>().planeDistance = 0.3f;
         deathScreen.SetActive(false);
 
         playerInput = GetComponent<PlayerInput>();
@@ -92,18 +98,17 @@ public class VR_PlayerController : MonoBehaviour
 
         // TODO: Change how upgrades are given
         GrandTemple.OnRingExtended += UnlockPouch;
+        DialogueTrigger.OnDialogueTriggered += UnlockNotebook;
 
         StaticQuestHandler.OnQuestOpened += () =>
         {
             LinkModule("Scrapbook");
-            playerInput.SwitchCurrentActionMap("Scrapbook");
             onInteractableOutOfRange?.Invoke();
         };
         StaticQuestHandler.OnQuestClosed += () =>
         {
             if (playerInput.currentActionMap.name != "Dialogue")
             {
-                playerInput.SwitchCurrentActionMap("Overworld");
                 LinkModule("Overworld");
             }
             Cursor.lockState = CursorLockMode.Locked;
@@ -111,6 +116,8 @@ public class VR_PlayerController : MonoBehaviour
         };
 
 #if UNITY_EDITOR
+        if (scrapbookUnlocked) UnlockNotebook();
+
         if (pouchUnlocked) UnlockPouch();
 
         if (climbingUnlocked) UnlockClimb();
@@ -231,20 +238,31 @@ public class VR_PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
+            CloseScrapbook();
+        }
+    }
+
+    public void CloseScrapbook()
+    {
             playerInput.SwitchCurrentActionMap("Overworld");
             Cursor.lockState = CursorLockMode.Locked;
             onScrapbookClosed?.Invoke();
-        }
+
     }
+
     public void GetOpenScrapbookInput(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.started)
         {
-            LinkModule("Scrapbook");
-            playerInput.SwitchCurrentActionMap("Scrapbook");
-            Cursor.lockState = CursorLockMode.None;
-            onScrapbookOpened?.Invoke();
+            OpenScrapbook();
         }
+    }
+
+    public void OpenScrapbook()
+    {
+        LinkModule("Scrapbook");
+        Cursor.lockState = CursorLockMode.None;
+        onScrapbookOpened?.Invoke();
     }
 
     public static void SetLoudness(float newLoudness) => Loudness = newLoudness;
@@ -302,6 +320,7 @@ public class VR_PlayerController : MonoBehaviour
 
     public void LinkModule(string linkTo)
     {
+        playerInput.SwitchCurrentActionMap(linkTo);
         module.leftClick = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Click"));
         module.point = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Point"));
         module.move = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Move"));
@@ -435,6 +454,13 @@ public class VR_PlayerController : MonoBehaviour
         onInteractableOutOfRange?.Invoke();
     }
 
+    private void UnlockNotebook()
+    {
+        scrapbookUnlocked = true;
+        onScrapbookUnlocked.Invoke();
+        DialogueTrigger.OnDialogueTriggered -= UnlockNotebook;
+    }
+
     private void UnlockClimb()
     {
         climbingUnlocked = true;
@@ -458,14 +484,15 @@ public class VR_PlayerController : MonoBehaviour
         died = true;
         rb.velocity = Vector3.zero;
 
-        GameObject canvas = GetComponentInChildren<Canvas>().gameObject;
-        canvas.SetActive(false);
+        //GameObject canvas = transform.root.GetComponentInChildren<Canvas>().gameObject;
+        uiCanvas.SetActive(false);
 
         StartCoroutine(deathScreen.GetComponent<RandomMessage>().FadeIn(respawnDuration * 0.1f));
         deathScreen.SetActive(true);
 
         GetComponent<PlayerCamera>().DeleteCameraRoll();
 
+        respawnFadeRenderer.gameObject.SetActive(true);
         Material fadeMaterial = respawnFadeRenderer.material;
         Color fadeColor = fadeMaterial.color;
 
@@ -474,22 +501,22 @@ public class VR_PlayerController : MonoBehaviour
         // Fade in vision obscurer, move player, then fade it out again
         while (timer < respawnDuration * 0.3f)
         {
-            fadeColor.a = Mathf.InverseLerp(0, 0.3f * respawnDuration, timer);
+            fadeColor.a = respawnFade.Evaluate(timer / respawnDuration);// Mathf.InverseLerp(0, 0.3f * respawnDuration, timer);
             fadeMaterial.color = fadeColor;
             timer += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = respawnTransform.position;
+        rb.transform.position = respawnTransform.position;
 
         onCameraClosed?.Invoke();
         onScrapbookClosed?.Invoke();
 
-        StartCoroutine(deathScreen.GetComponent<RandomMessage>().FadeOut(respawnDuration * 0.1f, respawnDuration * 0.6f));
+        StartCoroutine(deathScreen.GetComponent<RandomMessage>().FadeOut(respawnDuration * 0.1f, respawnDuration * 0.5f));
 
         while (timer < respawnDuration)
         {
-            fadeColor.a = Mathf.InverseLerp(respawnDuration, 0.6f * respawnDuration, timer);
+            fadeColor.a = respawnFade.Evaluate(timer / respawnDuration);//  Mathf.InverseLerp(respawnDuration, 0.6f * respawnDuration, timer);
             fadeMaterial.color = fadeColor;
 
             timer += Time.deltaTime;
@@ -497,8 +524,9 @@ public class VR_PlayerController : MonoBehaviour
         }
 
         deathScreen.SetActive(false);
+        respawnFadeRenderer.gameObject.SetActive(false);
 
-        canvas.SetActive(true);
+        uiCanvas.SetActive(true);
         died = false;
     }
 

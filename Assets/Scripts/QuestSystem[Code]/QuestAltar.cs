@@ -5,8 +5,11 @@ using UnityEngine.Events;
 
 public class QuestAltar : MonoBehaviour, IInteractable
 {
+    [field:Header("Interact")]
     [field: SerializeField] public string InteractionPrompt { get; private set; } = "Interact";
+    [field: SerializeField] private float InteractHandTimer = 2;
 
+    [field:Header("Main Quest Settings")]
     [field: SerializeField] public MainQuest AltarQuest { get; private set; }
     private string questPrompt { get => AltarQuest.QuestDescription;}
 
@@ -15,6 +18,14 @@ public class QuestAltar : MonoBehaviour, IInteractable
 
     private bool altarActivated = false;
     private bool AltarFinished = false;
+
+    private MeshRenderer meshRenderer;
+    private float interactTime;
+
+    private void Start()
+    {
+        TryGetComponent(out meshRenderer);
+    }
 
     public void Interact()
     {
@@ -65,6 +76,37 @@ public class QuestAltar : MonoBehaviour, IInteractable
         foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
         {
             renderer.material = debugSwapMaterial;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent(out VRHandController hand))
+        {
+            interactTime += Time.deltaTime;
+
+            if (meshRenderer.material != null)
+            {
+                meshRenderer.material.color = Color.Lerp(Color.gray, Color.cyan, interactTime / InteractHandTimer);
+            }
+
+            if (interactTime > InteractHandTimer)
+            {
+                Interact();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out VRHandController hand))
+        {
+            interactTime = 0;
+
+            if (meshRenderer.material != null)
+            {
+                meshRenderer.material.color = Color.gray;
+            }
         }
     }
 

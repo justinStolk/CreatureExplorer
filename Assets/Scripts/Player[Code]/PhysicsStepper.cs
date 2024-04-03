@@ -9,14 +9,17 @@ public class PhysicsStepper : MonoBehaviour
     [SerializeField, Min(0.1f)] private float stepSmooth = 0.1f;
 
     [SerializeField] private LayerMask ignoredStepLayers;
+    [SerializeField] private CapsuleCollider playerCollider;
 
     public void HandleStep(ref Rigidbody rigidbody, Vector3 direction)
     {
-        if (Physics.Raycast(transform.position, direction,maxStepDistance, ~ignoredStepLayers))
+        Vector3 playerPosition = rigidbody.position + new Vector3(playerCollider.center.x, 0, playerCollider.center.z);
+
+        if (Physics.Raycast(playerPosition, direction,maxStepDistance, ~ignoredStepLayers))
         {
-            if (!Physics.Raycast(transform.position + Vector3.up * maxStepHeight, direction, maxStepDistance, ~ignoredStepLayers))
+            if (!Physics.Raycast(playerPosition + Vector3.up * maxStepHeight, direction, maxStepDistance, ~ignoredStepLayers))
             {
-                rigidbody.MovePosition(transform.position + stepSmooth * Time.fixedDeltaTime * Vector3.up);
+                rigidbody.MovePosition(rigidbody.position + stepSmooth * Time.fixedDeltaTime * Vector3.up);
             }
         }
     }

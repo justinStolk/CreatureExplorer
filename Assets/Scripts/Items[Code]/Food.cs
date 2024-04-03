@@ -29,7 +29,7 @@ public class Food : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // TODO: test whether letting the berries play a sound on every collision leads to unexpected sounds
-        if (soundPlayer != null)
+        if (collision.gameObject.layer == 3 && soundPlayer != null)
         {
             soundPlayer.PlaySound(fallingSound, true);
         }

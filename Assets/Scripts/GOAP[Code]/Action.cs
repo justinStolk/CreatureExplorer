@@ -20,7 +20,7 @@ abstract public class Action : MonoBehaviour
     // TODO: have cost be calculated based on situation?
     [field: SerializeField] public float Cost { get; protected set; }
     [field: SerializeField] public float BaseReward { get; private set; }
-    [field: SerializeField] public float Reward { get; protected set; }
+    [field: ShowOnly] public float Reward { get; protected set; }
 
     [SerializeField] protected float actionDuration = 2;
 

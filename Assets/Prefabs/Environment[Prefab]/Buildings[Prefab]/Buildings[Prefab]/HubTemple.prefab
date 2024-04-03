@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b8bbefd291869468e89190a40e1991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerEvent: 1
   dialogueText:
   - "Welcome, stranger! You don\u2019t know me, but I do know you."
   - Before The Change, I was something people honoured and looked up to.
@@ -102,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869960219333758797}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000036621093, y: 6.8123717, z: 0.0000024414062}
+  m_LocalPosition: {x: -0.0000036621093, y: -5.181515, z: 0.0000024414062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -194,8 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: hubtemple
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!1 &3268485759426825245
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3333991280944243126}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 11.733887, z: 0}
+  m_LocalPosition: {x: -0, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -314,7 +313,6 @@ Transform:
   - {fileID: 7720971219626315537}
   - {fileID: 4906586877893963721}
   - {fileID: 4780400929950105867}
-  - {fileID: 3272492002585541196}
   - {fileID: 5477422512133408930}
   m_Father: {fileID: 3563383934561398794}
   m_RootOrder: 2
@@ -401,8 +399,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: hubtemple
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!1 &4195242018901715632
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +433,7 @@ Transform:
   - {fileID: 5775895920718928761}
   - {fileID: 1101452212757165036}
   - {fileID: 6166563333041998074}
+  - {fileID: 3272492002585541196}
   m_Father: {fileID: 7723424399552213849}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -583,12 +580,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6800909131944452253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.493, z: 0}
+  m_LocalPosition: {x: -3.7600098, y: 1.72, z: 1.9800034}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5775895920718928761}
-  m_RootOrder: 4
+  m_Father: {fileID: 3563383934561398794}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6989892238918237459
 GameObject:
@@ -618,7 +615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6989892238918237459}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000036621093, y: 2.977395, z: 0.0000030517576}
+  m_LocalPosition: {x: -0.0000036621093, y: -9.016492, z: 0.0000030517576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -711,8 +708,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: hubtemple
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!1 &8847442079027102613
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8847442079027102613}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 12.980038, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9861508, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2335,7 +2330,7 @@ PrefabInstance:
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}
@@ -2345,7 +2340,7 @@ PrefabInstance:
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.97
+      value: 2.426
       objectReference: {fileID: 0}
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}
@@ -2360,17 +2355,17 @@ PrefabInstance:
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2121458407363599905, guid: fbb3deb0d2342a64c956245b0cabff86,
         type: 3}

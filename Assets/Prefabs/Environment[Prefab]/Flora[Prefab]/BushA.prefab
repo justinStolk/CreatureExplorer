@@ -143,8 +143,8 @@ Transform:
   m_GameObject: {fileID: 1677645230999939661}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5266188814613935600}
   - {fileID: 1850957261354924884}
@@ -190,8 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: bush
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!135 &6302183283450424722
 SphereCollider:
   m_ObjectHideFlags: 0

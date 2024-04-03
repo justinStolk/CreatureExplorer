@@ -24,6 +24,20 @@ public class PageText : PageComponent
         }
     }
 
+    public override void Grab(Transform handTransform)
+    {
+        base.Grab(handTransform);
+
+        TextField.interactable = false;
+    }
+
+    public override void Release()
+    {
+        base.Release();
+
+        TextField.interactable = true;
+    }
+
     public override void OnBeginDrag(PointerEventData eventData)
     {
         base.OnBeginDrag(eventData);

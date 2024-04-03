@@ -87,8 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: berryPlant
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!114 &263050696632604709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: normalBerryBush
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!1 &6805541488476255185
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +151,7 @@ MonoBehaviour:
   randomRotate: 1
   raycastMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 136
 --- !u!1 &8588731747029208726
 GameObject:
   m_ObjectHideFlags: 0

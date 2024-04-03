@@ -21,6 +21,7 @@ public class RotateTowards : MonoBehaviour
     void FixedUpdate()
     {
         rectTransform?.LookAt(rotationTarget.position, Vector3.up);
+        transform.Rotate(new Vector3(0, 180, 0));
 
         //transform.rotation.SetLookRotation(transform.position - rotationTarget.position);
     }

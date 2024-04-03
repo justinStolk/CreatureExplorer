@@ -3,6 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DialogueTrigger : MonoBehaviour, IDialogue
 {
+    public static System.Action OnDialogueTriggered;
+    [SerializeField] private bool triggerEvent;
+
     [SerializeField] private string[] dialogueText;
     [SerializeField] private bool showOnce;
     [SerializeField] private bool hideOnExit;
@@ -17,8 +20,13 @@ public class DialogueTrigger : MonoBehaviour, IDialogue
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((!showOnce || (showOnce && !hasBeenShown))&& other.TryGetComponent(out PlayerCamera player))
+        if ((!showOnce || (showOnce && !hasBeenShown)) && (other.TryGetComponent(out PlayerCamera player) || other.GetComponentInChildren<PlayerCamera>() !=  null))
         {
+            if (triggerEvent)
+            {
+                OnDialogueTriggered.Invoke();
+            }
+
             DialogueUI.ShowText(dialogueText);
             hasBeenShown = true;
         }

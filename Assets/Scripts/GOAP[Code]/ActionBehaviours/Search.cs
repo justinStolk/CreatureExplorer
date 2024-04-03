@@ -6,6 +6,7 @@ public class Search : Action
     [Header("Search")]
     [SerializeField] private SearchTarget searchTarget;
     [SerializeField] private float searchRadius = 1000;
+    [SerializeField] private LayerMask groundLayer;
 
     public override GameObject PerformAction(Creature creature, GameObject target)
     {
@@ -22,6 +23,13 @@ public class Search : Action
                 {
                     if ((c.gameObject.GetComponent(creature.data.FoodSource) != null) && (c.transform.position - creature.transform.position).sqrMagnitude < distance)
                     {
+                        // If the ground is too far away from found foodsource, ignore the foodsource
+                        if (Physics.Raycast(c.transform.position, Vector3.down, out RaycastHit hit, 100, groundLayer))
+                        {
+                            if (hit.distance > 1.5)
+                                continue;
+                        }
+
                         distance = (c.transform.position - creature.transform.position).sqrMagnitude;
                         nearest = c;
                     }

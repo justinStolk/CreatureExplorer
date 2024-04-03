@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Looking for Food
-  <Onomatopea>k__BackingField: '*stomach growling*'
   startAnimationTrigger: 
   duringAnimationTrigger: LookAround
   finishAnimationTrigger: Idle
@@ -54,7 +53,7 @@ MonoBehaviour:
   <Awareness>k__BackingField: 1
   <Cost>k__BackingField: 1
   <BaseReward>k__BackingField: 1
-  <Reward>k__BackingField: 1
+  actionDuration: 2
   <GoalEffects>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 0
@@ -64,8 +63,18 @@ MonoBehaviour:
   - <EffectType>k__BackingField: 16
     <StateValue>k__BackingField: 1
   <Prerequisites>k__BackingField: []
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
   finished: 0
   failed: 0
-  actionDuration: 2
+  setAnimator: 0
+  animator: {fileID: 0}
   searchTarget: 0
   searchRadius: 200
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 136

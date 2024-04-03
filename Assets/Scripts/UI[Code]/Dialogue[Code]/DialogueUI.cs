@@ -15,6 +15,7 @@ public class DialogueUI : MonoBehaviour
     private static string[] dialogueStrings;
     private static int dialogueIndex = 0;
 
+    [SerializeField] private PlayerInput input;
     private static PlayerInput playerInput;
 
     private static string previousActionMap;
@@ -23,7 +24,8 @@ public class DialogueUI : MonoBehaviour
     {
         Instance = this;
 
-        playerInput = GetComponentInParent<PlayerInput>();
+        //playerInput = GetComponentInParent<PlayerInput>();
+        playerInput = input == null ? GetComponentInParent<PlayerInput>() : input;
 
         textField = GetComponentInChildren<TextMeshProUGUI>();
         if (UIObject == null)
@@ -62,8 +64,7 @@ public class DialogueUI : MonoBehaviour
     private static void SwitchInputs()
     {
         previousActionMap = playerInput.currentActionMap.name;
-        // TODO: remove gameobject.find
-        GameObject.FindObjectOfType<PlayerController>().LinkModuleToDialogue();
+        playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModuleToDialogue();
         playerInput.SwitchCurrentActionMap("Dialogue");
         Cursor.lockState = CursorLockMode.None;
     }
@@ -77,16 +78,14 @@ public class DialogueUI : MonoBehaviour
         {
             case "Scrapbook":
                 {
-                    // TODO: remove gameobject.find
-                    GameObject.FindObjectOfType<PlayerController>().LinkModuleToScrapbook();
+                    playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModuleToScrapbook();
                     playerInput.SwitchCurrentActionMap("Scrapbook");
                     Cursor.lockState = CursorLockMode.None;
                     break;
                 }
             default:
                 {
-                    // TODO: remove gameobject.find
-                    GameObject.FindObjectOfType<PlayerController>().LinkModuleToOverworld();
+                    playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModuleToOverworld();
                     playerInput.SwitchCurrentActionMap("Overworld");
                     Cursor.lockState = CursorLockMode.Locked;
                     break;

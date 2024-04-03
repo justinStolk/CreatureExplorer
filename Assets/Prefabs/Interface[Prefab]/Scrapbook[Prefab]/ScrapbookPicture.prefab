@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1099497629079080457}
   - component: {fileID: 1099497629079080458}
   - component: {fileID: 1099497629079080459}
-  - component: {fileID: 441338735914618345}
-  - component: {fileID: 8579402629334729918}
+  - component: {fileID: 3563851374170533468}
+  - component: {fileID: 6491637393045022028}
+  - component: {fileID: 8367680952062936653}
   m_Layer: 5
   m_Name: ScrapbookPicture
   m_TagString: Untagged
@@ -92,11 +93,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc6013e1bb3d464abb9066a9f51e758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiLayer:
+    serializedVersion: 2
+    m_Bits: 32
+  evaluated: 0
   pictureGraphic: {fileID: 3235865636081099421}
   pageScaleFactor: 2.5
   dragSound: {fileID: 8300000, guid: f714efd4187d76840ac8e9d38618537b, type: 3}
   stickSound: {fileID: 8300000, guid: 94efdbeb874601445a1ce010185257f0, type: 3}
---- !u!82 &441338735914618345
+--- !u!65 &3563851374170533468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099497629079080461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 200, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &6491637393045022028
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,7 +211,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8579402629334729918
+--- !u!114 &8367680952062936653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -41,6 +41,39 @@ public class PagePicture : PageComponent, IPointerClickHandler
         pictureGraphic.sprite = pictureSprite;
     }
 
+    public override void Grab(Transform handTransform)
+    {
+        if (soundPlayer != null)
+        {
+            soundPlayer.PlaySound(dragSound, true);
+        }
+
+        dragging = true;
+        OnBeginPictureDrag?.Invoke();
+
+        if (parentCanvas == null)
+        {
+            parentCanvas = GetComponentInParent<Canvas>();
+        }
+
+        base.Grab(handTransform);
+
+        SetStepBackParent();
+    }
+
+    public override void Release()
+    {
+        if (soundPlayer != null)
+        {
+            soundPlayer.PlaySound(stickSound, true);
+        }
+
+        OnEndPictureDrag?.Invoke();
+        dragging = false;
+
+        base.Release();
+    }
+
     public void LinkPictureInformation(PictureInfo information)
     {
         PictureInfo = information;
@@ -82,6 +115,7 @@ public class PagePicture : PageComponent, IPointerClickHandler
     {
         stepBackParent = previousParent;
     }
+
     public void OnRevert()
     {
         PageComponentInteractor interactor = stepBackParent.GetComponentInParent(typeof(PageComponentInteractor), true) as PageComponentInteractor;

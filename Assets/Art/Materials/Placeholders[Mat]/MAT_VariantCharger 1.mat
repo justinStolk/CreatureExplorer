@@ -13,7 +13,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -27,6 +27,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainNormal:
         m_Texture: {fileID: 2800000, guid: 7dedc30083523ce46ad364bfba03f011, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Smoothness:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _mask:
@@ -52,12 +56,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _Float: 0.58
+    - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _SmoothnessAmount: 0
     m_Colors:
     - _Base: {r: 0.36862746, g: 0.48235297, b: 0.427451, a: 0}
     - _Body: {r: 0.36862746, g: 0.48235297, b: 0.427451, a: 1}
     - _Coat: {r: 0.89019614, g: 0.86666673, b: 0.79215693, a: 0}
+    - _ColorVar1: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorVar2: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorVar3: {r: 0, g: 0, b: 0, a: 0}
     - _Detail: {r: 0.89019614, g: 0.86666673, b: 0.79215693, a: 0}
     - _Horn_teeth: {r: 0.8431373, g: 0.79215693, b: 0.6431373, a: 0}
     - _Seed: {r: 2.56, g: -3.28, b: 0, a: 0}

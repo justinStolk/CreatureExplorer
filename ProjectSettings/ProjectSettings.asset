@@ -140,10 +140,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.9.7
-  preloadedAssets:
-  - {fileID: 11400000, guid: c6f20e8970fea2c428c0f512cfc03ebd, type: 2}
-  - {fileID: 5094985885333532191, guid: 5f4a8ed0778be544a8c119f4b5ba9cff, type: 2}
-  - {fileID: -2178530438267335052, guid: 0f4402448b4b5e9449938af9700ece10, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -253,7 +250,7 @@ PlayerSettings:
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 1
+  AndroidTargetArchitectures: 2
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -804,6 +801,7 @@ PlayerSettings:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
+    Android: 1
     Standalone: 1
   il2cppCompilerConfiguration:
     Standalone: 0

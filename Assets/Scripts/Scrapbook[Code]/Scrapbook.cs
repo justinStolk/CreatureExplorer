@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.UI;
 
 public class Scrapbook : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Scrapbook : MonoBehaviour
     public static TextTypingHandler OnEndType;
 
     public GraphicRaycaster Raycaster;
+    public TrackedDeviceRaycaster VRRaycaster;
     public ScrapbookPage CurrentPage { get { return allPages[currentPageIndex]; } }
 
     [SerializeField] private int scrapbookPageCount = 6;
@@ -26,6 +28,7 @@ public class Scrapbook : MonoBehaviour
     [SerializeField] private GameObject extrasGroup;
     [SerializeField] private GameObject progressTrackerTab;
     [SerializeField] private GameObject questTrackerTab;
+    [SerializeField] private GameObject stickerGroup;
 
     [SerializeField] private RectTransform pagesParent;
 
@@ -54,6 +57,8 @@ public class Scrapbook : MonoBehaviour
 
         StaticQuestHandler.OnAltarActivated += CheckAllMainQuestProgress;
 
+        DialogueTrigger.OnDialogueTriggered += UnlockBook;
+
         SetupScrapbook();
 
         previousPageButton.SetActive(false);
@@ -77,6 +82,12 @@ public class Scrapbook : MonoBehaviour
             newPage.gameObject.SetActive(i == 0);
             allPages[i] = newPage;
         }
+    }
+
+    public void UnlockBook()
+    {
+        book.gameObject.SetActive(true);
+        stickerGroup.SetActive(true);
     }
 
     public void ClosePages()
@@ -148,11 +159,18 @@ public class Scrapbook : MonoBehaviour
 
     public void CreateNewTextEntry()
     {
-        PageText newText = Instantiate(textEntryPrefab, CurrentPage.transform.position, Quaternion.identity);
+        PageText newText = Instantiate(textEntryPrefab, CurrentPage.transform.position, CurrentPage.transform.rotation);
         CurrentPage.AddComponentToPage(newText);
         newText.transform.localScale = Vector3.one;
         newText.TextField.onSelect.AddListener((string s) => OnBeginType?.Invoke());
         newText.TextField.onDeselect.AddListener((string s) => OnEndType?.Invoke());
+    }
+
+    public void CreateNewPageComponent(PageComponent createdComponent)
+    {
+        PageComponent newComponent = Instantiate(createdComponent, CurrentPage.transform.position, CurrentPage.transform.rotation);
+        CurrentPage.AddComponentToPage(newComponent);
+        newComponent.transform.localScale = Vector3.one;
     }
 
     private void CheckAllMainQuestProgress(MainQuest quest)

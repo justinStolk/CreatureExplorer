@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatusEffectName: 
   oneShot: 1
+  destroyAfterTrigger: 1
   effectDuration: 0.1
   statusEffect:
     <CreatureStates>k__BackingField: []
@@ -61,6 +62,8 @@ MonoBehaviour:
   splatVelocity: 2
   inventoryGraphic: {fileID: 21300000, guid: 1da57cacfd902c347ac6287903f8ec7c, type: 3}
   hoverGraphic: {fileID: 21300000, guid: 615ae8d216722d4408ccf53f2b378c63, type: 3}
+  maxVelocity: 20
+  throwSound: {fileID: 8300000, guid: c1fb1ee8f5f9d7b458d7e0a3252488fd, type: 3}
 --- !u!114 &220829161237279414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,8 +77,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: normalberry
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!114 &8981857977544849672
 MonoBehaviour:
   m_ObjectHideFlags: 0

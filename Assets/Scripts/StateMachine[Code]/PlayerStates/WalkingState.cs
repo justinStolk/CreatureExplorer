@@ -4,13 +4,14 @@ using UnityEngine.InputSystem;
 //[RequireComponent(typeof(Rigidbody), typeof(PhysicsStepper))]
 public class WalkingState : State
 {
-    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float speedMultiplier = 5f;
+    [SerializeField] private AnimationCurve speedCurve;
     [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float strafeSprintSpeed = 8f;
     [SerializeField] private float maxSprintAngle = 15f;
 
-    [SerializeField] private float walkLoudness = 5f;
-    [SerializeField] private float sprintLoudness = 15f;
+    [SerializeField] private float minWalkLoudness = 5f;
+    [SerializeField] private float maxWalkLoudness = 15f;
 
     [SerializeField] private LayerMask playerLayer;
 
@@ -51,7 +52,7 @@ public class WalkingState : State
 
     public void GetMoveInput(InputAction.CallbackContext callbackContext)
     {
-        moveInput = callbackContext.ReadValue<Vector2>().normalized;
+        moveInput = callbackContext.ReadValue<Vector2>();//.normalized;
     }
 
     public void GetJumpInput(InputAction.CallbackContext callbackContext)
@@ -64,13 +65,18 @@ public class WalkingState : State
 
     private void Move()
     {
+        float inputMagnitute = moveInput.magnitude;
+        inputMagnitute = speedCurve.Evaluate(inputMagnitute);
+
         if (moveInput.sqrMagnitude >= 0.1f)
         {
-            PlayerController.SetLoudness(isSprinting ? sprintLoudness : walkLoudness);
+            isSprinting = inputMagnitute * speedMultiplier >= sprintSpeed;
 
-            float speed = walkSpeed;
+            PlayerController.SetLoudness(Mathf.Lerp(minWalkLoudness, maxWalkLoudness, inputMagnitute));
+
+            float speed = speedMultiplier * inputMagnitute;
             float inputAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
-            float targetAngle = inputAngle + rb.transform.eulerAngles.y;
+            float targetAngle = inputAngle + transform.eulerAngles.y;
 
             if (isSprinting)
             {
