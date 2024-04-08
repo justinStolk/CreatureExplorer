@@ -18,14 +18,16 @@ public class WalkingState : State
     private bool isSprinting;
 
     private Vector2 moveInput;
-    private Transform cameraTransform;
+    [SerializeField] private Transform cameraTransform;
 
     [SerializeField] private Rigidbody rb;
     private PhysicsStepper stepper;
 
     private void Awake()
     {
-        cameraTransform = Camera.main.transform;
+        if (cameraTransform == null)
+            cameraTransform = Camera.main.transform;
+
         //rigidbody = GetComponent<Rigidbody>();
         stepper = GetComponent<PhysicsStepper>();
         if(strafeSprintSpeed >= sprintSpeed)

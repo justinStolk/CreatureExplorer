@@ -57,7 +57,7 @@ public class Scrapbook : MonoBehaviour
 
         StaticQuestHandler.OnAltarActivated += CheckAllMainQuestProgress;
 
-        DialogueTrigger.OnDialogueTriggered += UnlockBook;
+        //DialogueTrigger.OnDialogueTriggered += UnlockBook;
 
         SetupScrapbook();
 
