@@ -38,7 +38,6 @@ public class QuestAltar : MonoBehaviour, IInteractable
 
     public void Activate()
     {
-        // TODO: add quest to quest tracker
         altarActivated = true;
 
         StaticQuestHandler.OnPictureInScrapbook += AddPicture;

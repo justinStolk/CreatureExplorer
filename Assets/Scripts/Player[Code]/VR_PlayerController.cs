@@ -97,7 +97,7 @@ public class VR_PlayerController : MonoBehaviour
         pouch = GetComponentInChildren<BerryPouch>();
 
         // TODO: Change how upgrades are given
-        GrandTemple.OnRingExtended += UnlockPouch;
+        //GrandTemple.OnRingExtended += UnlockPouch;
         DialogueTrigger.OnDialogueTriggered += UnlockNotebook;
 
         StaticQuestHandler.OnQuestOpened += () =>
@@ -115,12 +115,12 @@ public class VR_PlayerController : MonoBehaviour
             stateMachine.SwitchState(typeof(WalkingState));
         };
 
-#if UNITY_EDITOR
         if (scrapbookUnlocked) UnlockNotebook();
 
-        if (pouchUnlocked) UnlockPouch();
+#if UNITY_EDITOR
+        //if (pouchUnlocked) UnlockPouch();
 
-        if (climbingUnlocked) UnlockClimb();
+        //if (climbingUnlocked) UnlockClimb();
 #endif
     }
 
@@ -128,8 +128,8 @@ public class VR_PlayerController : MonoBehaviour
     {
         onCameraClosed?.Invoke();
 
-        Scrapbook.OnBeginType += StartTyping;
-        Scrapbook.OnEndType += StopTyping;
+        //Scrapbook.OnBeginType += StartTyping;
+        //Scrapbook.OnEndType += StopTyping;
     }
 
     // Update is called once per frame
@@ -170,6 +170,8 @@ public class VR_PlayerController : MonoBehaviour
         }
     }
 
+    #region flatscreen interaction
+    /*
     public void StartTyping()
     {
         playerInput.actions.FindAction("QuickCloseBook").Disable();
@@ -199,7 +201,7 @@ public class VR_PlayerController : MonoBehaviour
                 onHurt?.Invoke();
             }
             */
-
+    /*
             if (interactableInRange.GetType() == typeof(Throwable))
             {
                 Throwable berry = interactableInRange as Throwable;
@@ -234,6 +236,70 @@ public class VR_PlayerController : MonoBehaviour
         }
     }
 
+    // TODO: move to throwable script?
+    /*
+    public void GetThrowInput(InputAction.CallbackContext context)
+    {
+        if (context.started && heldThrowable != null)
+        {
+            heldThrowable.GetComponent<Rigidbody>().isKinematic = false;
+            heldThrowable.Throw(firstPersonCamera.transform.forward, throwForce);
+            pouch.HoldingBerry = false;
+            heldThrowable = null;
+            onBerryThrown?.Invoke();
+        }
+    }
+    */
+    /*
+    public void ReceiveRetrievedBerry(Throwable berry)
+    {
+        CarryThrowable(berry);
+    }
+
+    public void ToggleBerryPouch(bool newState)
+    {
+        if (!pouchUnlocked || berryPouchIsOpen == newState) return;
+
+        berryPouchIsOpen = newState;
+        if (berryPouchIsOpen)
+        {
+            pouch.OpenPouch();
+            return;
+        }
+        pouch.ClosePouch();
+    }
+
+    private void CarryThrowable(Throwable throwable)
+    {
+        heldThrowable = throwable;
+        heldThrowable.gameObject.SetActive(true);
+        //heldThrowable.transform.SetParent(throwPoint);
+        heldThrowable.transform.rotation = Quaternion.identity;
+        heldThrowable.transform.localPosition = Vector3.zero;
+        heldThrowable.GetComponent<Rigidbody>().isKinematic = true;
+        heldThrowable.Interact();
+    }
+
+    private void UnlockClimb()
+    {
+        climbingUnlocked = true;
+        onClimbingUnlocked?.Invoke();
+        GrandTemple.OnRingExtended -= UnlockClimb;
+    }
+
+    private void UnlockPouch()
+    {
+        pouchUnlocked = true;
+        pouch.Unlock();
+        onPouchUnlocked?.Invoke();
+        GrandTemple.OnRingExtended -= UnlockPouch;
+        GrandTemple.OnRingExtended += UnlockClimb;
+        LinkModule("Overworld");
+    }
+    */
+    #endregion
+
+
     public void GetCloseScrapbookInput(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.started)
@@ -267,26 +333,6 @@ public class VR_PlayerController : MonoBehaviour
 
     public static void SetLoudness(float newLoudness) => Loudness = newLoudness;
 
-    // TODO: move to throwable script?
-    /*
-    public void GetThrowInput(InputAction.CallbackContext context)
-    {
-        if (context.started && heldThrowable != null)
-        {
-            heldThrowable.GetComponent<Rigidbody>().isKinematic = false;
-            heldThrowable.Throw(firstPersonCamera.transform.forward, throwForce);
-            pouch.HoldingBerry = false;
-            heldThrowable = null;
-            onBerryThrown?.Invoke();
-        }
-    }
-    */
-
-    public void ReceiveRetrievedBerry(Throwable berry)
-    {
-        CarryThrowable(berry);
-    }
-
     public void GoDie() => StartCoroutine(Die());
 
     public void ToggleBerryPouch(InputAction.CallbackContext context)
@@ -303,19 +349,6 @@ public class VR_PlayerController : MonoBehaviour
             }
             pouch.ClosePouch();
         }
-    }
-
-    public void ToggleBerryPouch(bool newState)
-    {
-        if (!pouchUnlocked || berryPouchIsOpen == newState) return;
-
-        berryPouchIsOpen = newState;
-        if (berryPouchIsOpen)
-        {
-            pouch.OpenPouch();
-            return;
-        }
-        pouch.ClosePouch();
     }
 
     public void LinkModule(string linkTo)
@@ -353,17 +386,6 @@ public class VR_PlayerController : MonoBehaviour
         module.leftClick = InputActionReference.Create(playerInput.actions.FindActionMap("Menu").FindAction("Click"));
         module.point = InputActionReference.Create(playerInput.actions.FindActionMap("Menu").FindAction("Point"));
         module.move = InputActionReference.Create(playerInput.actions.FindActionMap("Menu").FindAction("Move"));
-    }
-
-    private void CarryThrowable(Throwable throwable)
-    {
-        heldThrowable = throwable;
-        heldThrowable.gameObject.SetActive(true);
-        //heldThrowable.transform.SetParent(throwPoint);
-        heldThrowable.transform.rotation = Quaternion.identity;
-        heldThrowable.transform.localPosition = Vector3.zero;
-        heldThrowable.GetComponent<Rigidbody>().isKinematic = true;
-        heldThrowable.Interact();
     }
 
     private void HandleHeadsetMovement()
@@ -459,23 +481,6 @@ public class VR_PlayerController : MonoBehaviour
         scrapbookUnlocked = true;
         onScrapbookUnlocked.Invoke();
         DialogueTrigger.OnDialogueTriggered -= UnlockNotebook;
-    }
-
-    private void UnlockClimb()
-    {
-        climbingUnlocked = true;
-        onClimbingUnlocked?.Invoke();
-        GrandTemple.OnRingExtended -= UnlockClimb;
-    }
-
-    private void UnlockPouch()
-    {
-        pouchUnlocked = true;
-        pouch.Unlock();
-        onPouchUnlocked?.Invoke();
-        GrandTemple.OnRingExtended -= UnlockPouch;
-        GrandTemple.OnRingExtended += UnlockClimb;
-        LinkModule("Overworld");
     }
 
     // TODO: make into state?

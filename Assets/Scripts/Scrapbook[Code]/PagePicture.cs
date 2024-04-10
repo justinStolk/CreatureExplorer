@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PagePicture : PageComponent, IPointerClickHandler
 {
     public PictureInfo PictureInfo { get; private set; }
-    [field: ShowOnly]public bool evaluated = false;
+    [field: ShowOnly] public bool evaluated = false;
 
     public static System.Action<PagePicture> OnPictureClicked;
     public static System.Action OnBeginPictureDrag;
