@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VertexPaintRock
+  m_Name: SMAT_RockBig_TB
   m_Shader: {fileID: -6465566751694194690, guid: 18a4fd66097c7fc44bd2347bf94fa46c,
     type: 3}
   m_ValidKeywords: []
@@ -35,7 +35,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture1:
-        m_Texture: {fileID: 2800000, guid: 388dd96543bd88646804554539afb524, type: 3}
+        m_Texture: {fileID: 2800000, guid: 737904e988be5c040a474eebb6f58b71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoTexture2:
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 119969ff36b2d074c94cf3986fdd2838, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9aa67eae1bacdeb458f66d7c7a7f0836, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Texture_2:
@@ -68,6 +68,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Normal_Texture_4:
         m_Texture: {fileID: 2800000, guid: 556df9f7c80bdc248819b8948906500d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Smoothness_1:
+        m_Texture: {fileID: 2800000, guid: b2807898b6ea923428611a62056f671a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -84,18 +88,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Contrast: 3.03
-    - _Edgenoise: 53.85
+    - _Contrast: 13.93
+    - _Edgenoise: 44.1
     - _Float: -0.46
     - _Float_1: 0.81
     - _Gloss: 0
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Strength: -0.66
-    - _T3_Tiling: 1
+    - _Strength: -0.12
+    - _T3_Tiling: 2.5
     - _Transparancy: 1
     - _add: 5.41
+    - _size: 0.3
     - _teast: 6.9
     - _wqesrgdth: 0.01
     m_Colors: []
