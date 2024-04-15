@@ -18,6 +18,7 @@ public class CrouchingState : State
     private Camera firstPersonCamera;
 
     private Vector2 moveInput;
+    [SerializeField] private Transform cameraTransform;
 
     [SerializeField] private Rigidbody rb;
     private PhysicsStepper stepper;
@@ -27,6 +28,8 @@ public class CrouchingState : State
 
     private void Awake()
     {
+        if (cameraTransform == null)
+            cameraTransform = Camera.main.transform;
         //rigidbody = GetComponent<Rigidbody>();
         stepper = GetComponent<PhysicsStepper>();
     }
@@ -139,8 +142,8 @@ public class CrouchingState : State
         {
             PlayerController.SetLoudness(sneakLoudness);
 
-            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + transform.eulerAngles.y;
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * (VRChecker.IsVR ? transform.forward : Vector3.forward);
+            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + transform.eulerAngles.y; 
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * cameraTransform.forward;
 
             stepper.HandleStep(ref rb, moveDirection);
 

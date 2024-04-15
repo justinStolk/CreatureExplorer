@@ -2670,6 +2670,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  cameraTransform: {fileID: 1641381742722819653}
   rb: {fileID: 1616667484964944804}
   capsuleCollider: {fileID: 747304478}
 --- !u!114 &7802370982375549875
@@ -2747,6 +2748,7 @@ MonoBehaviour:
   sharedPlayerSource: {fileID: 5131932798696487446}
   hurtSound: {fileID: 8300000, guid: 6d8140b87acd220499955e8ee610ae7c, type: 3}
   volume: {fileID: 0}
+  cameraTransform: {fileID: 1641381742722819653}
   rb: {fileID: 1616667484964944804}
 --- !u!114 &6140142888040331764
 MonoBehaviour:
