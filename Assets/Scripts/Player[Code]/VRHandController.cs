@@ -20,6 +20,7 @@ public class VRHandController : MonoBehaviour
     [SerializeField] private UnityEvent onRelease;
 
     [Header("Settings")]
+    [SerializeField] private UnityEngine.XR.XRNode handSource;
     [SerializeField] private VRHandController otherHand;
     [SerializeField] private LayerMask PointingInteractionLayers;
     [Header("Fainting")]
@@ -37,6 +38,8 @@ public class VRHandController : MonoBehaviour
     [Header("Grabbing things")]
     [SerializeField] private Vector3 grabOffset;
     [SerializeField] private float grabRadius;
+
+    private UnityEngine.XR.InputDevice handDevice;
 
     private Transform cameraTransform;
     private bool lookingAtPalm = false;
@@ -61,6 +64,8 @@ public class VRHandController : MonoBehaviour
         cameraTransform = Camera.main.transform;
 
         TryGetComponent(out line);
+
+        handDevice = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(handSource);
     }
 
     // Update is called once per frame
@@ -258,6 +263,21 @@ public class VRHandController : MonoBehaviour
             grabbedObj = null;
             holding = false;
         }
+    }
+
+    public void DoHaptics(float strength)
+    {
+       handDevice.SendHapticImpulse(0, strength);
+    }
+
+    public void DoHaptics(float strength, float duration)
+    {
+       handDevice.SendHapticImpulse(0, strength, duration);
+    }
+
+    public void StopHaptics()
+    {
+        handDevice.StopHaptics();
     }
 
     private bool HandsAligned(float angleMultiplier = 1)

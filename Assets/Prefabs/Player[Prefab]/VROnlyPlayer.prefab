@@ -342,6 +342,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 146597742627518909}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5005570596392204449}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onPalmsUnaligned:
     m_PersistentCalls:
       m_Calls:
@@ -415,6 +439,7 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls: []
+  handSource: 5
   otherHand: {fileID: 5005570596392204449}
   PointingInteractionLayers:
     serializedVersion: 2
@@ -1181,6 +1206,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5005570596392204449}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLookFromPalm:
     m_PersistentCalls:
       m_Calls:
@@ -1193,6 +1230,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5005570596392204449}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1223,6 +1272,7 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls: []
+  handSource: 4
   otherHand: {fileID: 146597742627518909}
   PointingInteractionLayers:
     serializedVersion: 2
@@ -1834,6 +1884,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 146597742627518909}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
