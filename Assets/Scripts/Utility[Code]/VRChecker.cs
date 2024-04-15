@@ -6,7 +6,7 @@ public class VRChecker : MonoBehaviour
 {
     private static bool isVR = false;
 
-    private void Start()
+    private void OnApplicationFocus(bool focus)
     {
         var inputDevices = new List<UnityEngine.XR.InputDevice>();
         UnityEngine.XR.InputDevices.GetDevices(inputDevices);
