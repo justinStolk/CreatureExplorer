@@ -265,9 +265,9 @@ public class VRHandController : MonoBehaviour
         }
     }
 
-    public void DoHaptics(float strength)
+    public void DoHaptics(float duration)
     {
-       handDevice.SendHapticImpulse(0, strength);
+       handDevice.SendHapticImpulse(0, 1, duration);
     }
 
     public void DoHaptics(float strength, float duration)
@@ -285,6 +285,16 @@ public class VRHandController : MonoBehaviour
         return (Vector3.Dot(transform.up, otherHand.transform.up) > palmAlignmentAccuracy * angleMultiplier && 
             Vector3.Dot(transform.forward, cameraTransform.up) > handUpAccuracy * angleMultiplier && 
             Vector3.Dot(otherHand.transform.forward, cameraTransform.up) > handUpAccuracy * angleMultiplier);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.TryGetComponent(out Button button))
+        {
+            DoHaptics(0.4f);
+            button.onClick.Invoke();
+        }
     }
 
 #if UNITY_EDITOR

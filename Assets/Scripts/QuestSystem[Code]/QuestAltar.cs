@@ -103,6 +103,7 @@ public class QuestAltar : MonoBehaviour, IInteractable
         if (other.TryGetComponent(out VRHandController hand))
         {
             interactTime = 0;
+            hand.StopHaptics();
 
             if (meshRenderer.material != null)
             {

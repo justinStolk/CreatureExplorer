@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5273640289399029550}
   - component: {fileID: 1951546273520255924}
   - component: {fileID: 3085903579265145132}
-  - component: {fileID: 3213754901357449108}
   m_Layer: 5
   m_Name: StickerButton
   m_TagString: Untagged
@@ -136,15 +135,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 150, y: 150, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3213754901357449108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3768127535659851151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1414de2171ae3764e8318005e54747de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

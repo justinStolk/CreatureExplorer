@@ -74,6 +74,9 @@ public class VR_PlayerController : MonoBehaviour
     private IInteractable interactableInRange;
     private Throwable heldThrowable;
 
+    // TODO: refactor?
+    private string previousActionmap;
+
     private void Awake()
     {
         if (!module)
@@ -156,18 +159,28 @@ public class VR_PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            playerInput.SwitchCurrentActionMap("Camera");
-            onCameraOpened?.Invoke();
+            OpenCamera();
         }
+    }
+
+    public void OpenCamera() 
+    {
+        LinkModule("Camera");
+        onCameraOpened?.Invoke();
     }
 
     public void SwapFromCamera(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.started)
         {
-            playerInput.SwitchCurrentActionMap("Overworld");
-            onCameraClosed?.Invoke();
+            CloseCamera();
         }
+    }
+
+    public void CloseCamera()
+    {
+        LinkModule(previousActionmap);
+        onCameraClosed?.Invoke();
     }
 
     #region flatscreen interaction
@@ -310,10 +323,10 @@ public class VR_PlayerController : MonoBehaviour
 
     public void CloseScrapbook()
     {
-            playerInput.SwitchCurrentActionMap("Overworld");
-            Cursor.lockState = CursorLockMode.Locked;
-            onScrapbookClosed?.Invoke();
-
+        LinkModule(previousActionmap);
+        //playerInput.SwitchCurrentActionMap("Overworld");
+        Cursor.lockState = CursorLockMode.Locked;
+        onScrapbookClosed?.Invoke();
     }
 
     public void GetOpenScrapbookInput(InputAction.CallbackContext callbackContext)
@@ -353,6 +366,7 @@ public class VR_PlayerController : MonoBehaviour
 
     public void LinkModule(string linkTo)
     {
+        previousActionmap = playerInput.currentActionMap.name;
         playerInput.SwitchCurrentActionMap(linkTo);
         module.leftClick = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Click"));
         module.point = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Point"));

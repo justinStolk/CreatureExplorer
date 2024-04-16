@@ -18,10 +18,10 @@ public class SlowRotate : MonoBehaviour
 #endif
 
         if (Mathf.Abs(currentAngle) > rotationSensitivity)
-            transform.RotateAround(rotationTarget.position, transform.parent.up, rotationTarget.rotation.y+(currentAngle * 0.01f));
+            transform.RotateAround(rotationTarget.position, transform.parent.up, (currentAngle * 0.1f));
 
-        //transform.LookAt(Camera.main.transform.position, Vector3.up);
-        //transform.Rotate(new Vector3(0, 180, 0));
+        transform.LookAt(Camera.main.transform.position, Vector3.up);
+        transform.Rotate(new Vector3(0, 180, 0));
 
         if (TryGetComponent(out FollowTarget target))
         {
