@@ -9,13 +9,15 @@ using UnityEngine.UI;
 public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] private Camera pictureCamera;
-    [SerializeField] private float zoomSensitivity;
-    [SerializeField, Range(5, 20)] private float minimumFieldOfView = 5f;
-    [SerializeField, Range(40, 80)] private float maximumFieldOfView = 60f;
+
+    [field: HideArrow, SerializeField] private bool zoomSettings;
+    [field: ConditionalHide("zoomSettings", true), SerializeField] private float zoomSensitivity;
+    [field: ConditionalHide("zoomSettings", true), SerializeField, Range(5, 20)] private float minimumFieldOfView = 5f;
+    [field: ConditionalHide("zoomSettings", true), SerializeField, Range(40, 80)] private float maximumFieldOfView = 60f;
 
     [Tooltip("Event that carries the edited sensitivity based on the original zoom and current zoom")]
     [SerializeField] private UnityEvent<float> onZoomLevelChanged;
-    [SerializeField] private Slider camZoomSlider;
+    [field: ConditionalHide("zoomSettings", true), SerializeField] private Slider camZoomSlider;
 
     [SerializeField] private PagePicture picturePrefab;
 
@@ -26,13 +28,13 @@ public class PlayerCamera : MonoBehaviour
 
     [SerializeField, Range(1, 100)] private int photoAccuracy = 50;
 
-    [Header("Effects")]
-    [SerializeField] private AudioClip shutterSound;
-    [SerializeField] private AudioClip storageFullSound;
-    [field: SerializeField] private AudioClip zoomInSound, zoomOutSound;
-    [SerializeField] private Animator shutterTop, shutterBottom;
+    [field: HideArrow, SerializeField] private bool effectSettings;
+    [field: ConditionalHide("effectSettings", true), SerializeField] private AudioClip shutterSound;
+    [field: ConditionalHide("effectSettings", true), SerializeField] private AudioClip storageFullSound;
+    [field: ConditionalHide("effectSettings", true), SerializeField] private AudioClip zoomInSound, zoomOutSound;
+    [field: ConditionalHide("effectSettings", true), SerializeField] private Animator shutterTop, shutterBottom;
 
-    [SerializeField] private SoundPlayer soundPlayer;
+    [field: ConditionalHide("effectSettings", true), SerializeField] private SoundPlayer soundPlayer;
 
     private float originalZoom;
 

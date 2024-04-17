@@ -10,14 +10,14 @@ public class VR_PlayerController : MonoBehaviour
     public static float Loudness { get; private set; } = 5;
     public InputSystemUIInputModule InputModule { get { return module; } }
 
-    [Header("Interaction and Physicality")]
-    [SerializeField] private float maximumViewAngle = 70f;
-    [SerializeField] private float interactionDistance = 2f;
-    [SerializeField] private float interactionRadius = 1.25f;
-    //[SerializeField] private float climbDistance = 0.25f;
-    [SerializeField] private float readingDistance = 15f;
+    [field: HideArrow, SerializeField] private bool interactionSettings;
+    [field: ConditionalHide("interactionSettings", true), SerializeField] private float maximumViewAngle = 70f;
+    [field: ConditionalHide("interactionSettings", true), SerializeField] private float interactionDistance = 2f;
+    [field: ConditionalHide("interactionSettings", true), SerializeField] private float interactionRadius = 1.25f;
+    //[field: ConditionalHide("interactionSettings", true), SerializeField] private float climbDistance = 0.25f;
+    [field: ConditionalHide("interactionSettings", true), SerializeField] private float readingDistance = 15f;
 
-    [SerializeField] private LayerMask interactionLayers;
+    [field: ConditionalHide("interactionSettings", true), SerializeField] private LayerMask interactionLayers;
     [SerializeField] private LayerMask waterLayer;
 
     [SerializeField] private GameSettings gameSettings;
@@ -36,23 +36,22 @@ public class VR_PlayerController : MonoBehaviour
     [SerializeField] private UnityEvent onBerryThrown;
     [SerializeField] private UnityEvent onBerryPickup;
 
+    [field: HideArrow, SerializeField] private bool respawnSettings;
+    [field: ConditionalHide("respawnSettings", true), SerializeField] private float respawnDuration = 0.5f;
+    [field: ConditionalHide("respawnSettings", true), SerializeField] private AnimationCurve respawnFade;
+    [field: ConditionalHide("respawnSettings", true), SerializeField] private float drowningHeight = 1.2f;
+    [field: ConditionalHide("respawnSettings", true), SerializeField] private GameObject uiCanvas;
+    [field: ConditionalHide("respawnSettings", true), SerializeField] private Transform respawnTransform;
+    [field: ConditionalHide("respawnSettings", true), SerializeField] private GameObject deathScreen;
+    [field: ConditionalHide("respawnSettings", true), SerializeField] private GameObject respawnOccluder;
 
-    [Header("Death and Respawn")]
-    [SerializeField] private float respawnDuration = 0.5f;
-    [SerializeField] private AnimationCurve respawnFade;
-    [SerializeField] private float drowningHeight = 1.2f;
-    [SerializeField] private GameObject uiCanvas;
-    [SerializeField] private Transform respawnTransform;
-    [SerializeField] private GameObject deathScreen;
-    [SerializeField] private GameObject respawnOccluder;
-
-
+    [field: HideArrow, SerializeField] private bool upgradesSettings;
     [Tooltip("Serialized for testing purposes")]
-    [SerializeField] private bool scrapbookUnlocked;
+    [field: ConditionalHide("upgradesSettings", true), SerializeField] private bool scrapbookUnlocked;
     [Tooltip("Serialized for testing purposes")]
-    [SerializeField] private bool climbingUnlocked;
+    [field: ConditionalHide("upgradesSettings", true), SerializeField] private bool climbingUnlocked;
     [Tooltip("Only Serialized for testing purposes")]
-    [SerializeField] private bool pouchUnlocked;
+    [field: ConditionalHide("upgradesSettings", true), SerializeField] private bool pouchUnlocked;
 
     [SerializeField] private InputSystemUIInputModule module;
 

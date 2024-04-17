@@ -259,6 +259,7 @@ RectTransform:
   - {fileID: 7568655017611327500}
   - {fileID: 2415103540286838876}
   - {fileID: 3902586369954672143}
+  - {fileID: 6538044436681668049}
   m_Father: {fileID: 1616667484964944795}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -357,6 +358,9 @@ MonoBehaviour:
           m_StringArgument: Overworld
           m_BoolArgument: 0
         m_CallState: 2
+  onBookGesture:
+    m_PersistentCalls:
+      m_Calls: []
   onFaint:
     m_PersistentCalls:
       m_Calls:
@@ -404,18 +408,21 @@ MonoBehaviour:
         m_CallState: 2
   handSource: 5
   otherHand: {fileID: 5005570596392204449}
-  PointingInteractionLayers:
-    serializedVersion: 2
-    m_Bits: 32
+  faintSettings: 0
   faintingPalmAngle: 120
   sqrDistanceHandToForehead: 0.08
   secondsToFaint: 5
   volume: {fileID: 0}
+  palmLookSettings: 0
   lookAtPalmAngle: 45
   lookFromPalmAngle: 60
+  palmParallelSettings: 0
   palmAlignmentAccuracy: 0.8
   handUpAccuracy: 0.95
   sqrMaxHandDistance: 0.4
+  sqrMinHandDistance: 0.15
+  bookOpenAngle: 30
+  grabSettings: 0
   grabOffset: {x: 0, y: -0.1, z: 0}
   grabRadius: 0.15
 --- !u!120 &1446184393304645882
@@ -830,6 +837,89 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!1 &2114228071140915078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6538044436681668049}
+  - component: {fileID: 5380528049444685908}
+  - component: {fileID: 8607565308474690441}
+  m_Layer: 6
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6538044436681668049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114228071140915078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.048, y: 0, z: -0.026}
+  m_LocalScale: {x: 0.074514, y: 0.05, z: 0.09194606}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2450924607502250440}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &5380528049444685908
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114228071140915078}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f9a45e230c705fb41876ded2ee57fa4b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &8607565308474690441
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114228071140915078}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4057324757281580534
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +1062,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3094374b87aa17941be79d4af5a87893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4319288486453424417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5954466573707652111}
+  - component: {fileID: 5369570764711319777}
+  - component: {fileID: 867662630387151690}
+  - component: {fileID: 6561819443598174295}
+  m_Layer: 6
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5954466573707652111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319288486453424417}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.048, y: 0, z: -0.034}
+  m_LocalScale: {x: 0.072048, y: 0.05, z: 0.082269005}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 275664693021491252}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5369570764711319777
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319288486453424417}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &867662630387151690
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319288486453424417}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2c23d8941a1a15c428622c87d1b57ca6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6561819443598174295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319288486453424417}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4761974227817334907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1324,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8951846016961644621}
+  - {fileID: 5954466573707652111}
   - {fileID: 8246276116860370729}
   m_Father: {fileID: 1616667484964944795}
   m_RootOrder: 2
@@ -1173,19 +1361,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLookAtPalm:
     m_PersistentCalls:
+      m_Calls: []
+  onLookFromPalm:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6150367404358822588}
-        m_TargetAssemblyTypeName: VR_PlayerController, Assembly-CSharp
-        m_MethodName: OpenScrapbook
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5005570596392204449}
         m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
         m_MethodName: DoHaptics
@@ -1198,9 +1377,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onLookFromPalm:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 6150367404358822588}
         m_TargetAssemblyTypeName: VR_PlayerController, Assembly-CSharp
         m_MethodName: CloseScrapbook
@@ -1213,6 +1389,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onPalmsParallel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5005570596392204449}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5005570596392204449}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: BookOpenCheck
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onPalmsUnaligned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5005570596392204449}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: BookOpenCheck
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onBookGesture:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 5005570596392204449}
         m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
         m_MethodName: DoHaptics
@@ -1225,12 +1446,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onPalmsParallel:
-    m_PersistentCalls:
-      m_Calls: []
-  onPalmsUnaligned:
-    m_PersistentCalls:
-      m_Calls: []
+      - m_Target: {fileID: 146597742627518909}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6150367404358822588}
+        m_TargetAssemblyTypeName: VR_PlayerController, Assembly-CSharp
+        m_MethodName: OpenScrapbook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFaint:
     m_PersistentCalls:
       m_Calls:
@@ -1278,18 +1517,21 @@ MonoBehaviour:
         m_CallState: 2
   handSource: 4
   otherHand: {fileID: 146597742627518909}
-  PointingInteractionLayers:
-    serializedVersion: 2
-    m_Bits: 32
+  faintSettings: 0
   faintingPalmAngle: 120
   sqrDistanceHandToForehead: 0.08
   secondsToFaint: 5
   volume: {fileID: 0}
+  palmLookSettings: 1
   lookAtPalmAngle: 45
-  lookFromPalmAngle: 60
+  lookFromPalmAngle: 160
+  palmParallelSettings: 1
   palmAlignmentAccuracy: 0.8
-  handUpAccuracy: 0.7
-  sqrMaxHandDistance: 0.4
+  handUpAccuracy: 0.5
+  sqrMaxHandDistance: 0.1
+  sqrMinHandDistance: 0.001
+  bookOpenAngle: 30
+  grabSettings: 0
   grabOffset: {x: 0, y: -0.1, z: 0}
   grabRadius: 0.15
 --- !u!65 &8167711836487203797
@@ -2331,6 +2573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1237229ad19d8418196f86cab62215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionSettings: 0
   maximumViewAngle: 55
   interactionDistance: 1
   interactionRadius: 1.5
@@ -2565,6 +2808,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  respawnSettings: 0
   respawnDuration: 6
   respawnFade:
     serializedVersion: 2
@@ -2624,6 +2868,7 @@ MonoBehaviour:
     type: 3}
   respawnOccluder: {fileID: 919132149155446097, guid: 011f046753e882848b1beffb3ae199e3,
     type: 3}
+  upgradesSettings: 0
   scrapbookUnlocked: 0
   climbingUnlocked: 0
   pouchUnlocked: 0
@@ -2642,6 +2887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pictureCamera: {fileID: 4593633704334167124}
+  zoomSettings: 0
   zoomSensitivity: 0.1
   minimumFieldOfView: 5
   maximumFieldOfView: 60
@@ -2658,6 +2904,7 @@ MonoBehaviour:
     m_Bits: 100
   exceptionText: {fileID: 0}
   photoAccuracy: 10
+  effectSettings: 0
   shutterSound: {fileID: 8300000, guid: 8ba07fb6dccbc6942b5db0ab417597f2, type: 3}
   storageFullSound: {fileID: 8300000, guid: fa732e06d2d33bc4281e7dc3b47a7b1e, type: 3}
   zoomInSound: {fileID: 8300000, guid: 637e23a180b9cd74b9fef2f3854902c4, type: 3}
@@ -5588,7 +5835,7 @@ PrefabInstance:
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
@@ -5623,12 +5870,12 @@ PrefabInstance:
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0005
+      value: 0.0004
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0005
+      value: 0.0004
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
@@ -5643,32 +5890,32 @@ PrefabInstance:
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.47200012
+      value: 0.236
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.09229592
+      value: 0.7698274
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.09229592
+      value: 0.5931843
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7010574
+      value: -0.17400947
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7010574
+      value: -0.1588047
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.26013184
+      value: 0.242
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
@@ -5678,17 +5925,17 @@ PrefabInstance:
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -105
+      value: 59.096
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -62.682
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: -61.403
       objectReference: {fileID: 0}
     - target: {fileID: 2720923986202069567, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
