@@ -177,7 +177,8 @@ public class VRHandController : MonoBehaviour
 
     private void CheckForBookGesture()
     {
-        if (Vector3.Angle(transform.right, otherHand.transform.right) > bookOpenAngle)
+        //if (Vector3.Angle(transform.right, otherHand.transform.right) > bookOpenAngle)
+        if (Mathf.Abs(transform.rotation.z - otherHand.transform.rotation.z) > bookOpenAngle)
         {
             onBookGesture.Invoke();
             checkBookOpening = false;

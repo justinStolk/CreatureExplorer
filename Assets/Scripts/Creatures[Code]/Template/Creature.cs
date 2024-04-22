@@ -190,8 +190,6 @@ public class Creature : MonoBehaviour
     /// </summary>
     private void UpdateValues()
     {
-        // TODO: reenable after daynight cycle is put in again
-        /*
         // TODO: get rid of magic number
         // Make creature tire faster when it's bedtime
         try
@@ -205,7 +203,6 @@ public class Creature : MonoBehaviour
             DebugMessage("Cozyweather is not active");
 #endif
         }
-        */
         foreach (MoodState change in data.ChangesEverySecond.CreatureStates)
         {
             if (change.Operator == StateOperant.Add)

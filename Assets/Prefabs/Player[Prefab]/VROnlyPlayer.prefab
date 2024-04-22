@@ -416,7 +416,7 @@ MonoBehaviour:
   palmLookSettings: 0
   lookAtPalmAngle: 45
   lookFromPalmAngle: 60
-  palmParallelSettings: 0
+  palmParallelSettings: 1
   palmAlignmentAccuracy: 0.8
   handUpAccuracy: 0.95
   sqrMaxHandDistance: 0.4
@@ -1528,9 +1528,9 @@ MonoBehaviour:
   palmParallelSettings: 1
   palmAlignmentAccuracy: 0.8
   handUpAccuracy: 0.5
-  sqrMaxHandDistance: 0.1
+  sqrMaxHandDistance: 0.05
   sqrMinHandDistance: 0.001
-  bookOpenAngle: 30
+  bookOpenAngle: 45
   grabSettings: 0
   grabOffset: {x: 0, y: -0.1, z: 0}
   grabRadius: 0.15

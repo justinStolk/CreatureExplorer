@@ -62,7 +62,7 @@ MonoBehaviour:
   splatVelocity: 2
   inventoryGraphic: {fileID: 21300000, guid: 1da57cacfd902c347ac6287903f8ec7c, type: 3}
   hoverGraphic: {fileID: 21300000, guid: 615ae8d216722d4408ccf53f2b378c63, type: 3}
-  maxVelocity: 20
+  maxVelocity: 40
   throwSound: {fileID: 8300000, guid: c1fb1ee8f5f9d7b458d7e0a3252488fd, type: 3}
 --- !u!114 &220829161237279414
 MonoBehaviour:
@@ -153,7 +153,7 @@ Rigidbody:
   m_AngularDrag: 0.4
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!64 &6385674991026645520
