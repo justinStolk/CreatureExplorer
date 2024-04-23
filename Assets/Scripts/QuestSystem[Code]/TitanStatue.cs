@@ -4,24 +4,37 @@ using UnityEngine.InputSystem;
 
 public class TitanStatue : MonoBehaviour, IInteractable
 {
-    [field:SerializeField] public string InteractionPrompt { get; private set; } = "Interact";
+    [field: Header("Interact")]
+    [field: SerializeField] public string InteractionPrompt { get; private set; } = "Interact";
+    [field: SerializeField] private float InteractHandTimer = 2;
+    [SerializeField] private MeshRenderer interactRenderer;
 
+    [field: Header("Quest")]
     [field: SerializeField] public Quest TitanQuest { get; private set; }
-
-    //[Tooltip("To which ring does this statue belong? 0 = Top Ring")]
-    //[SerializeField] private int ringIndex;
-
-    [SerializeField] private Renderer pictureRenderer;
-
-    [SerializeField] private Material debugSwapMaterial;
     [SerializeField] private UnityEvent onQuestCompleted;
 
+    [SerializeField] private Material debugSwapMaterial;
+
     private bool questFinished = false;
+
+    private float interactTime;
+
+#if UNITY_EDITOR
+    private void Start()
+    {
+        if (TitanQuest == null)
+        {
+            Debug.LogError("No quest found for: " + gameObject.name);
+            this.enabled = false;
+        }
+    }
+#endif
+
 
     public void Interact()
     {
         if (questFinished) return;
-
+        /*
         Cursor.lockState = CursorLockMode.Confined;
 
         // Move this to the player and subscribe to the QuestHandler's event there.
@@ -41,7 +54,11 @@ public class TitanStatue : MonoBehaviour, IInteractable
         PagePicture.OnPictureClicked += StaticQuestHandler.OnPictureClicked.Invoke;
 
         StaticQuestHandler.OnQuestOpened?.Invoke();
+        */
+
+        DialogueUI.ShowText(TitanQuest.QuestDescription);
     }
+
     public void ShowPicture(PagePicture picture)
     {
         // Evaluate whether any of the objects in the picture info is the object that we're looking for/
@@ -71,6 +88,40 @@ public class TitanStatue : MonoBehaviour, IInteractable
         foreach(MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
         {
             renderer.material = debugSwapMaterial;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent(out VRHandController hand))
+        {
+            hand.DoHaptics(0.3f, Time.fixedDeltaTime);
+
+            interactTime += Time.deltaTime;
+
+            if (interactRenderer.material != null)
+            {
+                interactRenderer.material.color = Color.Lerp(Color.gray, Color.cyan, interactTime / InteractHandTimer);
+            }
+
+            if (interactTime > InteractHandTimer)
+            {
+                Interact();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out VRHandController hand))
+        {
+            interactTime = 0;
+            hand.StopHaptics();
+
+            if (interactRenderer.material != null)
+            {
+                interactRenderer.material.color = Color.gray;
+            }
         }
     }
 }

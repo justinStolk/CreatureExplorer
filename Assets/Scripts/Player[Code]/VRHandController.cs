@@ -13,12 +13,13 @@ public class VRHandController : MonoBehaviour
     [Header("Events")]
     [SerializeField] private UnityEvent onLookAtPalm;
     [SerializeField] private UnityEvent onLookFromPalm;
-    [SerializeField] private UnityEvent onPalmsParallel;
+    [SerializeField] private UnityEvent onPalmsFacing;
     [SerializeField] private UnityEvent onPalmsUnaligned;
     [SerializeField] private UnityEvent onBookGesture;
     [SerializeField] private UnityEvent onFaint;
     [SerializeField] private UnityEvent onGrab;
     [SerializeField] private UnityEvent onRelease;
+    [SerializeField] private UnityEvent onHandDown;
 
     [Header("General Settings")]
     [SerializeField] private UnityEngine.XR.XRNode handSource;
@@ -35,30 +36,36 @@ public class VRHandController : MonoBehaviour
     [field: ConditionalHide("palmLookSettings", true), SerializeField] private float lookAtPalmAngle = 45;
     [field: ConditionalHide("palmLookSettings", true), SerializeField] private float lookFromPalmAngle = 60;
 
-    [field: HideArrow, SerializeField] private bool palmParallelSettings;
-    [field: ConditionalHide("palmParallelSettings", true), SerializeField] private float palmAlignmentAccuracy = 0.8f;
-    [field: ConditionalHide("palmParallelSettings", true), SerializeField] private float handUpAccuracy = 0.9f;
-    [field: ConditionalHide("palmParallelSettings", true), SerializeField] private float sqrMaxHandDistance = 0.3f;
-    [field: ConditionalHide("palmParallelSettings", true), SerializeField] private float sqrMinHandDistance = 0.15f;
-    [field: ConditionalHide("palmParallelSettings", true), SerializeField] private float bookOpenAngle = 30;
+    [field: HideArrow, SerializeField] private bool palmsFacingSettings;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float palmAlignmentAccuracy = 0.8f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float handUpAccuracy = 0.95f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float sqrMaxHandDistance = 0.3f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float sqrMinHandDistance = 0.15f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float bookOpenAngle = 30;
 
     [field: HideArrow, SerializeField] private bool grabSettings;
     [field: ConditionalHide("grabSettings", true), SerializeField] private Vector3 grabOffset;
     [field: ConditionalHide("grabSettings", true), SerializeField] private float grabRadius;
 
+    [field: HideArrow, SerializeField] private bool handHeightSettings;
+    [field: ConditionalHide("handHeightSettings", true), SerializeField] private float handDownHeight;
+
     private UnityEngine.XR.InputDevice handDevice;
 
     private Transform cameraTransform;
     private bool lookingAtPalm = false;
-    private bool palmsParallel = false;
+    private bool palmsFacing = false;
+
     private bool checkBookOpening = false;
+    private bool checkHandHeight = false;
 
     private bool holding = false;
     private bool grabbing = false;
 
     private bool recievedGripInput;
-    //private bool recievedTriggerInput;
-    //private bool holdingTriggerInput;
+    private bool recievedTriggerInput;
+    private bool holdingTriggerInput;
+    private Button selectedButton;
 
     public IGrabbable grabbedObj { get; private set; }
 
@@ -81,6 +88,11 @@ public class VRHandController : MonoBehaviour
         {
             CheckForBookGesture();
         }
+
+        if (checkHandHeight)
+        {
+            CheckHandHeight();
+        }
     }
 
     private void LateUpdate()
@@ -89,15 +101,14 @@ public class VRHandController : MonoBehaviour
         {
             ReleaseGrip();
         }
-
-        /*
+        
         if (holdingTriggerInput && !recievedTriggerInput)
         {
             holdingTriggerInput = false;
         }
-        */
+
         recievedGripInput = false;
-        //recievedTriggerInput = false;
+        recievedTriggerInput = false;
     }
 
     void CheckHandOrientation()
@@ -136,7 +147,7 @@ public class VRHandController : MonoBehaviour
             }
         }
 
-        if (!lookingAtPalm && !palmsParallel)
+        if (!lookingAtPalm && !palmsFacing)
         {
             // check for looking at palm posture
             if (handRotationAngle < lookAtPalmAngle && onLookAtPalm.GetPersistentEventCount() > 0)
@@ -145,13 +156,13 @@ public class VRHandController : MonoBehaviour
                 onLookAtPalm?.Invoke();
             }
             // if there is an event to be called when palms are parallel, check whether palms are parallel
-            else if (onPalmsParallel.GetPersistentEventCount()>0)
+            else if (onPalmsFacing.GetPersistentEventCount()>0)
             {
                 float handDistance = (transform.position - otherHand.transform.position).sqrMagnitude;
                 if (HandsAligned() && Vector3.Dot(transform.forward, Vector3.up) > palmAlignmentAccuracy && handDistance < sqrMaxHandDistance && handDistance > sqrMinHandDistance)
                 {
-                    onPalmsParallel?.Invoke();
-                    palmsParallel = true;
+                    onPalmsFacing?.Invoke();
+                    palmsFacing = true;
                 }
             }
         }
@@ -163,25 +174,35 @@ public class VRHandController : MonoBehaviour
                 onLookFromPalm?.Invoke();
             }
         }
-        else if (palmsParallel)
+        else if (palmsFacing)
         {
             float handDistance = (transform.position - otherHand.transform.position).sqrMagnitude;
             if (!HandsAligned(0.7f) || handDistance > sqrMaxHandDistance || handDistance < sqrMinHandDistance)
             {
-                palmsParallel = false;
+                palmsFacing = false;
 
                 onPalmsUnaligned?.Invoke();
             }
         }
     }
 
+    private void CheckHandHeight()
+    {
+        if (transform.localPosition.y < handDownHeight)
+        {
+            onHandDown.Invoke();
+            checkHandHeight = false;
+        }
+    }
+
+    // TODO: check what's cheaper: dot or angle (probably dot)
     private void CheckForBookGesture()
     {
-        //if (Vector3.Angle(transform.right, otherHand.transform.right) > bookOpenAngle)
-        if (Mathf.Abs(transform.rotation.z - otherHand.transform.rotation.z) > bookOpenAngle)
+        if (Vector3.Angle(transform.right, otherHand.transform.right) > bookOpenAngle)
         {
             onBookGesture.Invoke();
             checkBookOpening = false;
+            checkHandHeight = true;
             lookingAtPalm = true;
         }
     }
@@ -213,7 +234,7 @@ public class VRHandController : MonoBehaviour
             }
         }
     }
-
+    */
     public void PressTrigger(InputAction.CallbackContext callbackContext)
     {
         recievedTriggerInput = true;
@@ -221,6 +242,14 @@ public class VRHandController : MonoBehaviour
         if (!holdingTriggerInput)
         {
             holdingTriggerInput = true;
+
+            if (selectedButton != null)
+            {
+                selectedButton.onClick.Invoke();
+                selectedButton.Select();
+            }
+
+            /*
             if (line == null || !line.enabled)
                 return;
 
@@ -236,9 +265,9 @@ public class VRHandController : MonoBehaviour
                     component.OnBeginDrag();
                 }
             }
+            */
         }
     }
-    */
 
     public void PressGrip(InputAction.CallbackContext callbackContext)
     {
@@ -248,7 +277,12 @@ public class VRHandController : MonoBehaviour
         {
             grabbing = true;
 
-            if (LookForObjects<IGrabbable>.TryGetClosestObject(transform.position + grabOffset, transform.position, grabRadius, out IGrabbable grabbable))
+            if(selectedButton != null)
+            {
+                selectedButton.onClick.Invoke();
+                selectedButton.Select();
+            }
+            else if (LookForObjects<IGrabbable>.TryGetClosestObject(transform.position + grabOffset, transform.position, grabRadius, out IGrabbable grabbable))
             {
                 if (otherHand.grabbedObj == grabbable)
                 {
@@ -310,11 +344,21 @@ public class VRHandController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.TryGetComponent(out Button button))
+        // TODO: return to just touching after hands and pointing are implemented
+        if (other.TryGetComponent(out selectedButton))
         {
-            DoHaptics(0.4f);
-            button.onClick.Invoke();
+            DoHaptics(0.2f);
+
+            selectedButton.Select();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Button button) && button == selectedButton)
+        {
+            button.OnDeselect(null);
+            selectedButton = null;
         }
     }
 

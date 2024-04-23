@@ -164,8 +164,11 @@ public class VR_PlayerController : MonoBehaviour
 
     public void OpenCamera() 
     {
-        LinkModule("Camera");
-        onCameraOpened?.Invoke();
+        if (playerInput.currentActionMap.name != "Camera")
+        {
+            LinkModule("Camera");
+            onCameraOpened?.Invoke();
+        }
     }
 
     public void SwapFromCamera(InputAction.CallbackContext callbackContext)
@@ -178,8 +181,11 @@ public class VR_PlayerController : MonoBehaviour
 
     public void CloseCamera()
     {
-        LinkModule(previousActionmap);
-        onCameraClosed?.Invoke();
+        if (playerInput.currentActionMap.name == "Camera")
+        {
+            LinkModule(previousActionmap);
+            onCameraClosed?.Invoke();
+        }
     }
 
     #region flatscreen interaction
@@ -322,10 +328,13 @@ public class VR_PlayerController : MonoBehaviour
 
     public void CloseScrapbook()
     {
-        LinkModule(previousActionmap);
-        //playerInput.SwitchCurrentActionMap("Overworld");
-        Cursor.lockState = CursorLockMode.Locked;
-        onScrapbookClosed?.Invoke();
+        if (playerInput.currentActionMap.name == "Scrapbook")
+        {
+            LinkModule(previousActionmap);
+            //playerInput.SwitchCurrentActionMap("Overworld");
+            //Cursor.lockState = CursorLockMode.Locked;
+            onScrapbookClosed?.Invoke();
+        }
     }
 
     public void GetOpenScrapbookInput(InputAction.CallbackContext callbackContext)
@@ -338,9 +347,12 @@ public class VR_PlayerController : MonoBehaviour
 
     public void OpenScrapbook()
     {
-        LinkModule("Scrapbook");
-        Cursor.lockState = CursorLockMode.None;
-        onScrapbookOpened?.Invoke();
+        if (playerInput.currentActionMap.name != "Scrapbook")
+        {
+            LinkModule("Scrapbook");
+            //Cursor.lockState = CursorLockMode.None;
+            onScrapbookOpened?.Invoke();
+        }
     }
 
     public static void SetLoudness(float newLoudness) => Loudness = newLoudness;

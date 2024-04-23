@@ -679,7 +679,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2405211536975402697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,6 +780,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4402843590747439128}
     m_Modifications:
+    - target: {fileID: 1951546273520255924, guid: 93b3acabdef9e994090fc33e3bed357c,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.7311321
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951546273520255924, guid: 93b3acabdef9e994090fc33e3bed357c,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.8446282
+      objectReference: {fileID: 0}
     - target: {fileID: 1951546273520255924, guid: 93b3acabdef9e994090fc33e3bed357c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2767,6 +2777,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4402843590747439128}
     m_Modifications:
+    - target: {fileID: 1951546273520255924, guid: 93b3acabdef9e994090fc33e3bed357c,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.7311321
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951546273520255924, guid: 93b3acabdef9e994090fc33e3bed357c,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.8446282
+      objectReference: {fileID: 0}
     - target: {fileID: 1951546273520255924, guid: 93b3acabdef9e994090fc33e3bed357c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
