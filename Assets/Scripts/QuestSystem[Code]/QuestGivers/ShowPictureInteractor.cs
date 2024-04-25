@@ -10,17 +10,22 @@ public class ShowPictureInteractor : PageComponentInteractor
 
     private PagePicture shownPicture;
 
-    private Vector2 originalScale;
+    private RectTransform rectTransform;
+
+    private Vector2 originalPicScale;
+
+    private void Start()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
 
     public override bool OnComponentDroppedOn(PageComponent component)
     {
         if (component.GetType() == typeof(PagePicture))
         {
-            originalScale = component.GetComponent<RectTransform>().sizeDelta;
+            originalPicScale = component.GetComponent<RectTransform>().sizeDelta;
 
             component.transform.SetParent(transform);
-
-            OnPictureDroppedOn?.Invoke(component as PagePicture);
 
             StartCoroutine(ResizePicture(component as PagePicture));
             return true;
@@ -32,7 +37,9 @@ public class ShowPictureInteractor : PageComponentInteractor
     {
         if (shownPicture == component)
         {
-            SetSize(component.GetComponent<RectTransform>(), originalScale);
+            component.GetComponent<RectTransform>().rotation = Quaternion.identity;
+
+            SetSize(component.GetComponent<RectTransform>(), originalPicScale);
             shownPicture = null;
         }
     }
@@ -56,9 +63,13 @@ public class ShowPictureInteractor : PageComponentInteractor
 
         RectTransform picTransform = picture.GetComponent<RectTransform>();
 
-        picTransform.localPosition = new Vector3(0,0.2f, 0);
-        picTransform.localEulerAngles = new Vector3(0, 0, 0);
+        picTransform.localPosition = new Vector3(0,0, 2f);
 
+        picTransform.rotation = Quaternion.identity;
         SetSize(picTransform, pictureSize);
+
+        picTransform.rotation = rectTransform.rotation;
+
+        OnPictureDroppedOn?.Invoke(picture);
     }
 }

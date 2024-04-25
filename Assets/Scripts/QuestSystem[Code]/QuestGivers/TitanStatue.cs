@@ -65,9 +65,8 @@ public class TitanStatue : MonoBehaviour, IInteractable
         // Also check if there are additional conditions and evaluate these too.
         if (TitanQuest.EvaluateQuestStatus(picture.PictureInfo))
         {
-            StaticQuestHandler.OnQuestCompleted?.Invoke();
+            StaticQuestHandler.OnShrineCompleted?.Invoke();
 
-            // TODO: show picture that was handed in
             // Will be removed when correct visual feedback is implemented
             questFinished = true;
             InteractionPrompt = string.Empty;

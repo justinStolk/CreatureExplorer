@@ -34,13 +34,13 @@ MonoBehaviour:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 3
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 0.5
+      <StateValue>k__BackingField: 0.2
     - <MoodType>k__BackingField: 2
       <Operator>k__BackingField: 4
       <StateValue>k__BackingField: 0.5
     - <MoodType>k__BackingField: 5
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 0.5
+      <StateValue>k__BackingField: 0.7
   <ReactionToAttack>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 2
@@ -49,5 +49,8 @@ MonoBehaviour:
   <ReactionToPlayer>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 0
+      <Operator>k__BackingField: 3
+      <StateValue>k__BackingField: 10
+    - <MoodType>k__BackingField: 2
       <Operator>k__BackingField: 3
       <StateValue>k__BackingField: 10

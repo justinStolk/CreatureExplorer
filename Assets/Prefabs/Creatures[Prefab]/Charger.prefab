@@ -248,6 +248,11 @@ PrefabInstance:
       propertyPath: OnFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: -7920083902194081383, guid: 22a690123035b264e834029b3a3a4602,
+        type: 3}
+      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[1].<StateValue>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4681179753957276721, guid: 22a690123035b264e834029b3a3a4602,
         type: 3}
       propertyPath: m_RootOrder
@@ -1442,7 +1447,7 @@ PrefabInstance:
     - target: {fileID: 3703513111590520603, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
       propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[0].<StateValue>k__BackingField
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3844555122404518609, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
@@ -1721,6 +1726,21 @@ PrefabInstance:
       objectReference: {fileID: 3327204111561387347}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: actionDuration
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <ActionEffects>k__BackingField.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <Prerequisites>k__BackingField.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1771,8 +1791,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Creature, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <ActionEffects>k__BackingField.Array.data[0].<EffectType>k__BackingField
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <ActionEffects>k__BackingField.Array.data[0].<StateValue>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
@@ -1788,6 +1823,26 @@ PrefabInstance:
         type: 3}
       propertyPath: OnFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[1].<MoodType>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[2].<MoodType>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[1].<StateValue>k__BackingField
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[2].<StateValue>k__BackingField
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6799428552790998717, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
@@ -2211,6 +2266,16 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 3327204111561387347}
+    - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: actionDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: <Cost>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
       propertyPath: <Prerequisites>k__BackingField.Array.size

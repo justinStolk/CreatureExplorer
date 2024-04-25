@@ -80,15 +80,15 @@ MonoBehaviour:
   dayWeight:
     time: 0.5
     sunHeight: 180
-    weight: 0.31
+    weight: 0.433
   sunsetWeight:
     time: 0.831
     sunHeight: 253
-    weight: 0.23
+    weight: 0.047
   nightWeight:
     time: 1
     sunHeight: 360
-    weight: 0.213
+    weight: 0
   sunMovementCurve:
     serializedVersion: 2
     m_Curve:
@@ -99,8 +99,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.213
-      outWeight: 0.213
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 0.205
       value: 86
@@ -117,8 +117,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.31
-      outWeight: 0.31
+      inWeight: 0.433
+      outWeight: 0.433
     - serializedVersion: 3
       time: 0.831
       value: 253
@@ -126,8 +126,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.23
-      outWeight: 0.23
+      inWeight: 0.047
+      outWeight: 0.047
     - serializedVersion: 3
       time: 1
       value: 360
@@ -135,8 +135,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.213
-      outWeight: 0.213
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -150,8 +150,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.213
-      outWeight: 0.213
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 0.205
       value: 86
@@ -168,8 +168,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.31
-      outWeight: 0.31
+      inWeight: 0.433
+      outWeight: 0.433
     - serializedVersion: 3
       time: 0.831
       value: 107
@@ -177,8 +177,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.23
-      outWeight: 0.23
+      inWeight: 0.047
+      outWeight: 0.047
     - serializedVersion: 3
       time: 1
       value: 0
@@ -186,8 +186,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.213
-      outWeight: 0.213
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

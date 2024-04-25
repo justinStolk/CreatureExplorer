@@ -148,7 +148,8 @@ MonoBehaviour:
   <InteractionPrompt>k__BackingField: Touch to read
   InteractHandTimer: 2
   interactRenderer: {fileID: 1569228990347874205}
-  <TitanQuest>k__BackingField: {fileID: 0}
+  <TitanQuest>k__BackingField: {fileID: 11400000, guid: 0f79d657f98192345a8900e44d480f62,
+    type: 2}
   onQuestCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -230,7 +231,7 @@ RectTransform:
   m_GameObject: {fileID: 6350768033836481783}
   m_LocalRotation: {x: -0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0.499}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0003, y: 0.0003, z: 0.003}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8227141350866550513}
@@ -240,7 +241,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.952}
-  m_SizeDelta: {x: 0.4, y: 0.4}
+  m_SizeDelta: {x: 1280, y: 1280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &8503575453395667144
 BoxCollider:
@@ -253,7 +254,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4, z: 0.02}
+  m_Size: {x: 1280, y: 1280, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!223 &1460081973055838719
 Canvas:
@@ -303,7 +304,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  pictureSize: {x: 0.4, y: 0.4}
+  pictureSize: {x: 1280, y: 1280}
 --- !u!1 &7085347833151587276
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +332,7 @@ RectTransform:
   m_GameObject: {fileID: 7085347833151587276}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.02, z: 0.4}
+  m_LocalScale: {x: 1280, y: 2, z: 1280}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1661181221822883979}
@@ -340,7 +341,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &7239161458025586268
 MeshFilter:
