@@ -1,5 +1,187 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9057965834272622825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/CreatureExplorer/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638495710722597428
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &-8997077664658136159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Torca/TorcaIdle
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Torca/TorcaIdle
+  Guid:
+    Data1: -963830110
+    Data2: 1244579518
+    Data3: 1903770793
+    Data4: -2084931979
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7701623826990610291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Charger/ChargerDeath
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Charger/ChargerDeath
+  Guid:
+    Data1: 1132175654
+    Data2: 1122850397
+    Data3: 388513690
+    Data4: -1329709646
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6846326741676177484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Journal/JournalStick
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Journal/JournalStick
+  Guid:
+    Data1: -1388215830
+    Data2: 1209139774
+    Data3: 918778754
+    Data4: 681766428
+  Banks:
+  - {fileID: 6036188352194893510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5670794396665788372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Journal/JournalRemovePhoto
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Journal/JournalRemovePhoto
+  Guid:
+    Data1: 1710133483
+    Data2: 1247680300
+    Data3: -17172808
+    Data4: 1120570084
+  Banks:
+  - {fileID: 6036188352194893510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4642817655170846923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Journal/JournalPageTurn
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Journal/JournalPageTurn
+  Guid:
+    Data1: -1852207395
+    Data2: 1078505120
+    Data3: 1054356629
+    Data4: 1691173543
+  Banks:
+  - {fileID: 6036188352194893510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3892156661439463212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Journal/JournalClose
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Journal/JournalClose
+  Guid:
+    Data1: -120087738
+    Data2: 1197915130
+    Data3: 1781160868
+    Data4: -1514131105
+  Banks:
+  - {fileID: 6036188352194893510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3706315189286604572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,12 +197,66 @@ MonoBehaviour:
   Path: ../../FMOD Studio/CreatureExplorer/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638488707377287802
+  lastModified: 638495839636931865
   FileSizes:
   - Name: Desktop
-    Value: 3322400
+    Value: 1036
   Exists: 1
---- !u!114 &-104524258885624665
+--- !u!114 &-3221798625919168237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Charger/ChargerIdle
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Charger/ChargerIdle
+  Guid:
+    Data1: 737533949
+    Data2: 1179070894
+    Data3: 1400756096
+    Data4: -940245134
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1690587766367941118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Torca/TorcaGrowl
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Torca/TorcaGrowl
+  Guid:
+    Data1: 1934871938
+    Data2: 1275999756
+    Data3: -1617874541
+    Data4: -558272889
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-805789278672367078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,16 +266,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Torca.bank
+  m_Name: bank:/World.bank
   m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/CreatureExplorer/Build/Desktop/Torca.bank
-  Name: Torca
-  StudioPath: bank:/Torca
-  lastModified: 638488688109249162
+  Path: ../../FMOD Studio/CreatureExplorer/Build/Desktop/World.bank
+  Name: World
+  StudioPath: bank:/World
+  lastModified: 638495710722537376
   FileSizes:
   - Name: Desktop
-    Value: 48928
+    Value: 7572
   Exists: 1
+--- !u!114 &-239184444167087130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Torca/TorcaAttack
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Torca/TorcaAttack
+  Guid:
+    Data1: 932601485
+    Data2: 1192254833
+    Data3: 575664265
+    Data4: 515452978
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,17 +318,92 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 1718699679819030590}
   - {fileID: -3706315189286604572}
-  - {fileID: -104524258885624665}
+  - {fileID: 6036188352194893510}
+  - {fileID: -9057965834272622825}
+  - {fileID: -805789278672367078}
   EditorEvents:
-  - {fileID: 4818413897883343323}
-  - {fileID: 8550542262500428173}
+  - {fileID: 4217563366045091254}
+  - {fileID: 3870064024651858624}
+  - {fileID: -7701623826990610291}
+  - {fileID: 4492817721608359552}
+  - {fileID: 3853167028592074944}
+  - {fileID: 2057534393020681287}
+  - {fileID: -1690587766367941118}
+  - {fileID: -239184444167087130}
+  - {fileID: 3029163156264715202}
+  - {fileID: -8997077664658136159}
+  - {fileID: 4868135293787144925}
+  - {fileID: 5671921057579282767}
+  - {fileID: 7367351067449121052}
+  - {fileID: -3221798625919168237}
+  - {fileID: 1249705307226877076}
+  - {fileID: 146794251370595522}
+  - {fileID: -3892156661439463212}
+  - {fileID: 3483068355901164405}
+  - {fileID: -4642817655170846923}
+  - {fileID: -6846326741676177484}
+  - {fileID: -5670794396665788372}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3706315189286604572}
   StringsBanks:
   - {fileID: 1718699679819030590}
-  cacheTime: 638488707377302838
+  cacheTime: 638495839637670337
   cacheVersion: 131617
+--- !u!114 &146794251370595522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Journal/JournalDrag
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Journal/JournalDrag
+  Guid:
+    Data1: 1766245914
+    Data2: 1313430064
+    Data3: -339412327
+    Data4: -1309893378
+  Banks:
+  - {fileID: 6036188352194893510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1249705307226877076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Journal/JournalOpen
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Journal/JournalOpen
+  Guid:
+    Data1: -66303226
+    Data2: 1314784656
+    Data3: -534424150
+    Data4: 1184363392
+  Banks:
+  - {fileID: 6036188352194893510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1216
 --- !u!114 &1718699679819030590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,12 +419,12 @@ MonoBehaviour:
   Path: ../../FMOD Studio/CreatureExplorer/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638488707377302838
+  lastModified: 638495839636931865
   FileSizes:
   - Name: Desktop
-    Value: 854
+    Value: 1742
   Exists: 1
---- !u!114 &4818413897883343323
+--- !u!114 &2057534393020681287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,25 +434,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TorcaSleep
+  m_Name: event:/Creatures/Charger/ChargerCall
   m_EditorClassIdentifier: 
-  Path: event:/TorcaSleep
+  Path: event:/Creatures/Charger/ChargerCall
   Guid:
-    Data1: 860592696
-    Data2: 1126044845
-    Data3: 311960488
-    Data4: 2000042638
+    Data1: -1279530141
+    Data2: 1120527269
+    Data3: 1011861160
+    Data4: -1867794767
   Banks:
-  - {fileID: -104524258885624665}
-  - {fileID: -3706315189286604572}
+  - {fileID: -805789278672367078}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4918
---- !u!114 &8550542262500428173
+  Length: 0
+--- !u!114 &3029163156264715202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,20 +461,256 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Test
+  m_Name: event:/Creatures/Torca/TorcaCall
   m_EditorClassIdentifier: 
-  Path: event:/Test
+  Path: event:/Creatures/Torca/TorcaCall
   Guid:
-    Data1: 421484139
-    Data2: 1294532244
-    Data3: 1673889214
-    Data4: 43941872
+    Data1: 1877641888
+    Data2: 1257627292
+    Data3: -899448390
+    Data4: -1919674357
   Banks:
-  - {fileID: -3706315189286604572}
-  IsStream: 1
-  Is3D: 1
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 233135
+  Length: 0
+--- !u!114 &3483068355901164405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Journal/JournalWriting
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Journal/JournalWriting
+  Guid:
+    Data1: -1514414751
+    Data2: 1226556670
+    Data3: -1378772551
+    Data4: 1836030523
+  Banks:
+  - {fileID: 6036188352194893510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3853167028592074944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Torca/TorcaEat
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Torca/TorcaEat
+  Guid:
+    Data1: -88923306
+    Data2: 1177948666
+    Data3: 204172950
+    Data4: -828892582
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3870064024651858624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Charger/ChargerEat
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Charger/ChargerEat
+  Guid:
+    Data1: 483747351
+    Data2: 1212046915
+    Data3: 1780818057
+    Data4: -1829125582
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4217563366045091254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Charger/ChargerScare
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Charger/ChargerScare
+  Guid:
+    Data1: -2006821376
+    Data2: 1267304070
+    Data3: -1193839947
+    Data4: -2142039570
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4492817721608359552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Torca/TorcaDeath
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Torca/TorcaDeath
+  Guid:
+    Data1: -611917514
+    Data2: 1314414998
+    Data3: 590143113
+    Data4: -1511926398
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4868135293787144925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Torca/TorcaScared
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Torca/TorcaScared
+  Guid:
+    Data1: -645776442
+    Data2: 1264158963
+    Data3: -765556560
+    Data4: -1051292414
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5671921057579282767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Torca/TorcaSleep
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Torca/TorcaSleep
+  Guid:
+    Data1: 990736372
+    Data2: 1289455937
+    Data3: -322379136
+    Data4: 872730682
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6036188352194893510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Menu.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/CreatureExplorer/Build/Desktop/Menu.bank
+  Name: Menu
+  StudioPath: bank:/Menu
+  lastModified: 638495839637670337
+  FileSizes:
+  - Name: Desktop
+    Value: 19872
+  Exists: 1
+--- !u!114 &7367351067449121052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creatures/Charger/ChargerSleep
+  m_EditorClassIdentifier: 
+  Path: event:/Creatures/Charger/ChargerSleep
+  Guid:
+    Data1: 865673465
+    Data2: 1260080137
+    Data3: 1002069671
+    Data4: -496709470
+  Banks:
+  - {fileID: -805789278672367078}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
