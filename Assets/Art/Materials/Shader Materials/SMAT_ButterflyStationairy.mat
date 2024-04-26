@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SMAT_Butterfly
+  m_Name: SMAT_ButterflyStationairy
   m_Shader: {fileID: -6465566751694194690, guid: c026e6f2c7220b64ea26775f46eb2058,
     type: 3}
   m_ValidKeywords: []
@@ -108,10 +108,10 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _MaxFlap: -0.5
-    - _MaxWingflap: 0.25
+    - _MaxWingflap: 0.17
     - _Metallic: 0
     - _MinFlap: 0.5
-    - _MinWingflap: -0.1
+    - _MinWingflap: -0.035
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -122,7 +122,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _WingSpeed: 20
+    - _WingSpeed: 7
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
