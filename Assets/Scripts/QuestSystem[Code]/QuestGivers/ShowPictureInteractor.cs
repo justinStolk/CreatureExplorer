@@ -21,13 +21,14 @@ public class ShowPictureInteractor : PageComponentInteractor
 
     public override bool OnComponentDroppedOn(PageComponent component)
     {
-        if (component.GetType() == typeof(PagePicture))
+        if (shownPicture == null && component.GetType() == typeof(PagePicture))
         {
-            originalPicScale = component.GetComponent<RectTransform>().sizeDelta;
+            shownPicture = component as PagePicture;
+            originalPicScale = new Vector2(component.GetComponent<RectTransform>().rect.width, component.GetComponent<RectTransform>().rect.height);
 
             component.transform.SetParent(transform);
 
-            StartCoroutine(ResizePicture(component as PagePicture));
+            StartCoroutine(ResizePicture(shownPicture));
             return true;
         }
         return false;
@@ -37,8 +38,6 @@ public class ShowPictureInteractor : PageComponentInteractor
     {
         if (shownPicture == component)
         {
-            component.GetComponent<RectTransform>().rotation = Quaternion.identity;
-
             SetSize(component.GetComponent<RectTransform>(), originalPicScale);
             shownPicture = null;
         }
@@ -46,8 +45,8 @@ public class ShowPictureInteractor : PageComponentInteractor
 
     public void LockPicture()
     {
+        shownPicture.GetComponent<Collider>().enabled = false;
         shownPicture.enabled = false;
-        GetComponent<Collider>().enabled = false;
         this.enabled = false;
     }
 
@@ -63,12 +62,11 @@ public class ShowPictureInteractor : PageComponentInteractor
 
         RectTransform picTransform = picture.GetComponent<RectTransform>();
 
-        picTransform.localPosition = new Vector3(0,0, 2f);
+        picTransform.localPosition = new Vector3(0,0, 21f);
 
-        picTransform.rotation = Quaternion.identity;
         SetSize(picTransform, pictureSize);
 
-        picTransform.rotation = rectTransform.rotation;
+        picTransform.localRotation = Quaternion.Euler(0,180,0);
 
         OnPictureDroppedOn?.Invoke(picture);
     }

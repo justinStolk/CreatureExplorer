@@ -164,7 +164,7 @@ public class VR_PlayerController : MonoBehaviour
 
     public void OpenCamera() 
     {
-        if (playerInput.currentActionMap.name != "Camera")
+        if (playerInput.currentActionMap.name != "Camera" && playerInput.currentActionMap.name != "Scrapbook")
         {
             LinkModule("Camera");
             onCameraOpened?.Invoke();
@@ -347,7 +347,7 @@ public class VR_PlayerController : MonoBehaviour
 
     public void OpenScrapbook()
     {
-        if (playerInput.currentActionMap.name != "Scrapbook")
+        if (playerInput.currentActionMap.name != "Scrapbook" && playerInput.currentActionMap.name != "Camera")
         {
             LinkModule("Scrapbook");
             //Cursor.lockState = CursorLockMode.None;

@@ -31,7 +31,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7147650152470996457}
+  m_Father: {fileID: 4699194747532129342}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -214,11 +214,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7147650152470996457}
+  - component: {fileID: 4699194747532129342}
   - component: {fileID: 4027920194558583443}
   - component: {fileID: 146597742627518909}
   - component: {fileID: 8133130247118086988}
   - component: {fileID: 6926814486850088538}
+  - component: {fileID: 1780697449699423822}
+  - component: {fileID: 2746407463184731661}
   m_Layer: 6
   m_Name: RightHand
   m_TagString: Untagged
@@ -226,8 +228,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7147650152470996457
-Transform:
+--- !u!224 &4699194747532129342
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -246,6 +248,11 @@ Transform:
   m_Father: {fileID: 1616667484964944795}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4027920194558583443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,30 +301,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 146597742627518909}
-        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
-        m_MethodName: DoHaptics
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5005570596392204449}
-        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
-        m_MethodName: DoHaptics
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -401,7 +384,7 @@ MonoBehaviour:
   palmAlignmentAccuracy: 0.8
   handUpAccuracy: 0.95
   sqrMaxHandDistance: 0.4
-  sqrMinHandDistance: 0.1
+  sqrMinHandDistance: 0.15
   bookOpenAngle: 30
   grabSettings: 0
   grabOffset: {x: 0, y: -0.1, z: 0}
@@ -437,6 +420,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!222 &1780697449699423822
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503432930725665888}
+  m_CullTransparentMesh: 1
+--- !u!223 &2746407463184731661
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503432930725665888}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1616667484655791799
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +514,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1616667484655791792}
-  - {fileID: 7147650152470996457}
+  - {fileID: 4699194747532129342}
   - {fileID: 275664693021491252}
   m_Father: {fileID: 1641381742722819653}
   m_RootOrder: 0
@@ -722,7 +734,7 @@ Transform:
   m_LocalScale: {x: 0.074514, y: 0.05, z: 0.09194606}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7147650152470996457}
+  m_Father: {fileID: 4699194747532129342}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5380528049444685908
@@ -1063,7 +1075,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5842208531441378109}
-  m_Father: {fileID: 7147650152470996457}
+  m_Father: {fileID: 4699194747532129342}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2527,6 +2539,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 146597742627518909}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5005570596392204449}
+        m_TargetAssemblyTypeName: VRHandController, Assembly-CSharp
+        m_MethodName: DoHaptics
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onCameraClosed:
     m_PersistentCalls:
       m_Calls:
@@ -3138,7 +3174,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8474431108676088607}
-  m_Father: {fileID: 7147650152470996457}
+  m_Father: {fileID: 4699194747532129342}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3245,7 +3281,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.05, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7147650152470996457}
+  m_Father: {fileID: 4699194747532129342}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &9052931614870171555
@@ -5751,6 +5787,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5762,7 +5803,7 @@ PrefabInstance:
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.236
+      value: 0.2008
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
@@ -5787,12 +5828,12 @@ PrefabInstance:
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.242
+      value: 0.2331
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.0049
       objectReference: {fileID: 0}
     - target: {fileID: 2207797114140962796, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
