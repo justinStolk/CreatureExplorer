@@ -104,6 +104,8 @@ public class Scrapbook : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         elementsPanel.gameObject.SetActive(true);
         extrasGroup.SetActive(true);
+        
+      
     }
 
     public void ToggleProgressTracker()

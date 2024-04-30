@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.XR;
+using FMODUnity;
 
 //[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -272,18 +273,21 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.started)
         {
             playerInput.SwitchCurrentActionMap("Overworld");
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;  
             onScrapbookClosed?.Invoke();
+
         }
     }
     public void GetOpenScrapbookInput(InputAction.CallbackContext callbackContext)
     {
+
         if (callbackContext.started)
         {
             LinkModuleToScrapbook();
             playerInput.SwitchCurrentActionMap("Scrapbook");
             Cursor.lockState = CursorLockMode.None;
             onScrapbookOpened?.Invoke();
+            AudioManagerTemp.instance.PlayOneShot(FMODEvents.instance.ScrapbookOpenSound, this.transform.position);
         }
     }
 

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class AudioManagerTemp : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-   public static AudioManagerTemp instance { get; private set; }
+
+    public static AudioManager instance { get; private set; }
 
     private void Awake()
     {
