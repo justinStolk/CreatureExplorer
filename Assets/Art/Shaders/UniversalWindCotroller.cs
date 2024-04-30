@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class UniversalWindCotroller : MonoBehaviour
 {
-    public Texture2D WindTexture;
-    public float variableMultiplier = 1f;
-    public float WindStrength;
-    float offsetX = 0f;
-    float offsetY = 0f;
+    public Transform Controller;
+    public float WindStrength = 1f;
+    float Rotation;
+    public Material Grass;
 
     void Update()
     {
-        // Calculate texture offset based on time or other factor
-        //float offsetX = Time.time * scrollSpeedX;
-        //float offsetY = Time.time * scrollSpeedY;
-
-        // Sample the texture at the calculated offset
-        Color sampledColor = WindTexture.GetPixelBilinear(offsetX, offsetY);
-        float WindStrength = sampledColor.grayscale * variableMultiplier;
+        Rotation = Controller.eulerAngles.y;
+        Grass.SetFloat("_WindDirection", Rotation);
     }
 }
