@@ -14,11 +14,12 @@ public class Creature : MonoBehaviour
     protected float waryLoudness = 1;
 
     [Header("Debugging")]
-    [SerializeField] private bool showThoughts;
-    [field: SerializeField] public bool LogDebugs { get; private set; }
-    [SerializeField] private TextMeshProUGUI goalText;
-    [SerializeField] private TextMeshProUGUI actionText;
-    [SerializeField] private TextMeshProUGUI soundText;
+    [field: HideArrow, SerializeField] private bool debug;
+    [field: ConditionalHide("debug", true), SerializeField] private bool showThoughts;
+    [field: ConditionalHide("debug", true), SerializeField] public bool LogDebugs { get; private set; }
+    [field: ConditionalHide("debug", true), SerializeField] private TextMeshProUGUI goalText;
+    [field: ConditionalHide("debug", true), SerializeField] private TextMeshProUGUI actionText;
+    [field: ConditionalHide("debug", true), SerializeField] private TextMeshProUGUI soundText;
 
     [Header("GOAP")]
     [SerializeField] protected Condition worldState;
@@ -38,6 +39,8 @@ public class Creature : MonoBehaviour
 
     protected virtual void Start()
     {
+        DevDunk.AutoLOD.AnimatorLODManager.Instance.AddAnimator(GetComponentInChildren<DevDunk.AutoLOD.AnimatorLODObject>());
+
         GetComponent<NavMeshAgent>().updateUpAxis = false;
         foreach (Collider col in GetComponentsInChildren<Collider>())
         {
@@ -71,22 +74,22 @@ public class Creature : MonoBehaviour
 
         PlayerEventCaster.ListenForSounds(HearPlayer);
         surroundCheck = new CheckSurroundings(CheckForFood);
-        StartCoroutines();
-    }
-    
-    protected virtual void FixedUpdate()
-    {
-        UpdateValues();
+
+        StartInvoking();
     }
 
-    private void StartCoroutines()
+    private void StartInvoking()
     {
-        StartCoroutine(LookAtSurroundings());
-        StartCoroutine(TiltWithGround());
+        InvokeRepeating("UpdateValues", 0, 1);
+        InvokeRepeating("TiltWithGround", 0, data.GroundTiltTimer);
+
+        if (surroundCheck != null)
+            InvokeRepeating("LookAtSurroundings", 0, data.CheckSurroundingsTimer);
     }
 
     private void OnDisable()
     {
+        CancelInvoke();
         StopAllCoroutines();
         CurrentAction.enabled = false;
         Destroy(gameObject, data.DecayTimer);
@@ -94,7 +97,7 @@ public class Creature : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutines();
+        StartInvoking();
         if (CurrentAction!= null)
             CurrentAction.enabled = true;
     }
@@ -206,11 +209,14 @@ public class Creature : MonoBehaviour
         foreach (MoodState change in data.ChangesEverySecond.CreatureStates)
         {
             if (change.Operator == StateOperant.Add)
-                currentCreatureState.AddValue(change.StateValue * Time.deltaTime, change.MoodType);
+                currentCreatureState.AddValue(change.StateValue, change.MoodType);
             else if (change.Operator == StateOperant.Subtract)
-                currentCreatureState.AddValue(-change.StateValue * Time.deltaTime, change.MoodType);
+                currentCreatureState.AddValue(-change.StateValue, change.MoodType);
         }
 
+#if UNITY_EDITOR
+        DebugMessage("updated worldstate of " + gameObject.name);
+#endif
         UpdateCreatureState();
     }
 
@@ -425,12 +431,9 @@ public class Creature : MonoBehaviour
 #endif
     }
 
-    protected IEnumerator LookAtSurroundings()
+    protected void LookAtSurroundings()
     {
-        yield return new WaitForSeconds(data.CheckSurroundingsTimer);
-        StartCoroutine(LookAtSurroundings());
-        if (surroundCheck != null)
-            surroundCheck.Invoke();
+         surroundCheck.Invoke();
     }
 
     /// <summary>
@@ -442,13 +445,11 @@ public class Creature : MonoBehaviour
 
         currentCreatureState.AddValue(foodcount, StateType.Hunger);
 
-        //DebugMessage($"found {foodcount} {FoodSource}, hunger is now {currentCreatureState.Find(StateType.Hunger).StateValue}");
+        //DebugMessage($"found {foodcount}, hunger is now {currentCreatureState.Find(StateType.Hunger).StateValue}");
     }
 
-    protected IEnumerator TiltWithGround()
+    protected void TiltWithGround()
     {
-        yield return new WaitForSeconds(data.GroundTiltTimer);
-        StartCoroutine(TiltWithGround());
         Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit);
         if (transform.up != hit.normal)
         {
