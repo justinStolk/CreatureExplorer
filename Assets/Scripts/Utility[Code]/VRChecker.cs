@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class VRChecker : MonoBehaviour
 {
-    private static bool isVR = false;
+    // TODO: set to false for flatscreen builds
+    private static bool isVR = true;
 
     private void OnApplicationFocus(bool focus)
     {

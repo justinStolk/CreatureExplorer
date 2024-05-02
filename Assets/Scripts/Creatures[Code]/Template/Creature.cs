@@ -13,6 +13,8 @@ public class Creature : MonoBehaviour
     public Vector3 WaryOff { get; protected set; }
     protected float waryLoudness = 1;
 
+    [SerializeField] private SkinnedMeshRenderer skinRenderer;
+
     [Header("Debugging")]
     [field: HideArrow, SerializeField] private bool debug;
     [field: ConditionalHide("debug", true), SerializeField] private bool showThoughts;
@@ -49,11 +51,14 @@ public class Creature : MonoBehaviour
 
         if (data.SkinVariants.Length > 0)
         {
-            Material randomMat = data.SkinVariants[UnityEngine.Random.Range(0, data.SkinVariants.Length)];
-            foreach (SkinnedMeshRenderer renderer in GetComponentsInChildren<SkinnedMeshRenderer>())
-            {
-                renderer.material = randomMat;
-            }
+            skinRenderer.material = data.SkinVariants[UnityEngine.Random.Range(0, data.SkinVariants.Length)];
+            
+            //Material randomMat = data.SkinVariants[UnityEngine.Random.Range(0, data.SkinVariants.Length)];
+            
+            //foreach (SkinnedMeshRenderer renderer in GetComponentsInChildren<SkinnedMeshRenderer>())
+            //{
+            //    renderer.material = randomMat;
+            //}
         }
 
         if (!showThoughts)

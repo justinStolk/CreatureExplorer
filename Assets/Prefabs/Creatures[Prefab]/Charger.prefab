@@ -2431,6 +2431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 737114a551e613c429624394a2a5dd56, type: 2}
+  skinRenderer: {fileID: 156121287930437995}
   debug: 1
   showThoughts: 0
   <LogDebugs>k__BackingField: 0
@@ -2832,6 +2833,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4893894798349591930, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9,
         type: 3}
       propertyPath: m_Controller
@@ -2854,6 +2860,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9, type: 3}
+--- !u!137 &156121287930437995 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -185588419522645591, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 9171034369200312514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3327204111561387347 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9,
