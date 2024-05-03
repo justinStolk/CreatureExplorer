@@ -15,10 +15,23 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] protected int maxSpawnAmount = 10;
     [SerializeField] protected bool continous;
 
+    private bool isFull = false;
+
     private void Start()
     {
         Spawn();
         StartCoroutine(SpawnTimer());
+    }
+
+    private void OnTransformChildrenChanged()
+    {
+        if (continous && isFull)
+        {
+            isFull = transform.childCount > maxSpawnAmount;
+
+            if (!isFull)
+                StartCoroutine(SpawnTimer());
+        }
     }
 
     protected abstract void Spawn();
@@ -27,15 +40,15 @@ public abstract class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelay);
 
-        while (transform.childCount > maxSpawnAmount)
-        {
-            yield return null;
-        }
-
         Spawn();
 
         if (continous)
-            StartCoroutine(SpawnTimer());
+        {
+            isFull = transform.childCount > maxSpawnAmount;
+            
+            if (!isFull)
+                StartCoroutine(SpawnTimer());
+        }
     }
 
 #if UNITY_EDITOR

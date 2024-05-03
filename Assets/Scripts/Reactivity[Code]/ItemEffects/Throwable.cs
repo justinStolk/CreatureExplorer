@@ -52,6 +52,7 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
         }
     }
 
+    // TODO: investigate why this is called a lot more often than expected
     private void FixedUpdate()
     {
         if (isGrabbed)
