@@ -22,8 +22,6 @@ public class WindRotation : MonoBehaviour
     {
         Transform WindController = GameObject.FindWithTag("WindController").transform;
         Rotation = WindController.eulerAngles.y;
-        Debug.Log(Rotation);
-        Debug.Log(Movement);
         Movement = (Mathf.Cos(Time.time)+2) * WindStrength;
         transform.rotation = Quaternion.Euler(Movement, Rotation, 0);
         child.transform.rotation = Quaternion.Euler((Movement*1.5f), Rotation, 0);
