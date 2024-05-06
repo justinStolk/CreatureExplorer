@@ -1726,11 +1726,6 @@ PrefabInstance:
       objectReference: {fileID: 3327204111561387347}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
-      propertyPath: actionDuration
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
-        type: 3}
       propertyPath: <ActionEffects>k__BackingField.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1791,11 +1786,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
-      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
-        type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Creature, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -1826,18 +1816,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
-      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[1].<MoodType>k__BackingField
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
-        type: 3}
       propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[2].<MoodType>k__BackingField
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
-        type: 3}
-      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[1].<StateValue>k__BackingField
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
