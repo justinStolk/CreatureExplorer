@@ -78,7 +78,11 @@ public class Creature : MonoBehaviour
         GenerateNewGoal();
 
         PlayerEventCaster.ListenForSounds(HearPlayer);
-        surroundCheck = new CheckSurroundings(CheckForFood);
+
+        if (surroundCheck == null)
+            surroundCheck = new CheckSurroundings(CheckForFood);
+        else
+            surroundCheck += CheckForFood;
 
         StartInvoking();
     }
@@ -267,7 +271,7 @@ public class Creature : MonoBehaviour
     protected virtual void UpdateCreatureState()
     {
         CheckForInterruptions(StateType.Tiredness, GetComponentInChildren<Sleep>(), "Fell asleep");
-        /*
+
         try
         {
             worldState = DistantLands.Cozy.CozyWeather.instance.currentTime.IsBetweenTimes(data.Bedtime, data.WakeTime) ? SetConditionTrue(worldState, Condition.ShouldBeSleeping) : SetConditionFalse(worldState, Condition.ShouldBeSleeping);
@@ -279,7 +283,6 @@ public class Creature : MonoBehaviour
             DebugMessage("Cozyweather is not active");
 #endif
         }
-        */
 
         worldState = (currentCreatureState.Find(StateType.Hunger).StateValue > 50) ? SetConditionTrue(worldState, Condition.IsHungry) : SetConditionFalse(worldState, Condition.IsHungry);
         worldState = (currentCreatureState.Find(StateType.Tiredness).StateValue > 50) ? SetConditionTrue(worldState, Condition.IsSleepy) : SetConditionFalse(worldState, Condition.IsSleepy);
@@ -295,14 +298,14 @@ public class Creature : MonoBehaviour
     /// <param name="threshold"></param>
     protected void CheckForInterruptions(StateType interruptionSource, Action associatedAction, string interruptionText = "", float threshold = 99)
     {
-        // TODO: refactor
-        // stop action to fall asleep if tiredness = 100
+        // TODO: refactor, Make it so new plan is generated?
+        // stop action and change plan if statevalue is higher that threshold
         if (currentCreatureState.Find(interruptionSource).StateValue >= threshold)
         {
             try
             {
                 MoodState moodOperator = CurrentAction.GoalEffects.Find(interruptionSource);
-                // if this action doen not impact tiredness or makes creature more tired
+                // if this action doen not impact the mood that is interrupting
                 if (moodOperator == null)
                 {
                     Interrupt(associatedAction, interruptionText);

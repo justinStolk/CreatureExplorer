@@ -129,7 +129,7 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
 
         if(TryGetComponent(out Food food))
         {
-            food.StopAllCoroutines();
+            food.StopDecay();
         }
     }
 

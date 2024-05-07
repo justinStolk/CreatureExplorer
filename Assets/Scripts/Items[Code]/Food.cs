@@ -26,6 +26,12 @@ public class Food : MonoBehaviour
         StartCoroutine(Decay(10));
     }
 
+    public void StopDecay()
+    {
+        gameObject.GetComponent<BugSpot>().enabled = false;
+        StopAllCoroutines();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         // TODO: test whether letting the berries play a sound on every collision leads to unexpected sounds
@@ -37,6 +43,11 @@ public class Food : MonoBehaviour
 
     private IEnumerator Decay(float timer)
     {
+        if (!gameObject.TryGetComponent(out BugSpot spot))
+            gameObject.AddComponent<BugSpot>();
+        else
+            spot.enabled = true;
+
         yield return new WaitForSeconds(timer);
 
         DestroyImmediate(gameObject);
