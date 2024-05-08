@@ -275,7 +275,7 @@ public class PlayerController : MonoBehaviour
             playerInput.SwitchCurrentActionMap("Overworld");
             Cursor.lockState = CursorLockMode.Locked;  
             onScrapbookClosed?.Invoke();
-
+            AudioManagerTemp.instance.PlayOneShot(FMODEvents.instance.ScrapbookCloseSound, this.transform.position);
         }
     }
     public void GetOpenScrapbookInput(InputAction.CallbackContext callbackContext)

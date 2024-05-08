@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class PagePicture : PageComponent, IPointerClickHandler
 {
@@ -43,6 +44,8 @@ public class PagePicture : PageComponent, IPointerClickHandler
 
     public override void Grab(Transform handTransform)
     {
+        //FMOD
+        AudioManagerTemp.instance.PlayOneShot(FMODEvents.instance.JournalMove, this.transform.position);
         if (soundPlayer != null)
         {
             soundPlayer.PlaySound(dragSound, true);
@@ -50,6 +53,7 @@ public class PagePicture : PageComponent, IPointerClickHandler
 
         dragging = true;
         OnBeginPictureDrag?.Invoke();
+
 
         if (parentCanvas == null)
         {
@@ -63,10 +67,15 @@ public class PagePicture : PageComponent, IPointerClickHandler
 
     public override void Release()
     {
+        //FMOD
+        AudioManagerTemp.instance.PlayOneShot(FMODEvents.instance.JournalStick, this.transform.position);
+
         if (soundPlayer != null)
         {
             soundPlayer.PlaySound(stickSound, true);
         }
+
+
 
         OnEndPictureDrag?.Invoke();
         dragging = false;

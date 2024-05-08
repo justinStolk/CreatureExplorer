@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem.UI;
+using FMODUnity;
 
 public class Scrapbook : MonoBehaviour
 {
@@ -97,6 +98,8 @@ public class Scrapbook : MonoBehaviour
         elementsPanel.gameObject.SetActive(false);
 
         StaticQuestHandler.OnQuestClosed?.Invoke();
+
+       
     }
 
     public void OpenPages()
@@ -105,7 +108,7 @@ public class Scrapbook : MonoBehaviour
         elementsPanel.gameObject.SetActive(true);
         extrasGroup.SetActive(true);
         
-      
+        
     }
 
     public void ToggleProgressTracker()
@@ -130,6 +133,9 @@ public class Scrapbook : MonoBehaviour
 
     public void GoToNextPage()
     {
+        //FMOD
+        AudioManagerTemp.instance.PlayOneShot(FMODEvents.instance.JournalPageTurn, this.transform.position);
+        
         allPages[currentPageIndex].gameObject.SetActive(false);
         currentPageIndex++;
         allPages[currentPageIndex].gameObject.SetActive(true);
@@ -141,11 +147,15 @@ public class Scrapbook : MonoBehaviour
         {
             nextPageButton.SetActive(false);
         }
+        
 
     }
 
     public void GoToPreviousPage()
     {
+        //FMOD
+        AudioManagerTemp.instance.PlayOneShot(FMODEvents.instance.JournalPageTurn, this.transform.position);
+
         allPages[currentPageIndex].gameObject.SetActive(false);
         currentPageIndex--;
         allPages[currentPageIndex].gameObject.SetActive(true);
@@ -157,10 +167,14 @@ public class Scrapbook : MonoBehaviour
         {
             previousPageButton.SetActive(false);
         }
+        
     }
 
     public void CreateNewTextEntry()
     {
+        //FMOD
+        AudioManagerTemp.instance.PlayOneShot(FMODEvents.instance.JournalWrite, this.transform.position);
+        
         PageText newText = Instantiate(textEntryPrefab, CurrentPage.transform.position, CurrentPage.transform.rotation);
         CurrentPage.AddComponentToPage(newText);
         newText.transform.localScale = Vector3.one;

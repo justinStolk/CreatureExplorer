@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 1616667486469123008}
   - component: {fileID: 1616667486469123015}
   - component: {fileID: 1616667486469123014}
+  - component: {fileID: 2096372037613689569}
   - component: {fileID: 1616667486469123010}
   - component: {fileID: 1616667486469123009}
   - component: {fileID: 1616667486469123011}
@@ -308,7 +309,20 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616667486469123013}
+  m_Enabled: 0
+--- !u!114 &2096372037613689569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616667486469123013}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!114 &1616667486469123010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,6 +1434,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: db6c4e48-58e0-44a3-82a8-32d8fd7b9937
     m_ActionName: Overworld/Faint[/Keyboard/delete]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dbed7f46-0c04-4cff-89db-230febfaaf4f
+    m_ActionName: Overworld/GrabRight
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19e613fc-e9c4-4014-a072-a4ff3390af46
+    m_ActionName: Overworld/GrabLeft
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf2c2ce2-bca4-4c5e-b91c-2dc98134c1ab
+    m_ActionName: Scrapbook/GrabRight
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce7bdd7d-43e4-4f5d-9366-9c4519f3f92f
+    m_ActionName: Scrapbook/GrabLeft
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Overworld
@@ -1480,6 +1510,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  ScrapbookOpenSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   onScrapbookClosed:
     m_PersistentCalls:
       m_Calls:
@@ -1772,15 +1809,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474a8fb2e002a824a94656d69c4caff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  speedMultiplier: 5
+  speedCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   sprintSpeed: 10
   strafeSprintSpeed: 7
   maxSprintAngle: 15
-  walkLoudness: 5
-  sprintLoudness: 15
+  minWalkLoudness: 5
+  maxWalkLoudness: 15
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  cameraTransform: {fileID: 0}
   rb: {fileID: 1616667484964944804}
 --- !u!114 &6781618450955129807
 MonoBehaviour:
@@ -1802,6 +1846,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rb: {fileID: 1616667484964944804}
+  capsuleCollider: {fileID: 0}
 --- !u!114 &7802370982375549875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1933,6 +1978,7 @@ MonoBehaviour:
   ignoredStepLayers:
     serializedVersion: 2
     m_Bits: 118
+  playerCollider: {fileID: 0}
 --- !u!54 &8805676606094892188
 Rigidbody:
   m_ObjectHideFlags: 0
