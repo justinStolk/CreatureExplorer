@@ -24,9 +24,11 @@ public class ShowPictureInteractor : PageComponentInteractor
         if (shownPicture == null && component.GetType() == typeof(PagePicture))
         {
             shownPicture = component as PagePicture;
-            originalPicScale = new Vector2(component.GetComponent<RectTransform>().rect.width, component.GetComponent<RectTransform>().rect.height);
+
+            //originalPicScale = new Vector2(component.GetComponent<RectTransform>().rect.width, component.GetComponent<RectTransform>().rect.height);
 
             component.transform.SetParent(transform);
+            originalPicScale = component.GetComponent<RectTransform>().localScale;
 
             StartCoroutine(ResizePicture(shownPicture));
             return true;
@@ -38,7 +40,7 @@ public class ShowPictureInteractor : PageComponentInteractor
     {
         if (shownPicture == component)
         {
-            SetSize(component.GetComponent<RectTransform>(), originalPicScale);
+            component.GetComponent<RectTransform>().localScale = Vector3.one * originalPicScale.x;
             shownPicture = null;
         }
     }
@@ -50,11 +52,13 @@ public class ShowPictureInteractor : PageComponentInteractor
         this.enabled = false;
     }
 
+    /*
     private void SetSize(RectTransform rect, Vector2 size)
     {
         rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size.x);
         rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size.y);
     }
+    */
 
     private IEnumerator ResizePicture(PagePicture picture)
     {
@@ -63,9 +67,7 @@ public class ShowPictureInteractor : PageComponentInteractor
         RectTransform picTransform = picture.GetComponent<RectTransform>();
 
         picTransform.localPosition = new Vector3(0,0, 21f);
-        picTransform.localScale = Vector3.one;
-
-        SetSize(picTransform, pictureSize);
+        picTransform.localScale = Vector3.one * pictureSize;
 
         picTransform.localRotation = Quaternion.Euler(0,180,0);
 
