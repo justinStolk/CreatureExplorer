@@ -202,11 +202,13 @@ public class PlayerController : MonoBehaviour
     public void StartTyping()
     {
         playerInput.actions.FindAction("QuickCloseBook").Disable();
+        playerInput.actions.FindAction("CloseQuest").Disable();
     }
 
     public void StopTyping()
     {
         playerInput.actions.FindAction("QuickCloseBook").Enable();
+        playerInput.actions.FindAction("CloseQuest").Enable();
     }
 
     public void GetInteractionInput(InputAction.CallbackContext callbackContext)
@@ -280,8 +282,7 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            LinkModuleToScrapbook();
-            playerInput.SwitchCurrentActionMap("Scrapbook");
+            LinkModule("Scrapbook");
             Cursor.lockState = CursorLockMode.None;
             onScrapbookOpened?.Invoke();
         }
