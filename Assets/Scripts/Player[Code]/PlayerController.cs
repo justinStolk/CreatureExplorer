@@ -338,6 +338,16 @@ public class PlayerController : MonoBehaviour
         pouch.ClosePouch();
     }
 
+    public void LinkModule(string linkTo)
+    {
+        playerInput.SwitchCurrentActionMap(linkTo);
+        module.leftClick = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Click"));
+        module.point = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Point"));
+
+        // Justin: The overworld move element needs to be set for gamepad controls. Implement this later, as you won't be able to select berries without this.
+        module.move = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Move"));
+    }
+
     public void LinkModuleToOverworld()
     {
         // The move element needs to be set for gamepad controls. Implement this later, as you won't be able to select berries without this.

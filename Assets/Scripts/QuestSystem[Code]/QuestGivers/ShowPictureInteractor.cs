@@ -63,6 +63,7 @@ public class ShowPictureInteractor : PageComponentInteractor
         RectTransform picTransform = picture.GetComponent<RectTransform>();
 
         picTransform.localPosition = new Vector3(0,0, 21f);
+        picTransform.localScale = Vector3.one;
 
         SetSize(picTransform, pictureSize);
 

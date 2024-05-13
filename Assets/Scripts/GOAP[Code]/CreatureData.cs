@@ -10,6 +10,7 @@ public class CreatureData : ScriptableObject
     [field: SerializeField] public string SleepSpot { get; private set; }
     [field: SerializeField] public DistantLands.Cozy.MeridiemTime Bedtime { get; private set; }
     [field: SerializeField] public DistantLands.Cozy.MeridiemTime WakeTime { get; private set; }
+    [field: SerializeField] public float Friendliness { get; private set; }
     [field: SerializeField] public float HearingSensitivity { get; private set; }
     [field: SerializeField] public float CheckSurroundingsTimer { get; private set; } 
     [field: SerializeField] public float GroundTiltTimer { get; private set; } 

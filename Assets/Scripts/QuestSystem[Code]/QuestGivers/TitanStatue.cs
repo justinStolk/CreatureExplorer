@@ -34,42 +34,53 @@ public class TitanStatue : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (questFinished) return;
-        /*
-        Cursor.lockState = CursorLockMode.Confined;
 
-        // Move this to the player and subscribe to the QuestHandler's event there.
-        //input.SwitchCurrentActionMap("Scrapbook");
+        if (!VRChecker.IsVR)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
 
-        //questInfoText.gameObject.SetActive(true);
-        //questShowButton.gameObject.SetActive(true);
+            // Move this to the player and subscribe to the QuestHandler's event there.
+            //input.SwitchCurrentActionMap("Scrapbook");
 
-        StaticQuestHandler.OnPictureDisplayed += ShowPicture;
-        StaticQuestHandler.CurrentQuestStatue = this;
-        StaticQuestHandler.OnQuestClosed += () => 
-        { 
-            PagePicture.OnPictureClicked -= StaticQuestHandler.OnPictureClicked.Invoke;
-            StaticQuestHandler.OnPictureDisplayed -= ShowPicture;
-        };
+            //questInfoText.gameObject.SetActive(true);
+            //questShowButton.gameObject.SetActive(true);
 
-        PagePicture.OnPictureClicked += StaticQuestHandler.OnPictureClicked.Invoke;
+            StaticQuestHandler.OnPictureDisplayed += ShowPicture;
+            StaticQuestHandler.CurrentQuestStatue = this;
+            StaticQuestHandler.OnQuestClosed += () =>
+            {
+                PagePicture.OnPictureClicked -= StaticQuestHandler.OnPictureClicked.Invoke;
+                StaticQuestHandler.OnPictureDisplayed -= ShowPicture;
+            };
 
-        StaticQuestHandler.OnQuestOpened?.Invoke();
-        */
+            PagePicture.OnPictureClicked += StaticQuestHandler.OnPictureClicked.Invoke;
 
-        DialogueUI.ShowText(TitanQuest.QuestDescription);
+            StaticQuestHandler.OnQuestOpened?.Invoke();
+        }
+        else
+            DialogueUI.ShowText(TitanQuest.QuestDescription);
     }
 
     public void ShowPicture(PagePicture picture)
     {
+        if (questFinished)
+            return;
+
         // Evaluate whether any of the objects in the picture info is the object that we're looking for/
         // Also check if there are additional conditions and evaluate these too.
         if (TitanQuest.EvaluateQuestStatus(picture.PictureInfo))
         {
+            if (!VRChecker.IsVR)
+            {
+                GetComponentInChildren<ShowPictureInteractor>().OnComponentDroppedOn(Instantiate<PageComponent>(picture));
+            }
+
             StaticQuestHandler.OnShrineCompleted?.Invoke();
 
-            // Will be removed when correct visual feedback is implemented
             questFinished = true;
             InteractionPrompt = string.Empty;
+
+            // Will be removed when correct visual feedback is implemented
             DebugChangeMaterialVisuals();
 
             Cursor.lockState = CursorLockMode.Locked;

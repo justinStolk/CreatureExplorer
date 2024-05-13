@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
+    [field: SerializeField] private GameObject bugs;
     [field: SerializeField] private AudioClip fallingSound;
     private SoundPlayer soundPlayer;
 
@@ -28,7 +29,7 @@ public class Food : MonoBehaviour
 
     public void StopDecay()
     {
-        gameObject.GetComponent<BugSpot>().enabled = false;
+        bugs?.SetActive(false);
         StopAllCoroutines();
     }
 
@@ -43,10 +44,17 @@ public class Food : MonoBehaviour
 
     private IEnumerator Decay(float timer)
     {
-        if (!gameObject.TryGetComponent(out BugSpot spot))
-            gameObject.AddComponent<BugSpot>();
-        else
-            spot.enabled = true;
+        if (bugs != null)
+        {
+            if (!bugs.activeInHierarchy)
+            {
+                bugs = Instantiate(bugs, transform, false);
+            }
+            else
+            {
+                bugs.SetActive(true);
+            } 
+        }
 
         yield return new WaitForSeconds(timer);
 
