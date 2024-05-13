@@ -64,10 +64,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Metalic1: 0
     - _Metalic_strength: 0
     - _Normal_strength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smoothness1: 0
     - _Smoothness_strength: 0.369
-    m_Colors: []
+    m_Colors:
+    - _Tint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
