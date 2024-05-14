@@ -25,7 +25,7 @@ public class Creature : MonoBehaviour
 
     [Header("GOAP")]
     [SerializeField] protected Condition worldState;
-    [SerializeField] private CreatureState currentCreatureState;
+    [field: SerializeField] protected CreatureState currentCreatureState { get; private set; }
     [SerializeField] private List<Action> currentPlan;
     public Action CurrentAction { get; private set; }
 
@@ -423,7 +423,10 @@ public class Creature : MonoBehaviour
     protected virtual void ReactToPlayer(Vector3 playerPos, float playerLoudness)
     {
         sawPlayer = true;
-        UpdateValues(data.ReactionToPlayer);
+        if (currentCreatureState.Find(StateType.Friendliness).StateValue < 50)
+            UpdateValues(data.ReactionToPlayerFearful);
+        else
+            UpdateValues(data.ReactionToPlayerFriendly);
 
 #if UNITY_EDITOR
         DebugMessage("Noticed Player");

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e35b46d6a1d76840b89ed7c5286d520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 3327808264514659995}
   StatusEffectName: Sleepy
   oneShot: 1
   destroyAfterTrigger: 1
@@ -113,6 +114,9 @@ MonoBehaviour:
     - <MoodType>k__BackingField: 1
       <Operator>k__BackingField: 3
       <StateValue>k__BackingField: 30
+    - <MoodType>k__BackingField: 6
+      <Operator>k__BackingField: 4
+      <StateValue>k__BackingField: 5
   <InteractionPrompt>k__BackingField: Pick Up [E]
   splatVelocity: 2
   inventoryGraphic: {fileID: 21300000, guid: 1da57cacfd902c347ac6287903f8ec7c, type: 3}
@@ -131,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13380418ff44ee4980b23007d552bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 3327808264514659995}
   StatusEffectName: Sleepy
   oneShot: 1
   destroyAfterTrigger: 1
@@ -140,7 +145,6 @@ MonoBehaviour:
     - <MoodType>k__BackingField: 1
       <Operator>k__BackingField: 2
       <StateValue>k__BackingField: 95
-  particles: {fileID: 3327808264514659995}
 --- !u!114 &7453374320815687206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636c724c34ce75a49bc56bc7a5980d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bugs: {fileID: 0}
   fallingSound: {fileID: 8300000, guid: e9b5c305a1a0c5b41b5479481699c140, type: 3}
 --- !u!54 &1737242609078936821
 Rigidbody:

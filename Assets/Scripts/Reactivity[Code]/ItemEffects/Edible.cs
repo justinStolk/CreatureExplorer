@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Edible : StatusEffect
 {
-    [SerializeField] private ParticleSystem particles;
     private Creature eatenBy;
 
     public void StartEating(Creature creature)
@@ -15,7 +14,6 @@ public class Edible : StatusEffect
         if (eatenBy != null)
         {
             TriggerStatusEffect(eatenBy);
-            particles.Play();
         }
     }
 }

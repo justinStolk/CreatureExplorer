@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StatusEffect : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem particles;
+
     [SerializeField] protected string StatusEffectName;
     [SerializeField] protected bool oneShot;
     [SerializeField] protected bool destroyAfterTrigger = true;
@@ -24,6 +26,7 @@ public class StatusEffect : MonoBehaviour
 #endif
     protected virtual void TriggerStatusEffect(Creature toAffect)
     {
+        particles.Play();
         if (oneShot)
         {
             toAffect.UpdateValues(statusEffect);

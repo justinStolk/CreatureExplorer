@@ -45,30 +45,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Playing
-  <Onomatopea>k__BackingField: Wheeeeeee!
   startAnimationTrigger: 
   duringAnimationTrigger: Walk
   finishAnimationTrigger: Idle
   sound: {fileID: 0}
   oneShot: 0
   <Awareness>k__BackingField: 0.5
-  <Cost>k__BackingField: 6
-  <BaseReward>k__BackingField: 5
-  <Reward>k__BackingField: 5
+  <Cost>k__BackingField: 3
+  <BaseReward>k__BackingField: 7
+  actionDuration: 10
   <GoalEffects>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 5
       <Operator>k__BackingField: 4
       <StateValue>k__BackingField: 60
     - <MoodType>k__BackingField: 4
-      <Operator>k__BackingField: 3
+      <Operator>k__BackingField: 4
       <StateValue>k__BackingField: 40
     - <MoodType>k__BackingField: 1
       <Operator>k__BackingField: 3
       <StateValue>k__BackingField: 5
     - <MoodType>k__BackingField: 3
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 20
+      <StateValue>k__BackingField: 5
     - <MoodType>k__BackingField: 0
       <Operator>k__BackingField: 4
       <StateValue>k__BackingField: 10
@@ -78,8 +77,13 @@ MonoBehaviour:
     <StateValue>k__BackingField: 0
   - <EffectType>k__BackingField: 1024
     <StateValue>k__BackingField: 1
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
   finished: 0
   failed: 0
-  actionDuration: 5
   setAnimator: 0
   animator: {fileID: 0}

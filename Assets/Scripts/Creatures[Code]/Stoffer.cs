@@ -27,7 +27,8 @@ public class Stoffer : Prey
     {
         base.ReactToPlayer(playerPos, playerLoudness);
 
-        ReactToThreat(playerPos, playerLoudness);
+        if (currentCreatureState.Find(StateType.Friendliness).StateValue < 50)
+            ReactToThreat(playerPos, playerLoudness);
     }
 
     protected override void ReactToPlayerLeaving(Vector3 playerPos)

@@ -52,12 +52,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e35b46d6a1d76840b89ed7c5286d520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
   StatusEffectName: 
   oneShot: 1
   destroyAfterTrigger: 1
   effectDuration: 0.1
   statusEffect:
-    <CreatureStates>k__BackingField: []
+    <CreatureStates>k__BackingField:
+    - <MoodType>k__BackingField: 6
+      <Operator>k__BackingField: 4
+      <StateValue>k__BackingField: 10
   <InteractionPrompt>k__BackingField: Pick Up [E]
   splatVelocity: 2
   inventoryGraphic: {fileID: 21300000, guid: 1da57cacfd902c347ac6287903f8ec7c, type: 3}

@@ -2248,21 +2248,6 @@ PrefabInstance:
       objectReference: {fileID: 3327204111561387347}
     - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
-      propertyPath: actionDuration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
-        type: 3}
-      propertyPath: <Cost>k__BackingField
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
-        type: 3}
-      propertyPath: <Prerequisites>k__BackingField.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
-        type: 3}
       propertyPath: OnFail.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2419,32 +2404,50 @@ MonoBehaviour:
   actionText: {fileID: 530009446309208750}
   soundText: {fileID: 7443840643985060226}
   worldState: 9
-  currentCreatureState:
+  <currentCreatureState>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 0
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 50.2
+      <StateValue>k__BackingField: 32.1
     - <MoodType>k__BackingField: 1
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 20
+      <StateValue>k__BackingField: 49.5
     - <MoodType>k__BackingField: 2
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 0
+      <StateValue>k__BackingField: 24.2
     - <MoodType>k__BackingField: 3
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 96.7
+      <StateValue>k__BackingField: 56.7
     - <MoodType>k__BackingField: 4
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 32.2
+      <StateValue>k__BackingField: 40.1
     - <MoodType>k__BackingField: 5
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 31.6
+      <StateValue>k__BackingField: 66.8
+    - <MoodType>k__BackingField: 6
+      <Operator>k__BackingField: 2
+      <StateValue>k__BackingField: 50
   currentPlan: []
-  reactionToPredator:
+  reactionToDanger:
     <CreatureStates>k__BackingField:
+    - <MoodType>k__BackingField: 0
+      <Operator>k__BackingField: 0
+      <StateValue>k__BackingField: 0.5
+    - <MoodType>k__BackingField: 1
+      <Operator>k__BackingField: 0
+      <StateValue>k__BackingField: 0.5
     - <MoodType>k__BackingField: 2
-      <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 20
+      <Operator>k__BackingField: 0
+      <StateValue>k__BackingField: 0.5
+    - <MoodType>k__BackingField: 3
+      <Operator>k__BackingField: 0
+      <StateValue>k__BackingField: 0.5
+    - <MoodType>k__BackingField: 4
+      <Operator>k__BackingField: 0
+      <StateValue>k__BackingField: 0.5
+    - <MoodType>k__BackingField: 5
+      <Operator>k__BackingField: 0
+      <StateValue>k__BackingField: 0.5
   predatorAwarenessRange: 40
   reactionToOtherChargers:
     <MoodType>k__BackingField: 2

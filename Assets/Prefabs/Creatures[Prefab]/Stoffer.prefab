@@ -1868,6 +1868,11 @@ PrefabInstance:
       propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[4].<StateValue>k__BackingField
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6443343593916763938, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eac397494fc44a447a6a016ce5cea923, type: 2}
     - target: {fileID: 7210352520341627480, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
       propertyPath: m_Name
@@ -2194,26 +2199,29 @@ MonoBehaviour:
   actionText: {fileID: 4549432260102553002}
   soundText: {fileID: 6860664354322902662}
   worldState: 1
-  currentCreatureState:
+  <currentCreatureState>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 0
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 0
+      <StateValue>k__BackingField: 0.5
     - <MoodType>k__BackingField: 1
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 20
+      <StateValue>k__BackingField: 18.4
     - <MoodType>k__BackingField: 2
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 0
+      <StateValue>k__BackingField: 22.7
     - <MoodType>k__BackingField: 3
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 50
+      <StateValue>k__BackingField: 59.6
     - <MoodType>k__BackingField: 4
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 50
+      <StateValue>k__BackingField: 19.1
     - <MoodType>k__BackingField: 5
       <Operator>k__BackingField: 2
-      <StateValue>k__BackingField: 50
+      <StateValue>k__BackingField: 64.6
+    - <MoodType>k__BackingField: 6
+      <Operator>k__BackingField: 2
+      <StateValue>k__BackingField: 35
   currentPlan: []
   reactionToDanger:
     <CreatureStates>k__BackingField:
