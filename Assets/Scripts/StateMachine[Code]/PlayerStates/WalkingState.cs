@@ -12,6 +12,7 @@ public class WalkingState : State
 
     [SerializeField] private float minWalkLoudness = 5f;
     [SerializeField] private float maxWalkLoudness = 15f;
+    [SerializeField] private float sprintLoudness = 15f;
 
     [SerializeField] private LayerMask playerLayer;
 
@@ -75,30 +76,21 @@ public class WalkingState : State
     private void Move()
     {
         float inputMagnitute = moveInput.magnitude;
-        if (!inputByKeyboard)
-            inputMagnitute = speedCurve.Evaluate(inputMagnitute);
+        inputMagnitute = speedCurve.Evaluate(inputMagnitute);
 
         if (inputMagnitute >= 0.1f)
         {
             float speed;
-            if (!inputByKeyboard)
-            {
-                isSprinting = inputMagnitute * speedMultiplier >= sprintSpeed;
-                speed = speedMultiplier * inputMagnitute;
+            speed = speedMultiplier * inputMagnitute;
 
-                PlayerController.SetLoudness(Mathf.Lerp(minWalkLoudness, maxWalkLoudness, inputMagnitute));
-            }
-            else
-            {
-                PlayerController.SetLoudness(isSprinting? maxWalkLoudness : minWalkLoudness);
-                speed = speedMultiplier * 0.2f;
-            }
+            PlayerController.SetLoudness(Mathf.Lerp(minWalkLoudness, maxWalkLoudness, inputMagnitute));
 
             float inputAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
             float targetAngle = inputAngle + transform.eulerAngles.y;
 
             if (isSprinting)
             {
+                PlayerController.SetLoudness(sprintLoudness);
                 speed = Mathf.Abs(inputAngle) <= maxSprintAngle ? sprintSpeed : strafeSprintSpeed;
             }
 

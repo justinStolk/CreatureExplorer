@@ -102,6 +102,9 @@ public class Planner : MonoBehaviour
         // TODO: find better way to avoid duplicate keys
         foreach (MoodState state in planState.CreatureStates)
         {
+            if (state.MoodType == StateType.Friendliness)
+                continue;
+
             prio = curvesPerMood[state.MoodType].Evaluate(state.StateValue / 100);
 
             try

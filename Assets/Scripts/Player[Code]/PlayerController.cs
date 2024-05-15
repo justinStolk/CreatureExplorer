@@ -181,6 +181,22 @@ public class PlayerController : MonoBehaviour
         firstPersonCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
     }
 
+    public void ActivateKeyboard(InputAction.CallbackContext callbackContext)
+    {
+        if (playerInput.currentControlScheme != "Keyboard")
+            playerInput.SwitchCurrentControlScheme("Keyboard", playerInput.devices.ToArray());
+        Debug.Log(playerInput.currentControlScheme);
+    }
+
+    public void ActivateGamepad(InputAction.CallbackContext callbackContext)
+    {
+        if (playerInput.currentControlScheme != "Gamepad")
+        {
+            playerInput.SwitchCurrentControlScheme("Gamepad", playerInput.devices.ToArray());
+        }
+        Debug.Log(playerInput.currentControlScheme);
+    }
+
     public void SwapToCamera(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.started)
@@ -534,6 +550,7 @@ public class PlayerController : MonoBehaviour
         canvas.SetActive(true);
         died = false;
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
