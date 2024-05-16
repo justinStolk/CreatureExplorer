@@ -183,18 +183,28 @@ public class PlayerController : MonoBehaviour
 
     public void ActivateKeyboard(InputAction.CallbackContext callbackContext)
     {
+        if (callbackContext.valueType == typeof(Vector2) && callbackContext.ReadValue<Vector2>().sqrMagnitude < 0.8)
+            return;
+
         if (playerInput.currentControlScheme != "Keyboard")
+        {
             playerInput.SwitchCurrentControlScheme("Keyboard", playerInput.devices.ToArray());
-        Debug.Log(playerInput.currentControlScheme);
+            DeviceBindingUtils.SwapBindingTexts(playerInput.currentControlScheme);
+        }
+        //Debug.Log(playerInput.currentControlScheme);
     }
 
     public void ActivateGamepad(InputAction.CallbackContext callbackContext)
     {
+        if (callbackContext.valueType == typeof(Vector2) && callbackContext.ReadValue<Vector2>().sqrMagnitude < 0.8)
+            return;
+
         if (playerInput.currentControlScheme != "Gamepad")
         {
             playerInput.SwitchCurrentControlScheme("Gamepad", playerInput.devices.ToArray());
         }
-        Debug.Log(playerInput.currentControlScheme);
+        DeviceBindingUtils.SwapBindingTexts(playerInput.currentControlScheme);
+        //Debug.Log(playerInput.currentControlScheme);
     }
 
     public void SwapToCamera(InputAction.CallbackContext callbackContext)

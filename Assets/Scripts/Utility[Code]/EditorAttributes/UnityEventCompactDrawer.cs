@@ -1,4 +1,4 @@
-/*#if UNITY_EDITOR
+#if UNITY_EDITOR
 // Unity C# reference source
 // https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/UnityEventDrawer.cs
 
@@ -136,6 +136,29 @@ public class UnityEventCompactDrawer : PropertyDrawer
 
         OnGUI(position);
         currentState.lastSelectedIndex = m_LastSelectedIndex;
+        /*
+        var contentRect = position;
+        contentRect.xMin -= 6;
+        contentRect.xMax += 2;
+        contentRect.y += 1;
+        var headerRect = new Rect(contentRect.x, contentRect.y, contentRect.width, 18);
+
+        Rect enabledRect = GetRowRects(headerRect)[0];
+        Event evt = Event.current;
+        var mousePos = evt.mousePosition;
+        {
+            //Debug.Log("mouse hover " + property.displayName);
+            var isHover = enabledRect.Contains(mousePos);
+            if (isHover)
+            {
+                if (evt.type == EventType.ContextClick)
+                {
+                    OnPropertyContextMenu(null, property);
+                    Debug.Log("rmb click " + property.displayName);
+                }
+            }
+        }
+        */
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
@@ -552,6 +575,26 @@ public class UnityEventCompactDrawer : PropertyDrawer
     {
         m_LastSelectedIndex = list.index;
     }
+    /*
+    protected virtual void OnEnable()
+    {
+        EditorApplication.contextualPropertyMenu += OnPropertyContextMenu;
+    }
+
+    void OnDestroy()
+    {
+        EditorApplication.contextualPropertyMenu -= OnPropertyContextMenu;
+    }
+
+    void OnPropertyContextMenu(GenericMenu menu, SerializedProperty property)
+    {
+        menu.AddItem(new GUIContent("Copy"), false, () =>
+        {
+            Debug.Log(JsonUtility.ToJson(property.objectReferenceValue));
+            Debug.Log(property.objectReferenceValue);
+        });
+        return;
+    }
+    */
 }
 #endif
-*/

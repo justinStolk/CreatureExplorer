@@ -3,15 +3,15 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
 public class BugSpot : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem particles;
 
     private void Awake()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        particles = GetComponent<ParticleSystem>();
     }
 
     private void OnEnable()
     {
-        particleSystem.Play();
+        particles.Play();
     }
 }
