@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     private IInteractable interactableInRange;
     private Throwable heldThrowable;
 
+
     private void Awake()
     {
         if (!module)
@@ -202,8 +203,8 @@ public class PlayerController : MonoBehaviour
         if (playerInput.currentControlScheme != "Gamepad")
         {
             playerInput.SwitchCurrentControlScheme("Gamepad", playerInput.devices.ToArray());
+            DeviceBindingUtils.SwapBindingTexts(playerInput.currentControlScheme);
         }
-        DeviceBindingUtils.SwapBindingTexts(playerInput.currentControlScheme);
         //Debug.Log(playerInput.currentControlScheme);
     }
 

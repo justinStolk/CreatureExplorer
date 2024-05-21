@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1423437032192758502}
   - component: {fileID: 3523330759359159069}
   - component: {fileID: 2050010300792571491}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DecorationR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8514710174892986375}
   - component: {fileID: 9094750742701260085}
   - component: {fileID: 8438186194207153774}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProgressTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 583232697892871603}
   - component: {fileID: 4901514978312718604}
   - component: {fileID: 7059444137728999102}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1636351887748409740}
   - component: {fileID: 4645506083776611438}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProgressDetailPages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 8165872232841918384}
   - component: {fileID: 4961414701260000707}
   - component: {fileID: 4410890997074880732}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pagebg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 6416555708350856669}
   - component: {fileID: 4355248445624337442}
   - component: {fileID: 8959512399814847367}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DecorationL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5785635823809531041}
   - component: {fileID: 6400513605997514448}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GlobalProgressGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,8 +735,9 @@ GameObject:
   - component: {fileID: 2957880185960135482}
   - component: {fileID: 380936118306678581}
   - component: {fileID: 7332291362017441246}
-  - component: {fileID: 3747984777062374998}
-  m_Layer: 0
+  - component: {fileID: 3745934438057143680}
+  - component: {fileID: 2857063685446965958}
+  m_Layer: 5
   m_Name: ScrapbookProgressTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +802,7 @@ MonoBehaviour:
   progressIconPrefab: {fileID: 2344146868187466192, guid: 31125830a33d17f4f85b8ace0d6221ae,
     type: 3}
   trackerReference: {fileID: 11400000, guid: 7ef6d416ef908e446aa7ca31ea054dc4, type: 2}
---- !u!223 &3747984777062374998
+--- !u!223 &3745934438057143680
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -822,6 +823,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2857063685446965958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9186043258497830108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &1609028445564710679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -829,6 +847,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2957880185960135482}
     m_Modifications:
+    - target: {fileID: 2203251344395294439, guid: 26c7ac04c39cbef41a3cda9f87192470,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4239958693914615268, guid: 26c7ac04c39cbef41a3cda9f87192470,
         type: 3}
       propertyPath: m_Name
@@ -973,6 +996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleQuestTracker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203251344395294439, guid: 26c7ac04c39cbef41a3cda9f87192470,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4239958693914615268, guid: 26c7ac04c39cbef41a3cda9f87192470,
         type: 3}

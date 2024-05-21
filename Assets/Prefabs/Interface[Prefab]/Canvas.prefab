@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 27194872887040233}
   - component: {fileID: 5669054172364836695}
   - component: {fileID: 6397430810060739853}
-  - component: {fileID: 424475643227987596}
+  - component: {fileID: 2107957132412190221}
   m_Layer: 6
   m_Name: InteractionPromptBg
   m_TagString: Untagged
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 4
---- !u!114 &424475643227987596
+--- !u!114 &2107957132412190221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,9 +494,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2274989425795028695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4506cd30af4e147889aba9b1e96438, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fc70e1c57da83c4894cde9bdcc3ed26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetDistance: 0
+  textMesh: {fileID: 4838083438280898928}
 --- !u!1 &3150207840320467249
 GameObject:
   m_ObjectHideFlags: 0

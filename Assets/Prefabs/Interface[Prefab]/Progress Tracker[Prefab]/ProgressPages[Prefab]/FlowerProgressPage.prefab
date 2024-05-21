@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 5027848897951119011}
+  categoryImage: {fileID: 0}
   iconText: {fileID: 3228538834651530679}
   path: Vegetation/Flowers/flower2
 --- !u!1 &2360106242588086070
@@ -334,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 4436337413171820584}
+  categoryImage: {fileID: 0}
   iconText: {fileID: 1090548373218395256}
   path: Vegetation/Flowers/flower3
 --- !u!1 &3733533597622163574
@@ -600,6 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 3987944117049688287}
+  categoryImage: {fileID: 0}
   iconText: {fileID: 1479320356778123560}
   path: Vegetation/Flowers/flower4
 --- !u!1 &6492920592211232603
@@ -926,6 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 6994167174363724109}
+  categoryImage: {fileID: 0}
   iconText: {fileID: 7503904498784463709}
   path: Vegetation/Flowers/flower5
 --- !u!1 &8230257088750412374
@@ -1077,6 +1081,26 @@ PrefabInstance:
       value: 'Flowers
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 658707715763810421, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
+        type: 3}
+      propertyPath: m_Text
+      value: Flowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 658707715763810421, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034791802539270171, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
+        type: 3}
+      propertyPath: m_text
+      value: Flowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167550252399471014, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
+        type: 3}
+      propertyPath: m_text
+      value: "Flowers\u200B"
       objectReference: {fileID: 0}
     - target: {fileID: 2344146868187466192, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
         type: 3}

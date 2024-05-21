@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1429042078443598370}
   - component: {fileID: 3950744554865439120}
   - component: {fileID: 3107850064913112078}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3742866045433032732}
   - component: {fileID: 1015603677956177258}
   - component: {fileID: 7190494098601138460}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProgressRootCategoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 3910033134281439450}
+  categoryImage: {fileID: 0}
   iconText: {fileID: 139040250186555275}
   categoryProgressBar: {fileID: 4420825996033862812}
   iconShelf: {fileID: 7596592039951862718}
@@ -173,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7596592039951862718}
   - component: {fileID: 7049136935457195877}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ChildCategories
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4207709640911964141}
   - component: {fileID: 7680403289016417946}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614310482106102877}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +318,7 @@ GameObject:
   - component: {fileID: 6190513852020135710}
   - component: {fileID: 2755449510867719649}
   - component: {fileID: 3910033134281439450}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RootIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +394,7 @@ GameObject:
   - component: {fileID: 3136084441565018891}
   - component: {fileID: 6731686514407667780}
   - component: {fileID: 139040250186555275}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CategoryName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +530,7 @@ GameObject:
   - component: {fileID: 4815424931031685756}
   - component: {fileID: 8643591867320538355}
   - component: {fileID: 3426291011933125106}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 913087372700808430}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5949259284429049493}
   - component: {fileID: 4420825996033862812}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

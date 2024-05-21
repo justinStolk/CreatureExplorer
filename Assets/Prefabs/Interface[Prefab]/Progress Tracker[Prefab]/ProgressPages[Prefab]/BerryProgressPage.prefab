@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 5027848897951119011}
+  categoryImage: {fileID: 0}
   iconText: {fileID: 3228538834651530679}
   path: Vegetation/Anger Berry/stickyberry
 --- !u!1 &2896596364234934868
@@ -182,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 4436337413171820584}
+  categoryImage: {fileID: 0}
   iconText: {fileID: 1090548373218395256}
   path: Vegetation/Sleepy Berry/sleepyberry
 --- !u!1 &3733533597622163574
@@ -543,6 +545,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Berries
+      objectReference: {fileID: 0}
+    - target: {fileID: 658707715763810421, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
+        type: 3}
+      propertyPath: m_Text
+      value: Berries
+      objectReference: {fileID: 0}
+    - target: {fileID: 658707715763810421, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167550252399471014, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
+        type: 3}
+      propertyPath: m_text
+      value: "Berries\u200B"
       objectReference: {fileID: 0}
     - target: {fileID: 2344146868187466192, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
         type: 3}
