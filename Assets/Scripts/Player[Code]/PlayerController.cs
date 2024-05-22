@@ -145,6 +145,8 @@ public class PlayerController : MonoBehaviour
 
         Scrapbook.OnBeginType += StartTyping;
         Scrapbook.OnEndType += StopTyping;
+
+        SwitchControlSchemes("Keyboard");
     }
 
     // Update is called once per frame
@@ -187,11 +189,7 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.valueType == typeof(Vector2) && callbackContext.ReadValue<Vector2>().sqrMagnitude < 0.8)
             return;
 
-        if (playerInput.currentControlScheme != "Keyboard")
-        {
-            playerInput.SwitchCurrentControlScheme("Keyboard", playerInput.devices.ToArray());
-            DeviceBindingUtils.SwapBindingTexts(playerInput.currentControlScheme);
-        }
+        SwitchControlSchemes("Keyboard");
         //Debug.Log(playerInput.currentControlScheme);
     }
 
@@ -200,12 +198,17 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.valueType == typeof(Vector2) && callbackContext.ReadValue<Vector2>().sqrMagnitude < 0.8)
             return;
 
-        if (playerInput.currentControlScheme != "Gamepad")
+        SwitchControlSchemes("Gamepad");
+        //Debug.Log(playerInput.currentControlScheme);
+    }
+
+    private void SwitchControlSchemes(string newScheme)
+    {
+        if (playerInput.currentControlScheme != newScheme)
         {
-            playerInput.SwitchCurrentControlScheme("Gamepad", playerInput.devices.ToArray());
+            playerInput.SwitchCurrentControlScheme(newScheme, playerInput.devices.ToArray());
             DeviceBindingUtils.SwapBindingTexts(playerInput.currentControlScheme);
         }
-        //Debug.Log(playerInput.currentControlScheme);
     }
 
     public void SwapToCamera(InputAction.CallbackContext callbackContext)

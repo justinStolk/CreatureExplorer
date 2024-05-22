@@ -78,7 +78,9 @@ public class HurtState : State
     {
         if (moveInput.sqrMagnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + rb.transform.eulerAngles.y;
+            float inputAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
+            float targetAngle = inputAngle + transform.eulerAngles.y;
+            //float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + rb.transform.eulerAngles.y;
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * cameraTransform.forward;
 
@@ -93,6 +95,11 @@ public class HurtState : State
             rb.velocity = newVelocity;
 
             return;
+        }
+        else
+        {
+            rb.velocity = Vector3.up * rb.velocity.y;
+            PlayerController.SetLoudness(1);
         }
         //rigidbody.velocity = rigidbody.velocity.y * Vector3.up;
     }

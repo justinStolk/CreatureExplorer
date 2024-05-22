@@ -31,21 +31,21 @@ public class DeviceBindingUtils : MonoBehaviour
                 foreach(BindingText bindingText in bindingLabels)
                 {
                     if (TryGetBinding(bindingText.BindingToLabel, out Binding binding))
-                        bindingText.TextObject.text = binding.KeyboardInput;
+                        bindingText.TextObject.text = binding.KeyboardInput + (bindingText.interactionText? " to interact": "");
                 }
                 break;
             case "Gamepad":
                 foreach (BindingText bindingText in bindingLabels)
                 {
                     if (TryGetBinding(bindingText.BindingToLabel, out Binding binding))
-                        bindingText.TextObject.text = binding.GamepadInput;
+                        bindingText.TextObject.text = binding.GamepadInput + (bindingText.interactionText ? " to interact" : "");
                 }
                 break;
             default:
                 foreach (BindingText bindingText in bindingLabels)
                 {
                     if (TryGetBinding(bindingText.BindingToLabel, out Binding binding))
-                        bindingText.TextObject.text = binding.KeyboardInput;
+                        bindingText.TextObject.text = binding.KeyboardInput + (bindingText.interactionText ? " to interact" : "");
                 }
                 break;
         }
@@ -92,6 +92,7 @@ public class Binding
 public class BindingText
 {
     [field: SerializeField] public TMPro.TextMeshProUGUI TextObject { get; private set; }
+    [field: SerializeField] public bool interactionText { get; private set; }
     [field: SerializeField] public InputActionName BindingToLabel { get; private set; }
 }
 
@@ -100,4 +101,5 @@ public enum InputActionName
     Camera,
     Scrapbook,
     Continue,
+    Interact
 }

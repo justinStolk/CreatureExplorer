@@ -23,9 +23,12 @@ public class FallingState : State
     [SerializeField] private Rigidbody rb;
 
     private Vector2 moveInput;
+    [SerializeField] private Transform cameraTransform;
 
     private void Awake()
     {
+        if (cameraTransform == null)
+            cameraTransform = Camera.main.transform;
         //rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -97,7 +100,8 @@ public class FallingState : State
         {
             float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + rb.transform.eulerAngles.y;
 
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * (VRChecker.IsVR ? transform.forward : Vector3.forward);
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * cameraTransform.forward;
+            //Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * (VRChecker.IsVR ? transform.forward : Vector3.forward);
 
             Vector3 newVelocity = moveDirection.normalized * aerialSpeed;
 
