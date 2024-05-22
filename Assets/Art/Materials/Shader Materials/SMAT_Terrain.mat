@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SMAT_Terrain
-  m_Shader: {fileID: -6465566751694194690, guid: f094c91529f559e42a5c578710644541,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 69c1f799e772cb6438f56c23efccb782, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -46,8 +45,48 @@ Material:
         m_Texture: {fileID: 2800000, guid: d4435e5c22d066e4baebbe59609a1f5b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Control:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DirtAlbedo:
         m_Texture: {fileID: 2800000, guid: aa70f8082e920b0489f80e943137d8d4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal3:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxOcclusionMapping_9d9e0674e23042608c1450642d498e9c_Heightmap_2:
@@ -64,6 +103,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Smoothness_1:
         m_Texture: {fileID: 2800000, guid: d4435e5c22d066e4baebbe59609a1f5b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Splat0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Splat1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Splat2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Splat3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TerrainHolesTexture:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TopAlbedo:
@@ -93,21 +152,34 @@ Material:
     - _DirtNoise: 55.6
     - _DirtSize: 1.33
     - _EdgeNoise: 85.8
+    - _EnableHeightBlend: 0
+    - _EnableInstancedPerPixelNormal: 1
     - _GrassContrast: 8.5
     - _GrassNoise: 32.33
+    - _HeightTransition: 0
     - _Level: 1.05
+    - _Metallic0: 0
+    - _Metallic1: 0
+    - _Metallic2: 0
+    - _Metallic3: 0
     - _NoiseStrength: 0.122
     - _NormalStrength: 1
+    - _NumLayersCount: 1
     - _ProjectionContrast: 50
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.349
+    - _Smoothness0: 0.5
+    - _Smoothness1: 0.5
+    - _Smoothness2: 0.5
+    - _Smoothness3: 0.5
     - _SmoothnessStrength: 0.368
     - _Tiling: 0.25
     - _TopTiling: 0.125
     - _UpNode: 1
     - _test: 4.7
     m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BottomTiling: {r: 0.1, g: 0.02, b: 0, a: 0}
     - _DirtTint: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}
     - _RockTint: {r: 0.13069598, g: 0.2802989, b: 0.31132078, a: 1}
