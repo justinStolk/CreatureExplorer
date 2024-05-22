@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalRotation;
 
     private Vector2 rotationInput;
-    private float rotationSpeed = 1f;
+    private float rotationSpeed = 0.2f;
     private bool berryPouchIsOpen;
 
     [SerializeField] private Rigidbody rb;

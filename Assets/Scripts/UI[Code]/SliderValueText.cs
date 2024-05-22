@@ -7,6 +7,7 @@ using TMPro;
 public class SliderValueText : MonoBehaviour
 {
     [SerializeField] private float valueMultiplier = 1;
+    [SerializeField] private bool setAsInt = true;
     private TextMeshProUGUI textMesh;
 
     // Start is called before the first frame update
@@ -17,6 +18,9 @@ public class SliderValueText : MonoBehaviour
 
     public void SetValueText(float value)
     {
-        textMesh.text = ((int)(value*valueMultiplier)).ToString();
+        if (setAsInt)
+            textMesh.text = ((int)(value*valueMultiplier)).ToString();
+        else
+            textMesh.text = (value*valueMultiplier).ToString("0.000");
     }
 }

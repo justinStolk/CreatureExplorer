@@ -251,7 +251,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1702,6 +1702,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  cameraTransform: {fileID: 0}
   rb: {fileID: 7807978120469739685}
 --- !u!114 &5926066154527639816
 MonoBehaviour:
@@ -1741,6 +1742,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rb: {fileID: 7807978120469739685}
+  cameraTransform: {fileID: 0}
 --- !u!114 &9190787582883160938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,6 +1782,7 @@ MonoBehaviour:
   painSound: {fileID: 8300000, guid: 6235c4b569fe9b448a6361810f53627f, type: 3}
   boneCrackSound: {fileID: 8300000, guid: 019a61ec6cd40b548b5f5e0c3879c577, type: 3}
   volume: {fileID: 0}
+  cameraTransform: {fileID: 0}
   rb: {fileID: 7807978120469739685}
 --- !u!114 &3916314285879108466
 MonoBehaviour:
