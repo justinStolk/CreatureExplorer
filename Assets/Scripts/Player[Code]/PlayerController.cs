@@ -567,15 +567,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.yellow;
+        if (respawnTransform != null)
+            Gizmos.DrawSphere(respawnTransform.position, 0.25f);
+
+        GizmoDrawer.DrawPrimitive(transform.position+ new Vector3(0, 0.85f, 0), new Vector3(0.5f, 0.85f, 0.5f), GizmoType.Sphere, new Color(0,1,0,0.75f));
+    }
+
+    private void OnDrawGizmosSelected()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, 0.25f);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position + (transform.forward * interactionDistance) + Vector3.up * interactHeight, interactionRadius);
-    }
 
-    private void OnDrawGizmosSelected()
-    {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position + Vector3.up * drowningHeight, 0.2f);
     }
