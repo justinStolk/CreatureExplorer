@@ -18,5 +18,6 @@ public class CreatureData : ScriptableObject
 
     [field: SerializeField] public CreatureState ChangesEverySecond { get; private set; }
     [field: SerializeField] public CreatureState ReactionToAttack { get; private set; }
-    [field: SerializeField] public CreatureState ReactionToPlayer { get; private set; }
+    [field: SerializeField] public CreatureState ReactionToPlayerFearful { get; private set; }
+    [field: SerializeField] public CreatureState ReactionToPlayerFriendly { get; private set; }
 }

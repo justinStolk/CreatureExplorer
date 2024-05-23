@@ -27,7 +27,10 @@ public class Snorlax : Charger
         surroundCheck += CheckForPredators;
         surroundCheck += CheckForFleeing;
         StartAction();
-        StartCoroutine(LookAtSurroundings());
+
+        if (surroundCheck != null)
+            InvokeRepeating("LookAtSurroundings", 0, data.CheckSurroundingsTimer);
+
         GetComponentInChildren<Animator>().SetTrigger("FallAsleep");
     }
 

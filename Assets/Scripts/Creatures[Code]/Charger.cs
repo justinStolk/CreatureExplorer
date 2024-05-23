@@ -28,9 +28,8 @@ public class Charger : Prey
         worldState = SetConditionFalse(worldState, Condition.IsNearDanger);
     }
 
-
     /// <summary>
-    /// Checks for food in neighbourhood and ups the hunger value with the amount of food nearby
+    /// Checks for chargers in neighbourhood and reduces fear for each charger nearby
     /// </summary>
     protected void CheckForChargers()
     {

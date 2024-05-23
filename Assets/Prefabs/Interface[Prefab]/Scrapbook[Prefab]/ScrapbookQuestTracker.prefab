@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1423437032192758502}
   - component: {fileID: 3523330759359159069}
   - component: {fileID: 2050010300792571491}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DecorationR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8514710174892986375}
   - component: {fileID: 9094750742701260085}
   - component: {fileID: 8438186194207153774}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProgressTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 8165872232841918384}
   - component: {fileID: 4961414701260000707}
   - component: {fileID: 4410890997074880732}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pagebg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 6416555708350856669}
   - component: {fileID: 4355248445624337442}
   - component: {fileID: 8959512399814847367}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DecorationL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5785635823809531041}
   - component: {fileID: 6400513605997514448}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GlobalProgressGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 380936118306678581}
   - component: {fileID: 2044137696612543209}
   - component: {fileID: 4763422213549087658}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScrapbookQuestTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,6 +589,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2957880185960135482}
     m_Modifications:
+    - target: {fileID: 2203251344395294439, guid: 26c7ac04c39cbef41a3cda9f87192470,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4239958693914615268, guid: 26c7ac04c39cbef41a3cda9f87192470,
         type: 3}
       propertyPath: m_Name
@@ -728,6 +733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleQuestTracker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203251344395294439, guid: 26c7ac04c39cbef41a3cda9f87192470,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4239958693914615268, guid: 26c7ac04c39cbef41a3cda9f87192470,
         type: 3}

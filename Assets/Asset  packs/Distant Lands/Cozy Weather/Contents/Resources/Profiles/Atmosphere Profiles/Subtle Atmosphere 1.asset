@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Subtle Atmosphere 1
   m_EditorClassIdentifier: 
   win1: 1
-  win2: 0
-  win3: 0
+  win2: 1
+  win3: 1
   win4: 0
   skyZenithColor:
     mode: 0
@@ -90,11 +90,11 @@ MonoBehaviour:
       ctime0: 12336
       ctime1: 16769
       ctime2: 22937
-      ctime3: 44140
-      ctime4: 46260
-      ctime5: 50115
-      ctime6: 52814
-      ctime7: 59560
+      ctime3: 49922
+      ctime4: 57247
+      ctime5: 59367
+      ctime6: 61873
+      ctime7: 63800
       atime0: 0
       atime1: 65535
       atime2: 0
@@ -148,10 +148,10 @@ MonoBehaviour:
       ctime0: 12143
       ctime1: 18504
       ctime2: 22937
-      ctime3: 42598
-      ctime4: 47031
-      ctime5: 50115
-      ctime6: 53585
+      ctime3: 43754
+      ctime4: 52621
+      ctime5: 56090
+      ctime6: 59945
       ctime7: 53585
       atime0: 11796
       atime1: 16384
@@ -207,10 +207,10 @@ MonoBehaviour:
       ctime1: 15420
       ctime2: 18119
       ctime3: 22937
-      ctime4: 45489
-      ctime5: 48380
-      ctime6: 50501
-      ctime7: 54741
+      ctime4: 49151
+      ctime5: 53199
+      ctime6: 57054
+      ctime7: 58982
       atime0: 11796
       atime1: 16384
       atime2: 22937
@@ -322,9 +322,9 @@ MonoBehaviour:
       ctime0: 14264
       ctime1: 16962
       ctime2: 19468
-      ctime3: 43947
-      ctime4: 45296
-      ctime5: 51850
+      ctime3: 40092
+      ctime4: 54548
+      ctime5: 60138
       ctime6: 0
       ctime7: 0
       atime0: 0
@@ -431,25 +431,25 @@ MonoBehaviour:
       key1: {r: 3.9999995, g: 3.9999995, b: 3.9999995, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 3.9999995, g: 3.9999995, b: 3.9999995, a: 1}
+      key4: {r: 2.3191626, g: 2.3191626, b: 2.3191626, a: 1}
       key5: {r: 3.9999995, g: 3.9999995, b: 3.9999995, a: 1}
-      key6: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 1}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 13685
-      ctime2: 17348
-      ctime3: 43562
-      ctime4: 47995
+      ctime1: 9830
+      ctime2: 13107
+      ctime3: 60948
+      ctime4: 63569
       ctime5: 65535
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 13685
-      atime2: 16962
-      atime3: 43754
-      atime4: 49344
+      atime1: 9830
+      atime2: 13107
+      atime3: 60948
+      atime4: 63569
       atime5: 65535
-      atime6: 0
+      atime6: 65535
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 6
@@ -497,10 +497,10 @@ MonoBehaviour:
       ctime1: 14456
       ctime2: 16962
       ctime3: 20046
-      ctime4: 43176
-      ctime5: 47224
-      ctime6: 52428
-      ctime7: 59945
+      ctime4: 39707
+      ctime5: 56090
+      ctime6: 59560
+      ctime7: 63029
       atime0: 0
       atime1: 65535
       atime2: 0
@@ -553,8 +553,8 @@ MonoBehaviour:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 11758
       ctime1: 15035
-      ctime2: 46260
-      ctime3: 53006
+      ctime2: 49922
+      ctime3: 59174
       ctime4: 53006
       ctime5: 53006
       ctime6: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.15
+        time: 0.1
         value: 1
         inSlope: 0
         outSlope: 0
@@ -718,8 +718,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7197688
-        value: 0
+        time: 0.8632625
+        value: -0.0023498535
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -727,22 +727,22 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.8628967
-        value: 1
+        time: 0.95
+        value: 0.9
         inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        outSlope: 1.9091549
+        tangentMode: 1
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0
+        outWeight: 1
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: 0.6846096
+        outSlope: 0.6846096
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 1
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -985,22 +985,22 @@ MonoBehaviour:
     colorVal: {r: 0.12335351, g: 0.45396733, b: 0.7924528, a: 1}
     gradientVal:
       serializedVersion: 2
-      key0: {r: 0.02745098, g: 0.07058824, b: 0.12156863, a: 1}
+      key0: {r: 0.027450977, g: 0.09176471, b: 0.12156863, a: 1}
       key1: {r: 0.24737452, g: 0.41100478, b: 0.4811321, a: 1}
-      key2: {r: 0.08018869, g: 0.6444426, b: 1, a: 0}
-      key3: {r: 0, g: 0.6161616, b: 1, a: 0}
+      key2: {r: 0, g: 0.6140351, b: 1, a: 0}
+      key3: {r: 0, g: 0.6170213, b: 1, a: 0}
       key4: {r: 0.9811321, g: 0.42628124, b: 0.22677112, a: 0}
-      key5: {r: 0.17254904, g: 0.21275984, b: 0.3882353, a: 0}
-      key6: {r: 0.04004984, g: 0.045466907, b: 0.18867922, a: 0}
-      key7: {r: 0.027450977, g: 0.068721496, b: 0.12156863, a: 0}
+      key5: {r: 0.3882353, g: 0.1882353, b: 0.17254902, a: 0}
+      key6: {r: 0.054901954, g: 0.08870173, b: 0.1882353, a: 0}
+      key7: {r: 0.027450977, g: 0.09176471, b: 0.12156863, a: 0}
       ctime0: 12336
       ctime1: 16769
       ctime2: 22937
-      ctime3: 43947
-      ctime4: 46646
-      ctime5: 51079
-      ctime6: 53006
-      ctime7: 59560
+      ctime3: 49922
+      ctime4: 57247
+      ctime5: 59367
+      ctime6: 61873
+      ctime7: 63800
       atime0: 0
       atime1: 65535
       atime2: 0
@@ -1055,10 +1055,10 @@ MonoBehaviour:
       ctime1: 13107
       ctime2: 20432
       ctime3: 22359
-      ctime4: 44525
-      ctime5: 47609
-      ctime6: 52621
-      ctime7: 57054
+      ctime4: 52814
+      ctime5: 56283
+      ctime6: 59174
+      ctime7: 61487
       atime0: 0
       atime1: 65535
       atime2: 0
@@ -1634,9 +1634,9 @@ MonoBehaviour:
       ctime0: 7325
       ctime1: 14649
       ctime2: 23708
-      ctime3: 45489
-      ctime4: 51079
-      ctime5: 57054
+      ctime3: 53777
+      ctime4: 57440
+      ctime5: 60331
       ctime6: 0
       ctime7: 0
       atime0: 0
@@ -2559,8 +2559,8 @@ MonoBehaviour:
       ctime0: 0
       ctime1: 14842
       ctime2: 20432
-      ctime3: 47224
-      ctime4: 53585
+      ctime3: 55319
+      ctime4: 60716
       ctime5: 65535
       ctime6: 0
       ctime7: 0

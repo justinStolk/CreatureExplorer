@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
+    [field: SerializeField] private GameObject bugs;
     [field: SerializeField] private AudioClip fallingSound;
     private SoundPlayer soundPlayer;
 
@@ -26,6 +27,12 @@ public class Food : MonoBehaviour
         StartCoroutine(Decay(10));
     }
 
+    public void StopDecay()
+    {
+        bugs?.SetActive(false);
+        StopAllCoroutines();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         // TODO: test whether letting the berries play a sound on every collision leads to unexpected sounds
@@ -37,6 +44,18 @@ public class Food : MonoBehaviour
 
     private IEnumerator Decay(float timer)
     {
+        if (bugs != null)
+        {
+            if (!bugs.activeInHierarchy)
+            {
+                bugs = Instantiate(bugs, transform, false);
+            }
+            else
+            {
+                bugs.SetActive(true);
+            } 
+        }
+
         yield return new WaitForSeconds(timer);
 
         DestroyImmediate(gameObject);

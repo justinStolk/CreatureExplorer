@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueMultiplier: 100
+  setAsInt: 1
 --- !u!1 &2985768222443944109
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2985768222466740825
 RectTransform:
   m_ObjectHideFlags: 0
@@ -859,6 +860,7 @@ GameObject:
   - component: {fileID: 2985768222496309960}
   - component: {fileID: 2985768222496309962}
   - component: {fileID: 2985768222496309963}
+  - component: {fileID: 6741803026124852914}
   m_Layer: 5
   m_Name: LSText
   m_TagString: Untagged
@@ -984,6 +986,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6741803026124852914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985768222496309961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c0affc1cefa544b8985c29f81365f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueMultiplier: 5
+  setAsInt: 0
 --- !u!1 &2985768222516180067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,6 +4199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueMultiplier: 100
+  setAsInt: 1
 --- !u!1 &2985768223218390016
 GameObject:
   m_ObjectHideFlags: 0
@@ -7989,6 +8006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueMultiplier: 100
+  setAsInt: 1
 --- !u!1 &2985768224104862729
 GameObject:
   m_ObjectHideFlags: 0
@@ -8763,7 +8781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8813,14 +8831,14 @@ MonoBehaviour:
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 073ca968544ee514f8d9f2c7c52614bd, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 073ca968544ee514f8d9f2c7c52614bd, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: 021b6fe2110d55a4bb909105a78bfc39, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2985768224319922246}
   m_OnClick:
     m_PersistentCalls:
@@ -8995,10 +9013,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 2985768223139292842}
   m_HandleRect: {fileID: 2985768222935942338}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.00001
+  m_MaxValue: 0.2
   m_WholeNumbers: 0
-  m_Value: 0.1
+  m_Value: 0.05
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9022,6 +9040,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 8300000, guid: bd2af92a69dd9aa439e15a68032e0c1c,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6741803026124852914}
+        m_TargetAssemblyTypeName: SliderValueText, Assembly-CSharp
+        m_MethodName: SetValueText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9081,7 +9111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2985768224386987141
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9931,6 +9961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueMultiplier: 100
+  setAsInt: 1
 --- !u!1 &6987799730365023525
 GameObject:
   m_ObjectHideFlags: 0

@@ -102,6 +102,9 @@ public class Planner : MonoBehaviour
         // TODO: find better way to avoid duplicate keys
         foreach (MoodState state in planState.CreatureStates)
         {
+            if (state.MoodType == StateType.Friendliness)
+                continue;
+
             prio = curvesPerMood[state.MoodType].Evaluate(state.StateValue / 100);
 
             try
@@ -274,6 +277,9 @@ public class Planner : MonoBehaviour
 
                 foreach (Action a in possibleActions)
                 {
+                    if (p.ActionList.Contains(a))
+                        continue;
+
                     // if the action satisfies the current requirements and hasn't failed
                     if (a.SatisfiesRequirements(p.currentActionPrerequisites, p.planWorldState) && !a.failed)
                     {
@@ -295,6 +301,7 @@ public class Planner : MonoBehaviour
                             completionCounter++;
                         }                        
                     }
+                    // TODO: make partial satisfaction possible?
                 }
 
                 // if no new course of action is found even though the plan isn't complete delete plan from list of possible plans
@@ -325,7 +332,7 @@ public class Planner : MonoBehaviour
         foreach (Plan p in possiblePlans)
         {
             if (debug)
-                Debug.Log($"reward/cost of plan ending with {p.ActionList[0]} is {p.CostRewardRatio}");
+                Debug.Log($"reward/cost of plan Beginning with {p.ActionList[p.ActionList.Count-1]} and ending with {p.ActionList[0]} is {p.CostRewardRatio}");
             if ((p.CostRewardRatio) > bestCostRewardRatio)
             {
                 bestCostRewardRatio = p.CostRewardRatio;

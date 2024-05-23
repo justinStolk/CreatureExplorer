@@ -21,18 +21,25 @@ public class InteractionPrompt : MonoBehaviour
     public void Activate(string prompt, Vector3 interactionOrigin)
     {
         textMesh.text = prompt;
+        
+        if (prompt == "")
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        else if (VRChecker.IsVR)
+        {
+            transform.position = interactionOrigin;
+            transform.LookAt(Camera.main.transform.position, Vector3.up);
 
-        transform.position = interactionOrigin;
-        transform.LookAt(Camera.main.transform.position, Vector3.up);
+            Vector3 uiOffset = ((Camera.main.transform.position - transform.position).normalized + Vector3.up).normalized * offsetDistance;
+            transform.position += uiOffset;
+            transform.LookAt(Camera.main.transform.position, Vector3.up);
 
-        Vector3 uiOffset = ((Camera.main.transform.position - transform.position).normalized + Vector3.up).normalized * offsetDistance;
-        transform.position += uiOffset;
-        transform.LookAt(Camera.main.transform.position, Vector3.up);
+            Vector3[] linePoints = { interactionOrigin, transform.position };
+            line.SetPositions(linePoints);
+        }
 
-        Vector3[] linePoints = {interactionOrigin,  transform.position};
-        line.SetPositions(linePoints);
-
-        if (prompt != "") 
-            gameObject.SetActive(true);
+        gameObject.SetActive(true);
     }
 }

@@ -3,12 +3,16 @@ using UnityEngine;
 public class Prey : Creature
 {
     [Header("Prey")]
-    [SerializeField] private CreatureState reactionToPredator;
+    [SerializeField] protected CreatureState reactionToDanger;
     [SerializeField] private float predatorAwarenessRange = 40;
 
     protected override void Start()
     {
-        surroundCheck += CheckForPredators;
+        if (surroundCheck == null)
+            surroundCheck = new CheckSurroundings(CheckForPredators);
+        else
+            surroundCheck += CheckForPredators;
+
         surroundCheck += CheckForFleeing;
         base.Start();
     }
@@ -28,19 +32,19 @@ public class Prey : Creature
         CheckForInterruptions(StateType.Fear, GetComponentInChildren<Flee>(), "Terrified", 90);
     }
 
-    protected virtual void ReactToThreat(Vector3 threatPosition, float threatLoudness)
+    protected virtual void ReactToThreat(Vector3 threatPosition, float threatLoudness = 1)
     {
         WaryOff = threatPosition;
         waryLoudness = threatLoudness;
     }
 
-    protected void ReactToThreat(Vector3 threatPosition, CreatureState reaction, float threatLoudness)
+    protected void ReactToThreat(Vector3 threatPosition, CreatureState reaction, float threatLoudness = 1)
     {
         UpdateValues(reaction);
         ReactToThreat(threatPosition, threatLoudness);
     }
     
-    protected void ReactToThreat(Torca predator, float predatorLoudness) => ReactToThreat(predator.transform.position, reactionToPredator, predatorLoudness);
+    protected void ReactToThreat(Torca predator, float predatorLoudness = 1) => ReactToThreat(predator.transform.position, reactionToDanger, predatorLoudness);
 
     protected void CheckForPredators()
     {
@@ -51,7 +55,7 @@ public class Prey : Creature
 # if UNITY_EDITOR
             DebugMessage("Sees Torca");
 #endif
-            ReactToThreat(predator, 1);
+            ReactToThreat(predator);
         }
     }
 

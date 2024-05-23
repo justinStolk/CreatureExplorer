@@ -16,5 +16,6 @@ public enum Condition
     IsHappy = 1 << 10,
     SeesSleepingSpot = 1 << 11,
     NearSleepingSpot = 1 << 12,
-    ShouldBeSleeping = 1 << 13
+    ShouldBeSleeping = 1 << 13,
+    IsUnderground = 1 << 14
 }

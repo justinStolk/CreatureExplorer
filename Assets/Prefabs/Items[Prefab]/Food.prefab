@@ -52,17 +52,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e35b46d6a1d76840b89ed7c5286d520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
   StatusEffectName: 
   oneShot: 1
   destroyAfterTrigger: 1
   effectDuration: 0.1
   statusEffect:
-    <CreatureStates>k__BackingField: []
+    <CreatureStates>k__BackingField:
+    - <MoodType>k__BackingField: 6
+      <Operator>k__BackingField: 4
+      <StateValue>k__BackingField: 10
   <InteractionPrompt>k__BackingField: Pick Up [E]
   splatVelocity: 2
   inventoryGraphic: {fileID: 21300000, guid: 1da57cacfd902c347ac6287903f8ec7c, type: 3}
   hoverGraphic: {fileID: 21300000, guid: 615ae8d216722d4408ccf53f2b378c63, type: 3}
-  maxVelocity: 20
+  maxVelocity: 40
   throwSound: {fileID: 8300000, guid: c1fb1ee8f5f9d7b458d7e0a3252488fd, type: 3}
 --- !u!114 &220829161237279414
 MonoBehaviour:
@@ -89,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636c724c34ce75a49bc56bc7a5980d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bugs: {fileID: 4064135317483788547, guid: b62d6501692cb104d8ed52fb505a22e0, type: 3}
   fallingSound: {fileID: 8300000, guid: 124a3b866ba767d498ea3fccfca87510, type: 3}
 --- !u!33 &6414090038665009470
 MeshFilter:
@@ -153,7 +158,7 @@ Rigidbody:
   m_AngularDrag: 0.4
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!64 &6385674991026645520

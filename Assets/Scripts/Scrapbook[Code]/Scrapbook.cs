@@ -66,7 +66,7 @@ public class Scrapbook : MonoBehaviour
 
     private void Start()
     {
-        CloseTracker();
+        CloseTrackers();
         ClosePages(); 
         StaticQuestHandler.OnPictureClicked += DockDelegate;
     }
@@ -106,11 +106,19 @@ public class Scrapbook : MonoBehaviour
         extrasGroup.SetActive(true);
     }
 
+    public void ToggleNotePages()
+    {
+        if (progressTrackerTab.activeSelf || questTrackerTab.activeSelf)
+        {
+            CloseTrackers();
+        }
+    }
+
     public void ToggleProgressTracker()
     {
         if (progressTrackerTab.activeSelf)
         {
-            CloseTracker();
+            CloseTrackers();
             return;
         }
         OpenProgressTracker();
@@ -120,7 +128,7 @@ public class Scrapbook : MonoBehaviour
     {
         if (questTrackerTab.activeSelf)
         {
-            CloseTracker();
+            CloseTrackers();
             return;
         }
         OpenQuestTracker();
@@ -183,7 +191,7 @@ public class Scrapbook : MonoBehaviour
 
     private void OpenBookForQuest()
     {
-        CloseTracker();
+        CloseTrackers();
         TabButtons.SetActive(false);    
         
         elementsPanel.gameObject.SetActive(true);
@@ -250,7 +258,7 @@ public class Scrapbook : MonoBehaviour
         CurrentPage.gameObject.SetActive(false);
     }
 
-    private void CloseTracker()
+    private void CloseTrackers()
     {
         progressTrackerTab.SetActive(false); 
         questTrackerTab.SetActive(false); 

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public static class LookForObjects<T>
 {
+
+    public static readonly Collider[] overlapBuffer = new Collider[100];
+
     public static List<T> CheckForObjects(Vector3 checkFromPosition, float checkingRange)
     {
         List<T> result = new List<T>();
         float distance = checkingRange;
         Collider nearest = null;
-
-        foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        
+        Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer);
+       
+        //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        foreach (Collider c in overlapBuffer)
         {
-            if (c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
+            if (c != null && c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
             {
                 result.Add(objectToCheckFor); 
                 distance = (c.transform.position - checkFromPosition).magnitude;
@@ -28,10 +34,12 @@ public static class LookForObjects<T>
         float distance = checkingRange;
         Collider nearest = null;
 
+        Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer);
 
-        foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        foreach (Collider c in overlapBuffer)
         {
-            if (c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
+            if (c != null && c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
             {
                 nearestObject = objectToCheckFor;
                 distance = (c.transform.position - checkFromPosition).magnitude;
@@ -48,10 +56,12 @@ public static class LookForObjects<T>
         float distance = checkingRange;
         Collider nearest = null;
 
+        Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer);
 
-        foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        foreach (Collider c in overlapBuffer)
         {
-            if (c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - nearestToPosition).magnitude < distance)
+            if (c != null && c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - nearestToPosition).magnitude < distance)
             {
                 nearestObject = objectToCheckFor;
                 distance = (c.transform.position - nearestToPosition).magnitude;
@@ -69,9 +79,12 @@ public static class LookForObjects<T>
         Collider nearest = null;
 
 
-        foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer);
+
+        //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        foreach (Collider c in overlapBuffer)
         {
-            if (c.gameObject.TryGetComponent(out objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
+            if (c != null && c.gameObject.TryGetComponent(out objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
             {
                 nearestObject = objectToCheckFor;
                 distance = (c.transform.position - checkFromPosition).magnitude;
@@ -97,9 +110,12 @@ public static class LookForObjects<T>
         float distance = checkingRange;
         Collider nearest = null;
 
-        foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer);
+
+        //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        foreach (Collider c in overlapBuffer)
         {
-            if (c.gameObject.TryGetComponent(out objectToCheckFor) && (c.transform.position - checkFromPosition).sqrMagnitude < distance && !c.gameObject.Equals(searcher))
+            if (c != null && c.gameObject.TryGetComponent(out objectToCheckFor) && (c.transform.position - checkFromPosition).sqrMagnitude < distance && !c.gameObject.Equals(searcher))
             {
                 nearestObject = objectToCheckFor;
                 distance = (c.transform.position - checkFromPosition).magnitude;

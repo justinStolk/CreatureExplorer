@@ -27,27 +27,38 @@ MonoBehaviour:
     hours: 6
     minutes: 0
   <HearingSensitivity>k__BackingField: 10
-  <CheckSurroundingsTimer>k__BackingField: 0.2
+  <CheckSurroundingsTimer>k__BackingField: 1
   <GroundTiltTimer>k__BackingField: 0.05
   <DecayTimer>k__BackingField: 10
   <ChangesEverySecond>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 3
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 0.5
+      <StateValue>k__BackingField: 0.2
     - <MoodType>k__BackingField: 2
       <Operator>k__BackingField: 4
       <StateValue>k__BackingField: 0.5
     - <MoodType>k__BackingField: 5
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 0.5
+      <StateValue>k__BackingField: 0.7
   <ReactionToAttack>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 2
       <Operator>k__BackingField: 3
       <StateValue>k__BackingField: 70
-  <ReactionToPlayer>k__BackingField:
+  <ReactionToPlayerFearful>k__BackingField:
     <CreatureStates>k__BackingField:
-    - <MoodType>k__BackingField: 0
+    - <MoodType>k__BackingField: 2
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 10
+      <StateValue>k__BackingField: 25
+    - <MoodType>k__BackingField: 6
+      <Operator>k__BackingField: 3
+      <StateValue>k__BackingField: 0.2
+  <ReactionToPlayerFriendly>k__BackingField:
+    <CreatureStates>k__BackingField:
+    - <MoodType>k__BackingField: 4
+      <Operator>k__BackingField: 3
+      <StateValue>k__BackingField: 5
+    - <MoodType>k__BackingField: 6
+      <Operator>k__BackingField: 3
+      <StateValue>k__BackingField: 0.5

@@ -13,63 +13,86 @@ public class VRHandController : MonoBehaviour
     [Header("Events")]
     [SerializeField] private UnityEvent onLookAtPalm;
     [SerializeField] private UnityEvent onLookFromPalm;
-    [SerializeField] private UnityEvent onPalmsParallel;
+    [SerializeField] private UnityEvent onPalmsFacing;
     [SerializeField] private UnityEvent onPalmsUnaligned;
+    [SerializeField] private UnityEvent onBookGesture;
     [SerializeField] private UnityEvent onFaint;
     [SerializeField] private UnityEvent onGrab;
     [SerializeField] private UnityEvent onRelease;
+    [SerializeField] private UnityEvent onHandDown;
 
-    [Header("Settings")]
+    [Header("General Settings")]
+    [SerializeField] private UnityEngine.XR.XRNode handSource;
     [SerializeField] private VRHandController otherHand;
-    [SerializeField] private LayerMask PointingInteractionLayers;
-    [Header("Fainting")]
-    [SerializeField] private float faintingPalmAngle = 170;
-    [SerializeField] private float sqrDistanceHandToForehead = 0.05f;
-    [SerializeField] private float secondsToFaint = 5;
-    [SerializeField] private Volume volume;
-    [Header("Looking at palm")]
-    [SerializeField] private float lookAtPalmAngle = 45;
-    [SerializeField] private float lookFromPalmAngle = 60;
-    [Header("Palms up and facing each other")]
-    [SerializeField] private float palmAlignmentAccuracy = 0.8f;
-    [SerializeField] private float handUpAccuracy = 0.9f;
-    [SerializeField] private float sqrMaxHandDistance = 0.3f;
-    [Header("Grabbing things")]
-    [SerializeField] private Vector3 grabOffset;
-    [SerializeField] private float grabRadius;
+    //[SerializeField] private LayerMask PointingInteractionLayers;
+
+    [field: HideArrow, SerializeField] private bool faintSettings;
+    [field: ConditionalHide("faintSettings", true), SerializeField] private float faintingPalmAngle = 170;
+    [field: ConditionalHide("faintSettings", true), SerializeField]  private float sqrDistanceHandToForehead = 0.05f;
+    [field: ConditionalHide("faintSettings", true), SerializeField] private float secondsToFaint = 5;
+    [field: ConditionalHide("faintSettings", true), SerializeField] private Volume volume;
+
+    [field: HideArrow, SerializeField] private bool palmLookSettings;
+    [field: ConditionalHide("palmLookSettings", true), SerializeField] private float lookAtPalmAngle = 45;
+    [field: ConditionalHide("palmLookSettings", true), SerializeField] private float lookFromPalmAngle = 60;
+
+    [field: HideArrow, SerializeField] private bool palmsFacingSettings;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float palmAlignmentAccuracy = 0.8f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float handUpAccuracy = 0.95f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float sqrMaxHandDistance = 0.3f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float sqrMinHandDistance = 0.15f;
+    [field: ConditionalHide("palmsFacingSettings", true), SerializeField] private float bookOpenAngle = 30;
+
+    [field: HideArrow, SerializeField] private bool grabSettings;
+    [field: ConditionalHide("grabSettings", true), SerializeField] private Vector3 grabOffset;
+    [field: ConditionalHide("grabSettings", true), SerializeField] private float grabRadius;
+
+    [field: HideArrow, SerializeField] private bool handHeightSettings;
+    [field: ConditionalHide("handHeightSettings", true), SerializeField] private float handDownHeight;
+
+    private UnityEngine.XR.InputDevice handDevice;
 
     private Transform cameraTransform;
     private bool lookingAtPalm = false;
-    private bool palmsParallel = false;
+    private bool palmsFacing = false;
+
+    private bool checkBookOpening = false;
+    private bool checkHandHeight = false;
+
     private bool holding = false;
     private bool grabbing = false;
 
     private bool recievedGripInput;
     private bool recievedTriggerInput;
     private bool holdingTriggerInput;
-    private bool wasPointing;
+    private Button selectedButton;
 
     public IGrabbable grabbedObj { get; private set; }
 
     private float faintingTimer = 0;
-
-    private LineRenderer line;
 
     // Start is called before the first frame update
     void Start()
     {
         cameraTransform = Camera.main.transform;
 
-        TryGetComponent(out line);
+        handDevice = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(handSource);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         CheckHandOrientation();
-        if (line != null)
-            Point();
 
+        if (checkBookOpening)
+        {
+            CheckForBookGesture();
+        }
+
+        if (checkHandHeight)
+        {
+            CheckHandHeight();
+        }
     }
 
     private void LateUpdate()
@@ -78,7 +101,7 @@ public class VRHandController : MonoBehaviour
         {
             ReleaseGrip();
         }
-
+        
         if (holdingTriggerInput && !recievedTriggerInput)
         {
             holdingTriggerInput = false;
@@ -124,21 +147,22 @@ public class VRHandController : MonoBehaviour
             }
         }
 
-        if (!lookingAtPalm && !palmsParallel)
+        if (!lookingAtPalm && !palmsFacing)
         {
             // check for looking at palm posture
-            if (handRotationAngle < lookAtPalmAngle)
+            if (handRotationAngle < lookAtPalmAngle && onLookAtPalm.GetPersistentEventCount() > 0)
             {
                 lookingAtPalm = true;
                 onLookAtPalm?.Invoke();
             }
             // if there is an event to be called when palms are parallel, check whether palms are parallel
-            else if (onPalmsParallel.GetPersistentEventCount()>0)
+            else if (onPalmsFacing.GetPersistentEventCount()>0)
             {
-                if (HandsAligned() && Vector3.Dot(transform.forward, Vector3.up) > palmAlignmentAccuracy && (transform.position - otherHand.transform.position).sqrMagnitude < sqrMaxHandDistance)
+                float handDistance = (transform.position - otherHand.transform.position).sqrMagnitude;
+                if (HandsAligned() && Vector3.Dot(transform.forward, Vector3.up) > palmAlignmentAccuracy && handDistance < sqrMaxHandDistance && handDistance > sqrMinHandDistance)
                 {
-                    onPalmsParallel?.Invoke();
-                    palmsParallel = true;
+                    onPalmsFacing?.Invoke();
+                    palmsFacing = true;
                 }
             }
         }
@@ -150,16 +174,45 @@ public class VRHandController : MonoBehaviour
                 onLookFromPalm?.Invoke();
             }
         }
-        else if (palmsParallel)
+        else if (palmsFacing)
         {
-            if (!HandsAligned(0.7f) || (transform.position - otherHand.transform.position).sqrMagnitude > sqrMaxHandDistance)
+            float handDistance = (transform.position - otherHand.transform.position).sqrMagnitude;
+            if (!HandsAligned(0.7f) || handDistance > sqrMaxHandDistance || handDistance < sqrMinHandDistance)
             {
-                palmsParallel = false;
+                palmsFacing = false;
+
                 onPalmsUnaligned?.Invoke();
             }
         }
     }
 
+    private void CheckHandHeight()
+    {
+        if (transform.localPosition.y < handDownHeight)
+        {
+            onHandDown.Invoke();
+            checkHandHeight = false;
+        }
+    }
+
+    // TODO: check what's cheaper: dot or angle (probably dot)
+    private void CheckForBookGesture()
+    {
+        if (Vector3.Angle(transform.right, otherHand.transform.right) > bookOpenAngle)
+        {
+            onBookGesture.Invoke();
+            checkBookOpening = false;
+            checkHandHeight = true;
+            lookingAtPalm = true;
+        }
+    }
+
+    public void BookOpenCheck(bool shouldCheck)
+    {
+        checkBookOpening = shouldCheck;
+    }
+
+    /*
     private void Point()
     {
         if (line.enabled)
@@ -181,7 +234,7 @@ public class VRHandController : MonoBehaviour
             }
         }
     }
-
+    */
     public void PressTrigger(InputAction.CallbackContext callbackContext)
     {
         recievedTriggerInput = true;
@@ -189,6 +242,14 @@ public class VRHandController : MonoBehaviour
         if (!holdingTriggerInput)
         {
             holdingTriggerInput = true;
+
+            if (selectedButton != null)
+            {
+                selectedButton.onClick.Invoke();
+                selectedButton.Select();
+            }
+
+            /*
             if (line == null || !line.enabled)
                 return;
 
@@ -204,6 +265,7 @@ public class VRHandController : MonoBehaviour
                     component.OnBeginDrag();
                 }
             }
+            */
         }
     }
 
@@ -215,11 +277,12 @@ public class VRHandController : MonoBehaviour
         {
             grabbing = true;
 
-            wasPointing = line.enabled;
-            line.enabled = false;
-
-            //Debug.Log("grabbing");
-            if (LookForObjects<IGrabbable>.TryGetClosestObject(transform.position + grabOffset, transform.position, grabRadius, out IGrabbable grabbable))
+            if(selectedButton != null)
+            {
+                selectedButton.onClick.Invoke();
+                selectedButton.Select();
+            }
+            else if (LookForObjects<IGrabbable>.TryGetClosestObject(transform.position + grabOffset, transform.position, grabRadius, out IGrabbable grabbable))
             {
                 if (otherHand.grabbedObj == grabbable)
                 {
@@ -246,18 +309,30 @@ public class VRHandController : MonoBehaviour
         {
             grabbing = false;
 
-            line.enabled = wasPointing;
-
-            //Debug.Log("releasing");
-
-            onRelease.Invoke();
-
             if (grabbedObj != null)
+            {
                 grabbedObj.Release();
+                onRelease.Invoke();
+            }
 
             grabbedObj = null;
             holding = false;
         }
+    }
+
+    public void DoHaptics(float duration)
+    {
+       handDevice.SendHapticImpulse(0, 1, duration);
+    }
+
+    public void DoHaptics(float strength, float duration)
+    {
+       handDevice.SendHapticImpulse(0, strength, duration);
+    }
+
+    public void StopHaptics()
+    {
+        handDevice.StopHaptics();
     }
 
     private bool HandsAligned(float angleMultiplier = 1)
@@ -265,6 +340,26 @@ public class VRHandController : MonoBehaviour
         return (Vector3.Dot(transform.up, otherHand.transform.up) > palmAlignmentAccuracy * angleMultiplier && 
             Vector3.Dot(transform.forward, cameraTransform.up) > handUpAccuracy * angleMultiplier && 
             Vector3.Dot(otherHand.transform.forward, cameraTransform.up) > handUpAccuracy * angleMultiplier);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // TODO: return to just touching after hands and pointing are implemented
+        if (other.TryGetComponent(out selectedButton))
+        {
+            DoHaptics(0.2f);
+
+            selectedButton.Select();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Button button) && button == selectedButton)
+        {
+            button.OnDeselect(null);
+            selectedButton = null;
+        }
     }
 
 #if UNITY_EDITOR

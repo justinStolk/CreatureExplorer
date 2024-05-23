@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PictureStorage : PageComponentInteractor
 {
     [SerializeField] private Transform[] photoSpots;
-    [SerializeField] private int startingCapacity = 1;
+    [SerializeField] private int startingCapacity = 3;
 
     [SerializeField] private TMP_Text camStorageText;
     [SerializeField] private TMP_Text maxStorageText;

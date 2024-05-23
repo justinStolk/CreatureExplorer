@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalRotation;
 
     private Vector2 rotationInput;
-    private float rotationSpeed = 1f;
+    private float rotationSpeed = 0.2f;
     private bool berryPouchIsOpen;
 
     [SerializeField] private Rigidbody rb;
@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
     private IInteractable interactableInRange;
     private Throwable heldThrowable;
+
 
     private void Awake()
     {
@@ -144,6 +145,8 @@ public class PlayerController : MonoBehaviour
 
         Scrapbook.OnBeginType += StartTyping;
         Scrapbook.OnEndType += StopTyping;
+
+        SwitchControlSchemes("Keyboard");
     }
 
     // Update is called once per frame
@@ -181,6 +184,33 @@ public class PlayerController : MonoBehaviour
         firstPersonCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
     }
 
+    public void ActivateKeyboard(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.valueType == typeof(Vector2) && callbackContext.ReadValue<Vector2>().sqrMagnitude < 0.8)
+            return;
+
+        SwitchControlSchemes("Keyboard");
+        //Debug.Log(playerInput.currentControlScheme);
+    }
+
+    public void ActivateGamepad(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.valueType == typeof(Vector2) && callbackContext.ReadValue<Vector2>().sqrMagnitude < 0.8)
+            return;
+
+        SwitchControlSchemes("Gamepad");
+        //Debug.Log(playerInput.currentControlScheme);
+    }
+
+    private void SwitchControlSchemes(string newScheme)
+    {
+        if (playerInput.currentControlScheme != newScheme)
+        {
+            playerInput.SwitchCurrentControlScheme(newScheme, playerInput.devices.ToArray());
+            DeviceBindingUtils.SwapBindingTexts(playerInput.currentControlScheme);
+        }
+    }
+
     public void SwapToCamera(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.started)
@@ -202,11 +232,13 @@ public class PlayerController : MonoBehaviour
     public void StartTyping()
     {
         playerInput.actions.FindAction("QuickCloseBook").Disable();
+        playerInput.actions.FindAction("CloseQuest").Disable();
     }
 
     public void StopTyping()
     {
         playerInput.actions.FindAction("QuickCloseBook").Enable();
+        playerInput.actions.FindAction("CloseQuest").Enable();
     }
 
     public void GetInteractionInput(InputAction.CallbackContext callbackContext)
@@ -280,8 +312,7 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            LinkModuleToScrapbook();
-            playerInput.SwitchCurrentActionMap("Scrapbook");
+            LinkModule("Scrapbook");
             Cursor.lockState = CursorLockMode.None;
             onScrapbookOpened?.Invoke();
         }
@@ -336,6 +367,16 @@ public class PlayerController : MonoBehaviour
             return;
         }
         pouch.ClosePouch();
+    }
+
+    public void LinkModule(string linkTo)
+    {
+        playerInput.SwitchCurrentActionMap(linkTo);
+        module.leftClick = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Click"));
+        module.point = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Point"));
+
+        // Justin: The overworld move element needs to be set for gamepad controls. Implement this later, as you won't be able to select berries without this.
+        module.move = InputActionReference.Create(playerInput.actions.FindActionMap(linkTo).FindAction("Move"));
     }
 
     public void LinkModuleToOverworld()
@@ -523,6 +564,7 @@ public class PlayerController : MonoBehaviour
         canvas.SetActive(true);
         died = false;
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

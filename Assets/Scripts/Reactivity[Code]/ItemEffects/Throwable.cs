@@ -11,7 +11,7 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
     [SerializeField] private Sprite inventoryGraphic;
     [SerializeField] private Sprite hoverGraphic;
 
-    [SerializeField] private float maxVelocity = 20;
+    [SerializeField] private float maxVelocity = 40;
 
     [SerializeField] private AudioClip throwSound;
 
@@ -21,6 +21,8 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
 
     private Rigidbody rb;
     private Collider throwCollider;
+
+    private Vector3 grabbedOffset;
 
     private void Awake()
     {
@@ -41,6 +43,16 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
         }
     }
 
+    // TODO: look at update/fixedupdate performance difference
+    private void Update()
+    {
+        if (isGrabbed)
+        {
+            transform.localPosition = grabbedOffset;
+        }
+    }
+
+    // TODO: investigate why this is called a lot more often than expected
     private void FixedUpdate()
     {
         if (isGrabbed)
@@ -60,6 +72,7 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
 
         //Debug.Log("grabbed");
         transform.SetParent(handTransform, true);
+        grabbedOffset = transform.localPosition;
 
         isGrabbed = true;
     }
@@ -72,7 +85,10 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
         Vector3 throwVelocity = ThrowVelocity();
 
         Vector3.ClampMagnitude(throwVelocity, maxVelocity);
-        Throw(throwVelocity);
+
+        float throwForce = rb.drag/rb.mass;
+
+        Throw(throwVelocity, throwForce);
 
         previousPositions = new Vector3[10];
     }
@@ -89,7 +105,8 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
         if (force == 1)
             rb.velocity = direction;
         else
-            rb.AddForce(direction * force);
+            rb.velocity = direction*force;
+            //rb.AddForce(direction * force);
 
         if (TryGetComponent(out Food food))
         {
@@ -109,9 +126,10 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
         rb.angularVelocity = Vector3.zero;
         throwCollider.enabled = false;
         rb.useGravity = false;
+
         if(TryGetComponent(out Food food))
         {
-            food.StopAllCoroutines();
+            food.StopDecay();
         }
     }
 
@@ -120,12 +138,12 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
         float timeMultiplier = 1 / Time.fixedDeltaTime;
         Vector3 averageVelocity = Vector3.zero;// (previousPositions[0] - previousPositions[1]) * timeMultiplier;
 
-        for (int x = 1; x < previousPositions.Length-1; x++)
+        for (int x = 2; x < previousPositions.Length-1; x++)
         {
             averageVelocity += (previousPositions[x] - previousPositions[x + 1]) * timeMultiplier;
         }
 
-        averageVelocity /= 8;
+        averageVelocity /= 7;
 
         return averageVelocity;
     }

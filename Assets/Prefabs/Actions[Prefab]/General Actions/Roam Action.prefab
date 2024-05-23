@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Roaming
-  <Onomatopea>k__BackingField: '*humming*'
   startAnimationTrigger: 
   duringAnimationTrigger: Walk
   finishAnimationTrigger: Idle
@@ -54,18 +53,12 @@ MonoBehaviour:
   <Awareness>k__BackingField: 1
   <Cost>k__BackingField: 3
   <BaseReward>k__BackingField: 5
-  <Reward>k__BackingField: 5
+  actionDuration: 15
   <GoalEffects>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 5
       <Operator>k__BackingField: 4
       <StateValue>k__BackingField: 40
-    - <MoodType>k__BackingField: 1
-      <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 5
-    - <MoodType>k__BackingField: 3
-      <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 15
     - <MoodType>k__BackingField: 4
       <Operator>k__BackingField: 3
       <StateValue>k__BackingField: 15
@@ -73,7 +66,16 @@ MonoBehaviour:
   <Prerequisites>k__BackingField:
   - <EffectType>k__BackingField: 128
     <StateValue>k__BackingField: 0
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
   finished: 0
   failed: 0
-  actionDuration: 8
+  setAnimator: 0
+  animator: {fileID: 0}
+  speedMultiplier: 1
+  targetingPrecision: 0.5
   roamRange: 50

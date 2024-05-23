@@ -64,8 +64,10 @@ public class DialogueUI : MonoBehaviour
     private static void SwitchInputs()
     {
         previousActionMap = playerInput.currentActionMap.name;
-        playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModuleToDialogue();
-        playerInput.SwitchCurrentActionMap("Dialogue");
+        if (VRChecker.IsVR)
+            playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModule("Dialogue");
+        else
+            playerInput.gameObject.GetComponent<PlayerController>().LinkModule("Dialogue");
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -78,15 +80,19 @@ public class DialogueUI : MonoBehaviour
         {
             case "Scrapbook":
                 {
-                    playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModuleToScrapbook();
-                    playerInput.SwitchCurrentActionMap("Scrapbook");
+                    if (VRChecker.IsVR)
+                        playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModule("Scrapbook");
+                    else
+                        playerInput.gameObject.GetComponent<PlayerController>().LinkModule("Scrapbook");
                     Cursor.lockState = CursorLockMode.None;
                     break;
                 }
             default:
                 {
-                    playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModuleToOverworld();
-                    playerInput.SwitchCurrentActionMap("Overworld");
+                    if (VRChecker.IsVR)
+                        playerInput.gameObject.GetComponent<VR_PlayerController>().LinkModule("Overworld");
+                    else
+                        playerInput.gameObject.GetComponent<PlayerController>().LinkModule("Overworld");
                     Cursor.lockState = CursorLockMode.Locked;
                     break;
                 }

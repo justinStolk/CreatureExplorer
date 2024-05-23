@@ -18,6 +18,7 @@ public class HurtState : State
     private float timer = 0f;
 
     private Vector2 moveInput;
+    [SerializeField] private Transform cameraTransform;
 
     [SerializeField] private Rigidbody rb;
     private PhysicsStepper stepper;
@@ -25,6 +26,8 @@ public class HurtState : State
 
     private void Awake()
     {
+        if (cameraTransform == null)
+            cameraTransform = Camera.main.transform;
         //rigidbody = GetComponent<Rigidbody>();
         stepper = GetComponent<PhysicsStepper>();
     }
@@ -75,9 +78,11 @@ public class HurtState : State
     {
         if (moveInput.sqrMagnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + rb.transform.eulerAngles.y;
+            float inputAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
+            float targetAngle = inputAngle + transform.eulerAngles.y;
+            //float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + rb.transform.eulerAngles.y;
 
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * (VRChecker.IsVR ? transform.forward : Vector3.forward);
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * cameraTransform.forward;
 
             stepper.HandleStep(ref rb, moveDirection);
 
@@ -90,6 +95,11 @@ public class HurtState : State
             rb.velocity = newVelocity;
 
             return;
+        }
+        else
+        {
+            rb.velocity = Vector3.up * rb.velocity.y;
+            PlayerController.SetLoudness(1);
         }
         //rigidbody.velocity = rigidbody.velocity.y * Vector3.up;
     }

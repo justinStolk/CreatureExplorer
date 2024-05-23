@@ -209,7 +209,8 @@ public enum StateType
     Fear,
     Hunger,
     Happiness,
-    Boredom
+    Boredom,
+    Friendliness
 }
 
 public enum StateOperant

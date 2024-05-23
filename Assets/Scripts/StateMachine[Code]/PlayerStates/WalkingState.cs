@@ -12,6 +12,7 @@ public class WalkingState : State
 
     [SerializeField] private float minWalkLoudness = 5f;
     [SerializeField] private float maxWalkLoudness = 15f;
+    [SerializeField] private float sprintLoudness = 15f;
 
     [SerializeField] private LayerMask playerLayer;
 
@@ -22,6 +23,8 @@ public class WalkingState : State
 
     [SerializeField] private Rigidbody rb;
     private PhysicsStepper stepper;
+
+    private bool inputByKeyboard = false;
 
     private void Awake()
     {
@@ -45,7 +48,6 @@ public class WalkingState : State
     }
     public override void OnStateFixedUpdate()
     {
-
         Move();
     }
 
@@ -56,11 +58,15 @@ public class WalkingState : State
 
     public void GetMoveInput(InputAction.CallbackContext callbackContext)
     {
+        inputByKeyboard = (callbackContext.control.device.name == "Keyboard");
+
         moveInput = callbackContext.ReadValue<Vector2>();//.normalized;
     }
 
     public void GetJumpInput(InputAction.CallbackContext callbackContext)
     {
+        inputByKeyboard = (callbackContext.control.device.name == "Keyboard");
+
         if (callbackContext.started && Physics.CheckSphere(transform.position, 0.25f, ~playerLayer, QueryTriggerInteraction.Ignore) && Owner.CurrentState.GetType() == GetType())
         {
             Owner.SwitchState(typeof(JumpingState));
@@ -72,18 +78,19 @@ public class WalkingState : State
         float inputMagnitute = moveInput.magnitude;
         inputMagnitute = speedCurve.Evaluate(inputMagnitute);
 
-        if (moveInput.sqrMagnitude >= 0.1f)
+        if (inputMagnitute >= 0.1f)
         {
-            isSprinting = inputMagnitute * speedMultiplier >= sprintSpeed;
+            float speed;
+            speed = speedMultiplier * inputMagnitute;
 
             PlayerController.SetLoudness(Mathf.Lerp(minWalkLoudness, maxWalkLoudness, inputMagnitute));
 
-            float speed = speedMultiplier * inputMagnitute;
             float inputAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
             float targetAngle = inputAngle + transform.eulerAngles.y;
 
             if (isSprinting)
             {
+                PlayerController.SetLoudness(sprintLoudness);
                 speed = Mathf.Abs(inputAngle) <= maxSprintAngle ? sprintSpeed : strafeSprintSpeed;
             }
 
