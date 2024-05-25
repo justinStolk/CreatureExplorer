@@ -176,7 +176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2787681448787467601}
   - component: {fileID: 2584887261827210693}
-  - component: {fileID: 1420720256235302361}
+  - component: {fileID: 5959384585657243953}
+  - component: {fileID: 8124873428588984972}
   m_Layer: 0
   m_Name: PRE_RockMed1
   m_TagString: Untagged
@@ -229,8 +230,8 @@ LODGroup:
     renderers:
     - renderer: {fileID: 197933817994163937}
   m_Enabled: 1
---- !u!64 &1420720256235302361
-MeshCollider:
+--- !u!65 &5959384585657243953
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -239,10 +240,22 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 535000968626520266, guid: 59ef961736ece3d42b772165dd8f7760, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.795491, y: 1.9457434, z: 2.4253988}
+  m_Center: {x: -0.0068534613, y: 0.93889314, z: -0.054819822}
+--- !u!65 &8124873428588984972
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068055710221510772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.316093, y: 1.8060036, z: 1.9458447}
+  m_Center: {x: -0.055286407, y: 2.8152652, z: -0.19873977}
 --- !u!1 &7640740058214441959
 GameObject:
   m_ObjectHideFlags: 0
