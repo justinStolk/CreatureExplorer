@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7315310901824626990
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SMAT_Lilypads
+  m_Shader: {fileID: -6465566751694194690, guid: 36b868182620c4249b088cbab7d202eb,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Basecolor:
+        m_Texture: {fileID: 2800000, guid: 5b3e17ac28363af43ab8ed0426fd6ab7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LeafShape:
+        m_Texture: {fileID: 2800000, guid: e5f5af24b4177a640b5b64748ea15e3b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _EdgeColorSize: 1
+    - _GradientSize: 0
+    - _Noise_Scale: 0.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Seed: 0
+    - _WindIntensity: 0.009
+    - _WindSpeed: 0.51
+    m_Colors:
+    - _BottomColor: {r: 0.25490198, g: 0.40392157, b: 0.18039218, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
+    - _LeafColorVariation: {r: 0.33725488, g: 0.36470586, b: 0.8196079, a: 1}
+    - _TopColor: {r: 0.9176471, g: 0.972549, b: 0.33725488, a: 1}
+    - _Twig: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
