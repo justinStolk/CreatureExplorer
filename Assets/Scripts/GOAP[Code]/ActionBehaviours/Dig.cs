@@ -14,7 +14,7 @@ public class Dig : Action
     protected override async void DoAction(GameObject target = null)
     {
         // TODO: dig? could be fully through animation
-        await Task.Delay((int)actionDuration * 1000);
+        await Task.Delay((int)actionDuration * 1000, token);
 
         base.DoAction();
     }

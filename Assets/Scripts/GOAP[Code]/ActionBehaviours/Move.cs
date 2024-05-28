@@ -30,7 +30,7 @@ public class Move : NavigatedAction
     {
         Task check = CheckDistanceToDestination();
         
-        while (!check.IsCompletedSuccessfully) 
+        while (!check.IsCompletedSuccessfully && !token.IsCancellationRequested) 
         {
             if (targetTransform == null)
             {

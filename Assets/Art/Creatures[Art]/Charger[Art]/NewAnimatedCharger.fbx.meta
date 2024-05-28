@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: f5aa598ebd4c10942b8a48ba01e60dc0
+guid: 6f5c59788053aa243bd5302c0ab307dd
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body2
+    second: {fileID: 2100000, guid: 9c3e981f3f38dfb40b4668e3f50e4707, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Left_Eye1
+    second: {fileID: 2100000, guid: ca451466ea4ca154b846a9134f24baeb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -89,7 +99,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: Body_low
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -97,7 +107,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

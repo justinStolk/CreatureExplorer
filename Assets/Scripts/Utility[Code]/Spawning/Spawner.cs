@@ -19,37 +19,27 @@ public abstract class Spawner : MonoBehaviour
 
     private void Start()
     {
-        Spawn();
-        StartCoroutine(SpawnTimer());
+        InvokeRepeating("Spawn", 0, spawnDelay);
     }
 
     private void OnTransformChildrenChanged()
     {
         if (continous && isFull)
         {
-            isFull = transform.childCount > maxSpawnAmount;
+            isFull = transform.childCount >= maxSpawnAmount;
 
             if (!isFull)
-                StartCoroutine(SpawnTimer());
+                InvokeRepeating("Spawn", spawnDelay, spawnDelay);
+        } else if (continous)
+        {
+            isFull = transform.childCount >= maxSpawnAmount;
+
+            if (isFull)
+                CancelInvoke("Spawn");
         }
     }
 
     protected abstract void Spawn();
-
-    private IEnumerator SpawnTimer()
-    {
-        yield return new WaitForSeconds(spawnDelay);
-
-        Spawn();
-
-        if (continous)
-        {
-            isFull = transform.childCount > maxSpawnAmount;
-            
-            if (!isFull)
-                StartCoroutine(SpawnTimer());
-        }
-    }
 
 #if UNITY_EDITOR
     protected virtual void OnDrawGizmosSelected()

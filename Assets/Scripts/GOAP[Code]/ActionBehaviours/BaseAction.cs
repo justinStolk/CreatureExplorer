@@ -13,8 +13,7 @@ public class BaseAction : Action
 
     protected override async void DoAction(GameObject target = null)
     {
-        // TODO: check for bugs near tail
-        await Task.Delay((int)actionDuration * 1000);
+        await Task.Delay((int)actionDuration * 1000, token);
 
         base.DoAction();
     }

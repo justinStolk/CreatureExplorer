@@ -17,7 +17,7 @@ public class Think : Action
 
     protected override async void DoAction(GameObject target = null)
     {
-        await Task.Delay((int)actionDuration* 1000);
+        await Task.Delay((int)actionDuration* 1000, token);
 
         base.DoAction();
     }

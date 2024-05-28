@@ -130,6 +130,9 @@ public abstract class NavigatedAction : Action
     {
         while ((moveAgent.destination - moveAgent.transform.position).magnitude > (targetingPrecision+extraMargin))
         {
+            if (token.IsCancellationRequested)
+                return;
+
             if (creatureDeactivated)
             {
                 break;

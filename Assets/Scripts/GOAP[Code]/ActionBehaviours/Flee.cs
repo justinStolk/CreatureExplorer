@@ -35,7 +35,7 @@ public class Flee : NavigatedAction
 
     protected override async void DoAction(GameObject target = null)
     {
-        Task[] tasks = {Task.Delay((int)(actionDuration * 1000)), CheckDistanceToDestination()};
+        Task[] tasks = {Task.Delay((int)(actionDuration * 1000), token), CheckDistanceToDestination()};
 
         await Task.WhenAny(tasks);// .Delay((int)(actionDuration * 1000));
         {
