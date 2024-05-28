@@ -28,7 +28,7 @@ public class Roam : NavigatedAction
 
     protected override async void DoAction(GameObject target = null)
     {
-        Task[] check = { CheckDistanceToDestination(), Task.Delay((int)(actionDuration *1000))};
+        Task[] check = { CheckDistanceToDestination(), Task.Delay((int)(actionDuration *1000), token)};
         await Task.WhenAny(check);
         {
             base.DoAction();

@@ -461,16 +461,30 @@ public class Creature : MonoBehaviour
 
     protected void TiltWithGround()
     {
-        Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit);
+        Physics.Raycast(transform.position, transform.up*-1, out RaycastHit hit);
         if (transform.up != hit.normal)
         {
-            Vector3 tempForward = Vector3.Cross(hit.normal, transform.right);
+            Vector3 tempForward = (Vector3.Cross(hit.normal, transform.right)).normalized;
             if ((transform.forward - tempForward).magnitude > 1)
             {
                 tempForward *= -1;
             }
-            transform.up = hit.normal;
-            transform.forward = tempForward;
+            tempForward = Vector3.Slerp(transform.forward, tempForward, 0.1f);
+
+            Vector3 tempRight = (Vector3.Cross(hit.normal, tempForward)).normalized;
+            if ((transform.right - tempRight).magnitude > 1)
+            {
+                tempRight *= -1;
+            }
+            tempRight = Vector3.Slerp(transform.right, tempRight, 0.1f);
+
+            Vector3 tempUp = (Vector3.Cross(tempRight, tempForward)).normalized;
+            if ((transform.up - tempUp).magnitude > 1)
+            {
+                tempUp *= -1;
+            }
+
+            transform.LookAt(transform.position+tempForward, tempUp); 
         }
     }
 

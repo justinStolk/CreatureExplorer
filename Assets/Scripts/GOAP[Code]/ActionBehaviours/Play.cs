@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Play : Action
+public class Play : NavigatedAction
 {
     private NavMeshAgent moveAgent;
 
@@ -18,7 +18,8 @@ public class Play : Action
         //Task.Run(() => DoAction(), failToken);
 
         // Navmeshagent doesn't play nice with threading
-        DoAction();
+        //DoAction();
+        base.PerformAction(creature, target);
         FailCheck(failToken);
         return target;
     }
@@ -28,17 +29,30 @@ public class Play : Action
         base.CalculateCostAndReward(currentState, targetMood, targetMoodPrio);
     }
 
+    protected override void SetPathDestination()
+    {
+        moveAgent.SetDestination(moveAgent.transform.position + (moveAgent.transform.forward * 3 + moveAgent.transform.right));
+    }
+
+    protected override void MoveAction(GameObject target = null)
+    {
+        DoAction(target);
+    }
+
     protected override async void DoAction(GameObject target = null)
     {
         float playTimer = actionDuration;
 
         while (playTimer > 0)
         {
+            if (token.IsCancellationRequested)
+                return;
+
             // TODO: make more performant?
-            moveAgent.SetDestination(moveAgent.transform.position + (moveAgent.transform.forward + moveAgent.transform.right));
+            moveAgent.SetDestination(moveAgent.transform.position + (moveAgent.transform.forward*3 + moveAgent.transform.right));
 
             playTimer -= Time.deltaTime;
-            await Task.Yield();
+            await Task.Delay(200);// Yield();
         }
 
         base.DoAction();

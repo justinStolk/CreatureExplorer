@@ -45,16 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Ram Tree
-  <Onomatopea>k__BackingField: WHAM
-  startAnimationTrigger: 
-  duringAnimationTrigger: Walk
+  startAnimationTrigger: Charge
+  duringAnimationTrigger: 
   finishAnimationTrigger: Idle
   sound: {fileID: 8300000, guid: 55f45435b2a5ad04780e8e63f96cb834, type: 3}
   oneShot: 0
   <Awareness>k__BackingField: 0.5
   <Cost>k__BackingField: 6
   <BaseReward>k__BackingField: 4
-  <Reward>k__BackingField: 4
+  actionDuration: 3
   <GoalEffects>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 0
@@ -72,9 +71,14 @@ MonoBehaviour:
     <StateValue>k__BackingField: 1
   - <EffectType>k__BackingField: 8
     <StateValue>k__BackingField: 1
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
   finished: 0
   failed: 0
-  actionDuration: 3
   setAnimator: 0
   animator: {fileID: 0}
   speedMultiplier: 4

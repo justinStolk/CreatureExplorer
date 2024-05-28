@@ -7,6 +7,7 @@ public class Search : Action
     [SerializeField] private SearchTarget searchTarget;
     [SerializeField] private float searchRadius = 1000;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask objectLayer;
 
     public override GameObject PerformAction(Creature creature, GameObject target)
     {
@@ -19,7 +20,7 @@ public class Search : Action
         {
             case (SearchTarget.Food):
 
-                foreach (Collider c in Physics.OverlapSphere(creature.transform.position, searchRadius))
+                foreach (Collider c in Physics.OverlapSphere(creature.transform.position, searchRadius, objectLayer))
                 {
                     if ((c.gameObject.GetComponent(creature.data.FoodSource) != null) && (c.transform.position - creature.transform.position).sqrMagnitude < distance)
                     {
@@ -38,7 +39,7 @@ public class Search : Action
 
             case (SearchTarget.Tree):
                 FruitTree t = null;
-                if (LookForObjects<FruitTree>.TryGetClosestObject(t, creature.transform.position, searchRadius, out t))
+                if (LookForObjects<FruitTree>.TryGetClosestObject(creature.transform.position, searchRadius, objectLayer, out t))
                 {
                     DoAction();
                     return t.gameObject;
@@ -83,7 +84,7 @@ public class Search : Action
 
     protected override async void DoAction(GameObject target = null)
     {
-        await Task.Delay((int)actionDuration * 1000);
+        await Task.Delay((int)actionDuration * 1000, token);
 
         base.DoAction();
     }

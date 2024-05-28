@@ -50,6 +50,28 @@ public static class LookForObjects<T>
         return nearest!= null;
     }
 
+    public static bool TryGetClosestObject(Vector3 checkFromPosition, float checkingRange, LayerMask objLayer, out T nearestObject)
+    {
+        nearestObject = default(T);
+        float distance = checkingRange;
+        Collider nearest = null;
+
+        Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer, objLayer);
+
+        //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        foreach (Collider c in overlapBuffer)
+        {
+            if (c != null && c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
+            {
+                nearestObject = objectToCheckFor;
+                distance = (c.transform.position - checkFromPosition).magnitude;
+                nearest = c;
+            }
+        }
+
+        return nearest!= null;
+    }
+
     public static bool TryGetClosestObject(Vector3 checkFromPosition, Vector3 nearestToPosition, float checkingRange, out T nearestObject)
     {
         nearestObject = default(T);

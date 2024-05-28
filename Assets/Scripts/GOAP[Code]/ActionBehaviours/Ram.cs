@@ -13,7 +13,7 @@ public class Ram : NavigatedAction
     {
         await CheckDistanceToDestination();
 
-        if (target.TryGetComponent(out IBreakable broken))
+        if (target.TryGetComponent(out IBreakable broken) && !token.IsCancellationRequested)
         {
             broken.Break();
         }
