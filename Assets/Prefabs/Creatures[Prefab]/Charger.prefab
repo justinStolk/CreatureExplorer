@@ -2235,6 +2235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: HappinessPriority.m_Curve.Array.data[1].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: HungerPriority.m_Curve.Array.data[0].outSlope
       value: 0
       objectReference: {fileID: 0}
@@ -2265,6 +2270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: HappinessPriority.m_Curve.Array.data[0].inSlope
+      value: 0.15682742
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: TirednessPriority.m_Curve.Array.data[1].inSlope
       value: 0.41193464
       objectReference: {fileID: 0}
@@ -2285,6 +2295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: HappinessPriority.m_Curve.Array.data[0].outSlope
+      value: 0.15682742
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: TirednessPriority.m_Curve.Array.data[1].inWeight
       value: 0.33333334
       objectReference: {fileID: 0}
@@ -2297,6 +2312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: AnnoyancePriority.m_Curve.Array.data[1].outWeight
       value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: HappinessPriority.m_Curve.Array.data[0].outWeight
+      value: 0.09956076
       objectReference: {fileID: 0}
     - target: {fileID: 7210352520341627486, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
