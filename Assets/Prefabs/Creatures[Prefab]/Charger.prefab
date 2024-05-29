@@ -357,7 +357,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6f5c59788053aa243bd5302c0ab307dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f5c59788053aa243bd5302c0ab307dd,
         type: 3}
@@ -399,6 +399,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4196013023752696869, guid: 6f5c59788053aa243bd5302c0ab307dd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c3e981f3f38dfb40b4668e3f50e4707, type: 2}
     - target: {fileID: 919132149155446097, guid: 6f5c59788053aa243bd5302c0ab307dd,
         type: 3}
       propertyPath: m_Name
@@ -433,6 +438,12 @@ MonoBehaviour:
   TrackedAnimatorComponent: {fileID: 8987320139777495064}
   TrackedTransform: {fileID: 530009447095143256}
   SkinnedMeshRenderers: []
+--- !u!137 &7500518438459713106 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4196013023752696869, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &8987320139777495064 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 6f5c59788053aa243bd5302c0ab307dd,
@@ -1948,6 +1959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[1].<StateValue>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371122712087528273, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: <GoalEffects>k__BackingField.<CreatureStates>k__BackingField.Array.data[2].<StateValue>k__BackingField
       value: 15
       objectReference: {fileID: 0}
@@ -1969,7 +1985,7 @@ PrefabInstance:
     - target: {fileID: 6799428552790998717, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.014
+      value: -0.114
       objectReference: {fileID: 0}
     - target: {fileID: 6799428552790998717, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
@@ -2548,7 +2564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 737114a551e613c429624394a2a5dd56, type: 2}
-  skinRenderer: {fileID: 156121287930437995}
+  skinRenderer: {fileID: 7500518438459713106}
   debug: 1
   showThoughts: 0
   <LogDebugs>k__BackingField: 0
@@ -2682,9 +2698,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8604045607132181640, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9, type: 3}
+  m_Mesh: {fileID: -6101138680756899647, guid: 6f5c59788053aa243bd5302c0ab307dd, type: 3}
 --- !u!114 &5600885175248084801 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3382483449189430853, guid: c4d537d1eccf6d84da8c18f49b4831be,
@@ -2995,12 +3011,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9, type: 3}
---- !u!137 &156121287930437995 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -185588419522645591, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 9171034369200312514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3327204111561387347 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 6ba70db5b0a53eb4db0b033ddac4b8a9,

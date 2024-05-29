@@ -469,14 +469,14 @@ public class Creature : MonoBehaviour
             {
                 tempForward *= -1;
             }
-            tempForward = Vector3.Slerp(transform.forward, tempForward, 0.1f);
+            tempForward = Vector3.Slerp(transform.forward, tempForward, 0.2f);
 
             Vector3 tempRight = (Vector3.Cross(hit.normal, tempForward)).normalized;
             if ((transform.right - tempRight).magnitude > 1)
             {
                 tempRight *= -1;
             }
-            tempRight = Vector3.Slerp(transform.right, tempRight, 0.1f);
+            tempRight = Vector3.Slerp(transform.right, tempRight, 0.2f);
 
             Vector3 tempUp = (Vector3.Cross(tempRight, tempForward)).normalized;
             if ((transform.up - tempUp).magnitude > 1)
