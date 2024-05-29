@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3442422889474115690}
   - component: {fileID: 4763829702013971620}
   m_Layer: 0
-  m_Name: Falling  Leaves2
+  m_Name: FallingLeaves2 Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,20 +985,20 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0.98648643
-          inSlope: -2.2462752
-          outSlope: -2.2462752
+          inSlope: -0.1758064
+          outSlope: -0.1758064
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.16604051
+          outWeight: 0.19984967
         - serializedVersion: 3
           time: 1
-          value: 0.25675213
-          inSlope: -0.09877496
-          outSlope: -0.09877496
+          value: 0.2702638
+          inSlope: -1.8466692
+          outSlope: -1.8466692
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.19158548
+          inWeight: 0.11269742
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2483447695367743550}
   - component: {fileID: 4061197980709108357}
   m_Layer: 0
-  m_Name: Falling  CherryBlossom
+  m_Name: FallingCherryBlossom Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,20 +985,20 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0.98648643
-          inSlope: -2.2462752
-          outSlope: -2.2462752
+          inSlope: 0.015439789
+          outSlope: 0.015439789
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.16604051
+          outWeight: 0.3501126
         - serializedVersion: 3
           time: 1
           value: 0.25675213
-          inSlope: -0.09877496
-          outSlope: -0.09877496
+          inSlope: -1.6229949
+          outSlope: -1.6229949
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.19158548
+          inWeight: 0.16153288
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
