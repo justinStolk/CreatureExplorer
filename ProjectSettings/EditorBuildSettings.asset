@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Vrij 3/MainMenu_dev.unity
     guid: 90709a3c85b93d844ae9a5ae75fd2285
   - enabled: 0
@@ -17,12 +17,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Design/Level Design/Level Flow_Inger.unity
     guid: 969bb69a7639c9540bcf8e8ad64e4b18
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Design/Level Design/Level design Jort.unity
     guid: b8c1161bec17014439a580a22cd2e36b
   - enabled: 0
     path: Assets/Scenes/Development/VR testing.unity
     guid: 749640fd4e55659429264efe53d163de
+  - enabled: 1
+    path: Assets/Scenes/Art Testing/UPD Aniek.unity
+    guid: 0a9b203f2f3afe747baebbf01798f831
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c6f20e8970fea2c428c0f512cfc03ebd,
       type: 2}

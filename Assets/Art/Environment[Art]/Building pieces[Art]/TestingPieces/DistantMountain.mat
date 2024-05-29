@@ -7,8 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fog
-  m_Shader: {fileID: 4800000, guid: 64bcfabbbe8119648b5596522462f22a, type: 3}
+  m_Name: DistantMountain
+  m_Shader: {fileID: -6465566751694194690, guid: 06cffd352be05d341a09d4205ba0fb2f,
+    type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,6 +21,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Alpha:
+        m_Texture: {fileID: 2800000, guid: 8ce89a9cac2df8342beb4fb42ccc19a8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 8ce89a9cac2df8342beb4fb42ccc19a8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -41,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8ce89a9cac2df8342beb4fb42ccc19a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -53,6 +62,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -70,64 +83,49 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - CZY_FogColorStart4: 4
-    - LightIntensity: 1
-    - LightIntensity1: 1
-    - _AdditionalLightIntensity: 2
-    - _AlphaCutoff: 0.5
+    - _AlphaClip: 1
+    - _Blend: 0
     - _BumpScale: 1
-    - _ColorStart1: 2
-    - _ColorStart2: 5
-    - _ColorStart3: 10
-    - _ColorStart4: 30
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
+    - _Cull: 2
     - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FlareSquish: 1
-    - _FogColorStart1: 2
-    - _FogColorStart2: 5
-    - _FogColorStart3: 10
-    - _FogColorStart4: 15.9
-    - _FogDensity: 2
-    - _FogDepthMultiplier: 0.96433544
-    - _FogDepthMultiplier1: 1
-    - _FogIntensity: 1
-    - _FogIntensity1: 1
-    - _FogOffset: 0.48
-    - _FogOffset1: 1
-    - _FogSmoothness: 13290.09
-    - _FogSmoothness1: 100
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _LightFalloff: 8.5
-    - _LightFalloff1: 10
-    - _LightIntensity: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _QueueControl: -1
+    - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _UVSec: 0
+    - _Surface: 0
+    - _WorkflowMode: 1
     - _ZWrite: 1
-    - __dirty: 1
     m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor1: {r: 0, g: 0, b: 0, a: 0.007843138}
-    - _FogColor2: {r: 0, g: 0.1738163, b: 0.1981132, a: 0.13725491}
-    - _FogColor3: {r: 0.011721155, g: 0.18892692, b: 0.2546071, a: 0.5019608}
-    - _FogColor4: {r: 0.011764695, g: 0.2106168, b: 0.3882353, a: 0.75686276}
-    - _FogColor5: {r: 0, g: 0.6155863, b: 1, a: 1}
-    - _FogSquish: {r: 1, g: 3.93, b: 0, a: 0}
-    - _LightColor: {r: 1.0833969, g: 1.3920008, b: 1.382235, a: 1}
-    - _LightColor1: {r: 11.924528, g: 32, b: 29.818542, a: 0}
-    - _SunDirection: {r: 0.11237079, g: 0.96378696, b: 0.2418428, a: 0}
-    - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &3728733510740010849
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
