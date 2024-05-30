@@ -26,11 +26,22 @@ public class FruitTree : Tree, IBreakable
         Color originalGizmoColour = Gizmos.color;
         Gizmos.color = Color.red;
 
-        foreach (MeshFilter drawnMesh in GetComponentsInChildren<MeshFilter>())
+        if (Application.IsPlaying(gameObject))
         {
-            Gizmos.DrawWireMesh(drawnMesh.sharedMesh, drawnMesh.transform.position, drawnMesh.transform.rotation, drawnMesh.transform.lossyScale * 1.1f);
-        }
+            return;
+            /*
+            LODGroup group = gameObject.GetComponentInChildren<LODGroup>();
 
+            foreach (Renderer r in group.GetLODs()[1].renderers)
+            {
+                Gizmos.DrawWireMesh(r.GetComponent<MeshFilter>().mesh, r.transform.position, r.transform.rotation, r.transform.lossyScale * 1.1f);
+            }*/
+        } else {
+            foreach (MeshFilter drawnMesh in GetComponentsInChildren<MeshFilter>())
+            {
+                Gizmos.DrawWireMesh(drawnMesh.sharedMesh, drawnMesh.transform.position, drawnMesh.transform.rotation, drawnMesh.transform.lossyScale * 1.1f);
+            }
+        }
         Gizmos.color = originalGizmoColour;
     }
 #endif
