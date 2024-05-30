@@ -17,7 +17,6 @@ public class OnMeshSpawner : Spawner
         spawnCollider.convex = true;
     }
 
-    [ExecuteAlways]
     private void OnValidate()
     {
         if (spawnOn != null) 
@@ -57,7 +56,18 @@ public class OnMeshSpawner : Spawner
 
         Color originalColour = Gizmos.color;
         Gizmos.color = gizmoColour;
-        Gizmos.DrawWireMesh(spawnOn.sharedMesh, Vector3.zero, Quaternion.identity, Vector3.one + transform.lossyScale * distanceFromMesh);
+        /*
+        LODGroup group = gameObject.GetComponentInChildren<LODGroup>();
+
+            Gizmos.color = Color.black;
+        foreach (Renderer r in group.GetLODs()[0].renderers)
+        {
+            Gizmos.DrawWireMesh(r.GetComponent<MeshFilter>().mesh, r.transform.position, r.transform.rotation, r.transform.lossyScale * 1.1f);
+
+        }
+            Gizmos.color = gizmoColour;
+        */
+        //Gizmos.DrawWireMesh(spawnOn.mesh, Vector3.zero, Quaternion.identity, Vector3.one + transform.lossyScale * distanceFromMesh);
         Gizmos.color = originalColour;
 
         Gizmos.matrix = originalMatrix;

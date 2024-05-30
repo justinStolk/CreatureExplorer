@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 6.5
   aerialSpeed: 5
-  maxHorizontalVelocity: 8
+  maxHorizontalVelocity: 20
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   cripplingVelocity: 13
   lethalVelocity: 18
   aerialSpeed: 5
-  maxHorizontalVelocity: 8
+  maxHorizontalVelocity: 20
   dbg_SharedSource: {fileID: 5861372465537932847}
   dbg_DeathSound: {fileID: 8300000, guid: 3e77e268d0ff2d24c8f82c400da106d0, type: 3}
   playerLayer:

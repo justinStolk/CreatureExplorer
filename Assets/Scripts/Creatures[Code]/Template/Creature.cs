@@ -73,6 +73,9 @@ public class Creature : MonoBehaviour
             currentCreatureState = new CreatureState();
         }
 
+        // Set random friendliness value
+        currentCreatureState.Find(StateType.Friendliness).SetValue(UnityEngine.Random.Range(40,90));
+
         UpdateCreatureState();
 
         GenerateNewGoal();
@@ -224,7 +227,7 @@ public class Creature : MonoBehaviour
         }
 
 #if UNITY_EDITOR
-        DebugMessage("updated worldstate of " + gameObject.name);
+        //DebugMessage("updated worldstate of " + gameObject.name);
 #endif
         UpdateCreatureState();
     }
@@ -461,7 +464,7 @@ public class Creature : MonoBehaviour
 
     protected void TiltWithGround()
     {
-        Physics.Raycast(transform.position, transform.up*-1, out RaycastHit hit);
+        Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit);
         if (transform.up != hit.normal)
         {
             Vector3 tempForward = (Vector3.Cross(hit.normal, transform.right)).normalized;

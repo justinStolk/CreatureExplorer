@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Move Towards Food
-  <Onomatopea>k__BackingField: Step step
   startAnimationTrigger: 
   duringAnimationTrigger: Walk
   finishAnimationTrigger: Idle
@@ -54,7 +53,7 @@ MonoBehaviour:
   <Awareness>k__BackingField: 0.8
   <Cost>k__BackingField: 2
   <BaseReward>k__BackingField: 1
-  <Reward>k__BackingField: 1
+  actionDuration: 15
   <GoalEffects>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 1
@@ -66,6 +65,15 @@ MonoBehaviour:
   <Prerequisites>k__BackingField:
   - <EffectType>k__BackingField: 16
     <StateValue>k__BackingField: 1
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
   finished: 0
   failed: 0
-  actionDuration: 4
+  setAnimator: 0
+  animator: {fileID: 0}
+  speedMultiplier: 1
+  targetingPrecision: 0.5
