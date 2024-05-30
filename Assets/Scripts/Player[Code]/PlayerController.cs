@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public InputSystemUIInputModule InputModule { get { return module; } }
 
     [Header("Interaction and Physicality")]
+    [SerializeField] private Transform rotationTransform;
     [SerializeField] private float maximumViewAngle = 70f;
     [SerializeField] private float interactionDistance = 2f;
     [SerializeField] private float interactHeight = 0.875f;
@@ -94,7 +95,8 @@ public class PlayerController : MonoBehaviour
         stateMachine = new FiniteStateMachine(typeof(WalkingState), GetComponents<IState>());
         firstPersonCamera = Camera.main;
         verticalRotation = firstPersonCamera.transform.eulerAngles.x;
-        horizontalRotation = firstPersonCamera.transform.eulerAngles.y;
+        horizontalRotation = transform.eulerAngles.y;
+        //horizontalRotation = firstPersonCamera.transform.eulerAngles.y;
 
         respawnFadeRenderer = Instantiate(respawnOccluder, firstPersonCamera.transform).GetComponent<MeshRenderer>();
         deathScreen = Instantiate(deathScreen);
@@ -181,7 +183,8 @@ public class PlayerController : MonoBehaviour
     {
         stateMachine.OnFixedUpdate();
 
-        firstPersonCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
+        //firstPersonCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
+        rotationTransform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
     }
 
     public void ActivateKeyboard(InputAction.CallbackContext callbackContext)
@@ -463,7 +466,7 @@ public class PlayerController : MonoBehaviour
 
         }
         
-        Collider[] collisions = Physics.OverlapSphere(transform.position + transform.forward * interactionDistance + Vector3.up * interactHeight, interactionRadius, interactionLayers);
+        Collider[] collisions = Physics.OverlapSphere(transform.position + rotationTransform.forward * interactionDistance + Vector3.up * interactHeight, interactionRadius, interactionLayers);
         Collider closest = null;
         if (collisions.Length > 0)
         {
@@ -580,7 +583,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, 0.25f);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position + (transform.forward * interactionDistance) + Vector3.up * interactHeight, interactionRadius);
+        Gizmos.DrawWireSphere(transform.position + (rotationTransform.forward * interactionDistance) + Vector3.up * interactHeight, interactionRadius);
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position + Vector3.up * drowningHeight, 0.2f);
