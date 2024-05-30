@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6146398446954131398}
   - component: {fileID: 7508258828562188150}
   - component: {fileID: 1175718592339248119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BerryTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 6465860061883432819}
   - component: {fileID: 2601195429155561975}
   - component: {fileID: 9190975767522136777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FruitSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,6 +335,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 432201713141718912, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 432201713141718912, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -355,8 +360,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f86d229c0654ea443a56d792050a8d8b, type: 2}
     - target: {fileID: 2606372420430514087, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606372420430514087, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945275867248992086, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2945275867248992086, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
@@ -375,13 +390,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3782279055467684338, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782279055467684338, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3826097315097580568, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826097315097580568, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970506589208829362, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3970506589208829362, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
@@ -395,8 +425,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f86d229c0654ea443a56d792050a8d8b, type: 2}
     - target: {fileID: 4066331855962912512, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066331855962912512, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548092142230808773, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4548092142230808773, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
@@ -435,6 +475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6147891751721226243, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147891751721226243, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
@@ -467,6 +512,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticShadowCaster
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062933570431093235, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7062933570431093235, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
@@ -545,6 +595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8708633710824243971, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708633710824243971, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 5
       objectReference: {fileID: 0}
@@ -552,6 +607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738510016129566737, guid: 3439bd1dc4751154385dc740add336c6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8738510016129566737, guid: 3439bd1dc4751154385dc740add336c6,
         type: 3}
