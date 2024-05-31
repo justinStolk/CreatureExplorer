@@ -8,12 +8,13 @@ public class SliderValueText : MonoBehaviour
 {
     [SerializeField] private float valueMultiplier = 1;
     [SerializeField] private bool setAsInt = true;
-    private TextMeshProUGUI textMesh;
+    [SerializeField] private TextMeshProUGUI textMesh;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        textMesh = GetComponent<TextMeshProUGUI>();
+        if (textMesh == null)
+            textMesh = GetComponent<TextMeshProUGUI>();
     }
 
     public void SetValueText(float value)

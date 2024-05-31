@@ -587,6 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueMultiplier: 100
   setAsInt: 1
+  textMesh: {fileID: 2985768222439790823}
 --- !u!1 &2985768222443944109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueMultiplier: 5
   setAsInt: 0
+  textMesh: {fileID: 0}
 --- !u!1 &2985768222516180067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,6 +4202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueMultiplier: 100
   setAsInt: 1
+  textMesh: {fileID: 2985768223212280853}
 --- !u!1 &2985768223218390016
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,7 +5282,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 352527414447841911}
         m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
-        m_MethodName: PlayOnClick
+        m_MethodName: PlayIfPlayerSilent
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: bd2af92a69dd9aa439e15a68032e0c1c,
@@ -5887,7 +5890,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 352527414447841911}
         m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
-        m_MethodName: PlayOnClick
+        m_MethodName: PlayIfPlayerSilent
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: bd2af92a69dd9aa439e15a68032e0c1c,
@@ -6064,7 +6067,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 352527414447841911}
         m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
-        m_MethodName: PlayOnClick
+        m_MethodName: PlayIfPlayerSilent
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: bd2af92a69dd9aa439e15a68032e0c1c,
@@ -8007,6 +8010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueMultiplier: 100
   setAsInt: 1
+  textMesh: {fileID: 0}
 --- !u!1 &2985768224104862729
 GameObject:
   m_ObjectHideFlags: 0
@@ -9034,7 +9038,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 352527414447841911}
         m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
-        m_MethodName: PlayOnClick
+        m_MethodName: PlayIfPlayerSilent
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: bd2af92a69dd9aa439e15a68032e0c1c,
@@ -9800,7 +9804,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 352527414447841911}
         m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
-        m_MethodName: PlayOnClick
+        m_MethodName: PlayIfPlayerSilent
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: bd2af92a69dd9aa439e15a68032e0c1c,
@@ -9962,6 +9966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueMultiplier: 100
   setAsInt: 1
+  textMesh: {fileID: 4439024419626424862}
 --- !u!1 &6987799730365023525
 GameObject:
   m_ObjectHideFlags: 0
