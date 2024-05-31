@@ -12,11 +12,12 @@ public class ramTree : MonoBehaviour
     public GameObject DollyCart_Charger;
     private Animator anim;
 
-    Cinemachine.CinemachinePathBase Track_current;
+    Cinemachine.CinemachinePathBase Track_current_check;
     bool walkPathCompleted;
     bool ramPathCompleted;
-    float CartPosition;
-    float CartSpeed;
+    bool ramPathChanged = false;
+    float CartPosition_check;
+    float CartSpeed_check;
 
     // Start is called before the first frame update
     void Start()
@@ -29,14 +30,14 @@ public class ramTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Track_current = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Path;
-        CartPosition = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position;
-        CartSpeed = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed;
+        Track_current_check = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Path;
+        CartPosition_check = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position;
+        CartSpeed_check = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed;
 
         //play animations accordingly
-        if (Track_current == Track_walk)
+        if (Track_current_check == Track_walk)
         {
-            if(CartSpeed > 0)
+            if(CartSpeed_check > 0)
             {
                 AnimationLoop("Walk");
             } else
@@ -46,29 +47,14 @@ public class ramTree : MonoBehaviour
         }
 
         //standard behavior
-        if(CartPosition > 257)
+        if(CartPosition_check > 257)
         {
             walkPathCompleted = true;
         }
 
         if(walkPathCompleted == true)
         {
-            Track_current = Track_ramTree;
-            
-            if(CartPosition < 10)
-            {
-                CartSpeed = 20;
-            } else
-            {
-                CartSpeed = 3;
-            }
-
-            if (CartPosition > 21)
-            {
-                Track_current = Track_walk;
-                walkPathCompleted = false;
-
-            }
+            RamTree();
         }
     }
 
@@ -78,5 +64,60 @@ public class ramTree : MonoBehaviour
         {
             anim.Play(Animation);
         }
+    }
+
+    void AnimationPlayOnce(string Animation)
+    {
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName(Animation) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        {
+            anim.Play(Animation);
+            Debug.Log("Playing animation: " + Animation);
+        }
+    }
+
+    void RamTree()
+    {
+        //Debug.Log("Ram Tree function is called");
+
+        if(ramPathChanged == false)
+        {
+            DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Path = Track_ramTree;
+            DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position = 0;
+            
+            ramPathChanged = true;
+        }
+
+        if (DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position < 9)
+        {
+            DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed = 8;
+            AnimationPlayOnce("Ram");
+        }
+
+        if (DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position >= 9 && DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position < 10)
+        {
+            if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+            {
+                DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed = 0;
+                AnimationPlayOnce("Eat");
+                // add berry that falls from the tree at this point, then a small delay before the animation happens
+                
+            }
+
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Eat") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+            {
+                DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed = 3;
+                AnimationLoop("Walk");
+            }
+        }
+
+        if (DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position > 18)
+        {
+            DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Path = Track_walk;
+            DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position = 0;
+            walkPathCompleted = false;
+            //ramPathCompleted = false;
+            ramPathChanged = false;
+        }
+        
     }
 }
