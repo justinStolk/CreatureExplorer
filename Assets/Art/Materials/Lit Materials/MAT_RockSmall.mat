@@ -26,7 +26,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -66,6 +66,7 @@ Material:
     m_Floats:
     - _Metalic1: 0
     - _Metalic_strength: 0
+    - _Normal_Strength: 1
     - _Normal_strength: 1
     - _QueueControl: 0
     - _QueueOffset: 0

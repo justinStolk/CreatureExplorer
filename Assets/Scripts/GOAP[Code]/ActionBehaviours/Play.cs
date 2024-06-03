@@ -4,14 +4,6 @@ using UnityEngine.AI;
 
 public class Play : NavigatedAction
 {
-    private NavMeshAgent moveAgent;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        moveAgent = gameObject.GetComponentInParent<NavMeshAgent>();
-    }
-
     public override GameObject PerformAction(Creature creature, GameObject target)
     {
         moveAgent = gameObject.GetComponentInParent<NavMeshAgent>();
@@ -49,7 +41,7 @@ public class Play : NavigatedAction
                 return;
 
             // TODO: make more performant?
-            moveAgent.SetDestination(moveAgent.transform.position + (moveAgent.transform.forward*3 + moveAgent.transform.right));
+            SetPathDestination();
 
             playTimer -= Time.deltaTime;
             await Task.Delay(200);// Yield();

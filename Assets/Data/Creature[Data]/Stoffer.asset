@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SkinVariants>k__BackingField: []
   <FoodSource>k__BackingField: BugSpot
+  <FoodMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1024
   <SleepSpot>k__BackingField: DigSpot
   <Bedtime>k__BackingField:
     hours: 23
@@ -22,6 +25,7 @@ MonoBehaviour:
     hours: 4
     minutes: 0
   <HearingSensitivity>k__BackingField: 5
+  <LookingSensitivity>k__BackingField: 7
   <CheckSurroundingsTimer>k__BackingField: 1
   <GroundTiltTimer>k__BackingField: 1
   <DecayTimer>k__BackingField: 10

@@ -4,25 +4,39 @@ using UnityEngine;
 
 public static class LookForObjects<T>
 {
-
     public static readonly Collider[] overlapBuffer = new Collider[100];
 
     public static List<T> CheckForObjects(Vector3 checkFromPosition, float checkingRange)
     {
         List<T> result = new List<T>();
         float distance = checkingRange;
-        Collider nearest = null;
         
         Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer);
        
         //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
         foreach (Collider c in overlapBuffer)
         {
-            if (c != null && c.gameObject.TryGetComponent(out T objectToCheckFor) && (c.transform.position - checkFromPosition).magnitude < distance)
+            if (c != null && c.gameObject.TryGetComponent(out T objectToCheckFor))
+            {
+                result.Add(objectToCheckFor);
+            }
+        }
+        return result;
+    }
+
+    public static List<T> CheckForObjects(Vector3 checkFromPosition, float checkingRange, LayerMask mask)
+    {
+        List<T> result = new List<T>();
+        float distance = checkingRange;
+        
+        Physics.OverlapSphereNonAlloc(checkFromPosition, checkingRange, overlapBuffer, mask);
+       
+        //foreach (Collider c in Physics.OverlapSphere(checkFromPosition, checkingRange))
+        foreach (Collider c in overlapBuffer)
+        {
+            if (c != null && c.gameObject.TryGetComponent(out T objectToCheckFor))
             {
                 result.Add(objectToCheckFor); 
-                distance = (c.transform.position - checkFromPosition).magnitude;
-                nearest = c;
             }
         }
         return result;

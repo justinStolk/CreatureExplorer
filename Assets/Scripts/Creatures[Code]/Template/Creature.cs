@@ -14,6 +14,7 @@ public class Creature : MonoBehaviour
     protected float waryLoudness = 1;
 
     [SerializeField] private SkinnedMeshRenderer skinRenderer;
+    [SerializeField] private LayerMask groundMask;
 
     [Header("Debugging")]
     [field: HideArrow, SerializeField] private bool debug;
@@ -455,7 +456,9 @@ public class Creature : MonoBehaviour
     /// </summary>
     public virtual void CheckForFood()
     {
-        int foodcount = LookForObjects<Food>.CheckForObjects(transform.position, data.HearingSensitivity).Count;
+        int foodcount = LookForObjects<Food>.CheckForObjects(transform.position, data.HearingSensitivity, data.FoodMask).Count;
+
+        Math.Clamp(foodcount, 0, 10);
 
         currentCreatureState.AddValue(foodcount, StateType.Hunger);
 
@@ -464,7 +467,14 @@ public class Creature : MonoBehaviour
 
     protected void TiltWithGround()
     {
-        Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit);
+        Physics.Raycast(transform.position, Vector3.down,  out RaycastHit hit, 10, groundMask);
+
+        if (hit.collider == null)
+        {
+            transform.up = Vector3.up;
+            return;
+        }
+
         if (transform.up != hit.normal)
         {
             Vector3 tempForward = (Vector3.Cross(hit.normal, transform.right)).normalized;

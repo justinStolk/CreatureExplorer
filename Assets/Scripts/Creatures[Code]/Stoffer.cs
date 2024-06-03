@@ -17,7 +17,7 @@ public class Stoffer : Prey
     {
         Charger threat = null;
 
-        if (LookForObjects<Charger>.TryGetClosestObject(transform.position, data.HearingSensitivity * CurrentAction.Awareness, out threat))
+        if (LookForObjects<Charger>.TryGetClosestObject(transform.position, data.HearingSensitivity * CurrentAction.Awareness, threatLayer, out threat))
         {
             ReactToThreat(threat.transform.position, reactionToDanger);
         }

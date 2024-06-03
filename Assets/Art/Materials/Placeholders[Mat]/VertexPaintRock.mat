@@ -26,7 +26,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -70,6 +70,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 556df9f7c80bdc248819b8948906500d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Smoothness_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -96,6 +100,7 @@ Material:
     - _T3_Tiling: 1
     - _Transparancy: 1
     - _add: 5.41
+    - _size: 1
     - _teast: 6.9
     - _wqesrgdth: 0.01
     m_Colors: []

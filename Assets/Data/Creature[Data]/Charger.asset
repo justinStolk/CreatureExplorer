@@ -17,6 +17,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8d511095cbe2a574f81552987131e113, type: 2}
   - {fileID: 2100000, guid: 8584db8eb9d8f214d931296643c66f78, type: 2}
   <FoodSource>k__BackingField: Food
+  <FoodMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 512
   <SleepSpot>k__BackingField: 
   <Bedtime>k__BackingField:
     hours: 22
@@ -25,7 +28,7 @@ MonoBehaviour:
     hours: 6
     minutes: 0
   <HearingSensitivity>k__BackingField: 10
-  <CheckSurroundingsTimer>k__BackingField: 1
+  <CheckSurroundingsTimer>k__BackingField: 4
   <GroundTiltTimer>k__BackingField: 0.05
   <DecayTimer>k__BackingField: 10
   <ChangesEverySecond>k__BackingField:

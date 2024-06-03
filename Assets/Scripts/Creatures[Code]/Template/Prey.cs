@@ -5,15 +5,17 @@ public class Prey : Creature
     [Header("Prey")]
     [SerializeField] protected CreatureState reactionToDanger;
     [SerializeField] private float predatorAwarenessRange = 40;
+    [SerializeField] protected LayerMask threatLayer;
 
     protected override void Start()
     {
         if (surroundCheck == null)
-            surroundCheck = new CheckSurroundings(CheckForPredators);
+            surroundCheck = new CheckSurroundings(CheckForFleeing);
+            //surroundCheck = new CheckSurroundings(CheckForPredators);
         else
-            surroundCheck += CheckForPredators;
+            surroundCheck += CheckForFleeing;
+            //surroundCheck += CheckForPredators;
 
-        surroundCheck += CheckForFleeing;
         base.Start();
     }
 

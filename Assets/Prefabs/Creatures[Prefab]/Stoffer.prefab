@@ -2192,8 +2192,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7720b3aee89ffe64195d066e38b0b157, type: 2}
   skinRenderer: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 136
   debug: 1
-  showThoughts: 1
+  showThoughts: 0
   <LogDebugs>k__BackingField: 0
   goalText: {fileID: 4549432258956913689}
   actionText: {fileID: 4549432260102553002}
@@ -2229,6 +2232,9 @@ MonoBehaviour:
       <Operator>k__BackingField: 3
       <StateValue>k__BackingField: 20
   predatorAwarenessRange: 10
+  threatLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &4549432259856618588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7210352520341627484, guid: c4d537d1eccf6d84da8c18f49b4831be,

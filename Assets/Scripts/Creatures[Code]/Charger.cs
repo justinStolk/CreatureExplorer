@@ -7,11 +7,13 @@ public class Charger : Prey
     [Header("Charger")]
     [SerializeField] private MoodState reactionToOtherChargers;
 
+    /*
     protected override void Start()
     {
         base.Start();
         surroundCheck += CheckForChargers;
     }
+    */
 
     protected override void ReactToPlayer(Vector3 playerPos, float playerLoudness)
     {
@@ -28,13 +30,16 @@ public class Charger : Prey
         worldState = SetConditionFalse(worldState, Condition.IsNearDanger);
     }
 
+    //// unnecessary
+/*
     /// <summary>
     /// Checks for chargers in neighbourhood and reduces fear for each charger nearby
     /// </summary>
     protected void CheckForChargers()
     {
-        int herdCount = LookForObjects<Charger>.CheckForObjects(transform.position, data.HearingSensitivity).Count;
+        int herdCount = LookForObjects<Charger>.CheckForObjects(transform.position, data.LookingSensitivity).Count;
 
         UpdateValues(StateType.Fear, reactionToOtherChargers.StateValue * herdCount, StateOperant.Subtract);
     }
+*/
 }

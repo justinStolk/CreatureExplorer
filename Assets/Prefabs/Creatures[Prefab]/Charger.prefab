@@ -2560,6 +2560,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 737114a551e613c429624394a2a5dd56, type: 2}
   skinRenderer: {fileID: 7500518438459713106}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 136
   debug: 1
   showThoughts: 0
   <LogDebugs>k__BackingField: 0
@@ -2612,6 +2615,9 @@ MonoBehaviour:
       <Operator>k__BackingField: 0
       <StateValue>k__BackingField: 0.5
   predatorAwarenessRange: 40
+  threatLayer:
+    serializedVersion: 2
+    m_Bits: 0
   reactionToOtherChargers:
     <MoodType>k__BackingField: 2
     <Operator>k__BackingField: 4

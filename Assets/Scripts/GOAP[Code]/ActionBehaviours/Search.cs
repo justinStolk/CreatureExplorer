@@ -20,7 +20,7 @@ public class Search : Action
         {
             case (SearchTarget.Food):
 
-                foreach (Collider c in Physics.OverlapSphere(creature.transform.position, searchRadius, objectLayer))
+                foreach (Collider c in Physics.OverlapSphere(creature.transform.position, searchRadius, creature.data.FoodMask))
                 {
                     if ((c.gameObject.GetComponent(creature.data.FoodSource) != null) && (c.transform.position - creature.transform.position).sqrMagnitude < distance)
                     {
