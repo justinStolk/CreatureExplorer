@@ -35,11 +35,15 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.relativeVelocity.sqrMagnitude > splatVelocity && collision.gameObject.TryGetComponent(out Creature creature))
+        if (collision.relativeVelocity.sqrMagnitude > splatVelocity)
         {
-            GetComponent<MeshRenderer>().enabled = false;
+            // TODO: test whether second get overwrites first
+            if (collision.gameObject.TryGetComponent(out Creature creature) || collision.transform.parent.TryGetComponent(out creature))
+            {
+                GetComponent<MeshRenderer>().enabled = false;
 
-            TriggerStatusEffect(creature);
+                TriggerStatusEffect(creature);
+            }
         }
     }
 

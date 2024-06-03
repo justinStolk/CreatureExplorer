@@ -117,7 +117,7 @@ MonoBehaviour:
       <Operator>k__BackingField: 4
       <StateValue>k__BackingField: 20
   <InteractionPrompt>k__BackingField: Pick Up [E]
-  splatVelocity: 2
+  splatVelocity: 10
   inventoryGraphic: {fileID: 21300000, guid: a4cfe8dce33f58f44a423765955cae5e, type: 3}
   hoverGraphic: {fileID: 21300000, guid: 615ac515122005f429456ee51ec90f1f, type: 3}
   maxVelocity: 40
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636c724c34ce75a49bc56bc7a5980d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugs: {fileID: 0}
+  bugs: {fileID: 4064135317483788547, guid: b62d6501692cb104d8ed52fb505a22e0, type: 3}
   fallingSound: {fileID: 8300000, guid: 124a3b866ba767d498ea3fccfca87510, type: 3}
 --- !u!1 &7065964011742424444
 GameObject:
