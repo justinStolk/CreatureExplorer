@@ -20,11 +20,12 @@ public class VRHandController : MonoBehaviour
     [SerializeField] private UnityEvent onGrab;
     [SerializeField] private UnityEvent onRelease;
     [SerializeField] private UnityEvent onHandDown;
+    [SerializeField] private UnityEvent<Vector3> onTeleport;
 
     [Header("General Settings")]
     [SerializeField] private UnityEngine.XR.XRNode handSource;
     [SerializeField] private VRHandController otherHand;
-    //[SerializeField] private LayerMask PointingInteractionLayers;
+    [SerializeField] private LayerMask PointingInteractionLayers;
 
     [field: HideArrow, SerializeField] private bool faintSettings;
     [field: ConditionalHide("faintSettings", true), SerializeField] private float faintingPalmAngle = 170;
@@ -52,6 +53,9 @@ public class VRHandController : MonoBehaviour
 
     private UnityEngine.XR.InputDevice handDevice;
 
+    private LineRenderer line;
+    private Vector3 teleportPoint;
+
     private Transform cameraTransform;
     private bool lookingAtPalm = false;
     private bool palmsFacing = false;
@@ -65,6 +69,9 @@ public class VRHandController : MonoBehaviour
     private bool recievedGripInput;
     private bool recievedTriggerInput;
     private bool holdingTriggerInput;
+    private bool recievedTeleportInput;
+    private bool holdingTeleportInput;
+
     private Button selectedButton;
 
     public IGrabbable grabbedObj { get; private set; }
@@ -77,6 +84,9 @@ public class VRHandController : MonoBehaviour
         cameraTransform = Camera.main.transform;
 
         handDevice = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(handSource);
+
+        TryGetComponent(out line);
+        line.enabled = false;
     }
 
     // Update is called once per frame
@@ -93,6 +103,7 @@ public class VRHandController : MonoBehaviour
         {
             CheckHandHeight();
         }
+            Point();
     }
 
     private void LateUpdate()
@@ -107,8 +118,31 @@ public class VRHandController : MonoBehaviour
             holdingTriggerInput = false;
         }
 
+        if (holdingTeleportInput)
+        {
+            if (!recievedTeleportInput)
+            {
+                holdingTeleportInput = false;
+                line.enabled = false;
+                StartTeleport(); 
+                //onTeleport.Invoke(Vector3.zero);
+            }
+        }
+
         recievedGripInput = false;
         recievedTriggerInput = false;
+        recievedTeleportInput = false;
+    }
+
+    public void TeleportCallback(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+        {
+            recievedTeleportInput = true;
+            holdingTeleportInput = true;
+
+            line.enabled = true;
+        }
     }
 
     void CheckHandOrientation()
@@ -212,15 +246,13 @@ public class VRHandController : MonoBehaviour
         checkBookOpening = shouldCheck;
     }
 
-    /*
     private void Point()
     {
         if (line.enabled)
         {
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 100, PointingInteractionLayers))
+            if (Physics.Raycast(transform.position, transform.up*-1, out RaycastHit hit, 100, PointingInteractionLayers))
             {
-                line.SetPosition(1, new Vector3(0, 0, hit.distance));
-
+                line.SetPosition(1, new Vector3(0, -hit.distance, 0));
                 //Debug.Log($"pointing at: {hit.collider.gameObject.name}");
                 if (hit.collider.TryGetComponent(out Selectable uiElement))
                 {
@@ -230,11 +262,18 @@ public class VRHandController : MonoBehaviour
             }
             else
             {
+                teleportPoint = Vector3.zero;
                 line.SetPosition(1, new Vector3(0, 0, 10));
             }
         }
     }
-    */
+
+    private void StartTeleport()
+    {
+        if (Physics.Raycast(transform.position, transform.up * -1, out RaycastHit hit, 100, PointingInteractionLayers))
+            onTeleport.Invoke(hit.point);
+    }
+
     public void PressTrigger(InputAction.CallbackContext callbackContext)
     {
         recievedTriggerInput = true;
@@ -249,7 +288,7 @@ public class VRHandController : MonoBehaviour
                 selectedButton.Select();
             }
 
-            /*
+            
             if (line == null || !line.enabled)
                 return;
 
@@ -265,7 +304,7 @@ public class VRHandController : MonoBehaviour
                     component.OnBeginDrag();
                 }
             }
-            */
+            
         }
     }
 

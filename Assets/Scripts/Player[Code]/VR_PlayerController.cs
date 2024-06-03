@@ -413,6 +413,11 @@ public class VR_PlayerController : MonoBehaviour
         module.move = InputActionReference.Create(playerInput.actions.FindActionMap("Menu").FindAction("Move"));
     }
 
+    public void Teleport(Vector3 teleportTo)
+    {
+        rb.MovePosition(teleportTo);
+    }
+
     private void HandleHeadsetMovement()
     {
         if (berryPouchIsOpen) return;

@@ -16,6 +16,12 @@ public class LocationToText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"pos: {trackedLocation.position}, \nrot: {trackedLocation.rotation.eulerAngles}";
+        if (trackedLocation != null)
+            text.text = $"pos: {trackedLocation.position}, \nrot: {trackedLocation.rotation.eulerAngles}";
+    }
+
+    public void ShowLocation(Vector3 location)
+    {
+        text.text = $"pos: {location}";
     }
 }
