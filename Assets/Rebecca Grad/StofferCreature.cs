@@ -19,6 +19,8 @@ public class StofferCreature : MonoBehaviour
     //Number 2 is the one that's followed by a little run
     public GameObject popUpLocation_2;
     public GameObject popUpLocation_3;
+    public GameObject popUpLocation_4;
+    public GameObject popUpLocation_5;
 
     float nextActionNumber;
     //bools for the pop out + run wombo combo
@@ -49,8 +51,7 @@ public class StofferCreature : MonoBehaviour
 
         if (!actionIsActive)
         {
-            nextActionNumber = Random.Range(1, 4);
-            actionIsActive = true;
+            StartCoroutine(timerInBetweenActions());
         }
 
         if (nextActionNumber == 1)
@@ -70,6 +71,26 @@ public class StofferCreature : MonoBehaviour
             PopUp(popUpLocation_3);
             //Debug.Log("activating popup 3");
         }
+
+        if (nextActionNumber == 4)
+        {
+            PopUp(popUpLocation_4);
+            //Debug.Log("activating popup 3");
+        }
+
+        if (nextActionNumber == 5)
+        {
+            PopUp(popUpLocation_5);
+            //Debug.Log("activating popup 3");
+        }
+
+    }
+
+    IEnumerator timerInBetweenActions()
+    {
+        yield return new WaitForSeconds(5f);
+        nextActionNumber = Random.Range(1, 6);
+        actionIsActive = true;
 
     }
 
@@ -120,16 +141,18 @@ public class StofferCreature : MonoBehaviour
             
             if (!upActivated)
             {
-                Debug.Log("activating " + popUpLocation);
+                //Debug.Log("activating " + popUpLocation);
                 AnimationPlayOnce("Up");
 
-                if(anim.GetCurrentAnimatorStateInfo(0).IsName("Down") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+                if(anim.GetCurrentAnimatorStateInfo(0).IsName("Up") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
                 {
-                    while (timer < 100002)
+
+                    while (timer < 1000005)
                     {
                         timer++;
+                        //Debug.Log("timer: " + timer);
 
-                        if (timer > 100000)
+                        if (timer > 1000000)
                         {
                             upActivated = true;
                             Debug.Log("Timer is over");
@@ -142,16 +165,19 @@ public class StofferCreature : MonoBehaviour
 
                 if(anim.GetCurrentAnimatorStateInfo(0).IsName("Down") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
                 {
-                    while (timer < 1000000002)
+                    /*while (timer < 10000000005)
                     {
                         timer++;
 
-                        if (timer > 1000000000)
+                        if (timer > 10000000000)
                         {
-                            actionIsActive = false;
+                            
                             Debug.Log("Timer in between actions is over");
                         }
-                    }
+                    }*/
+
+                    actionIsActive = false;
+                    upActivated = false;
                 }
             }
 
