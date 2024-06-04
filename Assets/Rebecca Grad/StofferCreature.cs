@@ -1,196 +1,200 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Cinemachine;
 
+[System.Serializable]
+public class UnityAnimationEvent : UnityEvent<string> { };
+[RequireComponent(typeof(Animator))]
 public class StofferCreature : MonoBehaviour
 {
     public GameObject Track_walk_gameObject;
     Cinemachine.CinemachinePathBase Track_walk;
     public GameObject DollyCart_Stoffer;
-    private Animator anim;
 
     Cinemachine.CinemachinePathBase Track_current_check;
     float CartPosition_check;
     float CartSpeed_check;
 
-    bool actionIsActive = false;
-    public GameObject popUpLocation_1;
-    //Number 2 is the one that's followed by a little run
-    public GameObject popUpLocation_2;
-    public GameObject popUpLocation_3;
-    public GameObject popUpLocation_4;
-    public GameObject popUpLocation_5;
+    // New boolean hell <3
+    private Animator anim;
+    public UnityAnimationEvent OnAnimationStart;
+    public UnityAnimationEvent OnAnimationComplete;
+    public float waitTime = 5.0f;
+    public float timer = 0.0f;
+    public List<GameObject> points = new List<GameObject>();
+    public int sequence = -1;
+    public List<string> sequences = new List<string>();
+    public float sequenceWait = 0.0f;
+    public float sequenceWaitTimer = 0.0f;
+    public int animationToRun = -1;
+    public int lastAnimationRun = -1;
+    public int currentAnimationLoop = 0;
+    public int animationLoops = 0;
 
-    float nextActionNumber;
-    //bools for the pop out + run wombo combo
-    bool outHoleActivated = false;
-    bool runActivated = false;
-    bool inActivated = false;
-    //bools for the peek out, go back in
-    bool upActivated = false;
-    bool downActivated = false;
-    public int timer = 0;
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
 
+        for (int i = 0; i < anim.runtimeAnimatorController.animationClips.Length; i++)
+        {
+            AnimationClip clip = anim.runtimeAnimatorController.animationClips[i];
 
-    // Start is called before the first frame update
+            AnimationEvent animationStartEvent = new AnimationEvent();
+            animationStartEvent.time = 0;
+            animationStartEvent.functionName = "AnimationStartHandler";
+            animationStartEvent.stringParameter = clip.name;
+
+            AnimationEvent animationEndEvent = new AnimationEvent();
+            animationEndEvent.time = clip.length;
+            animationEndEvent.functionName = "AnimationCompleteHandler";
+            animationEndEvent.stringParameter = clip.name;
+
+            clip.AddEvent(animationStartEvent);
+            clip.AddEvent(animationEndEvent);
+        }
+    }
+
+    public void AnimationStartHandler(string name)
+    {
+        // Debug.Log($"{name} animation start.");
+        OnAnimationStart?.Invoke(name);
+    }
+    public void AnimationCompleteHandler(string name)
+    {
+        sequenceWaitTimer = 0.0f;
+        // Debug.Log($"{name} animation complete.");
+        OnAnimationComplete?.Invoke(name);
+
+        if (sequences.Count > 0)
+        {
+            if (currentAnimationLoop >= animationLoops)
+            {
+                sequence++;
+                currentAnimationLoop = 0;
+                animationLoops = 0;
+            }
+            else
+            {
+                currentAnimationLoop++;
+            }
+        }
+
+        if (sequence >= sequences.Count)
+        {
+            lastAnimationRun = animationToRun;
+            animationToRun = -1;
+            sequence = -1;
+            sequences.Clear();
+            sequenceWait = 0.0f;
+        }
+    }
+
     void Start()
     {
         Track_walk = Track_walk_gameObject.GetComponent<CinemachinePathBase>();
-        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Track_current_check = DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Path;
         CartPosition_check = DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Position;
         CartSpeed_check = DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Speed;
 
-        //PopUp(popUpLocation_2);
-
-        if (!actionIsActive)
+        if (sequences.Count == 0 && sequence < 0 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
         {
-            //StartCoroutine(timerInBetweenActions());
-            upActivated = false;
-            nextActionNumber = Random.Range(1, 6);
-            actionIsActive = true;
+            timer += Time.deltaTime;
 
+            if (timer > waitTime)
+            {
+                timer = 0.0f;
+
+                while (animationToRun == -1 || animationToRun == lastAnimationRun)
+                {
+                    animationToRun = Random.Range(0, points.Count);
+                }
+            }
         }
 
-        if (nextActionNumber == 1)
+        if (animationToRun >= 0 && animationToRun <= points.Count)
         {
-            PopUp(popUpLocation_1);
-            //Debug.Log("activating popup 1");
+            PopUp(points[animationToRun]);
         }
-
-        if (nextActionNumber == 2)
-        {
-            PopUp(popUpLocation_2);
-            //Debug.Log("activating popup 2");
-        }
-
-        if (nextActionNumber == 3)
-        {
-            PopUp(popUpLocation_3);
-            //Debug.Log("activating popup 3");
-        }
-
-        if (nextActionNumber == 4)
-        {
-            PopUp(popUpLocation_4);
-            //Debug.Log("activating popup 3");
-        }
-
-        if (nextActionNumber == 5)
-        {
-            PopUp(popUpLocation_5);
-            //Debug.Log("activating popup 3");
-        }
-
     }
 
-    /*IEnumerator timerInBetweenActions()
+    public bool IsAnimationReady()
     {
-        if (!actionIsActive)
-        {
-            yield return new WaitForSeconds(5f);
-            nextActionNumber = Random.Range(1, 6);
-            actionIsActive = true;
-            
-        }
-    }*/
+        return anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f && sequenceWaitTimer >= sequenceWait;
+    }
 
     void PopUp(GameObject popUpLocation)
     {
-        if (popUpLocation == popUpLocation_2)
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f && sequenceWaitTimer < sequenceWait)
         {
-            if (!outHoleActivated)
-            {
-                DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Position = 0;
-                this.transform.position = DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().transform.position;
-                DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Speed = 0;
-                AnimationPlayOnce("Out");
-
-                if(anim.GetCurrentAnimatorStateInfo(0).IsName("Out") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
-                {
-                    outHoleActivated = true;
-                }
-            }
-
-            if(inActivated == false && outHoleActivated == true)
-            {
-                DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Speed = 5;
-                AnimationLoop("Run");
-                runActivated = true;
-            }
-
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Run") && runActivated == true && CartPosition_check > 24.5)
-            {
-                DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Speed = 0;
-                AnimationLoop("In");
-                inActivated = true;
-            }
-
-            if(anim.GetCurrentAnimatorStateInfo(0).IsName("In") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
-            {
-                runActivated = false;
-                outHoleActivated = false;
-                inActivated = false;
-
-                //allow new action to take place
-                actionIsActive = false;
-            }
-
-        } else
-        {
-            this.transform.position = new Vector3(popUpLocation.transform.position.x, popUpLocation.transform.position.y, popUpLocation.transform.position.z);
-            
-            if (!upActivated)
-            {
-                //Debug.Log("activating " + popUpLocation);
-                AnimationPlayOnce("Up");
-
-                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Up") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
-                {
-
-                    while (timer < 1000005)
-                    {
-                        timer++;
-                        //Debug.Log("timer: " + timer);
-
-                        if (timer > 1000000)
-                        {
-                            upActivated = true;
-                            Debug.Log("Timer is over");
-                        }
-                    }
-                }
-                
-            } else {
-                AnimationPlayOnce("Down");
-
-                if(anim.GetCurrentAnimatorStateInfo(0).IsName("Down") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
-                {
-                    /*while (timer < 10000000005)
-                    {
-                        timer++;
-
-                        if (timer > 10000000000)
-                        {
-                            
-                            Debug.Log("Timer in between actions is over");
-                        }
-                    }*/
-
-                    
-                    actionIsActive = false;
-                }
-            }
-
+            sequenceWaitTimer += Time.deltaTime;
         }
 
+        switch (animationToRun)
+        {
+            case 1:
+                if (sequences.Count == 0)
+                {
+                    sequences.Add("Out");
+                    sequences.Add("Run");
+                    sequences.Add("In");
+                    sequence++;
+                }
 
+                if (IsAnimationReady())
+                {
+                    switch (sequence)
+                    {
+                        case 0:
+                            DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Position = 0;
+                            this.transform.position = DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().transform.position;
+                            DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Speed = 0;
+
+                            AnimationPlayOnce(sequences[0]);
+
+                            break;
+
+                        case 1:
+                            DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Speed = 5;
+                            AnimationLoop(sequences[1]);
+                            animationLoops = 5;
+                            break;
+
+                        case 2:
+                            DollyCart_Stoffer.GetComponent<CinemachineDollyCart>().m_Speed = 0;
+                            AnimationPlayOnce(sequences[2]);
+                            break;
+                    }
+                }
+
+                return;
+
+            case 0:
+            case 2:
+            case 3:
+            case 4:
+                this.transform.position = new Vector3(popUpLocation.transform.position.x, popUpLocation.transform.position.y, popUpLocation.transform.position.z);
+
+                if (sequences.Count == 0)
+                {
+                    sequences.Add("Up");
+                    sequences.Add("Down");
+                    sequenceWait = 3.0f;
+                    sequence++;
+                }
+
+                if (IsAnimationReady())
+                {
+                    AnimationPlayOnce(sequences[sequence]);
+                }
+
+                break;
+        }
     }
 
     void AnimationLoop(string Animation)

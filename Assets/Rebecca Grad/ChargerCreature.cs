@@ -90,7 +90,8 @@ public class ChargerCreature : MonoBehaviour
         
     }
 
-    private void onColliderEnter(Collision other)
+    // change this to OnTriggerEnter
+    private void OnColliderEnter(Collision other)
     {
         if (other.gameObject.tag == "berry")
         {
