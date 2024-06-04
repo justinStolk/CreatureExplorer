@@ -376,6 +376,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Teleportmove",
+                    "type": "Value",
+                    "id": "f088884b-6cde-48b1-bda5-2f27cbcca7d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Move",
                     "type": "Value",
                     "id": "0a45fc67-99f0-40e8-a2e0-84b05f0430e5",
@@ -416,6 +425,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d083faf8-cde5-4ab6-aac6-e0fa946ca3da",
+                    "path": "<XRController>{LeftHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Teleportmove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f9f42074-6802-4953-a1de-7c6aec720cbf",
+                    "path": "<XRController>{LeftHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Teleportmove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

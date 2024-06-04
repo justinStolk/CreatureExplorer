@@ -19,7 +19,7 @@ public abstract class Spawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("Spawn", 0, spawnDelay);
+        InvokeRepeating("Spawn", spawnDelay, spawnDelay);
     }
 
     private void OnTransformChildrenChanged()
