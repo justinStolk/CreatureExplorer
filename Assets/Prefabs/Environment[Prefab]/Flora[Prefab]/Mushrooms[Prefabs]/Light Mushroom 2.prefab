@@ -207,6 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6833120536398614453}
+  - component: {fileID: 1889670286077142342}
   m_Layer: 0
   m_Name: Light Mushroom 2
   m_TagString: Untagged
@@ -232,6 +233,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1889670286077142342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169876789830554895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4b62cb7e035bd4e87dc55baf05f90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSource: {fileID: 516174073427144081}
+  dimmingDuration: 2
+  fullIntensity: 4
+  timedLighting: 1
+  dimTime:
+    hours: 6
+    minutes: 30
+  brightenTime:
+    hours: 20
+    minutes: 30
 --- !u!1001 &6182201485110481669
 PrefabInstance:
   m_ObjectHideFlags: 0

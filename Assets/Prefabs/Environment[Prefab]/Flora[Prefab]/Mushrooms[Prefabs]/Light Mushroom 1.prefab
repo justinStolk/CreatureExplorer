@@ -92,6 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6230802533769337121}
+  - component: {fileID: 3537685018971368379}
   m_Layer: 0
   m_Name: Light Mushroom 1
   m_TagString: Untagged
@@ -117,6 +118,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3537685018971368379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715871211795809179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4b62cb7e035bd4e87dc55baf05f90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSource: {fileID: 5235151096192454362}
+  dimmingDuration: 2
+  fullIntensity: 4
+  timedLighting: 1
+  dimTime:
+    hours: 6
+    minutes: 30
+  brightenTime:
+    hours: 20
+    minutes: 30
 --- !u!1 &7866333083563397488
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,14 +165,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7866333083563397488}
-  m_LocalRotation: {x: 0.99921393, y: 0.0014744129, z: -0.018580897, w: -0.03498995}
-  m_LocalPosition: {x: 0, y: 0.181, z: 0}
+  m_LocalRotation: {x: 0.99664444, y: 0.0006408542, z: -0.018628282, w: -0.079702385}
+  m_LocalPosition: {x: -0.0009958744, y: 0.19999717, z: -0.033004776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6230802533769337121}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 184.007, y: 2.1390076, z: -0.24401855}
+  m_LocalEulerAnglesHint: {x: 189.14, y: 2.1609955, z: -0.2460022}
 --- !u!108 &5235151096192454362
 Light:
   m_ObjectHideFlags: 0
@@ -164,8 +187,8 @@ Light:
   m_Color: {r: 0, g: 0.87843144, b: 0.7137255, a: 1}
   m_Intensity: 4
   m_Range: 5
-  m_SpotAngle: 28.01341
-  m_InnerSpotAngle: 17.533997
+  m_SpotAngle: 28
+  m_InnerSpotAngle: 16.450788
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -174,7 +197,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.18080388
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
