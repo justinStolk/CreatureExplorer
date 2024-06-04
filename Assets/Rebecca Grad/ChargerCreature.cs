@@ -19,6 +19,8 @@ public class ChargerCreature : MonoBehaviour
     float CartPosition_check;
     float CartSpeed_check;
 
+    bool Charger_mainLoop = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,8 @@ public class ChargerCreature : MonoBehaviour
         Track_current_check = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Path;
         CartPosition_check = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Position;
         CartSpeed_check = DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed;
+
+        
 
         //play animations accordingly
         if (Track_current_check == Track_walk)
@@ -56,6 +60,45 @@ public class ChargerCreature : MonoBehaviour
         {
             RamTree();
         }
+
+        if(Charger_mainLoop == true)
+        {
+            //play animations accordingly
+            if (Track_current_check == Track_walk)
+            {
+                if (CartSpeed_check > 0)
+                {
+                    AnimationLoop("Walk");
+                }
+                else
+                {
+                    AnimationLoop("Neutral");
+                }
+            }
+
+            //standard behavior
+            if (CartPosition_check > 213)
+            {
+                walkPathCompleted = true;
+            }
+
+            if (walkPathCompleted == true)
+            {
+                RamTree();
+            }
+        }
+        
+    }
+
+    private void onColliderEnter(Collision other)
+    {
+        if (other.gameObject.tag == "berry")
+        {
+            Debug.Log("collider is triggered by berry");
+        } else
+        {
+            Debug.Log("collider is being triggered by something else");
+        }
     }
 
     void AnimationLoop(string Animation)
@@ -71,7 +114,7 @@ public class ChargerCreature : MonoBehaviour
         if(!anim.GetCurrentAnimatorStateInfo(0).IsName(Animation) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             anim.Play(Animation);
-            Debug.Log("Playing animation: " + Animation);
+            //Debug.Log("Playing animation: " + Animation);
         }
     }
 

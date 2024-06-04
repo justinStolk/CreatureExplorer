@@ -51,7 +51,11 @@ public class StofferCreature : MonoBehaviour
 
         if (!actionIsActive)
         {
-            StartCoroutine(timerInBetweenActions());
+            //StartCoroutine(timerInBetweenActions());
+            upActivated = false;
+            nextActionNumber = Random.Range(1, 6);
+            actionIsActive = true;
+
         }
 
         if (nextActionNumber == 1)
@@ -86,13 +90,16 @@ public class StofferCreature : MonoBehaviour
 
     }
 
-    IEnumerator timerInBetweenActions()
+    /*IEnumerator timerInBetweenActions()
     {
-        yield return new WaitForSeconds(5f);
-        nextActionNumber = Random.Range(1, 6);
-        actionIsActive = true;
-
-    }
+        if (!actionIsActive)
+        {
+            yield return new WaitForSeconds(5f);
+            nextActionNumber = Random.Range(1, 6);
+            actionIsActive = true;
+            
+        }
+    }*/
 
     void PopUp(GameObject popUpLocation)
     {
@@ -144,7 +151,7 @@ public class StofferCreature : MonoBehaviour
                 //Debug.Log("activating " + popUpLocation);
                 AnimationPlayOnce("Up");
 
-                if(anim.GetCurrentAnimatorStateInfo(0).IsName("Up") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Up") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
                 {
 
                     while (timer < 1000005)
@@ -176,8 +183,8 @@ public class StofferCreature : MonoBehaviour
                         }
                     }*/
 
+                    
                     actionIsActive = false;
-                    upActivated = false;
                 }
             }
 
