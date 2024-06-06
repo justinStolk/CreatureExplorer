@@ -7,6 +7,8 @@ public class ChargerCreature : MonoBehaviour
 {
     public GameObject Track_walk_gameObject;
     public GameObject Track_ramTree_gameObject;
+    public GameObject BerrySprite;
+    new Vector3 BerrySpawnPoint;
     Cinemachine.CinemachinePathBase Track_walk;
     Cinemachine.CinemachinePathBase Track_ramTree;
     public GameObject DollyCart_Charger;
@@ -27,6 +29,7 @@ public class ChargerCreature : MonoBehaviour
         Track_walk = Track_walk_gameObject.GetComponent<CinemachinePathBase>();
         Track_ramTree = Track_ramTree_gameObject.GetComponent<CinemachinePathBase>();
         anim = GetComponent<Animator>();
+        BerrySpawnPoint = new Vector3(BerrySprite.position.x, BerrySprite.position.y, BerrySprite.position.z);
     }
 
     // Update is called once per frame
@@ -141,6 +144,7 @@ public class ChargerCreature : MonoBehaviour
         {
             if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
             {
+                BerrySprite.GetComponent<Rigidbody>().useGravity = true;
                 DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed = 0;
                 AnimationPlayOnce("Eat");
                 // add berry that falls from the tree at this point, then a small delay before the animation happens
@@ -149,6 +153,8 @@ public class ChargerCreature : MonoBehaviour
 
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Eat") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
             {
+                BerrySprite.GetComponent<Rigidbody>().useGravity = false;
+                BerrySprite.transform.position(BerrySpawnPoint);
                 DollyCart_Charger.GetComponent<CinemachineDollyCart>().m_Speed = 3;
                 AnimationLoop("Walk");
             }
