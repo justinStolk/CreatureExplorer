@@ -12,7 +12,6 @@ public class Scrapbook : MonoBehaviour
     public static TextTypingHandler OnEndType;
 
     public GraphicRaycaster Raycaster;
-    public TrackedDeviceRaycaster VRRaycaster;
     public ScrapbookPage CurrentPage { get { return allPages[currentPageIndex]; } }
 
     [SerializeField] private int scrapbookPageCount = 6;

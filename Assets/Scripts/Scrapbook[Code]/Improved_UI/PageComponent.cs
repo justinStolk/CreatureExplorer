@@ -107,10 +107,6 @@ public abstract class PageComponent : MonoBehaviour, IBeginDragHandler, IDragHan
         {
             Scrapbook.Instance.Raycaster.Raycast(eventData, results);
         }
-        else
-        {
-            Scrapbook.Instance.VRRaycaster.Raycast(eventData as ExtendedPointerEventData, results);
-        }
 
             foreach (RaycastResult rayResult in results)
             {
