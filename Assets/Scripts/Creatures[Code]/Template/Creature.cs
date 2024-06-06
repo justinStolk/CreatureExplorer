@@ -30,6 +30,8 @@ public class Creature : MonoBehaviour
     [SerializeField] private List<Action> currentPlan;
     public Action CurrentAction { get; private set; }
 
+    [SerializeField] private float maxPlanDuration = 150; // 2.5 minutes
+
     protected delegate void CheckSurroundings();
     protected CheckSurroundings surroundCheck;
 
@@ -173,12 +175,17 @@ public class Creature : MonoBehaviour
 
     private void GenerateNewGoal()
     {
+        if (IsInvoking("GenerateNewGoal"))
+            CancelInvoke("GenerateNewGoal");
+
         if (!planner.GeneratePlan(currentCreatureState, worldState, out currentGoal, out currentPlan) && LogDebugs)
         {
 # if UNITY_EDITOR
             Debug.Log("Failed in generating plan, resorting to deault action");
 #endif
         }
+
+        Invoke("GenerateNewGoal", maxPlanDuration);
 
         // reset values on last action before starting new plan
         if (CurrentAction != null)
