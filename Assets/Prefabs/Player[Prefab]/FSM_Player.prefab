@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d621aa170acaf4f9cab1fda596abb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 6.5
+  jumpForce: 13
   aerialSpeed: 5
   maxHorizontalVelocity: 20
   playerLayer:
@@ -1712,8 +1712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fe5c6b3164c2a46b9564a51315e656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  painfulVelocity: 9
-  cripplingVelocity: 13
+  painfulVelocity: 12
+  cripplingVelocity: 16
   lethalVelocity: 18
   aerialSpeed: 5
   maxHorizontalVelocity: 20
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   stepSmooth: 2
   ignoredStepLayers:
     serializedVersion: 2
-    m_Bits: 118
+    m_Bits: 1654
   playerCollider: {fileID: 7807978120469739687}
 --- !u!54 &7807978120469739685
 Rigidbody:

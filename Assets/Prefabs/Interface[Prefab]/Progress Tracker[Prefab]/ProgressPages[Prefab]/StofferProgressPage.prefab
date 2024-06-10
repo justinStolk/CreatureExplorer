@@ -342,7 +342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4619918042561254212
 RectTransform:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ MonoBehaviour:
   iconImage: {fileID: 6188107215457222070}
   categoryImage: {fileID: 0}
   iconText: {fileID: 2577695555757474932}
-  path: Creatures/Torca/Behaviours/Sleep
+  path: Creatures/Stoffer/Behaviours/Sleep
 --- !u!1001 &2146664633603865011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -607,12 +607,12 @@ PrefabInstance:
     - target: {fileID: 3951714547734720221, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 26.283997
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3951714547734720221, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 67.58795
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4921840292522404460, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
         type: 3}
