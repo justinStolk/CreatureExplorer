@@ -121,8 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <QuestObjectID>k__BackingField: flower3
-  <GivenName>k__BackingField: 
-  <GivenDescription>k__BackingField: 
 --- !u!135 &8286060338838818396
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -132,7 +130,7 @@ SphereCollider:
   m_GameObject: {fileID: 407588111215792174}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5967478
   m_Center: {x: 0, y: 0.5728503, z: 0.000000014901161}

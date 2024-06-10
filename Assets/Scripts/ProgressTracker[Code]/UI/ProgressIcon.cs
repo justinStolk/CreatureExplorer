@@ -25,11 +25,16 @@ public class ProgressIcon : MonoBehaviour
             categoryImage.sprite = progressData.FinishedIcon;
         
         iconText.text = progressData.Name;
+
     }
 
     protected virtual void OnEnable()
     {
         SetProgress();
+        if (progressData.DetailPage == null)
+        {
+            GetComponentInChildren<Button>().interactable = false;
+        }
     }
 
     public virtual void SetProgress()
