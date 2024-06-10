@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         stateMachine = new FiniteStateMachine(typeof(WalkingState), GetComponents<IState>());
         firstPersonCamera = Camera.main;
         verticalRotation = firstPersonCamera.transform.eulerAngles.x;
-        horizontalRotation = transform.eulerAngles.y;
+        horizontalRotation = rotationTransform.eulerAngles.y;
         //horizontalRotation = firstPersonCamera.transform.eulerAngles.y;
 
         respawnFadeRenderer = Instantiate(respawnOccluder, firstPersonCamera.transform).GetComponent<MeshRenderer>();
