@@ -9,10 +9,9 @@ public class QuestPictureInterface : PageComponentInteractor
     [SerializeField] private float questCompletionWaitTime = 3f;
 
     [SerializeField] private TMP_Text descriptionText;
-    [SerializeField] private TMP_Text feedbackText;
 
     [SerializeField] private Image handInBackground, descriptionBackground;
-    [SerializeField] private Sprite defaultBackground, incorrectBackground, correctBackground;
+    [SerializeField] private Color defaultColour, incorrectColour, correctColour;
 
     [SerializeField] private Image handInFrame;
     [SerializeField] private Sprite defaultFrame, incorrectFrame, correctFrame;
@@ -28,23 +27,20 @@ public class QuestPictureInterface : PageComponentInteractor
         {
             questInterfaceOpened = true;
             descriptionBackground.color = Color.white;
-            handInBackground.color = Color.white;
+            handInBackground.color = defaultColour;
             pictureSlot.SetActive(true);
-            
-            feedbackText.gameObject.SetActive(true);
-            feedbackText.text = "Please hand in your photo here";
 
             descriptionText.gameObject.SetActive(true);
             descriptionText.text = StaticQuestHandler.CurrentQuestStatue.TitanQuest.QuestDescription;
         };
 
-        StaticQuestHandler.OnQuestCompleted += () => StartCoroutine(CompleteQuest());
+        StaticQuestHandler.OnShrineCompleted += () => StartCoroutine(CompleteQuest());
 
         StaticQuestHandler.OnQuestFailed += () => 
         { 
-            feedbackText.text = "Hmm, I don't believe this is what I'm looking for...";
+            descriptionText.text = "Hmm, I don't believe this is what I'm looking for...";
             handInFrame.sprite = incorrectFrame;
-            handInBackground.sprite = incorrectBackground;
+            handInBackground.color = incorrectColour;
         };
 
         StaticQuestHandler.OnPictureClicked += (PagePicture picture) => 
@@ -61,9 +57,7 @@ public class QuestPictureInterface : PageComponentInteractor
             questInterfaceOpened = false;
             descriptionBackground.color = new Color(1, 1, 1, 0);
             handInBackground.color = new Color(1, 1, 1, 0);
-            handInBackground.sprite = defaultBackground;
             handInFrame.sprite = defaultFrame;
-            feedbackText.gameObject.SetActive(false); 
             descriptionText.gameObject.SetActive(false); 
             pictureSlot.SetActive(false); 
             if(slottedPicture != null)
@@ -73,7 +67,6 @@ public class QuestPictureInterface : PageComponentInteractor
         };
 
         pictureSlot.SetActive(false);
-        feedbackText.gameObject.SetActive(false);
         descriptionText.gameObject.SetActive(false);
     }
 
@@ -93,9 +86,9 @@ public class QuestPictureInterface : PageComponentInteractor
         component.transform.localScale = Vector3.one;
         slottedPicture = null;
 
-        handInBackground.sprite = defaultBackground;
+        handInBackground.color = defaultColour;
         handInFrame.sprite = defaultFrame;
-        feedbackText.text = "Please hand in your photo here";
+        descriptionText.text = StaticQuestHandler.CurrentQuestStatue.TitanQuest.QuestDescription;
     }
 
     private void SlotPicture(PagePicture picture)
@@ -112,11 +105,9 @@ public class QuestPictureInterface : PageComponentInteractor
 
     private IEnumerator CompleteQuest()
     {
-        handInBackground.sprite = correctBackground;
+        handInBackground.color = correctColour;
         handInFrame.sprite = correctFrame;
-        feedbackText.text = "Ah! This is what I was looking for!";
-
-        StaticQuestHandler.OnShrineCompleted?.Invoke();
+        descriptionText.text = "Ah! This is what I was looking for!";
 
         yield return new WaitForSeconds(questCompletionWaitTime);
 
@@ -125,7 +116,6 @@ public class QuestPictureInterface : PageComponentInteractor
         Destroy(slottedPicture.gameObject);
         slottedPicture = null;
 
-        handInBackground.sprite = defaultBackground;
         handInFrame.sprite = defaultFrame;
 
         pictureSlot.SetActive(false);
