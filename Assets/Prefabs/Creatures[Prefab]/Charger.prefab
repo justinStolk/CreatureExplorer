@@ -433,9 +433,51 @@ MonoBehaviour:
   TrackedAnimatorComponent: {fileID: 8987320139777495064}
   TrackedTransform: {fileID: 530009447095143256}
   SkinnedMeshRenderers: []
+--- !u!137 &3252825372397338620 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -9153655491984321931, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4671229974696602603 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1368954319976216990, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5020980026844315480 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1693934971459956015, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5839854751035854305 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -227254409187762072, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7375950827628192764 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3778711849527112075, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &7500518438459713106 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -4196013023752696869, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7502906916791834951 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4193876326151310130, guid: 6f5c59788053aa243bd5302c0ab307dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3302253041446972809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8753151837927725357 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3122537580552571740, guid: 6f5c59788053aa243bd5302c0ab307dd,
     type: 3}
   m_PrefabInstance: {fileID: 3302253041446972809}
   m_PrefabAsset: {fileID: 0}
@@ -2559,7 +2601,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 737114a551e613c429624394a2a5dd56, type: 2}
-  skinRenderer: {fileID: 7500518438459713106}
+  skinRenderers:
+  - {fileID: 7500518438459713106}
+  - {fileID: 8753151837927725357}
+  - {fileID: 3252825372397338620}
+  - {fileID: 7375950827628192764}
+  - {fileID: 5020980026844315480}
+  - {fileID: 4671229974696602603}
+  - {fileID: 7502906916791834951}
+  - {fileID: 5839854751035854305}
   groundMask:
     serializedVersion: 2
     m_Bits: 136
@@ -2594,6 +2644,7 @@ MonoBehaviour:
       <Operator>k__BackingField: 2
       <StateValue>k__BackingField: 50
   currentPlan: []
+  maxPlanDuration: 150
   reactionToDanger:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 0

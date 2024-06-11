@@ -13,7 +13,7 @@ public class Creature : MonoBehaviour
     public Vector3 WaryOff { get; protected set; }
     protected float waryLoudness = 1;
 
-    [SerializeField] private SkinnedMeshRenderer skinRenderer;
+    [SerializeField] private SkinnedMeshRenderer[] skinRenderers;
     [SerializeField] private LayerMask groundMask;
 
     [Header("Debugging")]
@@ -46,7 +46,9 @@ public class Creature : MonoBehaviour
     {
         DevDunk.AutoLOD.AnimatorLODManager.Instance.AddAnimator(GetComponentInChildren<DevDunk.AutoLOD.AnimatorLODObject>());
 
-        GetComponent<NavMeshAgent>().updateUpAxis = false;
+        if (TryGetComponent(out NavMeshAgent agent))
+            agent.updateUpAxis = false;
+
         foreach (Collider col in GetComponentsInChildren<Collider>())
         {
             Physics.IgnoreCollision(GetComponent<Collider>(), col);
@@ -54,14 +56,14 @@ public class Creature : MonoBehaviour
 
         if (data.SkinVariants.Length > 0)
         {
-            skinRenderer.material = data.SkinVariants[UnityEngine.Random.Range(0, data.SkinVariants.Length)];
+            //skinRenderer.material = data.SkinVariants[UnityEngine.Random.Range(0, data.SkinVariants.Length)];
             
-            //Material randomMat = data.SkinVariants[UnityEngine.Random.Range(0, data.SkinVariants.Length)];
+            Material randomMat = data.SkinVariants[UnityEngine.Random.Range(0, data.SkinVariants.Length)];
             
-            //foreach (SkinnedMeshRenderer renderer in GetComponentsInChildren<SkinnedMeshRenderer>())
-            //{
-            //    renderer.material = randomMat;
-            //}
+            foreach (SkinnedMeshRenderer renderer in skinRenderers)
+            {
+                renderer.material = randomMat;
+            }
         }
 
         if (!showThoughts)
@@ -93,7 +95,7 @@ public class Creature : MonoBehaviour
         StartInvoking();
     }
 
-    private void StartInvoking()
+    protected virtual void StartInvoking()
     {
         InvokeRepeating("UpdateValues", 0, 1);
         InvokeRepeating("TiltWithGround", 0, data.GroundTiltTimer);

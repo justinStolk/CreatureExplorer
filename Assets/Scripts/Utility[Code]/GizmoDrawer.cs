@@ -17,7 +17,7 @@ public class GizmoDrawer : MonoBehaviour
                 Gizmos.DrawCube(origin, size);
                 break;
             case (GizmoType.Line):
-                Gizmos.DrawLine(origin, size);
+                Gizmos.DrawLine(origin, origin+size);
                 break;
             case (GizmoType.Ray):
                 Gizmos.DrawRay(origin, size);
