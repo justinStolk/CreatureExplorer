@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 8951846016961644621}
   - component: {fileID: 5343014305801004688}
   - component: {fileID: 8737241239428839704}
+  - component: {fileID: 1078850623760166314}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: handModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,14 +149,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934582462428380689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.035, z: 0.1}
+  m_LocalRotation: {x: -0.27737248, y: -0.6728332, z: 0.42140293, w: 0.5410911}
+  m_LocalPosition: {x: 0.093104, y: -0.34804, z: -0.22234}
+  m_LocalScale: {x: 0.2085647, y: 0.2085647, z: -0.20856467}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 275664693021491252}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.48, y: -93.527, z: 59.373}
 --- !u!33 &5343014305801004688
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934582462428380689}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4803559095270227739, guid: be642073b2f0f4449a58fb98a412aef5, type: 3}
 --- !u!23 &8737241239428839704
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c23d8941a1a15c428622c87d1b57ca6, type: 2}
+  - {fileID: 2100000, guid: b09e72e3efaf6384aa13f0e8a2e66354, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -206,6 +207,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1078850623760166314
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934582462428380689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4803559095270227739, guid: be642073b2f0f4449a58fb98a412aef5, type: 3}
 --- !u!1 &1503432930725665888
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +232,6 @@ GameObject:
   - component: {fileID: 4699194747532129342}
   - component: {fileID: 4027920194558583443}
   - component: {fileID: 146597742627518909}
-  - component: {fileID: 8133130247118086988}
   - component: {fileID: 6926814486850088538}
   - component: {fileID: 1780697449699423822}
   - component: {fileID: 2746407463184731661}
@@ -423,19 +437,6 @@ MonoBehaviour:
   grabRadius: 0.15
   handHeightSettings: 1
   handDownHeight: 1
---- !u!65 &8133130247118086988
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503432930725665888}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.05, z: 0.15}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6926814486850088538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -852,7 +853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6538044436681668049
 Transform:
   m_ObjectHideFlags: 0
@@ -1077,7 +1078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5954466573707652111
 Transform:
   m_ObjectHideFlags: 0
@@ -1286,7 +1287,6 @@ GameObject:
   - component: {fileID: 275664693021491252}
   - component: {fileID: 4703156827643134066}
   - component: {fileID: 5005570596392204449}
-  - component: {fileID: 8167711836487203797}
   - component: {fileID: 512852400606593619}
   m_Layer: 6
   m_Name: LeftHand
@@ -1529,19 +1529,6 @@ MonoBehaviour:
   grabRadius: 0.15
   handHeightSettings: 1
   handDownHeight: 1
---- !u!65 &8167711836487203797
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309500712002347045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.05, z: 0.15}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &512852400606593619
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3234,8 +3221,9 @@ GameObject:
   - component: {fileID: 2415103540286838876}
   - component: {fileID: 9052931614870171555}
   - component: {fileID: 7597832352025329035}
+  - component: {fileID: 4557972985264089582}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: handModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3248,14 +3236,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9022498777467381227}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.035, z: 0.1}
+  m_LocalRotation: {x: -0.29097033, y: -0.52123934, z: 0.36171377, w: 0.7161069}
+  m_LocalPosition: {x: -0.070603155, y: -0.3449952, z: -0.2396}
+  m_LocalScale: {x: 0.2085647, y: 0.2085647, z: 0.2085647}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4699194747532129342}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.273, y: -73.291, z: 55.288}
 --- !u!23 &9052931614870171555
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3276,7 +3264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f9a45e230c705fb41876ded2ee57fa4b, type: 2}
+  - {fileID: 2100000, guid: b09e72e3efaf6384aa13f0e8a2e66354, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3305,7 +3293,21 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9022498777467381227}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4803559095270227739, guid: be642073b2f0f4449a58fb98a412aef5, type: 3}
+--- !u!64 &4557972985264089582
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022498777467381227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4803559095270227739, guid: be642073b2f0f4449a58fb98a412aef5, type: 3}
 --- !u!1001 &2298472564972801386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6782,6 +6784,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 94efdbeb874601445a1ce010185257f0, type: 3}
     - target: {fileID: 5273940577065366793, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380954321610904154, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380954321610904154, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8450039751899159313}
+    - target: {fileID: 5380954321610904154, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380954321610904154, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380954321610904154, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 168e766a580a5cc4cb0ce5442a838b6f, type: 3}
+    - target: {fileID: 5380954321610904154, guid: e7b9b0becb864e64cbeac7ab74c16b4d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine

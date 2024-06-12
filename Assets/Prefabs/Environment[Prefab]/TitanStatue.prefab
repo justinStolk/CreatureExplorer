@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830029878148548548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.009, y: 0.988, z: 0.553}
+  m_LocalPosition: {x: -0.009, y: 0.831, z: 0.467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <InteractionPrompt>k__BackingField: Interact [E]
   InteractHandTimer: 2
-  interactRenderer: {fileID: 0}
+  interactRenderer: {fileID: 672356285871569037}
   <TitanQuest>k__BackingField: {fileID: 11400000, guid: 0f79d657f98192345a8900e44d480f62,
     type: 2}
   onQuestCompleted:
@@ -438,7 +438,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5d458024fe41f064ebb4eff7ca3b3388, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -564,6 +564,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 102ffb3b62f2c8c4dafa8e1d839e8003, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7af73191466d284fa1967f1f755d383, type: 3}
+--- !u!23 &672356285871569037 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4253280567622488715, guid: e7af73191466d284fa1967f1f755d383,
+    type: 3}
+  m_PrefabInstance: {fileID: 3625961057989028358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3880054641109011949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e7af73191466d284fa1967f1f755d383,
