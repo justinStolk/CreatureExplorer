@@ -7,19 +7,19 @@ public class SkyNavigator : MonoBehaviour
     [Header("Gizmos")]
     [SerializeField] protected Color gizmoColour;
 
-    public Vector3 Destination { get; private set; }
-
     [field: Header("Movement")]
     [field:SerializeField] public float speed { get; private set; }
     [field: SerializeField] public float angularSpeed { get; private set; }
     [field: SerializeField] public float acceleration { get; private set; }
+    public Vector3 Destination { get; private set; }
 
     [field: Header("Flying")]
     [SerializeField] private float minimumFlyHeight;
+    [SerializeField] private float maximumFlyHeight;
     [SerializeField] private float maxAscentionAngle;
     [SerializeField] private LayerMask groundLayer;
 
-    private List<Vector3> path;
+    [SerializeField] private List<Vector3> path;
 
     private float currentVelocity;
     private Vector3 moveDirection;
@@ -36,7 +36,7 @@ public class SkyNavigator : MonoBehaviour
         originalRotationSpeed = angularSpeed;
         originalAcceleration = acceleration;
 
-        maxYIncline = Mathf.Sin(maxAscentionAngle);
+        maxYIncline = Mathf.Sin(Mathf.Deg2Rad* maxAscentionAngle);
     }
 
     private void FixedUpdate()
@@ -47,12 +47,19 @@ public class SkyNavigator : MonoBehaviour
             return;
         }
 
-        if (currentVelocity < speed)
+        Vector3 pathToNode = path[0] - transform.position;
+
+        if(pathToNode.magnitude < 2 * speed * Time.deltaTime)
+        {
+            currentVelocity = Mathf.Lerp(currentVelocity, 0, 0.8f);
+        }
+        else if (currentVelocity < speed)
         {
             currentVelocity += acceleration * Time.deltaTime;
+            Mathf.Clamp(currentVelocity, 0, speed);
         }
 
-        if ((transform.position - path[0]).magnitude < 1 * currentVelocity * Time.deltaTime)
+        if (pathToNode.magnitude < 1 * currentVelocity * Time.deltaTime || (pathToNode.normalized - moveDirection).magnitude >0.5f)
         {
             transform.position = path[0];
 
@@ -60,16 +67,14 @@ public class SkyNavigator : MonoBehaviour
 
             if (path.Count > 0)
             {
-                moveDirection = (transform.position - path[0]).normalized;
+                moveDirection = (path[0]-transform.position).normalized;
                 //moveDirection = new Vector3(moveDirection.x, Mathf.Clamp(moveDirection.y, -maxYIncline, maxYIncline), moveDirection.z);
-
-                if (moveDirection != Vector3.zero && Mathf.Abs(moveDirection.y) > maxYIncline)
-                    transform.forward = moveDirection;
             }
         }
         else
         {
-            transform.Translate(moveDirection * currentVelocity * Time.deltaTime, Space.World);
+            transform.Translate(transform.forward * currentVelocity * Time.deltaTime, Space.World);
+            TurnAgent();
         }
     }
 
@@ -91,11 +96,43 @@ public class SkyNavigator : MonoBehaviour
     {
         if (stayAirborne)
         {
-            Checkheight(destination, out destination);
+            Checkheight(destination, out Vector3 newDestination);
+            Destination = newDestination;
         }
-        Destination = destination;
+        else
+        {
+            Destination = destination;
+        }
         
         CalculatePath(stayAirborne);
+    }
+
+    public float PathLength()
+    {
+        if (path.Count < 1 || path == null)
+            return 0;
+
+        float result = 0;
+        int x = 0;
+        result += (transform.position - path[0]).magnitude;
+
+        while (x < path.Count-1)
+        {
+            result += (path[x] - path[x+1]).magnitude;
+            x++;
+        }
+        // TODO: return for full length
+        return result;
+    }
+
+    private void TurnAgent()
+    {
+        if (moveDirection != Vector3.zero)
+        {
+            Vector3 lookDirection = Vector3.Slerp(transform.forward, moveDirection, angularSpeed*Time.deltaTime);
+
+            transform.LookAt(transform.position + lookDirection);
+        }
     }
 
     // TODO: generate path that avoids obstacles
@@ -103,34 +140,52 @@ public class SkyNavigator : MonoBehaviour
     {
         path.Clear();
 
-        path.Add(Destination);
 
-        moveDirection = (transform.position - path[0]).normalized;
+        moveDirection = (Destination - transform.position).normalized;
         if (Mathf.Abs(moveDirection.y) > maxYIncline)
         {
             moveDirection = new Vector3(moveDirection.x, Mathf.Clamp(moveDirection.y, -maxYIncline, maxYIncline), moveDirection.z);
 
             // TODO: fly up in circles until desired height is reached
-            path.Add(transform.position + moveDirection*(transform.position - path[0]).magnitude);
+            path.Add(transform.position + moveDirection * (transform.position - Destination).magnitude);
         }
-
-        if (moveDirection != Vector3.zero)
-            transform.forward = moveDirection;
+        else
+        {
+            path.Add(Destination);
+        }
     }
 
     private void Checkheight(Vector3 checkPosition, out Vector3 newHeight)
     {
-        if (Physics.RaycastNonAlloc(checkPosition, Vector3.down, rayHit, minimumFlyHeight, groundLayer) > 0)
+        float heightFromTerrain = Terrain.activeTerrain.SampleHeight(checkPosition);
+        if (checkPosition.y < heightFromTerrain)
         {
-            checkPosition += new Vector3(0, minimumFlyHeight - rayHit[0].distance, 0);
+            newHeight = new Vector3(checkPosition.x, heightFromTerrain + minimumFlyHeight, checkPosition.z);
         }
-        newHeight = checkPosition;
+        else if (Physics.RaycastNonAlloc(checkPosition, Vector3.down, rayHit, minimumFlyHeight, groundLayer) > 0)
+        {
+            //Debug.Log($"checkedpoint: {checkPosition}, height from ground: {rayHit[0].distance}, adjusted height {minimumFlyHeight - rayHit[0].distance}, new position: {checkPosition + new Vector3(0, minimumFlyHeight - rayHit[0].distance, 0)}");
+            checkPosition += Vector3.up * ((checkPosition.y - rayHit[0].distance) + minimumFlyHeight);
+            newHeight = checkPosition;
+        }
+        // TODO: set a max height
+        else if (checkPosition.y > maximumFlyHeight)
+        {
+            newHeight = new Vector3(checkPosition.x, maximumFlyHeight, checkPosition.z);
+        }
+        else
+        {
+            newHeight = checkPosition;
+        }
     }
 
 #if UNITY_EDITOR
-protected virtual void OnDrawGizmosSelected()
-{
-    GizmoDrawer.DrawPrimitive(transform.position, moveDirection*currentVelocity, GizmoType.Line, gizmoColour);
-}
+    protected virtual void OnDrawGizmosSelected()
+    {
+        if (Application.isPlaying && path.Count > 0)
+        { 
+            GizmoDrawer.DrawPrimitive(transform.position, moveDirection, GizmoType.Line, gizmoColour);
+        }
+    }
 #endif
 }

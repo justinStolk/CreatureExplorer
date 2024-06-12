@@ -32,7 +32,7 @@ public class Fly : Action
             destination = target.transform.position;
         }
 
-        Checkheight(destination, out destination);
+        //Checkheight(destination, out destination);
         flyAgent.AlterSpeed(speedMultiplier);
         flyAgent.SetDestination(destination);
 
@@ -83,9 +83,6 @@ public class Fly : Action
     {
         Task[] check = { CheckDistanceToDestination(), Task.Delay((int)(actionDuration * 1000), token) };
 
-        // TODO: fly towards destination
-
-
         await Task.WhenAny(check);
         {
             base.DoAction();
@@ -96,7 +93,8 @@ public class Fly : Action
 
     protected async Task CheckDistanceToDestination(float extraMargin = 0)
     {
-        while ((destination - transform.position).magnitude > (targetingPrecision + extraMargin))
+        //while ((destination - transform.position).magnitude > (targetingPrecision + extraMargin))
+        while (flyAgent.PathLength() > (targetingPrecision + extraMargin))
         {
             if (token.IsCancellationRequested)
                 return;

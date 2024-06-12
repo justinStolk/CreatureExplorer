@@ -9,13 +9,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3631015620415169496, guid: f6ab56d5bf4714a43affe78648f575ad,
         type: 3}
-      propertyPath: roamRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -3631015620415169496, guid: f6ab56d5bf4714a43affe78648f575ad,
-        type: 3}
       propertyPath: actionDuration
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -3631015620415169496, guid: f6ab56d5bf4714a43affe78648f575ad,
         type: 3}
@@ -217,6 +212,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844555122404518609, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844555122404518609, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844555122404518609, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952515412390202433, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
@@ -423,10 +433,12 @@ MonoBehaviour:
   <angularSpeed>k__BackingField: 1
   <acceleration>k__BackingField: 1
   minimumFlyHeight: 5
+  maximumFlyHeight: 90
   maxAscentionAngle: 45
   groundLayer:
     serializedVersion: 2
     m_Bits: 152
+  path: []
 --- !u!114 &4588133925255451600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,7 +535,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dc27d8ee76ca937458f3bf9f1abb5f5c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dc27d8ee76ca937458f3bf9f1abb5f5c,
         type: 3}
@@ -533,12 +545,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dc27d8ee76ca937458f3bf9f1abb5f5c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7660445
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dc27d8ee76ca937458f3bf9f1abb5f5c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.6427876
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dc27d8ee76ca937458f3bf9f1abb5f5c,
         type: 3}
@@ -553,7 +565,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dc27d8ee76ca937458f3bf9f1abb5f5c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dc27d8ee76ca937458f3bf9f1abb5f5c,
         type: 3}
