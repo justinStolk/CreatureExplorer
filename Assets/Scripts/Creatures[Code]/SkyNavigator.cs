@@ -59,9 +59,9 @@ public class SkyNavigator : MonoBehaviour
             Mathf.Clamp(currentVelocity, 0, speed);
         }
 
-        if (pathToNode.magnitude < 1 * currentVelocity * Time.deltaTime || (pathToNode.normalized - moveDirection).magnitude >0.5f)
+        if (pathToNode.magnitude < 1 * currentVelocity * Time.deltaTime || (pathToNode.normalized - moveDirection).magnitude > 0.8f)
         {
-            transform.position = path[0];
+            //transform.position = path[0];
 
             path.RemoveAt(0);
 

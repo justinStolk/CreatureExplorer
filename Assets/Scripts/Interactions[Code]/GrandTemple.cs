@@ -31,6 +31,12 @@ public class GrandTemple : MonoBehaviour
         OnAltarCleared += EvaluateExtention;
     }
 
+    private void OnDestroy()
+    {
+        OnAltarCleared = null;
+        OnRingExtended = null;
+    }
+
     public void EvaluateExtention()
     {
         AltarsCleared++;

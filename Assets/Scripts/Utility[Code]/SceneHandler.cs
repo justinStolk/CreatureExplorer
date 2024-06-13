@@ -8,9 +8,16 @@ public class SceneHandler : MonoBehaviour
     public System.Action<AsyncOperation> onUnloadCompleted;
     public System.Action<float> onProgressChanged;
 
-    public void UnloadSceneAsync(int buildIndex)
+    private void OnDestroy()
     {
-        StartCoroutine(UnloadAsync(buildIndex));
+        onLoadCompleted = null;
+        onUnloadCompleted = null;
+        onProgressChanged = null;
+    }
+
+    public void UnloadSceneAsync(int buildIndex, UnloadSceneOptions unloadOptions = UnloadSceneOptions.None)
+    {
+        StartCoroutine(UnloadAsync(buildIndex, unloadOptions));
     }
 
     public void UnloadSceneAsync(string name)
@@ -64,14 +71,15 @@ public class SceneHandler : MonoBehaviour
         onProgressChanged?.Invoke(1);
     }
 
-    private IEnumerator UnloadAsync(int index)
+    private IEnumerator UnloadAsync(int index, UnloadSceneOptions unloadOptions)
     {
-        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(index);
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(index, unloadOptions);
         asyncLoad.completed += onUnloadCompleted;
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
+        System.GC.Collect();
     }
 
     private IEnumerator UnloadAsync(string name)
@@ -82,5 +90,6 @@ public class SceneHandler : MonoBehaviour
         {
             yield return null;
         }
+        System.GC.Collect();
     }
 }

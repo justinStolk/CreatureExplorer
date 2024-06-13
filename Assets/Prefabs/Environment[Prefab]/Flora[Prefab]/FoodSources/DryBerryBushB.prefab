@@ -58,7 +58,7 @@ MonoBehaviour:
   maxSpawnAmount: 3
   continous: 1
   spawnOn: {fileID: 164851119763594894}
-  distanceFromMesh: 0.2
+  distanceFromMesh: 0.1
   rotateWithMesh: 0
 --- !u!64 &1168600495941805750
 MeshCollider:
@@ -207,8 +207,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5348792695849447529}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 82.9445, z: 0}
+  m_LocalRotation: {x: 0, y: 0.02617695, z: 0, w: 0.99965733}
+  m_LocalPosition: {x: 0, y: 20.1827, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

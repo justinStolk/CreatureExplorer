@@ -21,7 +21,7 @@ public class QuestPictureInterface : PageComponentInteractor
     private PagePicture slottedPicture;
     private bool questInterfaceOpened;
 
-    private void Awake()
+    private void Start()
     {
         StaticQuestHandler.OnQuestOpened += () => 
         {
@@ -53,7 +53,7 @@ public class QuestPictureInterface : PageComponentInteractor
         };
 
         StaticQuestHandler.OnQuestClosed += () =>
-        {
+        {            
             questInterfaceOpened = false;
             descriptionBackground.color = new Color(1, 1, 1, 0);
             handInBackground.color = new Color(1, 1, 1, 0);
@@ -68,8 +68,54 @@ public class QuestPictureInterface : PageComponentInteractor
 
         pictureSlot.SetActive(false);
         descriptionText.gameObject.SetActive(false);
+        descriptionBackground.color = new Color(1, 1, 1, 0);
     }
 
+    private void OnDestroy()
+    {
+        //StaticQuestHandler.OnQuestOpened -= () =>
+        //{
+        //    questInterfaceOpened = true;
+        //    descriptionBackground.color = Color.white;
+        //    handInBackground.color = defaultColour;
+        //    pictureSlot.SetActive(true);
+        //
+        //    descriptionText.gameObject.SetActive(true);
+        //    descriptionText.text = StaticQuestHandler.CurrentQuestStatue.TitanQuest.QuestDescription;
+        //};
+        //
+        //StaticQuestHandler.OnShrineCompleted -= () => StartCoroutine(CompleteQuest());
+        //
+        //StaticQuestHandler.OnQuestFailed -= () =>
+        //{
+        //    descriptionText.text = "Hmm, I don't believe this is what I'm looking for...";
+        //    handInFrame.sprite = incorrectFrame;
+        //    handInBackground.color = incorrectColour;
+        //};
+        //
+        //StaticQuestHandler.OnPictureClicked -= (PagePicture picture) =>
+        //{
+        //    picture.SetStepBackParent();
+        //    if (OnComponentDroppedOn(picture))
+        //    {
+        //        picture.SetInteractor(this);
+        //    }
+        //};
+        //
+        //StaticQuestHandler.OnQuestClosed -= () =>
+        //{
+        //    questInterfaceOpened = false;
+        //    descriptionBackground.color = new Color(1, 1, 1, 0);
+        //    handInBackground.color = new Color(1, 1, 1, 0);
+        //    handInFrame.sprite = defaultFrame;
+        //    descriptionText.gameObject.SetActive(false);
+        //    pictureSlot.SetActive(false);
+        //    if (slottedPicture != null)
+        //    {
+        //        slottedPicture.OnRevert();
+        //    }
+        //};
+    }
 
     public override bool OnComponentDroppedOn(PageComponent component)
     {

@@ -119,6 +119,11 @@ public class Creature : MonoBehaviour
             CurrentAction.enabled = true;
     }
 
+    private void OnDestroy()
+    {
+        surroundCheck = null;
+    }
+
     #region GOAP
     protected virtual void StartAction()
     {

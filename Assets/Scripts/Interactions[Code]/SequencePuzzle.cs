@@ -28,6 +28,11 @@ public class SequencePuzzle : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        onPuzzleCleared.RemoveAllListeners();
+    }
+
     public void Ping(SequencePuzzleElement element)
     {
         if (pingOrder.Contains(element) && !canPingMultipleTimes || Cleared) 

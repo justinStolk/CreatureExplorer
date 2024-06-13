@@ -82,6 +82,11 @@ public class PlayerCamera : MonoBehaviour
         path = Application.dataPath;
     }
 
+    private void OnDestroy()
+    {
+        onZoomLevelChanged.RemoveAllListeners();
+    }
+
     public void CameraClose()
     {
         pictureCamera.fieldOfView = originalZoom;

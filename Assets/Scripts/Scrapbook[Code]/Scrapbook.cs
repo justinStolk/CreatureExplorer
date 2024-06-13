@@ -51,6 +51,11 @@ public class Scrapbook : MonoBehaviour
         }
         Instance = this;
 
+        previousPageButton.SetActive(false);
+    }
+
+    private void Start()
+    {
         StaticQuestHandler.OnQuestOpened += OpenBookForQuest;
         StaticQuestHandler.OnQuestClosed += CloseBookForQuest;
 
@@ -60,14 +65,15 @@ public class Scrapbook : MonoBehaviour
 
         SetupScrapbook();
 
-        previousPageButton.SetActive(false);
-    }
-
-    private void Start()
-    {
         CloseTrackers();
         ClosePages(); 
         StaticQuestHandler.OnPictureClicked += DockDelegate;
+    }
+
+    private void OnDestroy()
+    {
+        OnBeginType = null;
+        OnEndType = null;
     }
 
     private void SetupScrapbook()
@@ -95,7 +101,8 @@ public class Scrapbook : MonoBehaviour
         extrasGroup.SetActive(false);
         elementsPanel.gameObject.SetActive(false);
 
-        StaticQuestHandler.OnQuestClosed?.Invoke();
+        if ((Vector2)book.transform.localPosition != menuPosition)
+            StaticQuestHandler.OnQuestClosed?.Invoke();
     }
 
     public void OpenPages()
@@ -259,8 +266,10 @@ public class Scrapbook : MonoBehaviour
 
     private void CloseTrackers()
     {
-        progressTrackerTab.SetActive(false); 
-        questTrackerTab.SetActive(false); 
+        progressTrackerTab.SetActive(false);
+
+        questTrackerTab.SetActive(false);
+
         if (currentPageIndex != 0)
         {
             previousPageButton.SetActive(true);
@@ -269,6 +278,7 @@ public class Scrapbook : MonoBehaviour
         {
             nextPageButton.SetActive(true);
         }
+
         CurrentPage.gameObject.SetActive(true);
     }
 
