@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SkinVariants>k__BackingField: []
   <FoodSource>k__BackingField: 
-  <SleepSpot>k__BackingField: 
+  <FoodMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1
+  <SleepSpot>k__BackingField: BirdPerch
   <Bedtime>k__BackingField:
     hours: 22
     minutes: 0
@@ -23,7 +26,7 @@ MonoBehaviour:
     minutes: 0
   <HearingSensitivity>k__BackingField: 10
   <CheckSurroundingsTimer>k__BackingField: 1
-  <GroundTiltTimer>k__BackingField: 0
+  <GroundTiltTimer>k__BackingField: 200
   <DecayTimer>k__BackingField: 10
   <ChangesEverySecond>k__BackingField:
     <CreatureStates>k__BackingField:

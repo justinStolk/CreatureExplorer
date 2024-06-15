@@ -21,6 +21,28 @@ public class AnimatedUIMove : MonoBehaviour
         }
     }
 
+    public void Close()
+    {
+        if (!unfurled)
+        {
+            StopAllCoroutines(); 
+            
+            StartCoroutine(Move(targetTransform.localPosition, inPosition));
+        }
+    }
+
+    public void Open()
+    {
+        if (unfurled)
+        {
+            StopAllCoroutines();
+
+            StartCoroutine(Move(targetTransform.localPosition, outPosition));
+
+            unfurled = !unfurled;
+        }
+    }
+
     public void ToggleMove()
     {
         StopAllCoroutines();

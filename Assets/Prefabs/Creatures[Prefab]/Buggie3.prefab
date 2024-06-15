@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4502770562716170706}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126146186288411175}
   m_LocalRotation: {x: 8.6595136e-17, y: 0.7094361, z: -8.6595136e-17, w: 0.70476973}
-  m_LocalPosition: {x: -0, y: 0.021857927, z: -0.08355226}
+  m_LocalPosition: {x: 0, y: 0.021857917, z: -0.08355226}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 6190476450415259759}
   - {fileID: 359183418908810114}
   - {fileID: 2017160643849140169}
-  m_Father: {fileID: 6303057200288570786}
+  m_Father: {fileID: 923186195875980958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &150275122717083645
@@ -47,7 +47,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9117625069507834435}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RLegTop2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5974773911396999728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LWing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8796260992896599819}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RWing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572486499736268099}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RLegTop1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,39 @@ Transform:
   m_Father: {fileID: 1517198911483080979}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2321647028989031852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923186195875980958}
+  m_Layer: 10
+  m_Name: Graphics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &923186195875980958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2321647028989031852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4502770562716170706}
+  - {fileID: 7275166264058870429}
+  m_Father: {fileID: 6303057200288570786}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2542020840335258372
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076182194012533400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LAntenna3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3925040135804950948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LLegTop1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7177985885546053160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LLegMid2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017585754478394382}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3458154455840495820}
   - component: {fileID: 4375316181068754587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 664139232372101568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RAntenna2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9077152467198222025}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RLegBottom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683411096898163894}
   - component: {fileID: 3322489136554142306}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8226185483315463882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RLegMid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017160643849140169}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RWing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6532769012607133673}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LShell1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2460644135079663927}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LWing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7795692389902523071}
   - component: {fileID: 1692078520944149895}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344260954410738334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LWing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5167946076783877965}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LShell2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1987335221664788759}
   - component: {fileID: 3798953270852037815}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +1006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6379986071931388866}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LLegBottom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7698138181896295341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RLegMid2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,7 +1068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4136915526298256192}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LLegTop2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1066,7 +1099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1517198911483080979}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1105,7 +1138,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6303057200288570786}
   - component: {fileID: 115081434294044632}
-  m_Layer: 0
+  - component: {fileID: 2607397036489090460}
+  - component: {fileID: 6604782811026798954}
+  m_Layer: 10
   m_Name: Buggie3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,8 +1159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4502770562716170706}
-  - {fileID: 7275166264058870429}
+  - {fileID: 923186195875980958}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1142,7 +1176,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3ea37b350f9b9e641a3c388671fb79c5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1150,6 +1184,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!135 &2607397036489090460
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643695160483596056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6604782811026798954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643695160483596056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8e65d22f05fa647819fc628a127525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugTransform: {fileID: 923186195875980958}
+  moveSpeed: 0.3
+  moveSphereRadius: 0.2
 --- !u!1 &6657173425341080885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8023639513035159309}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RShell2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1190,7 +1252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1384608626747114308}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LAntenna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,7 +1284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7275166264058870429}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,8 +1298,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7135701004695642224}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1248,7 +1310,7 @@ Transform:
   - {fileID: 1683411096898163894}
   - {fileID: 2282069347357401077}
   - {fileID: 3458154455840495820}
-  m_Father: {fileID: 6303057200288570786}
+  m_Father: {fileID: 923186195875980958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7316776113949210760
@@ -1260,7 +1322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2978435111315263948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RLegBottom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1291,7 +1353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6190476450415259759}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RAntenna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430550841011070120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LLegBottom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1356,7 +1418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5345168432256956962}
   - component: {fileID: 3282759436980607730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1460,7 +1522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5558840872924712857}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RWing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 359183418908810114}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RShell1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,7 +1587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668256055259865587}
   - component: {fileID: 2494744896902334246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Antennae
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6413246738941000841}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LLegMid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1652,7 +1714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4571596309674752014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LAntenna2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,7 +1746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7641158271186195024}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RAntenna3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1716,7 +1778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2282069347357401077}
   - component: {fileID: 8078321791551499386}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

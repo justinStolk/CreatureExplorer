@@ -27,6 +27,7 @@ public class Scrapbook : MonoBehaviour
     [SerializeField] private GameObject extrasGroup;
     [SerializeField] private GameObject progressTrackerTab;
     [SerializeField] private GameObject questTrackerTab;
+    [SerializeField] private GameObject creditsTab;
     [SerializeField] private GameObject stickerGroup;
 
     [SerializeField] private RectTransform pagesParent;
@@ -114,7 +115,7 @@ public class Scrapbook : MonoBehaviour
 
     public void ToggleNotePages()
     {
-        if (progressTrackerTab.activeSelf || questTrackerTab.activeSelf)
+        if (progressTrackerTab.activeSelf || questTrackerTab.activeSelf || creditsTab)
         {
             CloseTrackers();
         }
@@ -138,6 +139,16 @@ public class Scrapbook : MonoBehaviour
             return;
         }
         OpenQuestTracker();
+    }
+
+    public void ToggleCredits()
+    {
+        if (creditsTab.activeSelf)
+        {
+            CloseTrackers();
+            return;
+        }
+        OpenCredits();
     }
 
     public void GoToNextPage()
@@ -249,6 +260,7 @@ public class Scrapbook : MonoBehaviour
     private void OpenProgressTracker()
     {
         progressTrackerTab.SetActive(true);
+        creditsTab.SetActive(false);
         questTrackerTab.SetActive(false);
         previousPageButton.SetActive(false);
         nextPageButton.SetActive(false);
@@ -258,6 +270,17 @@ public class Scrapbook : MonoBehaviour
     private void OpenQuestTracker()
     {
         questTrackerTab.SetActive(true);
+        creditsTab.SetActive(false);
+        progressTrackerTab.SetActive(false);
+        previousPageButton.SetActive(false);
+        nextPageButton.SetActive(false);
+        CurrentPage.gameObject.SetActive(false);
+    }
+
+    private void OpenCredits()
+    {
+        creditsTab.SetActive(true);
+        questTrackerTab.SetActive(false);
         progressTrackerTab.SetActive(false);
         previousPageButton.SetActive(false);
         nextPageButton.SetActive(false);
@@ -269,6 +292,8 @@ public class Scrapbook : MonoBehaviour
         progressTrackerTab.SetActive(false);
 
         questTrackerTab.SetActive(false);
+
+        creditsTab.SetActive(false);
 
         if (currentPageIndex != 0)
         {

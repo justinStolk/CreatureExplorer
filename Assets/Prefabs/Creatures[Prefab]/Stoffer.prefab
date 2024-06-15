@@ -979,6 +979,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7242471176936408123, guid: 366f115a0f62522419b2ad872e4727b9,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: bd2077b10ad0dc94d84b6f469ca4eeae, type: 3}
+    - target: {fileID: 7242471176936408123, guid: 366f115a0f62522419b2ad872e4727b9,
+        type: 3}
+      propertyPath: oneShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242471176936408123, guid: 366f115a0f62522419b2ad872e4727b9,
+        type: 3}
       propertyPath: startAnimationTrigger
       value: Pounce
       objectReference: {fileID: 0}
@@ -1414,6 +1424,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703513111590520603, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: bd2077b10ad0dc94d84b6f469ca4eeae, type: 3}
+    - target: {fileID: 3703513111590520603, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: oneShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703513111590520603, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: searchRadius
       value: 2000
       objectReference: {fileID: 0}
@@ -1704,6 +1724,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6207920478717732856, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: actionDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207920478717732856, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: <Name>k__BackingField
       value: Move Towards Food Spot
       objectReference: {fileID: 0}
@@ -1962,6 +1987,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eac397494fc44a447a6a016ce5cea923, type: 2}
+    - target: {fileID: 6799428552790998717, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7210352520341627480, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
       propertyPath: m_Name
@@ -2286,12 +2316,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 7720b3aee89ffe64195d066e38b0b157, type: 2}
-  skinRenderer: {fileID: 0}
+  skinRenderers: []
   groundMask:
     serializedVersion: 2
     m_Bits: 136
   debug: 1
-  showThoughts: 0
+  showThoughts: 1
   <LogDebugs>k__BackingField: 0
   goalText: {fileID: 4549432258956913689}
   actionText: {fileID: 4549432260102553002}
@@ -2459,6 +2489,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3380771950552542930}
     m_Modifications:
+    - target: {fileID: -7920083902194081383, guid: 22a690123035b264e834029b3a3a4602,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: f83c98591e81a334e9a5bfa2f12690e0, type: 3}
+    - target: {fileID: -7920083902194081383, guid: 22a690123035b264e834029b3a3a4602,
+        type: 3}
+      propertyPath: oneShot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7920083902194081383, guid: 22a690123035b264e834029b3a3a4602,
         type: 3}
       propertyPath: animator

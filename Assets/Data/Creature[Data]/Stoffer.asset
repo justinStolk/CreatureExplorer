@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stoffer
   m_EditorClassIdentifier: 
   <SkinVariants>k__BackingField: []
-  <FoodSource>k__BackingField: BugSpot
+  <FoodSource>k__BackingField: Bug
   <FoodMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
@@ -25,8 +25,7 @@ MonoBehaviour:
     hours: 4
     minutes: 0
   <HearingSensitivity>k__BackingField: 5
-  <LookingSensitivity>k__BackingField: 7
-  <CheckSurroundingsTimer>k__BackingField: 1
+  <CheckSurroundingsTimer>k__BackingField: 3
   <GroundTiltTimer>k__BackingField: 1
   <DecayTimer>k__BackingField: 10
   <ChangesEverySecond>k__BackingField:
@@ -49,7 +48,7 @@ MonoBehaviour:
       <StateValue>k__BackingField: 45
     - <MoodType>k__BackingField: 6
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 0.1
+      <StateValue>k__BackingField: 0.01
   <ReactionToPlayerFriendly>k__BackingField:
     <CreatureStates>k__BackingField:
     - <MoodType>k__BackingField: 4
@@ -57,4 +56,4 @@ MonoBehaviour:
       <StateValue>k__BackingField: 5
     - <MoodType>k__BackingField: 6
       <Operator>k__BackingField: 3
-      <StateValue>k__BackingField: 0.2
+      <StateValue>k__BackingField: 0.1

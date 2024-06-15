@@ -35,6 +35,11 @@ public class Search : Action
                         nearest = c;
                     }
                 }
+
+                // Make it so other creatures can't find same foodsource
+                if (nearest != null)
+                    nearest.gameObject.layer = LayerMask.NameToLayer("Default");
+
                 break;
 
             case (SearchTarget.Tree):
