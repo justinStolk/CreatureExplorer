@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TeleportActivate",
+                    "type": "Value",
+                    "id": "3b67e2cc-06dc-4e60-8ee8-59ec45e25fe0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -144,6 +153,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Teleportmove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "946a1580-ae9b-498e-8693-2d3997f138d0",
+                    "path": "<XRController>{LeftHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "TeleportActivate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -365,6 +385,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "TeleportActivate",
+                    "type": "Value",
+                    "id": "78461392-c21c-4650-b8ae-6695757f97cb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Teleportmove",
                     "type": "Value",
                     "id": "f088884b-6cde-48b1-bda5-2f27cbcca7d5",
@@ -419,8 +448,8 @@
                 },
                 {
                     "name": "",
-                    "id": "d083faf8-cde5-4ab6-aac6-e0fa946ca3da",
-                    "path": "<XRController>{LeftHand}/thumbstick",
+                    "id": "f9f42074-6802-4953-a1de-7c6aec720cbf",
+                    "path": "<XRController>{LeftHand}/thumbstickClicked",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
@@ -430,12 +459,12 @@
                 },
                 {
                     "name": "",
-                    "id": "f9f42074-6802-4953-a1de-7c6aec720cbf",
+                    "id": "9aedf471-2351-48b3-a375-388b960d55ec",
                     "path": "<XRController>{LeftHand}/thumbstickTouched",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Teleportmove",
+                    "action": "TeleportActivate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &323007348423557532
 Transform:
@@ -115,7 +115,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2844046998924221889
 Transform:
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3185105973019969403}
-  m_LocalRotation: {x: 0, y: 0.99939084, z: 0, w: -0.034899462}
+  m_LocalRotation: {x: 0, y: 0.9455186, z: 0, w: -0.3255681}
   m_LocalPosition: {x: 0, y: 20.1827, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -159,6 +159,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2844046998924221889}
     m_Modifications:
+    - target: {fileID: 1135657180887800971, guid: 953488a5487c66145ab33757139f014c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515502707160551668, guid: 953488a5487c66145ab33757139f014c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 2070687752454215127, guid: 953488a5487c66145ab33757139f014c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -169,6 +179,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6bbaf2dd5f0e27342afb22ef5e017793, type: 2}
+    - target: {fileID: 4527061726147392057, guid: 953488a5487c66145ab33757139f014c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 4802631459562637413, guid: 953488a5487c66145ab33757139f014c,
         type: 3}
       propertyPath: m_RootOrder
@@ -229,6 +244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BushC
       objectReference: {fileID: 0}
+    - target: {fileID: 5327071651570422495, guid: 953488a5487c66145ab33757139f014c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 6362873584861803852, guid: 953488a5487c66145ab33757139f014c,
         type: 3}
       propertyPath: m_LODs.Array.size
@@ -243,6 +263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465872035687396490, guid: 953488a5487c66145ab33757139f014c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 953488a5487c66145ab33757139f014c, type: 3}

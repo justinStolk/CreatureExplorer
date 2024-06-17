@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474a8fb2e002a824a94656d69c4caff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 10
+  speedMultiplier: 5
   speedCurve:
     serializedVersion: 2
     m_Curve:
@@ -1647,8 +1647,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  sprintSpeed: 20
-  strafeSprintSpeed: 15
+  sprintSpeed: 15
+  strafeSprintSpeed: 12.5
   maxSprintAngle: 15
   minWalkLoudness: 5
   maxWalkLoudness: 10

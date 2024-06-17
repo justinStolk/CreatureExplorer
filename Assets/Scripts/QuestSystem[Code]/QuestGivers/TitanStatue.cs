@@ -107,7 +107,10 @@ public class TitanStatue : MonoBehaviour, IInteractable
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out VRHandController hand))
+        VRHandController hand = other.GetComponentInParent<VRHandController>();
+
+        //if (other.TryGetComponent(out VRHandController hand))
+        if (hand != null)
         {
             hand.DoHaptics(0.3f, Time.fixedDeltaTime);
 
@@ -127,7 +130,10 @@ public class TitanStatue : MonoBehaviour, IInteractable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out VRHandController hand))
+        VRHandController hand = other.GetComponentInParent<VRHandController>();
+
+        //if (other.TryGetComponent(out VRHandController hand))
+        if (hand!= null)
         {
             interactTime = 0;
             hand.StopHaptics();

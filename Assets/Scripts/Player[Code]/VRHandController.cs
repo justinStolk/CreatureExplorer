@@ -124,7 +124,7 @@ public class VRHandController : MonoBehaviour
             {
                 holdingTeleportInput = false;
                 line.enabled = false;
-                StartTeleport(); 
+                //StartTeleport(); 
                 //onTeleport.Invoke(Vector3.zero);
             }
         }
@@ -268,10 +268,16 @@ public class VRHandController : MonoBehaviour
         }
     }
 
-    private void StartTeleport()
+    public void StartTeleport(InputAction.CallbackContext context)
     {
-        if (Physics.Raycast(transform.position, transform.up * -1, out RaycastHit hit, 100, PointingInteractionLayers))
-            onTeleport.Invoke(hit.point);
+        if (line.enabled && context.started)
+        {
+            if (Physics.Raycast(transform.position, transform.up * -1, out RaycastHit hit, 100, PointingInteractionLayers))
+            {
+                onTeleport.Invoke(hit.point);
+            }
+            line.enabled = false;
+        }
     }
 
     public void PressTrigger(InputAction.CallbackContext callbackContext)

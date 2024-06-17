@@ -50,8 +50,34 @@ public class SoundPlayer : MonoBehaviour
         }
     }
 
+    public void PlayRandomFromArray(AudioClip[] clips, float duration)
+    {
+        if (clips.Length > 0)
+        {
+            StartCoroutine(PlayRandom(clips, duration));
+        }
+    }
+
     public void StopSounds()
     {
         audioSource.Stop();
+    }
+
+    private IEnumerator PlayRandom(AudioClip[] clips, float duration)
+    {
+        float timer = 0;
+        while (timer < duration)
+        {
+            if (audioSource.isPlaying) 
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            } else
+            {
+                audioSource.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+            }
+
+        }
+
     }
 }

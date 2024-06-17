@@ -129,9 +129,6 @@ public class VR_PlayerController : MonoBehaviour
     private void Start()
     {
         onCameraClosed?.Invoke();
-
-        //Scrapbook.OnBeginType += StartTyping;
-        //Scrapbook.OnEndType += StopTyping;
     }
 
     // Update is called once per frame
@@ -152,6 +149,38 @@ public class VR_PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         stateMachine.OnFixedUpdate();
+    }
+
+    private void OnDestroy()
+    {
+        onScrapbookOpened.RemoveAllListeners();
+        onScrapbookClosed.RemoveAllListeners();
+        onCameraOpened.RemoveAllListeners();
+        onCameraClosed.RemoveAllListeners();
+        onInteractableFound.RemoveAllListeners();
+        onInteractableOutOfRange.RemoveAllListeners();
+        onPouchUnlocked.RemoveAllListeners();
+        onClimbingUnlocked.RemoveAllListeners();
+        onHurt.RemoveAllListeners();
+        onBerryThrown.RemoveAllListeners();
+        onBerryPickup.RemoveAllListeners();
+
+        GrandTemple.OnRingExtended = null;
+
+        StaticQuestHandler.OnQuestOpened = null;
+        StaticQuestHandler.OnQuestClosed = null;
+
+        StaticQuestHandler.OnShrineCompleted = null;
+        StaticQuestHandler.OnQuestCompleted = null;
+        StaticQuestHandler.OnQuestFailed = null;
+
+        StaticQuestHandler.OnPictureClicked = null;
+        StaticQuestHandler.OnPictureDisplayed = null;
+
+        StaticQuestHandler.OnAltarActivated = null;
+
+        StaticQuestHandler.OnPictureInScrapbook = null;
+        StaticQuestHandler.OnAltarProgress = null;
     }
 
     public void SwapToCamera(InputAction.CallbackContext callbackContext)
