@@ -208,6 +208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6833120536398614453}
   - component: {fileID: 1889670286077142342}
+  - component: {fileID: 4330944523241955121}
+  - component: {fileID: 4238109968377278296}
   m_Layer: 0
   m_Name: Light Mushroom 2
   m_TagString: Untagged
@@ -255,6 +257,32 @@ MonoBehaviour:
   brightenTime:
     hours: 20
     minutes: 30
+--- !u!65 &4330944523241955121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169876789830554895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6433083, y: 0.5025885, z: 0.2211215}
+  m_Center: {x: 0.023134172, y: 0.25129426, z: -0.073139615}
+--- !u!114 &4238109968377278296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169876789830554895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61bc7dc05c0ce44b9240530be9c6aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <QuestObjectID>k__BackingField: lightMushroom
 --- !u!1001 &6182201485110481669
 PrefabInstance:
   m_ObjectHideFlags: 0

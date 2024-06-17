@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 // A sticker class for the scrapbook. May have added functionality later.
 public class ScrapbookSticker : PageComponent, IPointerUpHandler, IDragHandler
 {
-    public bool IsTemplate = false;
+    public bool IsTemplate = true;
 
     //private RectTransform rectTransform;
 
@@ -31,6 +31,12 @@ public class ScrapbookSticker : PageComponent, IPointerUpHandler, IDragHandler
 
     public override void Grab(Transform handTransform)
     {
+        if (IsTemplate)
+        {
+            Instantiate(this, transform.position, transform.rotation, transform.parent);
+            IsTemplate = false;
+        }
+
         if (soundPlayer != null)
         {
             soundPlayer.PlaySound(dragSound, true);
@@ -62,6 +68,12 @@ public class ScrapbookSticker : PageComponent, IPointerUpHandler, IDragHandler
 
     public override void OnBeginDrag(PointerEventData eventData)
     {
+        if (IsTemplate)
+        {
+            Instantiate(this, transform.position, transform.rotation,transform.parent);
+            IsTemplate = false;
+        }
+
         if (soundPlayer != null)
         {
             soundPlayer.PlaySound(dragSound, true);

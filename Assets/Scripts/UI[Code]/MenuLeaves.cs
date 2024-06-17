@@ -22,6 +22,11 @@ public class MenuLeaves : MonoBehaviour
         progressBar.gameObject.SetActive(false);
     }
 
+    private void OnDestroy()
+    {
+        onAnimationEnded = null;
+    }
+
     public void OpenPauseMenu()
     {
         Cursor.lockState = CursorLockMode.Confined;
@@ -67,7 +72,7 @@ public class MenuLeaves : MonoBehaviour
         {
             //onAnimationEnded = null;
             //onAnimationEnded += () => sceneHandler.UnloadSceneAsync(currentScene);
-            sceneHandler.UnloadSceneAsync(currentScene);
+            sceneHandler.UnloadSceneAsync(currentScene, UnityEngine.SceneManagement.UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
 
             // TODO: maybe make this more generic in case we add more scenes later
             if (sceneBuildIndex == 1) 

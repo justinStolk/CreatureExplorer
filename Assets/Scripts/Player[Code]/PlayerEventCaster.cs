@@ -15,6 +15,12 @@ public class PlayerEventCaster : EventCaster
         // Initiate events and add listeners
         makeSound = new UnityEvent<Vector3, float>();
     }
+    //protected override void OnDestroy()
+    private void OnDestroy()
+    {
+        //base.OnDestroy();
+        makeSound.RemoveAllListeners();
+    }
 
     public static void ListenForSounds(UnityAction<Vector3, float> action)
     {

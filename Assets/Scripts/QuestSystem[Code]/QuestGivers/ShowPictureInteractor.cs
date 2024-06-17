@@ -19,6 +19,11 @@ public class ShowPictureInteractor : PageComponentInteractor
         rectTransform = GetComponent<RectTransform>();
     }
 
+    private void OnDestroy()
+    {
+        OnPictureDroppedOn.RemoveAllListeners();
+    }
+
     public override bool OnComponentDroppedOn(PageComponent component)
     {
         if (shownPicture == null && component.GetType() == typeof(PagePicture))

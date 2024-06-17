@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 132, y: 67}
+  m_AnchoredPosition: {x: 102, y: -160}
   m_SizeDelta: {x: 170.975, y: 208.2986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516953860060025027
@@ -54,7 +54,7 @@ MonoBehaviour:
   iconImage: {fileID: 5027848897951119011}
   categoryImage: {fileID: 0}
   iconText: {fileID: 3228538834651530679}
-  path: Vegetation/Anger Berry/stickyberry
+  path: Vegetation/Berries/angryBerryBush
 --- !u!1 &2896596364234934868
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5026147648165556856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -599,7 +599,7 @@ PrefabInstance:
     - target: {fileID: 4921840292522404460, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
         type: 3}
       propertyPath: path
-      value: Vegetation/Normal Berry/berryPlant
+      value: Vegetation/Berries/berryPlant
       objectReference: {fileID: 0}
     - target: {fileID: 5767093989679346393, guid: 36eacb12f3c942b4fbf042d52d3c33eb,
         type: 3}

@@ -30,6 +30,10 @@ public class TitanStatue : MonoBehaviour, IInteractable
     }
 #endif
 
+    private void OnDestroy()
+    {
+        onQuestCompleted.RemoveAllListeners();
+    }
 
     public void Interact()
     {

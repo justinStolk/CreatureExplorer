@@ -32,6 +32,11 @@ public class FallingState : State
         //rigidbody = GetComponent<Rigidbody>();
     }
 
+    private void OnDestroy()
+    {
+        onLethalLanding.RemoveAllListeners();
+    }
+
     //private void OnTriggerEnter(Collider other)
     //{
     //    if(other.gameObject != gameObject)

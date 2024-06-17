@@ -36,6 +36,13 @@ public class PagePicture : PageComponent, IPointerClickHandler
             soundPlayer = GetComponentInParent<SoundPlayer>();
     }
 
+    private void OnDestroy()
+    {
+        OnPictureClicked = null;
+        OnBeginPictureDrag = null;
+        OnEndPictureDrag = null;
+    }
+
     public void SetPicture(Sprite pictureSprite)
     {
         pictureGraphic.sprite = pictureSprite;

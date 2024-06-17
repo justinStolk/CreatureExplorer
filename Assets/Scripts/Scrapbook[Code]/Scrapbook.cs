@@ -27,6 +27,7 @@ public class Scrapbook : MonoBehaviour
     [SerializeField] private GameObject extrasGroup;
     [SerializeField] private GameObject progressTrackerTab;
     [SerializeField] private GameObject questTrackerTab;
+    [SerializeField] private GameObject creditsTab;
     [SerializeField] private GameObject stickerGroup;
 
     [SerializeField] private RectTransform pagesParent;
@@ -51,6 +52,11 @@ public class Scrapbook : MonoBehaviour
         }
         Instance = this;
 
+        previousPageButton.SetActive(false);
+    }
+
+    private void Start()
+    {
         StaticQuestHandler.OnQuestOpened += OpenBookForQuest;
         StaticQuestHandler.OnQuestClosed += CloseBookForQuest;
 
@@ -60,14 +66,15 @@ public class Scrapbook : MonoBehaviour
 
         SetupScrapbook();
 
-        previousPageButton.SetActive(false);
-    }
-
-    private void Start()
-    {
         CloseTrackers();
         ClosePages(); 
         StaticQuestHandler.OnPictureClicked += DockDelegate;
+    }
+
+    private void OnDestroy()
+    {
+        OnBeginType = null;
+        OnEndType = null;
     }
 
     private void SetupScrapbook()
@@ -95,7 +102,8 @@ public class Scrapbook : MonoBehaviour
         extrasGroup.SetActive(false);
         elementsPanel.gameObject.SetActive(false);
 
-        StaticQuestHandler.OnQuestClosed?.Invoke();
+        if ((Vector2)book.transform.localPosition != menuPosition)
+            StaticQuestHandler.OnQuestClosed?.Invoke();
     }
 
     public void OpenPages()
@@ -107,7 +115,7 @@ public class Scrapbook : MonoBehaviour
 
     public void ToggleNotePages()
     {
-        if (progressTrackerTab.activeSelf || questTrackerTab.activeSelf)
+        if (progressTrackerTab.activeSelf || questTrackerTab.activeSelf || creditsTab)
         {
             CloseTrackers();
         }
@@ -131,6 +139,16 @@ public class Scrapbook : MonoBehaviour
             return;
         }
         OpenQuestTracker();
+    }
+
+    public void ToggleCredits()
+    {
+        if (creditsTab.activeSelf)
+        {
+            CloseTrackers();
+            return;
+        }
+        OpenCredits();
     }
 
     public void GoToNextPage()
@@ -242,6 +260,7 @@ public class Scrapbook : MonoBehaviour
     private void OpenProgressTracker()
     {
         progressTrackerTab.SetActive(true);
+        creditsTab.SetActive(false);
         questTrackerTab.SetActive(false);
         previousPageButton.SetActive(false);
         nextPageButton.SetActive(false);
@@ -251,6 +270,17 @@ public class Scrapbook : MonoBehaviour
     private void OpenQuestTracker()
     {
         questTrackerTab.SetActive(true);
+        creditsTab.SetActive(false);
+        progressTrackerTab.SetActive(false);
+        previousPageButton.SetActive(false);
+        nextPageButton.SetActive(false);
+        CurrentPage.gameObject.SetActive(false);
+    }
+
+    private void OpenCredits()
+    {
+        creditsTab.SetActive(true);
+        questTrackerTab.SetActive(false);
         progressTrackerTab.SetActive(false);
         previousPageButton.SetActive(false);
         nextPageButton.SetActive(false);
@@ -259,8 +289,12 @@ public class Scrapbook : MonoBehaviour
 
     private void CloseTrackers()
     {
-        progressTrackerTab.SetActive(false); 
-        questTrackerTab.SetActive(false); 
+        progressTrackerTab.SetActive(false);
+
+        questTrackerTab.SetActive(false);
+
+        creditsTab.SetActive(false);
+
         if (currentPageIndex != 0)
         {
             previousPageButton.SetActive(true);
@@ -269,6 +303,7 @@ public class Scrapbook : MonoBehaviour
         {
             nextPageButton.SetActive(true);
         }
+
         CurrentPage.gameObject.SetActive(true);
     }
 

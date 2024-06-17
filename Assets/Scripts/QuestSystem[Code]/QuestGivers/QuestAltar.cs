@@ -27,6 +27,11 @@ public class QuestAltar : MonoBehaviour, IInteractable
         TryGetComponent(out meshRenderer);
     }
 
+    private void OnDestroy()
+    {
+        onAltarCompleted.RemoveAllListeners();
+    }
+
     public void Interact()
     {
         if (AltarFinished) return;

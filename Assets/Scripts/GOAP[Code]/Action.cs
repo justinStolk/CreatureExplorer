@@ -77,6 +77,12 @@ abstract public class Action : MonoBehaviour
         source.Dispose();
     }
 
+    private void OnDestroy()
+    {
+        OnFail.RemoveAllListeners();
+        OnFinish.RemoveAllListeners();
+    }
+
     public GameObject ActivateAction(Creature creature, GameObject target)
     {
         if (soundPlayer != null)

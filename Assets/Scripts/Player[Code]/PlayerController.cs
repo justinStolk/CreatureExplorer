@@ -118,11 +118,34 @@ public class PlayerController : MonoBehaviour
             //rb.isKinematic = true;
         };
         */
+
+        if (pouchUnlocked) UnlockPouch();
+
+        if (climbingUnlocked) UnlockClimb();
+    }
+
+    private void Start()
+    {
+        if (playerInput == null)
+        {
+            playerInput = GetComponent<PlayerInput>();
+        }
+
+        module = playerInput.uiInputModule;
+
+        onCameraClosed?.Invoke();
+
+        Scrapbook.OnBeginType += StartTyping;
+        Scrapbook.OnEndType += StopTyping;
+
         StaticQuestHandler.OnQuestOpened += () =>
         {
-            LinkModuleToScrapbook();
-            playerInput.SwitchCurrentActionMap("Scrapbook");
-            onInteractableOutOfRange?.Invoke();
+            if (playerInput != null)
+            {
+                LinkModuleToScrapbook();
+                playerInput.SwitchCurrentActionMap("Scrapbook");
+                onInteractableOutOfRange?.Invoke();
+            }
         };
         StaticQuestHandler.OnQuestClosed += () =>
         {
@@ -135,18 +158,6 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             stateMachine.SwitchState(typeof(WalkingState));
         };
-
-        if (pouchUnlocked) UnlockPouch();
-
-        if (climbingUnlocked) UnlockClimb();
-    }
-
-    private void Start()
-    {
-        onCameraClosed?.Invoke();
-
-        Scrapbook.OnBeginType += StartTyping;
-        Scrapbook.OnEndType += StopTyping;
 
         SwitchControlSchemes("Keyboard");
     }
@@ -185,6 +196,38 @@ public class PlayerController : MonoBehaviour
 
         //firstPersonCamera.transform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
         rotationTransform.rotation = Quaternion.Euler(new Vector3(verticalRotation, horizontalRotation, 0));
+    }
+
+    private void OnDestroy()
+    {
+        onScrapbookOpened.RemoveAllListeners();
+        onScrapbookClosed.RemoveAllListeners();
+        onCameraOpened.RemoveAllListeners();
+        onCameraClosed.RemoveAllListeners();
+        onInteractableFound.RemoveAllListeners();
+        onInteractableOutOfRange.RemoveAllListeners();
+        onPouchUnlocked.RemoveAllListeners();
+        onClimbingUnlocked.RemoveAllListeners();
+        onHurt.RemoveAllListeners();
+        onBerryThrown.RemoveAllListeners();
+        onBerryPickup.RemoveAllListeners();
+
+        GrandTemple.OnRingExtended = null;
+
+        StaticQuestHandler.OnQuestOpened = null;
+        StaticQuestHandler.OnQuestClosed = null;
+
+        StaticQuestHandler.OnShrineCompleted = null;
+        StaticQuestHandler.OnQuestCompleted = null;
+        StaticQuestHandler.OnQuestFailed = null;
+
+        StaticQuestHandler.OnPictureClicked = null;
+        StaticQuestHandler.OnPictureDisplayed = null;
+
+        StaticQuestHandler.OnAltarActivated = null;
+
+        StaticQuestHandler.OnPictureInScrapbook = null;
+        StaticQuestHandler.OnAltarProgress = null;
     }
 
     public void ActivateKeyboard(InputAction.CallbackContext callbackContext)
@@ -296,9 +339,16 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            playerInput.SwitchCurrentActionMap("Overworld");
-            StaticQuestHandler.OnQuestClosed.Invoke();
-            Cursor.lockState = CursorLockMode.Locked;
+            try
+            {
+                playerInput.SwitchCurrentActionMap("Overworld");
+                StaticQuestHandler.OnQuestClosed.Invoke();
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            catch
+            {
+                // do it even if there are errors
+            }
         }
     }
 
@@ -306,9 +356,16 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            playerInput.SwitchCurrentActionMap("Overworld");
-            Cursor.lockState = CursorLockMode.Locked;
-            onScrapbookClosed?.Invoke();
+            try
+            {
+                playerInput.SwitchCurrentActionMap("Overworld");
+                Cursor.lockState = CursorLockMode.Locked;
+                onScrapbookClosed?.Invoke();
+            }
+            catch
+            {
+                // do it even if there are errors
+            }
         }
     }
     public void GetOpenScrapbookInput(InputAction.CallbackContext callbackContext)

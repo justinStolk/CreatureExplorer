@@ -18,6 +18,11 @@ public class DialogueTrigger : MonoBehaviour, IDialogue
 
     public string[] DialogueText => dialogueText;
 
+    private void OnDestroy()
+    {
+        OnDialogueTriggered = null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if ((!showOnce || (showOnce && !hasBeenShown)) && (other.TryGetComponent(out PlayerCamera player) || other.GetComponentInChildren<PlayerCamera>() !=  null))
