@@ -22,7 +22,7 @@ MonoBehaviour:
     <DetailPage>k__BackingField: {fileID: 0}
     <Completed>k__BackingField: 0
     <Percentage>k__BackingField: 0
-    <TotalAmount>k__BackingField: 4
+    <TotalAmount>k__BackingField: 5
     <PlayerAmount>k__BackingField: 0
     <Tracked>k__BackingField:
     - <Name>k__BackingField: Charger
@@ -222,7 +222,13 @@ MonoBehaviour:
           type: 3}
         <DetailPage>k__BackingField: {fileID: 0}
         <Completed>k__BackingField: 0
-    <TrackedObjects>k__BackingField: []
+    <TrackedObjects>k__BackingField:
+    - <Name>k__BackingField: Bug
+      <ID>k__BackingField: bug
+      <UnfinishedIcon>k__BackingField: {fileID: 0}
+      <FinishedIcon>k__BackingField: {fileID: 0}
+      <DetailPage>k__BackingField: {fileID: 0}
+      <Completed>k__BackingField: 0
   - <Name>k__BackingField: Vegetation
     <ID>k__BackingField: Vegetation
     <UnfinishedIcon>k__BackingField: {fileID: 21300000, guid: adf35c2eb09226349abd8121eebc31b4,

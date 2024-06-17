@@ -1140,8 +1140,9 @@ GameObject:
   - component: {fileID: 115081434294044632}
   - component: {fileID: 2607397036489090460}
   - component: {fileID: 6604782811026798954}
+  - component: {fileID: 791683629325653054}
   m_Layer: 10
-  m_Name: Buggie3
+  m_Name: Eko3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1212,6 +1213,19 @@ MonoBehaviour:
   bugTransform: {fileID: 923186195875980958}
   moveSpeed: 0.3
   moveSphereRadius: 0.2
+--- !u!114 &791683629325653054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643695160483596056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61bc7dc05c0ce44b9240530be9c6aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <QuestObjectID>k__BackingField: bug
 --- !u!1 &6657173425341080885
 GameObject:
   m_ObjectHideFlags: 0
