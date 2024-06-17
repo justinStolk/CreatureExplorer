@@ -3,7 +3,12 @@ guid: fa0a85461631bfb46b2fdddaef44774d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stoffer_Mat
+    second: {fileID: 2100000, guid: 7d42cb9c46c9df646911c6a7d1c8179e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
