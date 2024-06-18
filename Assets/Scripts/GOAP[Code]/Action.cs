@@ -38,7 +38,7 @@ abstract public class Action : MonoBehaviour
     [field: Header("Animator")]
     [Button("SetAnimator", 30)]
     [SerializeField] private bool setAnimator;
-    [ShowOnly][field: SerializeField] protected Animator animator;
+    [field: SerializeField] protected Animator animator;
     protected SoundPlayer soundPlayer;
 
     protected CancellationTokenSource failSource;
@@ -64,7 +64,7 @@ abstract public class Action : MonoBehaviour
         token = failSource.Token;
 
         if (animator == null)
-            SetAnimator();
+            Debug.LogError("No animator set");
     }
 
     private void OnDisable()

@@ -32,7 +32,7 @@ public class InteractionPrompt : MonoBehaviour
             transform.position = interactionOrigin;
             transform.LookAt(Camera.main.transform.position, Vector3.up);
 
-            Vector3 uiOffset = ((Camera.main.transform.position - transform.position).normalized + Vector3.up).normalized * offsetDistance;
+            Vector3 uiOffset = (Camera.main.transform.position - transform.position).normalized + Vector3.up* offsetDistance;
             transform.position += uiOffset;
             transform.LookAt(Camera.main.transform.position, Vector3.up);
 
