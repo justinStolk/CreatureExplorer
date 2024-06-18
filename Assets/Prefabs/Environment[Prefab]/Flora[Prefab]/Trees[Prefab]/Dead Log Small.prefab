@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6107924580171867201}
   - component: {fileID: 5252339939079312899}
   - component: {fileID: 2853089826780044284}
+  - component: {fileID: 5783801310244819653}
   m_Layer: 0
   m_Name: Dead_Log_Small
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5783801310244819653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436828932223654244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.037670102, y: 0.013111618, z: 0.009917689}
+  m_Center: {x: -0.0003805661, y: 0.005330489, z: 0.000024068057}
 --- !u!1 &7828801334353849248
 GameObject:
   m_ObjectHideFlags: 0
