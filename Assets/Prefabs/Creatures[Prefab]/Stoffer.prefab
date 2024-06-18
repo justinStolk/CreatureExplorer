@@ -295,6 +295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8325930369754784378, guid: eb1024874313fa349b4281efd0b7217f,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1985d6c254ffd3d4094f5b479a342fcf, type: 3}
+    - target: {fileID: 8325930369754784378, guid: eb1024874313fa349b4281efd0b7217f,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4744623917061876150}
@@ -2028,6 +2033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3255871526810548040, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 961d6bd51a2f4524189cd0a233750f9a, type: 3}
+    - target: {fileID: 3255871526810548040, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4744623917061876150}
@@ -2230,7 +2240,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: bd2077b10ad0dc94d84b6f469ca4eeae, type: 3}
+      objectReference: {fileID: 8300000, guid: 4f57385c716830d4e95473e42dd8fa44, type: 3}
     - target: {fileID: 3703513111590520603, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
       propertyPath: oneShot
@@ -2368,6 +2378,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337417848347193026, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 89645d9992c376847b0ee07c58c4d230, type: 3}
+    - target: {fileID: 4337417848347193026, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4744623917061876150}
@@ -2488,6 +2503,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5214271807075327116, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 961d6bd51a2f4524189cd0a233750f9a, type: 3}
+    - target: {fileID: 5214271807075327116, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4744623917061876150}
@@ -2560,6 +2580,16 @@ PrefabInstance:
         type: 3}
       propertyPath: OnFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207920478717732856, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1985d6c254ffd3d4094f5b479a342fcf, type: 3}
+    - target: {fileID: 6207920478717732856, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
+      propertyPath: oneShot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6207920478717732856, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
@@ -3050,6 +3080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 94a694e22302f5543bd6d1721495feec, type: 3}
+    - target: {fileID: 8171172386000687396, guid: c4d537d1eccf6d84da8c18f49b4831be,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4744623917061876150}
@@ -3384,7 +3419,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: f83c98591e81a334e9a5bfa2f12690e0, type: 3}
+      objectReference: {fileID: 8300000, guid: a0c5ad7be8589a74f9b6f69115fadeab, type: 3}
     - target: {fileID: -7920083902194081383, guid: 22a690123035b264e834029b3a3a4602,
         type: 3}
       propertyPath: oneShot
