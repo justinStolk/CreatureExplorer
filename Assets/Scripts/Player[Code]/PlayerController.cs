@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private UnityEvent onHurt;
     [SerializeField] private UnityEvent onBerryThrown;
     [SerializeField] private UnityEvent onBerryPickup;
+    [SerializeField] private UnityEvent onDeath;
 
     [Header("Climbing UI")]
     [SerializeField] private UnityEngine.UI.Image climbControlImage;
@@ -211,6 +212,7 @@ public class PlayerController : MonoBehaviour
         onHurt.RemoveAllListeners();
         onBerryThrown.RemoveAllListeners();
         onBerryPickup.RemoveAllListeners();
+        onDeath.RemoveAllListeners();
 
         GrandTemple.OnRingExtended = null;
 
@@ -579,6 +581,7 @@ public class PlayerController : MonoBehaviour
         died = true;
         rb.velocity = Vector3.zero;
         verticalRotation = 0;
+        onDeath.Invoke();
         //verticalSpeed = -0.5f;
 
         GameObject canvas = GetComponentInChildren<Canvas>().gameObject;

@@ -85,8 +85,8 @@ public class VRHandController : MonoBehaviour
 
         handDevice = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(handSource);
 
-        TryGetComponent(out line);
-        line.enabled = false;
+        if (TryGetComponent(out line))
+            line.enabled = false;
     }
 
     // Update is called once per frame
@@ -248,7 +248,7 @@ public class VRHandController : MonoBehaviour
 
     private void Point()
     {
-        if (line.enabled)
+        if (line != null && line.enabled)
         {
             if (Physics.Raycast(transform.position, transform.up*-1, out RaycastHit hit, 100, PointingInteractionLayers))
             {

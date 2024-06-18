@@ -8,6 +8,8 @@ public class TitanStatue : MonoBehaviour, IInteractable
     [field: SerializeField] public string InteractionPrompt { get; private set; } = "Interact";
     [field: SerializeField] private float InteractHandTimer = 2;
     [SerializeField] private MeshRenderer interactRenderer;
+    [SerializeField] private AudioClip[] titanSounds;
+    [SerializeField] private float titanSpeakDuration;
 
     [field: Header("Quest")]
     [field: SerializeField] public Quest TitanQuest { get; private set; }
@@ -38,6 +40,8 @@ public class TitanStatue : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (questFinished) return;
+
+        GetComponent<SoundPlayer>().PlayRandomFromArray(titanSounds, titanSpeakDuration);
 
         if (!VRChecker.IsVR)
         {
@@ -99,10 +103,11 @@ public class TitanStatue : MonoBehaviour, IInteractable
     // Will be removed when correct visual feedback is implemented
     public void DebugChangeMaterialVisuals()
     {
-        foreach(MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
-        {
-            renderer.material = debugSwapMaterial;
-        }
+        interactRenderer.material = debugSwapMaterial;
+        //foreach(MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+        //{
+        //    renderer.material = debugSwapMaterial;
+        //}
     }
 
     private void OnTriggerStay(Collider other)

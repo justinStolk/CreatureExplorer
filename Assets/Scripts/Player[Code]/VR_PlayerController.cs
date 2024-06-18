@@ -35,6 +35,7 @@ public class VR_PlayerController : MonoBehaviour
     [SerializeField] private UnityEvent onHurt;
     [SerializeField] private UnityEvent onBerryThrown;
     [SerializeField] private UnityEvent onBerryPickup;
+    [SerializeField] private UnityEvent onDeath;
 
     [field: HideArrow, SerializeField] private bool respawnSettings;
     [field: ConditionalHide("respawnSettings", true), SerializeField] private float respawnDuration = 0.5f;
@@ -164,6 +165,7 @@ public class VR_PlayerController : MonoBehaviour
         onHurt.RemoveAllListeners();
         onBerryThrown.RemoveAllListeners();
         onBerryPickup.RemoveAllListeners();
+        onDeath.RemoveAllListeners();
 
         GrandTemple.OnRingExtended = null;
 
@@ -547,6 +549,7 @@ public class VR_PlayerController : MonoBehaviour
     {
         died = true;
         rb.velocity = Vector3.zero;
+        onDeath.Invoke();
 
         //GameObject canvas = transform.root.GetComponentInChildren<Canvas>().gameObject;
         uiCanvas.SetActive(false);
