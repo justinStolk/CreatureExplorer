@@ -34,6 +34,7 @@ public class VRChecker : MonoBehaviour
     {
         get
         {
+            return false;
             /*
             if (!isVR)
             {
@@ -48,7 +49,7 @@ public class VRChecker : MonoBehaviour
                 Debug.Log(isVR);
 #endif
             }*/
-            return isVR;
+            //return isVR;
         }
     }
 }
