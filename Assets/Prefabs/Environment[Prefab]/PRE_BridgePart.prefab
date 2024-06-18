@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 283174462125440783}
   - component: {fileID: 4852234936657493044}
   - component: {fileID: 8724631095885409527}
-  m_Layer: 0
+  - component: {fileID: 6947572256572914851}
+  m_Layer: 3
   m_Name: PRE_BridgePart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +103,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.054334, y: 1.3551685, z: 8.606352}
   m_Center: {x: -3, y: 4.346694, z: -4.1069703}
+--- !u!54 &6947572256572914851
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068055710221510772}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 100
+  m_AngularDrag: 1100
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &6993392985712924866
 PrefabInstance:
   m_ObjectHideFlags: 0
