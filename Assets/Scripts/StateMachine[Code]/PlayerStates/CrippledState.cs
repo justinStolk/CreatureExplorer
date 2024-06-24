@@ -12,7 +12,6 @@ public class CrippledState : State
 
     [SerializeField] private AudioSource sharedPlayerSource;
     [SerializeField] private AudioClip painSound;
-    [SerializeField] private AudioClip boneCrackSound;
 
     [SerializeField] private Volume volume;
 
@@ -36,8 +35,6 @@ public class CrippledState : State
     public override void OnStateEnter()
     {
         sharedPlayerSource.clip = painSound;
-        sharedPlayerSource.Play();
-        sharedPlayerSource.clip = boneCrackSound;
         sharedPlayerSource.Play();
         if (volume == null)
         {

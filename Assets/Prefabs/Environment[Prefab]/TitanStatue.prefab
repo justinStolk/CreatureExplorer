@@ -166,8 +166,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.68472815, y: 0.75107956, z: 0.73490953}
-  m_Center: {x: 0.0067113033, y: 0.37553978, z: 0.02496493}
+  m_Size: {x: 0.43510008, y: 1.7913133, z: 0.2936275}
+  m_Center: {x: -0.01604855, y: 0.89565665, z: 0.04718715}
 --- !u!114 &5657093277598853194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractionPrompt>k__BackingField: Interact [E]
-  InteractHandTimer: 2
+  InteractHandTimer: 1
   interactRenderer: {fileID: 6809562912422409268}
   titanSounds:
   - {fileID: 8300000, guid: 371cc0071f2cbfc4a88e73355f1e4bc9, type: 3}

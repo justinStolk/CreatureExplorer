@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c0affc1cefa544b8985c29f81365f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valueMultiplier: 5
+  valueMultiplier: 10
   setAsInt: 0
   textMesh: {fileID: 0}
 --- !u!1 &2985768222516180067
@@ -9018,7 +9018,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2985768222935942338}
   m_Direction: 0
   m_MinValue: 0.00001
-  m_MaxValue: 0.2
+  m_MaxValue: 0.1
   m_WholeNumbers: 0
   m_Value: 0.05
   m_OnValueChanged:

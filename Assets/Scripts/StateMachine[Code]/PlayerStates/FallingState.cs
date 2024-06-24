@@ -12,9 +12,6 @@ public class FallingState : State
     [SerializeField] private float aerialSpeed = 4f;
     [SerializeField] private float maxHorizontalVelocity = 5f;
 
-    [SerializeField] private AudioSource dbg_SharedSource;
-    [SerializeField] private AudioClip dbg_DeathSound;
-
     [SerializeField] private LayerMask playerLayer;
 
     [SerializeField] private UnityEvent onLethalLanding;
@@ -64,8 +61,6 @@ public class FallingState : State
             if (rb.velocity.y <= -lethalVelocity)
             {
                 // Die
-                dbg_SharedSource.clip = dbg_DeathSound;
-                dbg_SharedSource.Play();
                 onLethalLanding?.Invoke();
                 return;
             }

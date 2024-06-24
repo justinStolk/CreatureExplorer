@@ -2973,8 +2973,6 @@ MonoBehaviour:
   lethalVelocity: 18
   aerialSpeed: 5
   maxHorizontalVelocity: 8
-  dbg_SharedSource: {fileID: 5131932798696487446}
-  dbg_DeathSound: {fileID: 8300000, guid: 3e77e268d0ff2d24c8f82c400da106d0, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3032,7 +3030,6 @@ MonoBehaviour:
   vignetteStrength: 0.6
   sharedPlayerSource: {fileID: 5131932798696487446}
   painSound: {fileID: 8300000, guid: 6235c4b569fe9b448a6361810f53627f, type: 3}
-  boneCrackSound: {fileID: 8300000, guid: 019a61ec6cd40b548b5f5e0c3879c577, type: 3}
   volume: {fileID: 0}
   cameraTransform: {fileID: 0}
   rb: {fileID: 1616667484964944804}
@@ -3209,7 +3206,7 @@ GameObject:
   - component: {fileID: 6702676106663968988}
   - component: {fileID: 8610137272432309586}
   - component: {fileID: 3840826671772062448}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

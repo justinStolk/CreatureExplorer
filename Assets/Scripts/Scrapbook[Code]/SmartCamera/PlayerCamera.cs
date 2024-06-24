@@ -32,7 +32,7 @@ public class PlayerCamera : MonoBehaviour
     [field: ConditionalHide("effectSettings", true), SerializeField] private AudioClip shutterSound;
     [field: ConditionalHide("effectSettings", true), SerializeField] private AudioClip storageFullSound;
     [field: ConditionalHide("effectSettings", true), SerializeField] private AudioClip zoomInSound, zoomOutSound;
-    [field: ConditionalHide("effectSettings", true), SerializeField] private Animator shutterTop, shutterBottom;
+    [field: ConditionalHide("effectSettings", true), SerializeField] private ImageFader flashImage, storageFullFeedback;
 
     [field: ConditionalHide("effectSettings", true), SerializeField] private SoundPlayer soundPlayer;
 
@@ -123,6 +123,7 @@ public class PlayerCamera : MonoBehaviour
                 StartCoroutine(Snap());
             } else if (storage.StorageIsFull() && !snapping && soundPlayer != null)
             {
+                storageFullFeedback.enabled = true;
                 soundPlayer.PlaySound(storageFullSound, true);
             }
         }
@@ -132,6 +133,8 @@ public class PlayerCamera : MonoBehaviour
     
     private IEnumerator Snap()
     {
+        flashImage.enabled = true;
+
         if (soundPlayer != null)
         {
             soundPlayer.PlaySound(shutterSound, true);
