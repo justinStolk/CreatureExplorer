@@ -11,9 +11,12 @@ public class BehaviourCondition : QuestCondition
         {
             if (questable.TryGetComponent(out Creature creature))
             {
-                if(creature.CurrentAction.GetType() == requiredBehaviour.GetType())
+                if (creature.enabled)
                 {
-                    return true;
+                    if (creature.CurrentAction.GetType() == requiredBehaviour.GetType())
+                    {
+                        return true;
+                    }
                 }
             }
         }

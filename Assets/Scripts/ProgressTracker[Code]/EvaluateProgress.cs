@@ -11,12 +11,15 @@ public class EvaluateProgress : MonoBehaviour
         {
             if (questable.TryGetComponent(out Creature creature))
             {
-                foreach (ProgressCategory progress in ProgressUIHandler.TrackedCategories)
+                if (creature.enabled)
                 {
-                    if (progress.IsCategory(questable.QuestObjectID, out ProgressCategory rightCategory))
+                    foreach (ProgressCategory progress in ProgressUIHandler.TrackedCategories)
                     {
-                        if (rightCategory.HasID(creature.CurrentAction.GetType().ToString(), out ProgressObject rightProgress))
-                            UpdateTrackedProgress(rightProgress);
+                        if (progress.IsCategory(questable.QuestObjectID, out ProgressCategory rightCategory))
+                        {
+                            if (rightCategory.HasID(creature.CurrentAction.GetType().ToString(), out ProgressObject rightProgress))
+                                UpdateTrackedProgress(rightProgress);
+                        }
                     }
                 }
             }
