@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2787681448787467601}
   - component: {fileID: 2584887261827210693}
+  - component: {fileID: 7118325089899211162}
   m_Layer: 3
   m_Name: PRE_RockMed3
   m_TagString: Untagged
@@ -229,6 +230,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 197933817994163937}
   m_Enabled: 1
+--- !u!65 &7118325089899211162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068055710221510772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.677804, y: 0.5323889, z: 2.1251698}
+  m_Center: {x: 0.09853363, y: -0.09837283, z: -0.08201051}
 --- !u!1 &7640740058214441959
 GameObject:
   m_ObjectHideFlags: 0

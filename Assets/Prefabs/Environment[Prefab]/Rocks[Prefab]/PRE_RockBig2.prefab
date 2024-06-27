@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2787681448787467601}
   - component: {fileID: 2584887261827210693}
+  - component: {fileID: 5826768370470988838}
   m_Layer: 3
   m_Name: PRE_RockBig2
   m_TagString: Untagged
@@ -229,6 +230,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 197933817994163937}
   m_Enabled: 1
+--- !u!65 &5826768370470988838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068055710221510772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.723672, y: 2.315711, z: 5.0858464}
+  m_Center: {x: 0.52704763, y: 0.26734012, z: 0.06926322}
 --- !u!1 &7640740058214441959
 GameObject:
   m_ObjectHideFlags: 0
