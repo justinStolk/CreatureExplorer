@@ -582,7 +582,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
         verticalRotation = 0;
         onDeath.Invoke();
-        GetComponent<SoundPlayer>().enabled = false;
+        GetComponentInChildren<SoundPlayer>().enabled = false;
 
         //verticalSpeed = -0.5f;
 
@@ -625,7 +625,7 @@ public class PlayerController : MonoBehaviour
         }
 
         deathScreen.SetActive(false);
-        GetComponent<SoundPlayer>().enabled = true;
+        GetComponentInChildren<SoundPlayer>().enabled = true;
 
         canvas.SetActive(true);
         died = false;

@@ -15,7 +15,7 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlayOnClick(AudioClip clip)
     {
-        if (clip != null)
+        if (clip != null && this.enabled)
         {
             audioSource.PlayOneShot(clip);
         }
@@ -23,7 +23,7 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlayIfPlayerSilent(AudioClip clip)
     {
-        if (clip != null && !AlreadyPlaying())
+        if (clip != null && !AlreadyPlaying() && this.enabled)
         {
             audioSource.PlayOneShot(clip);
         }
@@ -36,7 +36,7 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlaySound(AudioClip clip, bool playOneshot = false)
     {
-        if (clip != null)
+        if (clip != null && this.enabled)
         {
             if (playOneshot)
             {
