@@ -12,7 +12,7 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Crouch",
@@ -1834,7 +1834,7 @@
                     "path": "<OculusTouchController>/triggerPressed",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XR",
                     "action": "Snap",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -2032,7 +2032,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;NintendoSwitch",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false

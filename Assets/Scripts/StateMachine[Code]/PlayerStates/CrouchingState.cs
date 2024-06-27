@@ -84,7 +84,7 @@ public class CrouchingState : State
             return;
 
         capsuleCollider.height = standardColliderHeight;
-        capsuleCollider.center = Vector3.up * (standardColliderHeight * 0.5f);
+        capsuleCollider.center = Vector3.up * Mathf.Max((standardColliderHeight * 0.5f), capsuleCollider.radius);
 
 
         if (firstPersonCamera.TryGetComponent(out FollowTarget target))
