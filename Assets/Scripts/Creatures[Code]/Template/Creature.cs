@@ -224,11 +224,10 @@ public class Creature : MonoBehaviour
         // Make creature tire faster when it's bedtime
         try
         {
-            if (DistantLands.Cozy.CozyWeather.instance.currentTime.IsBetweenTimes(data.Bedtime, data.WakeTime))
-                currentCreatureState.AddValue(2f * Time.deltaTime, StateType.Tiredness);
+            if (DistantLands.Cozy.CozyWeather.instance.currentTime.IsBetweenTimes(data.Bedtime, data.WakeTime) && CurrentAction.GetType() != typeof(Sleep))
+                currentCreatureState.AddValue(10f * Time.deltaTime, StateType.Tiredness);
         } catch
         {
-
 #if UNITY_EDITOR
             DebugMessage("Cozyweather is not active");
 #endif

@@ -83,8 +83,8 @@ public class CrouchingState : State
         if (VRChecker.IsVR)
             return;
 
-        capsuleCollider.height = standardColliderHeight;
-        capsuleCollider.center = Vector3.up * Mathf.Max((standardColliderHeight * 0.5f), capsuleCollider.radius);
+        capsuleCollider.height = standardColliderHeight; 
+        capsuleCollider.center = Vector3.up * (Mathf.Max((standardColliderHeight * 0.5f), capsuleCollider.radius) + 0.1f); // add a bit to keep the walking state from bobbing too much
 
 
         if (firstPersonCamera.TryGetComponent(out FollowTarget target))
