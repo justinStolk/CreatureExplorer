@@ -550,6 +550,7 @@ public class VR_PlayerController : MonoBehaviour
         died = true;
         rb.velocity = Vector3.zero;
         onDeath.Invoke();
+        GetComponentInChildren<SoundPlayer>().enabled = false;
 
         //GameObject canvas = transform.root.GetComponentInChildren<Canvas>().gameObject;
         uiCanvas.SetActive(false);
@@ -589,6 +590,8 @@ public class VR_PlayerController : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+
+        GetComponentInChildren<SoundPlayer>().enabled = true;
 
         deathScreen.SetActive(false);
         respawnFadeRenderer.gameObject.SetActive(false);
