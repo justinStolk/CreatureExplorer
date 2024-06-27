@@ -147,6 +147,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2a50f649-4677-4abc-a521-607b51b9430c",
+                    "path": "<ViveController>{RightHand}/trackpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "68147fd6-706b-4609-b82f-6c8a4d388eac",
                     "path": "<XRController>{LeftHand}/thumbstickClicked",
                     "interactions": "",
@@ -158,8 +169,30 @@
                 },
                 {
                     "name": "",
+                    "id": "4dc9a73a-eade-45ac-880b-167a6d415a21",
+                    "path": "<ViveController>/trackpadClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Teleportmove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "946a1580-ae9b-498e-8693-2d3997f138d0",
                     "path": "<XRController>{LeftHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "TeleportActivate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fc5ca58-ca6c-4f5c-ba28-cb71cf4e6541",
+                    "path": "<ViveController>/trackpadTouched",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
@@ -334,6 +367,17 @@
                     "name": "",
                     "id": "524c5d70-fdd8-4726-a7e0-20e53c47eb96",
                     "path": "<OculusTouchController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Snap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4921ade-1486-4f45-a91a-e84b25289107",
+                    "path": "<ViveController>/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
