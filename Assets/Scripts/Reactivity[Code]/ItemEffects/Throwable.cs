@@ -18,6 +18,8 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
     [ShowOnly] private bool isGrabbed;
 
     private Vector3[] previousPositions;
+    private Vector3 previousPosition;
+    private Vector3 velocity;
 
     private Rigidbody rb;
     private Collider throwCollider;
@@ -28,6 +30,8 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
     {
         previousPositions = new Vector3[10];
         previousPositions[0] = transform.position;
+
+        previousPosition = transform.position;
 
         rb = GetComponent<Rigidbody>();
         throwCollider = GetComponent<Collider>();
@@ -61,12 +65,19 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
     {
         if (isGrabbed)
         {
-            for (int x = 9; x > 0; x--)
+            if (transform.position != previousPosition)
             {
-                previousPositions[x] = previousPositions[x - 1];
+                velocity = (transform.position - previousPosition).normalized;
+
+                previousPosition = transform.position;
             }
 
-            previousPositions[0] = transform.position;
+            //for (int x = 9; x > 0; x--)
+            //{
+            //    previousPositions[x] = previousPositions[x - 1];
+            //}
+            //
+            //previousPositions[0] = transform.position;
         }
     }
 
@@ -86,13 +97,15 @@ public class Throwable : StatusEffect, IInteractable, IThrowable
         //Debug.Log("released");
         isGrabbed = false;
 
-        Vector3 throwVelocity = ThrowVelocity();
+        //Vector3 throwVelocity = ThrowVelocity();
 
-        Vector3.ClampMagnitude(throwVelocity, maxVelocity);
+        //Vector3.ClampMagnitude(throwVelocity, maxVelocity);
+        Vector3.ClampMagnitude(velocity, maxVelocity);
 
-        float throwForce = rb.drag/rb.mass;
+        float throwForce = (rb.drag / rb.mass) *4;
 
-        Throw(throwVelocity, throwForce);
+        //Throw(throwVelocity, throwForce);
+        Throw(velocity, throwForce);
 
         previousPositions = new Vector3[10];
     }

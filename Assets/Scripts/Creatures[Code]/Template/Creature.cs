@@ -505,7 +505,7 @@ public class Creature : MonoBehaviour
             tempRight = Vector3.Slerp(transform.right, tempRight, 0.2f);
 
             Vector3 tempUp = (Vector3.Cross(tempRight, tempForward)).normalized;
-            if ((transform.up - tempUp).magnitude > 1)
+            if ((Vector3.up - tempUp).magnitude > 1)
             {
                 tempUp *= -1;
             }

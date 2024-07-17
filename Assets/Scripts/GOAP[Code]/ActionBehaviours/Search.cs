@@ -36,6 +36,9 @@ public class Search : Action
                     }
                 }
 
+#if UNITY_EDITOR
+                GizmoDrawer.DrawPrimitiveDelayed(creature.transform.position, Vector3.one * searchRadius, GizmoType.Sphere, new Color(1, 0.92f, 0.016f, 0.3f));
+#endif
                 // Make it so other creatures can't find same foodsource
                 if (nearest != null)
                     nearest.gameObject.layer = LayerMask.NameToLayer("Default");

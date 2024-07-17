@@ -39,6 +39,10 @@ public static class LookForObjects<T>
                 result.Add(objectToCheckFor); 
             }
         }
+
+#if UNITY_EDITOR
+        GizmoDrawer.DrawPrimitiveDelayed(checkFromPosition, Vector3.one*checkingRange, GizmoType.Sphere, new Color(1, 0.92f, 0.016f, 0.3f));
+#endif
         return result;
     }
 
@@ -158,6 +162,10 @@ public static class LookForObjects<T>
                 nearest = c;
             }
         }
+
+#if UNITY_EDITOR
+        GizmoDrawer.DrawPrimitiveDelayed(checkFromPosition, Vector3.one * checkingRange, GizmoType.Sphere, new Color(1, 0.92f, 0.016f, 0.3f));
+#endif
 
         return nearest!= null;
     }

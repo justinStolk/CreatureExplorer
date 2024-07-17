@@ -6,6 +6,18 @@ public class GizmoDrawer : MonoBehaviour
 {
     private static Matrix4x4 originalMatrix;
 
+
+    private delegate void OnGizmos();
+
+    private static OnGizmos DrawDelayed;
+
+#if UNITY_EDITOR
+    private void Start()
+    {
+        InvokeRepeating("ClearDelayedDraw", 0.5f, 0.5f);
+    }
+#endif
+
     public static void DrawPrimitive(Vector3 origin, Vector3 size, GizmoType drawType, Color drawColour)
     {
         Color originalColour = Gizmos.color;
@@ -48,6 +60,23 @@ public class GizmoDrawer : MonoBehaviour
         }
 
         Gizmos.color = originalColour;
+    }
+
+    public static void DrawPrimitiveDelayed(Vector3 origin, Vector3 size, GizmoType drawType, Color drawColour)
+    {
+        DrawDelayed += () => DrawPrimitive(origin, size, drawType, drawColour);
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        DrawDelayed.Invoke();
+    }
+#endif
+
+    private void ClearDelayedDraw()
+    {
+        DrawDelayed = null;
     }
 }
 
